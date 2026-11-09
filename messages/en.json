@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "title": "Side by Side",
+    "description": "Volunteers who walk alongside you through the paperwork."
+  },
+  "brand": {
+    "name": "Side by Side",
+    "tagline": "Navigating bureaucracy together.",
+    "homeLink": "Side by Side, home page"
+  },
+  "topBar": {
+    "label": "Quick support",
+    "language": "Choose language",
+    "helpline": "Helpline",
+    "helplineNumber": "0000",
+    "chat": "Online intake & chat",
+    "chatSoon": "Online chat is coming soon. For now, you can start with our short form.",
+    "chatStart": "Open the short form",
+    "close": "Close"
+  },
+  "nav": {
+    "label": "Main",
+    "howItWorks": "How it works",
+    "guide": "Rights guide",
+    "volunteerArea": "Volunteer area",
+    "privacy": "Safety & privacy",
+    "about": "About us",
+    "volunteerCta": "I want to volunteer",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "home": {
+    "hero": {
+      "title": "You don't have to face the bureaucracy alone",
+      "subtitle": "We connect people living with mental health challenges with volunteers who sit with you to organize paperwork, prepare benefit applications together, and come along to committee meetings. Free, at your pace, and without power of attorney.",
+      "ctaHelp": "Get support — start here",
+      "ctaHelpHint": "A short form, about one minute",
+      "ctaVolunteer": "Join as a volunteer navigator",
+      "ctaVolunteerHint": "A few hours, side by side"
+    },
+    "steps": {
+      "title": "How it works",
+      "intro": "Three simple steps. No rush, no pressure.",
+      "step": "Step {number}",
+      "one": {
+        "title": "Tell us what you need",
+        "body": "It takes about one minute, with simple choices."
+      },
+      "two": {
+        "title": "We match you with a friendly volunteer",
+        "body": "Someone with the time to sit beside you."
+      },
+      "three": {
+        "title": "You tackle the paperwork together",
+        "body": "Side by side, at your pace. You stay in charge."
+      }
+    }
+  },
+  "footer": {
+    "note": "Volunteers offer practical and emotional support. They are not lawyers and do not act on your behalf.",
+    "terms": "Scope of support",
+    "copyright": "© {year} Side by Side"
+  },
+  "a11y": {
+    "open": "Accessibility options",
+    "title": "Accessibility",
+    "textSize": "Text size",
+    "smaller": "Smaller text",
+    "larger": "Larger text",
+    "contrast": "High contrast",
+    "motion": "Reduce motion",
+    "reset": "Reset",
+    "close": "Close"
+  },
+  "pages": {
+    "askForHelp": "Get support",
+    "guide": "Rights guide",
+    "terms": "Scope of support",
+    "volunteer": "Volunteer with us",
+    "volunteerDashboard": "Volunteer dashboard",
+    "privacy": "Safety & privacy",
+    "about": "About us",
+    "stub": "This page is on its way. Thank you for your patience."
+  },
+  "notFound": {
+    "title": "We couldn't find that page",
+    "back": "Back to home"
+  }
+}

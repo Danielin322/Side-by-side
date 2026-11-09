@@ -1,3 +1,207 @@
 @import "tailwindcss";
 
-/* Calming theme tokens (PRD §3) will be defined here in the styling phase. */
+/* ------------------------------------------------------------------
+   Calming theme tokens (PRD §3)
+   Warm off-white, muted sage green, soft sky blue. No harsh reds or
+   bright yellows. Components use the Tailwind names in @theme below
+   (bg-bg, text-ink, bg-primary, ...), never raw hex values.
+   ------------------------------------------------------------------ */
+:root {
+  --bg: #fbf8f3;
+  --surface: #ffffff;
+  --surface-soft: #f4f0e8;
+  --ink: #2f3a36;
+  --ink-soft: #56625d;
+  --line: #e9e3d8;
+
+  --primary: #4f6b4a; /* sage, white text passes WCAG AA */
+  --primary-hover: #435c3f;
+  --primary-ink: #ffffff;
+  --primary-soft: #e3ece0;
+
+  --secondary: #3b6380; /* sky */
+  --secondary-soft: #e0ecf5;
+
+  --warm-soft: #f5e8da; /* peach accent for illustrations */
+  --focus: #3b6380;
+  --shadow-rgb: 47 58 54;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a211f;
+    --surface: #222b28;
+    --surface-soft: #29332f;
+    --ink: #e8eee9;
+    --ink-soft: #b2bdb7;
+    --line: #34403b;
+
+    --primary: #a3c49c;
+    --primary-hover: #b5d2ae;
+    --primary-ink: #16201a;
+    --primary-soft: #2e3c2d;
+
+    --secondary: #a3c5e0;
+    --secondary-soft: #24333f;
+
+    --warm-soft: #3b322a;
+    --focus: #a3c5e0;
+    --shadow-rgb: 0 0 0;
+
+    color-scheme: dark;
+  }
+}
+
+/* High contrast (accessibility panel) */
+:root[data-contrast="high"] {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-soft: #ffffff;
+  --ink: #000000;
+  --ink-soft: #1c1c1c;
+  --line: #000000;
+  --primary: #1e3a1b;
+  --primary-hover: #000000;
+  --primary-ink: #ffffff;
+  --primary-soft: #ffffff;
+  --secondary: #0f2f47;
+  --secondary-soft: #ffffff;
+  --warm-soft: #ffffff;
+  --focus: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-contrast="high"] {
+    --bg: #000000;
+    --surface: #000000;
+    --surface-soft: #000000;
+    --ink: #ffffff;
+    --ink-soft: #f0f0f0;
+    --line: #ffffff;
+    --primary: #d4f0cc;
+    --primary-hover: #ffffff;
+    --primary-ink: #000000;
+    --primary-soft: #000000;
+    --secondary: #d2e8f8;
+    --secondary-soft: #000000;
+    --warm-soft: #000000;
+    --focus: #ffffff;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-ink: var(--primary-ink);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-soft: var(--secondary-soft);
+  --color-warm-soft: var(--warm-soft);
+
+  --font-sans: var(--font-rubik), system-ui, sans-serif;
+
+  --shadow-soft: 0 1px 2px rgb(var(--shadow-rgb) / 0.04),
+    0 8px 24px rgb(var(--shadow-rgb) / 0.06);
+  --shadow-lifted: 0 2px 4px rgb(var(--shadow-rgb) / 0.05),
+    0 16px 40px rgb(var(--shadow-rgb) / 0.1);
+}
+
+/* ------------------------------------------------------------------
+   Base: large, readable type. The accessibility panel scales the root
+   font size, so everything sized in rem grows with it.
+   ------------------------------------------------------------------ */
+html {
+  font-size: 112.5%; /* 18px */
+  scroll-behavior: smooth;
+}
+html[data-text-scale="0"] { font-size: 100%; }
+html[data-text-scale="2"] { font-size: 125%; }
+html[data-text-scale="3"] { font-size: 137.5%; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+/* In high contrast, give cards and pills visible edges. */
+html[data-contrast="high"] .shadow-soft,
+html[data-contrast="high"] .shadow-lifted {
+  box-shadow: none;
+  outline: 2px solid var(--line);
+}
+html[data-contrast="high"] a { text-decoration: underline; }
+
+/* Reduced motion: system setting or the accessibility panel. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+html[data-motion="reduce"] { scroll-behavior: auto; }
+html[data-motion="reduce"] *,
+html[data-motion="reduce"] *::before,
+html[data-motion="reduce"] *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* ------------------------------------------------------------------
+   Shared building blocks
+   ------------------------------------------------------------------ */
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 72rem;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility pill {
+  display: inline-flex;
+  white-space: nowrap;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25;
+  transition: background-color 150ms, color 150ms, box-shadow 150ms;
+}
+
+@utility btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 150ms;
+  &:hover {
+    box-shadow: var(--shadow-lifted);
+  }
+}
