@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { routes } from "@/lib/routes";
 import { createSessionClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/features/admin/guard";
+import { AdminNav } from "@/features/admin/AdminNav";
 import { VOLUNTEER_STATUSES, type VolunteerStatus } from "@/features/volunteer/schema";
 
 type Row = { id: string; created_at: string; status: VolunteerStatus; full_name: string; city: string };
@@ -31,6 +32,7 @@ export default async function AdminPage(props: LocaleParams & { searchParams: Pr
 
   return (
     <section className="container-page py-10 sm:py-14">
+      <AdminNav current="volunteers" />
       <h1 className="text-3xl font-semibold text-ink sm:text-4xl">{t("title")}</h1>
       <p className="mt-2 text-ink-soft">{t("intro")}</p>
 

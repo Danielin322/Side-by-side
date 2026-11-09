@@ -1,4 +1,4 @@
-// Volunteer Dashboard. Phase 4a: application status. Phase 4b adds requests.
+// Volunteer Dashboard. Shows application status; approved volunteers get the requests board.
 // Reminder (PRD §2): hide help-seeker last name / exact address until a request is accepted.
 import { getTranslations } from "next-intl/server";
 import { CalendarCheck, CircleCheck, Clock, HeartHandshake, ShieldCheck } from "lucide-react";
@@ -8,6 +8,7 @@ import { routes } from "@/lib/routes";
 import { getViewer } from "@/features/auth/viewer";
 import { SignOutButton } from "@/features/auth/SignOutButton";
 import type { VolunteerStatus } from "@/features/volunteer/schema";
+import { RequestsBoard } from "@/features/requests/RequestsBoard";
 
 const STATUS_ICON: Record<VolunteerStatus, typeof Clock> = {
   applied: Clock,
@@ -23,6 +24,7 @@ export default async function VolunteerDashboardPage(props: LocaleParams) {
   const t = await getTranslations("dashboard");
   const status = viewer!.volunteer?.status;
   const Icon = status ? STATUS_ICON[status] : HeartHandshake;
+  const approved = status === "approved";
 
   return (
     <section className="container-page max-w-3xl py-10 sm:py-16">
@@ -33,6 +35,7 @@ export default async function VolunteerDashboardPage(props: LocaleParams) {
         <SignOutButton />
       </div>
 
+      {!approved && (
       <div className="mt-8 rounded-3xl bg-surface p-7 shadow-soft">
         <div className="flex items-start gap-5">
           <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-primary-soft">
@@ -59,6 +62,9 @@ export default async function VolunteerDashboardPage(props: LocaleParams) {
           </div>
         </div>
       </div>
+      )}
+
+      {approved && <RequestsBoard userId={viewer!.userId} />}
 
       {viewer!.isAdmin && (
         <Link

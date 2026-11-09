@@ -1,0 +1,25 @@
+Phase 4b — Request dashboard (volunteers) and request management (admins)
+
+Context: Read PRD.md. Builds on Phase 3 (help_requests) and Phase 4a (volunteers, admins, auth).
+
+Approved volunteers (/volunteer/dashboard):
+- Open requests: first name, city (in-person only), support types, meeting mode, language, waiting time.
+  Sorted by fit (language, support overlap, meeting mode, same city), with badges. Nothing hidden.
+  The help-seeker's note is NOT shown before accepting.
+- Accept: first to accept wins (enforced in the database). Max 3 active requests per volunteer.
+- My requests: full name, phone (tap to call), email, note.
+  Checklist per support type (3–4 items each, drafted for review), optional next-meeting date.
+- Report an issue: can't reach them / needs professional help / safety concern / need a coordinator + optional note.
+- Hand back: required reason (availability changed, not a good fit, they asked for someone else, other) + optional note.
+- Close: optional summary (no medical details) + optional concern flag for the team.
+
+Admins (/admin):
+- Requests tab: open / in progress / completed / closed, who holds each; details page with history;
+  admins can hand a request back to the open list or close it.
+- Needs attention tab: unresolved issues and concerns, safety first; mark resolved.
+
+Data: migration 0003 extends help_requests (statuses, assignment, checklist, next meeting, summary) and adds
+request_issues and request_events. Volunteers act only through database functions that check they are approved
+and hold the request; contact details are returned only to the assigned volunteer and admins.
+
+Not included: email/SMS notifications, in-app messaging.

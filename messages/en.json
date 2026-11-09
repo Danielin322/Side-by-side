@@ -432,6 +432,169 @@
       "notes": "Internal notes",
       "notesHint": "Visible to admins only. Please don't record medical details.",
       "saveNotes": "Save notes"
+    },
+    "nav": {
+      "label": "Admin sections",
+      "volunteers": "Volunteers",
+      "requests": "Requests",
+      "attention": "Needs attention"
+    },
+    "requests": {
+      "title": "Help requests",
+      "intro": "Follow every request from first contact to completion.",
+      "statuses": {
+        "open": "Open",
+        "in_progress": "In progress",
+        "completed": "Completed",
+        "closed": "Closed"
+      },
+      "received": "Received {date}",
+      "heldBy": "with {name}",
+      "back": "All requests",
+      "status": "Status",
+      "volunteer": "Volunteer",
+      "checklist": "Checklist",
+      "history": "History",
+      "noHistory": "Nothing has happened yet.",
+      "team": "The team",
+      "actionNote": "Note for the history (optional)",
+      "release": "Return to open list",
+      "close": "Close request",
+      "done": "Done",
+      "events": {
+        "accepted": "{name} accepted the request",
+        "released": "{name} handed it back",
+        "completed": "{name} completed the request",
+        "admin_released": "{name} returned it to the open list",
+        "admin_closed": "{name} closed the request"
+      },
+      "meeting": "Meeting",
+      "language": "Language"
+    },
+    "attention": {
+      "title": "Needs attention",
+      "intro": "Issues and concerns from volunteers. Safety concerns are at the top.",
+      "empty": "Nothing needs attention right now.",
+      "resolve": "Mark resolved",
+      "resolved": "Resolved",
+      "open": "Open request",
+      "meta": "{person} · reported by {volunteer} · {date}",
+      "kinds": {
+        "safety": "Safety or wellbeing concern",
+        "concern": "Concern raised at completion",
+        "professional": "Needs professional help",
+        "unreachable": "Can't reach the person",
+        "coordinator": "Volunteer asked for a coordinator"
+      }
+    }
+  },
+  "requests": {
+    "close": "Close",
+    "optionalNote": "A few words (optional)",
+    "noMedical": "Please don't include medical details.",
+    "badges": {
+      "language": "Speaks their language",
+      "city": "Same city",
+      "support": "{count, plural, one {# matching skill} other {# matching skills}}"
+    },
+    "open": {
+      "title": "Open requests",
+      "intro": "Best matches for you are at the top.",
+      "waiting": "Asked {time}",
+      "accept": "I'll take this one",
+      "atLimit": "You're already holding 3 requests.",
+      "empty": "No open requests right now. Thank you for being here."
+    },
+    "mine": {
+      "title": "My requests",
+      "count": "{count} of {max}",
+      "empty": "You're not holding any requests yet. Choose one below when you're ready.",
+      "progress": "{done} of {total} steps done",
+      "note": "Their note",
+      "nextMeeting": "Next meeting",
+      "saving": "Saving…",
+      "saved": "Saved",
+      "complete": "Mark as completed",
+      "report": "Report an issue",
+      "release": "Hand back"
+    },
+    "issue": {
+      "title": "Report an issue",
+      "intro": "The team will see this and get in touch with you.",
+      "kinds": {
+        "unreachable": "I can't reach them",
+        "professional": "They need professional help (lawyer, social worker, health professional)",
+        "safety": "I'm worried about their safety or wellbeing",
+        "coordinator": "I need a coordinator's help"
+      },
+      "submit": "Send to the team",
+      "sent": "Thank you. The team received your report."
+    },
+    "release": {
+      "title": "Hand this request back",
+      "intro": "It will return to the open list so another volunteer can help. That's completely okay.",
+      "reasons": {
+        "availability": "My availability changed",
+        "not_fit": "It's not a good fit for me",
+        "asked_other": "They asked for someone else",
+        "other": "Other"
+      },
+      "submit": "Hand back"
+    },
+    "complete": {
+      "title": "Mark as completed",
+      "intro": "Thank you for walking alongside them.",
+      "summary": "Short summary (optional)",
+      "concern": "Is there something the team should know? (optional)",
+      "concernHint": "For example a worry about their wellbeing. Writing here alerts the team.",
+      "submit": "Complete request"
+    },
+    "checklist": {
+      "documents": {
+        "sorted": "Sorted the letters and mail together",
+        "downloaded": "Downloaded the needed documents from the health portal (they logged in themselves)",
+        "ready": "Files are scanned and ready to upload"
+      },
+      "rights": {
+        "reviewed": "Went over possible rights together",
+        "explained": "Explained the next steps in plain language",
+        "list": "Made a checklist of documents to gather"
+      },
+      "co_typing": {
+        "opened": "Opened the form together (they logged in themselves)",
+        "typed": "Typed the answers they dictated",
+        "reviewed": "Read the answers back together",
+        "sent": "They pressed Send themselves"
+      },
+      "scheduling": {
+        "found": "Found the right office or clinic",
+        "booked": "Booked the appointment together",
+        "noted": "Noted the date and what to bring"
+      },
+      "calls": {
+        "prepared": "Prepared the questions before the call",
+        "verified": "They called and confirmed their identity themselves",
+        "answers": "Wrote down the answers and next steps"
+      },
+      "accompaniment": {
+        "prepared": "Prepared together what they want to say",
+        "arrived": "Came along on the day",
+        "notes": "Took notes during the committee"
+      },
+      "follow_up": {
+        "reminder": "Sent a gentle reminder about the next step",
+        "status": "Checked the case status together",
+        "next": "Agreed on the next step"
+      }
+    },
+    "errors": {
+      "not_approved": "Only approved volunteers can do this.",
+      "not_yours": "This request is no longer assigned to you.",
+      "not_open": "Another volunteer just took this request. Thank you for offering!",
+      "limit_reached": "You're already holding 3 requests. Complete or hand one back first.",
+      "forbidden": "You don't have permission to do this.",
+      "invalid": "Something wasn't valid. Please try again.",
+      "failed": "Something went wrong. Please try again."
     }
   }
 }

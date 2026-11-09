@@ -7,6 +7,7 @@ import { routes } from "@/lib/routes";
 import { createSessionClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/features/admin/guard";
 import { NotesForm, StatusForm } from "@/features/admin/AdminForms";
+import { AdminNav } from "@/features/admin/AdminNav";
 import { ageFromIsoDate } from "@/lib/validation";
 import { VOLUNTEER_LANGUAGE_NAMES, type VolunteerLanguage, type VolunteerStatus } from "@/features/volunteer/schema";
 
@@ -79,6 +80,7 @@ export default async function AdminVolunteerPage(props: { params: Promise<{ loca
 
   return (
     <section className="container-page max-w-4xl py-10 sm:py-14">
+      <AdminNav current="volunteers" />
       <Link href={`${routes.admin}?status=${v.status}`} className="pill -ms-3 text-ink-soft hover:bg-surface-soft hover:text-ink">
         <ArrowLeft aria-hidden className="size-4 rtl:-scale-x-100" />
         {t("detail.back")}
