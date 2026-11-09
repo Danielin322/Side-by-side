@@ -1,7 +1,8 @@
 "use server";
 
 import { getSupabase } from "@/lib/supabase/server";
-import { intakeSchema, normalizeIsraeliPhone, type IntakeValues } from "./schema";
+import { normalizeIsraeliPhone } from "@/lib/validation";
+import { intakeSchema, type IntakeValues } from "./schema";
 import type { Locale } from "@/i18n/routing";
 
 export type SubmitResult = { ok: true } | { ok: false; reason: "invalid" | "unavailable" | "failed" };

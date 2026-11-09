@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { normalizeIsraeliPhone } from "@/lib/validation";
 
 /** Option values match the CHECK constraints in supabase/migrations/0001_help_requests.sql. */
 export const SUPPORT_TYPES = [
@@ -24,19 +25,6 @@ export const LANGUAGE_NAMES: Record<Language, string> = {
   ru: "Русский",
   en: "English",
 };
-
-/**
- * Normalizes an Israeli phone number to local format (e.g. 0521234567).
- * Accepts spaces, dashes, brackets and a +972 / 972 prefix. Returns null if invalid.
- */
-export function normalizeIsraeliPhone(input: string): string | null {
-  let digits = input.replace(/[\s\-().]/g, "");
-  if (digits.startsWith("+972")) digits = "0" + digits.slice(4);
-  else if (digits.startsWith("972")) digits = "0" + digits.slice(3);
-  // Mobile and VoIP: 05X / 07X + 7 digits. Landline: 02/03/04/08/09 + 7 digits.
-  if (/^0[57]\d{8}$/.test(digits) || /^0[23489]\d{7}$/.test(digits)) return digits;
-  return null;
-}
 
 /**
  * Error messages are translation keys under "intake.errors", resolved in the UI.

@@ -1,8 +1,13 @@
-// Volunteer entry — registration. Content to be built later.
+// Volunteer application (PRD §5). Signed-in volunteers go straight to their dashboard.
 import { resolveLocale, type LocaleParams } from "@/i18n/locale";
-import { StubPage } from "@/components/ui/StubPage";
+import { redirect } from "@/i18n/navigation";
+import { routes } from "@/lib/routes";
+import { getViewer } from "@/features/auth/viewer";
+import { VolunteerApplication } from "@/features/volunteer/VolunteerApplication";
 
 export default async function VolunteerPage(props: LocaleParams) {
-  await resolveLocale(props);
-  return <StubPage titleKey="volunteer" />;
+  const locale = await resolveLocale(props);
+  const viewer = await getViewer();
+  if (viewer?.volunteer) redirect({ href: routes.volunteerDashboard, locale });
+  return <VolunteerApplication />;
 }

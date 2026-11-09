@@ -7,7 +7,11 @@ export const routes = {
   howItWorks: "/#how-it-works",
   askForHelp: "/ask-for-help",
   volunteer: "/volunteer",
+  volunteerLogin: "/volunteer/login",
+  volunteerForgot: "/volunteer/forgot-password",
+  volunteerReset: "/volunteer/reset-password",
   volunteerDashboard: "/volunteer/dashboard",
+  admin: "/admin",
   guide: "/guide",
   terms: "/terms",
   privacy: "/privacy",
@@ -20,7 +24,7 @@ export type AppRoute = (typeof routes)[keyof typeof routes];
 export const mainNav = [
   { href: routes.howItWorks, labelKey: "howItWorks" },
   { href: routes.guide, labelKey: "guide" },
-  { href: routes.volunteer, labelKey: "volunteerArea" },
+  { href: routes.volunteerDashboard, labelKey: "volunteerArea" },
   { href: routes.privacy, labelKey: "privacy" },
   { href: routes.about, labelKey: "about" },
 ] as const;

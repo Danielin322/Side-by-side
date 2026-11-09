@@ -197,5 +197,241 @@
       "sendFailed": "Something went wrong on our side and your request wasn't sent. Your answers are still here, please try again.",
       "unavailable": "We can't receive requests right now. Please try again a little later."
     }
+  },
+  "volunteer": {
+    "send": "Create account & apply",
+    "personal": {
+      "title": "A little about you",
+      "hint": "This helps us get to know you before our video chat.",
+      "privacy": "Why we ask for your ID number and date of birth: we need them for the background check before you meet anyone. Only our small admin team can see them. You can contact us at any time to see or correct your details.",
+      "fullName": "Full name",
+      "nationalId": "ID number",
+      "birthDate": "Date of birth",
+      "city": "City",
+      "phone": "Phone number",
+      "occupation": "Occupation",
+      "occupationHint": "Your work or what you study."
+    },
+    "availability": {
+      "title": "When are you usually free?",
+      "hint": "A rough idea is enough. We'll fit around your life.",
+      "weekly": "Weekly availability",
+      "days": {
+        "sun": "Sunday",
+        "mon": "Monday",
+        "tue": "Tuesday",
+        "wed": "Wednesday",
+        "thu": "Thursday",
+        "fri": "Friday",
+        "sat": "Saturday"
+      },
+      "slots": {
+        "morning": "Morning",
+        "afternoon": "Afternoon",
+        "evening": "Evening"
+      },
+      "commit": "Can you volunteer regularly for at least 6 months?",
+      "commitOptions": {
+        "yes": "Yes",
+        "no": "Not sure yet"
+      },
+      "transport": "How do you get around?",
+      "transportOptions": {
+        "license": "Driver's license",
+        "car": "Own car",
+        "public_transit": "Public transport"
+      }
+    },
+    "languages": {
+      "title": "Which languages do you speak?",
+      "hint": "Choose a level for each language you speak.",
+      "levels": {
+        "none": "—",
+        "basic": "Basic",
+        "good": "Good",
+        "native": "Native"
+      }
+    },
+    "offer": {
+      "title": "How would you like to help?",
+      "hint": "Choose everything you feel comfortable with.",
+      "support": "Kinds of support",
+      "meeting": "Ways to meet"
+    },
+    "background": {
+      "title": "Your background",
+      "hint": "There are no wrong answers. Many great volunteers start with no experience.",
+      "motivation": "Why would you like to volunteer with us?",
+      "motivationHint": "A few sentences are plenty.",
+      "experience": "Relevant experience",
+      "experienceHint": "Earlier volunteering, or time spent supporting people facing challenges.",
+      "skills": "Interests & special skills",
+      "skillsHint": "For example: active listening, tech support, music, gardening."
+    },
+    "declarations": {
+      "title": "Our shared commitments",
+      "hint": "These protect the people we support, and you.",
+      "conductTitle": "Code of conduct",
+      "conduct": {
+        "one": "I support side by side. I never act, sign or decide on someone's behalf.",
+        "two": "I never ask for, keep or share medical documents or passwords.",
+        "three": "I keep everything I hear private.",
+        "four": "I treat people with patience and respect, at their own pace."
+      },
+      "conductAgree": "I agree to the code of conduct.",
+      "background": "I declare that I have no criminal record and understand that formal verification, background checks, or sex offender registry clearance may be required prior to placement."
+    },
+    "account": {
+      "title": "Create your account",
+      "hint": "You'll use it to sign in and follow your application.",
+      "email": "Email",
+      "password": "Password",
+      "passwordHint": "At least 8 characters.",
+      "passwordConfirm": "Repeat password",
+      "haveAccount": "Already applied?",
+      "signIn": "Sign in"
+    },
+    "done": {
+      "title": "Thank you for applying!",
+      "body": "Our team will contact you soon to arrange a short video chat.",
+      "confirmEmail": "We've sent an email to {email}. Please click the link inside to confirm your address.",
+      "home": "Back to home"
+    },
+    "errors": {
+      "fullNameRequired": "Please add your full name.",
+      "idRequired": "Please add your ID number.",
+      "idInvalid": "This ID number doesn't look right. Please check the digits.",
+      "birthDateRequired": "Please add your date of birth.",
+      "birthDateInvalid": "This date doesn't look right.",
+      "tooYoung": "Volunteers need to be 18 or older.",
+      "cityRequired": "Please add your city.",
+      "phoneRequired": "Please add a phone number.",
+      "phoneInvalid": "This doesn't look like an Israeli phone number. For example: 052-123-4567.",
+      "availabilityRequired": "Please mark at least one time you're usually free.",
+      "commitRequired": "Please choose one option.",
+      "languageRequired": "Please choose a level for at least one language.",
+      "supportRequired": "Please choose at least one kind of support.",
+      "meetingModesRequired": "Please choose at least one way to meet.",
+      "motivationShort": "Please write a little more (at least 20 characters).",
+      "consentRequired": "Please confirm the declaration to continue.",
+      "conductRequired": "Please agree to the code of conduct to continue.",
+      "emailRequired": "Please add your email.",
+      "emailInvalid": "This email address doesn't look complete.",
+      "passwordShort": "Please use at least 8 characters.",
+      "passwordConfirmRequired": "Please repeat your password.",
+      "passwordMismatch": "The passwords don't match.",
+      "tooLong": "This is a bit too long."
+    },
+    "sendErrors": {
+      "invalid": "Some details need another look. Please go back through the steps.",
+      "unavailable": "We can't receive applications right now. Please try again a little later.",
+      "emailTaken": "There's already an account with this email. Please sign in instead.",
+      "weakPassword": "Please choose a stronger password.",
+      "rateLimited": "Too many attempts right now. Please wait a few minutes and try again.",
+      "failed": "Something went wrong on our side and your application wasn't sent. Your answers are still here, please try again."
+    }
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "signOut": "Sign out",
+    "backToSignIn": "Back to sign in",
+    "signIn": {
+      "title": "Volunteer sign in",
+      "intro": "Welcome back.",
+      "submit": "Sign in",
+      "forgot": "Forgot your password?",
+      "noAccount": "Not a volunteer yet?",
+      "apply": "Apply here"
+    },
+    "forgot": {
+      "title": "Reset your password",
+      "intro": "Enter your email and we'll send you a link to choose a new password.",
+      "submit": "Send link",
+      "sent": "If there's an account with this email, a link is on its way. Please check your inbox."
+    },
+    "reset": {
+      "title": "Choose a new password",
+      "intro": "Pick something you'll remember.",
+      "password": "New password",
+      "passwordConfirm": "Repeat new password",
+      "submit": "Save password"
+    },
+    "errors": {
+      "missingFields": "Please fill in your email and password.",
+      "invalidCredentials": "The email or password isn't right.",
+      "notConfirmed": "Please confirm your email first. Check your inbox for our link.",
+      "rateLimited": "Too many attempts right now. Please wait a few minutes and try again.",
+      "emailInvalid": "This email address doesn't look complete.",
+      "passwordShort": "Please use at least 8 characters.",
+      "passwordMismatch": "The passwords don't match.",
+      "samePassword": "Please choose a password different from your current one.",
+      "linkExpired": "This link has expired or was already used. Please request a new one.",
+      "failed": "Something went wrong. Please try again."
+    }
+  },
+  "dashboard": {
+    "hello": "Hello, {name}",
+    "helloNoName": "Hello",
+    "status": {
+      "applied": {
+        "label": "Application received",
+        "title": "Thank you for applying!",
+        "body": "Our team will contact you soon to arrange a short video chat."
+      },
+      "interview": {
+        "label": "Video chat",
+        "title": "Your video chat is being arranged",
+        "body": "We'll be in touch with a time that suits you."
+      },
+      "approved": {
+        "label": "Approved",
+        "title": "Welcome aboard!",
+        "body": "Requests for support will appear here soon."
+      },
+      "not_approved": {
+        "label": "Update",
+        "title": "Thank you for your interest",
+        "body": "We aren't able to move forward with your application at this time. We truly appreciate your wish to help."
+      }
+    },
+    "noApplication": {
+      "title": "No application yet",
+      "body": "Apply to volunteer and we'll get in touch.",
+      "apply": "Apply to volunteer"
+    },
+    "admin": {
+      "title": "Admin area",
+      "body": "Review volunteer applications."
+    }
+  },
+  "admin": {
+    "title": "Volunteer applications",
+    "intro": "Review applications, arrange video chats and approve volunteers.",
+    "filterLabel": "Filter by status",
+    "statuses": {
+      "applied": "New",
+      "interview": "Interview",
+      "approved": "Approved",
+      "not_approved": "Not approved"
+    },
+    "appliedOn": "Applied {date}",
+    "empty": "No applications here.",
+    "saved": "Saved",
+    "errors": {
+      "forbidden": "You don't have permission to do this.",
+      "invalid": "Something in the form isn't valid.",
+      "failed": "Saving failed. Please try again."
+    },
+    "detail": {
+      "back": "All applications",
+      "status": "Status",
+      "updateStatus": "Update status",
+      "email": "Email",
+      "phone": "Phone",
+      "notes": "Internal notes",
+      "notesHint": "Visible to admins only. Please don't record medical details.",
+      "saveNotes": "Save notes"
+    }
   }
 }

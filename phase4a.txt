@@ -1,0 +1,33 @@
+Phase 4a — Volunteer application, sign-in, admin review
+
+Context: Read PRD.md. Builds on Phase 3 (Supabase, shared form patterns). Phase 4b adds the request dashboard.
+
+Application (/volunteer), one section per screen, Back + calm Exit on every step:
+1. Personal: full name, national ID (Israeli check digit), date of birth (18+), city, phone, occupation.
+   Privacy notice explaining why the ID is collected and that only admins see it.
+2. Availability: weekly grid (Sun–Sat × morning/afternoon/evening), 6-month commitment yes/no,
+   transport (driver's license, car, public transport).
+3. Languages with fluency level.
+4. What you can offer: the 7 support types + meeting modes (in person / video / phone).
+5. Background: relevant experience, motivation, skills & interests.
+6. Declarations: criminal-background consent (mandatory) + code of conduct (support, never represent;
+   no medical documents; privacy).
+7. Account: email + password (creates the account and sends the application).
+8. Confirmation: "Our team will contact you to arrange a short video chat."
+
+Sign-in: log in, log out, forgot password, set new password.
+
+Statuses: applied → interview → approved / not_approved.
+Dashboard (/volunteer/dashboard): friendly status message; approved sees a placeholder until 4b.
+
+Admin (/admin, admins only): list applications by status, details view (ID visible only here),
+change status, internal notes. First admin = project owner; more can be added later.
+
+Data (Supabase):
+- volunteers: profile and status (volunteer reads own row; admins read/update all).
+- volunteer_sensitive: national ID, date of birth, admin notes (admins only).
+- admins: who is an admin.
+- Applications are created server-side with the secret key through create_volunteer_application().
+
+Phase 4b (next): request dashboard — browse by fit, accept (max 3), contact reveal, progress stages,
+issue reports, release with reason, close with summary + concern flag.
