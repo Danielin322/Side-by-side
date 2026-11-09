@@ -85,5 +85,117 @@
   "notFound": {
     "title": "We couldn't find that page",
     "back": "Back to home"
+  },
+  "intake": {
+    "progress": "Step {current} of {total}",
+    "exit": "Exit",
+    "back": "Back",
+    "next": "Continue",
+    "send": "Send my request",
+    "sending": "Sending…",
+    "optional": "optional",
+    "recommended": "Recommended",
+    "exitDialog": {
+      "title": "Leave the form?",
+      "body": "Your answers won't be saved. You're welcome to come back any time.",
+      "stay": "Stay here",
+      "leave": "Leave"
+    },
+    "support": {
+      "title": "What would you like help with?",
+      "hint": "Choose as many as you like.",
+      "options": {
+        "documents": {
+          "title": "Organizing documents",
+          "body": "Sorting letters and mail, getting medical summaries from your health portal, scanning and preparing files."
+        },
+        "rights": {
+          "title": "Understanding your rights",
+          "body": "Going over benefits you may be entitled to, in plain language, and making a checklist of documents."
+        },
+        "co_typing": {
+          "title": "Filling in forms together",
+          "body": "You say the answers and your volunteer types. You log in and press Send yourself."
+        },
+        "scheduling": {
+          "title": "Booking appointments",
+          "body": "Setting up appointments with doctors, clinics, social services or government offices."
+        },
+        "calls": {
+          "title": "Help during phone calls",
+          "body": "You call and confirm your identity, then switch to speaker so your volunteer can help."
+        },
+        "accompaniment": {
+          "title": "Coming with you to a committee",
+          "body": "Someone by your side on the day: waiting together, taking notes, reminding you what you wanted to say."
+        },
+        "follow_up": {
+          "title": "Gentle reminders",
+          "body": "Short, kind messages about next steps, and checking on your case together."
+        }
+      }
+    },
+    "meeting": {
+      "title": "How would you like to meet your volunteer?",
+      "options": {
+        "in_person": "In person",
+        "video": "Video call",
+        "phone": "Phone",
+        "any": "Whatever works"
+      }
+    },
+    "city": {
+      "title": "Where would you like to meet?",
+      "hint": "A city or area is enough.",
+      "label": "City or area",
+      "placeholder": "e.g. Haifa"
+    },
+    "language": {
+      "title": "Which language feels most comfortable?"
+    },
+    "note": {
+      "title": "Anything you'd like your volunteer to know?",
+      "hint": "You can skip this.",
+      "label": "Your note",
+      "warning": "Please don't write medical details or diagnoses here.",
+      "counter": "{count}/500"
+    },
+    "details": {
+      "title": "How can we reach you?",
+      "hint": "Only the volunteer who takes your request will see your full name and phone number.",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "phone": "Phone number",
+      "phoneHint": "A volunteer will call you on this number.",
+      "email": "Email (optional)",
+      "emailHint": "So we can send you updates."
+    },
+    "agree": {
+      "title": "One last thing",
+      "body": "Our volunteers are kind people who support you side by side. They are not lawyers and do not act on your behalf. You stay in charge of every decision.",
+      "checkbox": "I understand that volunteers support me but don't act on my behalf.",
+      "terms": "Read the scope of support"
+    },
+    "done": {
+      "title": "We received your request",
+      "body": "Thank you for reaching out. A volunteer will call you soon to say hello and plan the next step together.",
+      "home": "Back to home"
+    },
+    "errors": {
+      "supportRequired": "Please choose at least one kind of help.",
+      "meetingRequired": "Please choose one option.",
+      "cityRequired": "Please tell us a city or area.",
+      "languageRequired": "Please choose a language.",
+      "noteTooLong": "Please keep the note under 500 characters.",
+      "firstNameRequired": "Please add your first name.",
+      "lastNameRequired": "Please add your last name.",
+      "phoneRequired": "Please add a phone number.",
+      "phoneInvalid": "This doesn't look like an Israeli phone number. For example: 052-123-4567.",
+      "emailInvalid": "This email address doesn't look complete.",
+      "tooLong": "This is a bit too long.",
+      "scopeRequired": "Please tick the box to continue.",
+      "sendFailed": "Something went wrong on our side and your request wasn't sent. Your answers are still here, please try again.",
+      "unavailable": "We can't receive requests right now. Please try again a little later."
+    }
   }
 }

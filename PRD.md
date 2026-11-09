@@ -23,7 +23,7 @@ Typography: Large, highly readable fonts. Clean and minimal.
 
 Tone of Voice: Warm, encouraging, non-bureaucratic, and respectful (e.g., "Let's do this together", "We are here to help").
 
-Safe Exit: Always include an option to save progress or exit easily without losing data.
+Safe Exit: Every step of a flow has a calm, always-visible Exit button. It asks once for confirmation ("Leave the form? Your answers won't be saved.") and returns home. Progress is not saved.
 
 4. Tech Stack Preferences
 

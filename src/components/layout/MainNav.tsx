@@ -36,7 +36,7 @@ export function MainNav() {
   const volunteerPill = (
     <Link
       href={routes.volunteer}
-      className="pill bg-primary px-5 py-2.5 text-base text-primary-ink shadow-soft hover:bg-primary-hover"
+      className="pill bg-primary px-4 py-2.5 text-primary-ink shadow-soft hover:bg-primary-hover sm:px-5 sm:text-base"
     >
       <Heart aria-hidden className="size-4" />
       {t("volunteerCta")}
@@ -52,7 +52,7 @@ export function MainNav() {
       </div>
 
       {/* Mobile */}
-      <div className="flex items-center justify-between gap-3 py-3 xl:hidden">
+      <div className="flex flex-wrap items-center justify-between gap-3 py-3 xl:hidden">
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}

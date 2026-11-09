@@ -57,7 +57,7 @@ export function AccessibilityPanel() {
 
   return (
     // Physically on the left edge in both languages, as in the design brief.
-    <div className="fixed left-0 top-1/2 z-40 -translate-y-1/2" dir="ltr">
+    <div className="fixed bottom-4 left-0 z-40 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2" dir="ltr">
       <button
         ref={triggerRef}
         type="button"
@@ -78,7 +78,7 @@ export function AccessibilityPanel() {
           role="dialog"
           aria-labelledby={titleId}
           dir={dir}
-          className="absolute left-12 top-1/2 w-72 -translate-y-1/2 rounded-3xl bg-surface p-5 shadow-lifted"
+          className="absolute bottom-0 left-12 w-72 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 rounded-3xl bg-surface p-5 shadow-lifted"
         >
           <div className="flex items-center justify-between gap-4">
             <h2 id={titleId} className="text-lg font-semibold">
