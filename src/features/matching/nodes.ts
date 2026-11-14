@@ -53,11 +53,15 @@ export function routeAfterShortlist(state: MatchingStateType): "rank" | "fallbac
 
 /** One structured-output call to Claude. Errors and timeouts are recorded, then validate sends them to fallback. */
 export async function rank(state: MatchingStateType): Promise<Update> {
+  const model = process.env.MATCHING_MODEL || DEFAULT_MODEL;
   const llm = new ChatAnthropic({
-    model: process.env.MATCHING_MODEL || DEFAULT_MODEL,
-    temperature: 0,
+    model,
     maxTokens: 600,
     maxRetries: 1,
+    // No temperature: current models reject non-default sampling values with a 400.
+    // Haiku 5.5 thinks by default; this is a simple ranking, so turn thinking off. That keeps the cost low and allows
+    // the forced tool call that withStructuredOutput relies on. (Accepted on Haiku 5.5 at its default effort.)
+    ...(model.startsWith("claude-haiku") ? { thinking: { type: "disabled" as const } } : {}),
   });
   const structured = llm.withStructuredOutput(rankSchema, { name: "best_matches" });
   const payload = {
