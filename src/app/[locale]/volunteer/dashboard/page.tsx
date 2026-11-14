@@ -1,7 +1,9 @@
 // Volunteer Dashboard. Shows application status; approved volunteers get the requests board.
 // Reminder (PRD §2): hide help-seeker last name / exact address until a request is accepted.
 import { getTranslations } from "next-intl/server";
-import { CalendarCheck, CircleCheck, Clock, HeartHandshake, ShieldCheck } from "lucide-react";
+import { CalendarCheck, CircleCheck, Clock, HeartHandshake, ShieldCheck, Video } from "lucide-react";
+import { createSessionClient } from "@/lib/supabase/server";
+import { formatIsraelDateTime } from "@/lib/time";
 import { resolveLocale, type LocaleParams } from "@/i18n/locale";
 import { Link, redirect } from "@/i18n/navigation";
 import { routes } from "@/lib/routes";
@@ -25,6 +27,11 @@ export default async function VolunteerDashboardPage(props: LocaleParams) {
   const status = viewer!.volunteer?.status;
   const Icon = status ? STATUS_ICON[status] : HeartHandshake;
   const approved = status === "approved";
+  // Their upcoming verification meeting (time and link only; the admin's note stays private).
+  const meeting =
+    status === "interview"
+      ? ((await (await createSessionClient()).rpc("get_my_meeting")).data as { scheduled_at: string; link: string | null }[] | null)?.[0] ?? null
+      : null;
 
   return (
     <section className="container-page max-w-3xl py-10 sm:py-16">
@@ -46,7 +53,26 @@ export default async function VolunteerDashboardPage(props: LocaleParams) {
               <>
                 <p className="text-sm font-medium text-secondary">{t(`status.${status}.label`)}</p>
                 <h2 className="mt-1 text-xl font-semibold text-ink">{t(`status.${status}.title`)}</h2>
-                <p className="mt-2 text-ink-soft">{t(`status.${status}.body`)}</p>
+                {meeting ? (
+                  <div className="mt-3 flex flex-wrap items-center gap-3">
+                    <p className="text-lg font-medium text-ink">
+                      {t("meeting", { when: formatIsraelDateTime(meeting.scheduled_at, locale) })}
+                    </p>
+                    {meeting.link && (
+                      <a
+                        href={meeting.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="pill bg-primary px-4 py-2.5 text-primary-ink shadow-soft hover:bg-primary-hover"
+                      >
+                        <Video aria-hidden className="size-4" />
+                        {t("join")}
+                      </a>
+                    )}
+                  </div>
+                ) : (
+                  <p className="mt-2 text-ink-soft">{t(`status.${status}.body`)}</p>
+                )}
               </>
             ) : (
               <>

@@ -230,6 +230,7 @@ export function TextField({
   badge,
   error,
   registration,
+  className = "",
   ...input
 }: {
   label: string;
@@ -256,7 +257,7 @@ export function TextField({
         {...input}
         aria-invalid={!!error}
         aria-describedby={[hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(" ") || undefined}
-        className="mt-2 w-full rounded-2xl bg-surface px-4 py-3.5 text-lg text-ink shadow-soft outline-none ring-1 ring-line placeholder:text-ink-soft/60 focus:ring-2 focus:ring-secondary aria-invalid:ring-2 aria-invalid:ring-secondary"
+        className={`mt-2 w-full rounded-2xl bg-surface px-4 py-3.5 text-lg text-ink shadow-soft outline-none ring-1 ring-line placeholder:text-ink-soft/60 focus:ring-2 focus:ring-secondary aria-invalid:ring-2 aria-invalid:ring-secondary ${className}`}
       />
       <FieldError id={`${id}-error`} message={error} />
     </div>

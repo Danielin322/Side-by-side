@@ -381,7 +381,7 @@
       },
       "interview": {
         "label": "Video chat",
-        "title": "Your video chat is being arranged",
+        "title": "Your video chat is set",
         "body": "We'll be in touch with a time that suits you."
       },
       "approved": {
@@ -403,7 +403,9 @@
     "admin": {
       "title": "Admin area",
       "body": "Review volunteer applications."
-    }
+    },
+    "meeting": "Your video chat: {when}",
+    "join": "Join the video chat"
   },
   "admin": {
     "title": "Volunteer applications",
@@ -421,7 +423,9 @@
     "errors": {
       "forbidden": "You don't have permission to do this.",
       "invalid": "Something in the form isn't valid.",
-      "failed": "Saving failed. Please try again."
+      "failed": "Saving failed. Please try again.",
+      "in_past": "Please choose a time that hasn't passed yet.",
+      "badLink": "The link should start with https://"
     },
     "detail": {
       "back": "All applications",
@@ -485,6 +489,68 @@
         "professional": "Needs professional help",
         "unreachable": "Can't reach the person",
         "coordinator": "Volunteer asked for a coordinator"
+      }
+    },
+    "volunteers": {
+      "title": "Volunteers",
+      "intro": "Choose a group to see its volunteers.",
+      "pending": "Waiting for verification",
+      "verified": "Verified volunteers",
+      "rejected": "Not approved",
+      "emptyPending": "No one is waiting for verification.",
+      "emptyVerified": "No verified volunteers yet.",
+      "details": "Details",
+      "verify": "Verify volunteer",
+      "verifyConfirm": "Verify {name}? They'll be able to accept requests.",
+      "verifyYes": "Yes, verify",
+      "cancel": "Cancel",
+      "notApprove": "Not approved",
+      "verifiedBadge": "Verified",
+      "rejectedBadge": "Not approved",
+      "unverify": "Move back to unverified",
+      "reconsider": "Reconsider application",
+      "holding": "{count, plural, =0 {No active requests} one {Holding # request} other {Holding # requests}}",
+      "statusLabel": {
+        "applied": "Waiting for verification · no meeting scheduled yet",
+        "interview": "Waiting for verification · meeting scheduled",
+        "approved": "Verified",
+        "not_approved": "Not approved"
+      },
+      "tabs": {
+        "pending": "Waiting for verification",
+        "verified": "Verified",
+        "rejected": "Not approved"
+      },
+      "emptyRejected": "No one here."
+    },
+    "meetings": {
+      "schedule": "Schedule meeting",
+      "edit": "Edit",
+      "join": "Join",
+      "scheduleTitle": "Schedule a meeting with {name}",
+      "editTitle": "Meeting with {name}",
+      "close": "Close",
+      "timeZone": "Times are in Israel time.",
+      "date": "Date",
+      "time": "Time",
+      "link": "Video link",
+      "linkHint": "Zoom, Google Meet or WhatsApp. The volunteer will see a Join button.",
+      "note": "Note for admins",
+      "noteHint": "Only admins see this.",
+      "optional": "optional",
+      "save": "Schedule",
+      "saveChanges": "Save changes",
+      "missed": "Didn't happen",
+      "cancelMeeting": "Cancel meeting",
+      "today": "Today {time}",
+      "tomorrow": "Tomorrow {time}",
+      "passed": "Meeting passed ({when}): verify?",
+      "lastMissed": "Last meeting didn't happen. Schedule again?",
+      "history": "Earlier meetings",
+      "outcomes": {
+        "held": "Held",
+        "cancelled": "Cancelled",
+        "missed": "Didn't happen"
       }
     }
   },

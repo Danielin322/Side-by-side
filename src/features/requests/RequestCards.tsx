@@ -324,11 +324,12 @@ export function MyRequestCard({ req }: { req: MyRequest }) {
           <input
             type="date"
             value={nextMeeting}
+            dir="ltr"
             onChange={(e) => {
               setNextMeeting(e.target.value);
               persist(checklist, e.target.value);
             }}
-            className="mt-2 rounded-2xl bg-surface-soft px-4 py-3 text-ink outline-none ring-1 ring-line focus:ring-2 focus:ring-secondary"
+            className="mt-2 rounded-2xl bg-surface-soft px-4 py-3 text-ink outline-none ring-1 ring-line focus:ring-2 focus:ring-secondary [direction:ltr] rtl:text-right"
           />
         </label>
         <span role="status" className="pb-3 text-sm text-ink-soft">

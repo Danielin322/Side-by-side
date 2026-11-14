@@ -23,7 +23,6 @@ export type AppRoute = (typeof routes)[keyof typeof routes];
 /** Main navigation tabs. `labelKey` points into the "nav" messages. */
 export const mainNav = [
   { href: routes.howItWorks, labelKey: "howItWorks" },
-  { href: routes.guide, labelKey: "guide" },
   { href: routes.volunteerDashboard, labelKey: "volunteerArea" },
   { href: routes.privacy, labelKey: "privacy" },
   { href: routes.about, labelKey: "about" },

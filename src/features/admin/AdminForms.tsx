@@ -3,8 +3,7 @@
 import { useActionState } from "react";
 import { useTranslations } from "next-intl";
 import { Check, LoaderCircle } from "lucide-react";
-import { VOLUNTEER_STATUSES, type VolunteerStatus } from "@/features/volunteer/schema";
-import { saveAdminNotes, updateVolunteerStatus, type AdminState } from "./actions";
+import { saveAdminNotes, type AdminState } from "./actions";
 
 function Feedback({ state }: { state: AdminState }) {
   const t = useTranslations("admin");
@@ -22,38 +21,6 @@ function Feedback({ state }: { state: AdminState }) {
       </span>
     );
   return null;
-}
-
-export function StatusForm({ id, status }: { id: string; status: VolunteerStatus }) {
-  const t = useTranslations("admin");
-  const [state, action, pending] = useActionState(updateVolunteerStatus, null);
-  return (
-    <form action={action} className="flex flex-wrap items-end gap-3">
-      <input type="hidden" name="id" value={id} />
-      <div>
-        <label htmlFor="status" className="block text-sm font-medium text-ink-soft">
-          {t("detail.status")}
-        </label>
-        <select
-          id="status"
-          name="status"
-          defaultValue={status}
-          className="mt-1 rounded-2xl bg-surface-soft px-4 py-3 text-ink outline-none ring-1 ring-line focus:ring-2 focus:ring-secondary"
-        >
-          {VOLUNTEER_STATUSES.map((s) => (
-            <option key={s} value={s}>
-              {t(`statuses.${s}`)}
-            </option>
-          ))}
-        </select>
-      </div>
-      <button type="submit" disabled={pending} className="pill bg-primary px-5 py-3 text-base text-primary-ink hover:bg-primary-hover disabled:opacity-70">
-        {pending && <LoaderCircle aria-hidden className="size-4 animate-spin" />}
-        {t("detail.updateStatus")}
-      </button>
-      <Feedback state={state} />
-    </form>
-  );
 }
 
 export function NotesForm({ id, notes }: { id: string; notes: string }) {

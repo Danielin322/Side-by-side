@@ -134,6 +134,24 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Hand cursor on everything clickable. Tailwind v4 leaves buttons with the default arrow; links already get the hand. */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="switch"],
+  [role="option"],
+  select,
+  summary,
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
+
 :focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;

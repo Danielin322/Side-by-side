@@ -6,7 +6,11 @@ import { Link } from "@/i18n/navigation";
 import { routes } from "@/lib/routes";
 import { createSessionClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/features/admin/guard";
-import { NotesForm, StatusForm } from "@/features/admin/AdminForms";
+import { NotesForm } from "@/features/admin/AdminForms";
+import { VolunteerStatusActions } from "@/features/admin/VolunteerStatusActions";
+import { meetingBadge, type MeetingRow } from "@/features/admin/meetings";
+import { formatIsraelDateTime } from "@/lib/time";
+import { viewForStatus } from "@/features/admin/volunteerViews";
 import { AdminNav } from "@/features/admin/AdminNav";
 import { ageFromIsoDate } from "@/lib/validation";
 import { VOLUNTEER_LANGUAGE_NAMES, type VolunteerLanguage, type VolunteerStatus } from "@/features/volunteer/schema";
@@ -48,6 +52,17 @@ export default async function AdminVolunteerPage(props: { params: Promise<{ loca
   ]);
   if (!v) notFound();
 
+  const { data: meetings } = await supabase
+    .from("volunteer_meetings")
+    .select("id, volunteer_id, scheduled_at, link, note, outcome, created_at")
+    .eq("volunteer_id", id)
+    .order("scheduled_at", { ascending: false })
+    .returns<MeetingRow[]>();
+  const open = meetings?.find((m) => m.outcome === "scheduled") ?? null;
+  const past = (meetings ?? []).filter((m) => m.outcome !== "scheduled");
+  const badge = open ? await meetingBadge(open.scheduled_at, locale) : null;
+  const tm = await getTranslations("admin.meetings");
+
   const dateFmt = new Intl.DateTimeFormat(locale === "he" ? "he-IL" : "en-GB", { dateStyle: "medium" });
   const list = (items: string[]) => items.join(" · ") || "—";
   const availabilityText = v.availability
@@ -81,7 +96,7 @@ export default async function AdminVolunteerPage(props: { params: Promise<{ loca
   return (
     <section className="container-page max-w-4xl py-10 sm:py-14">
       <AdminNav current="volunteers" />
-      <Link href={`${routes.admin}?status=${v.status}`} className="pill -ms-3 text-ink-soft hover:bg-surface-soft hover:text-ink">
+      <Link href={`${routes.admin}?view=${viewForStatus(v.status)}`} className="pill -ms-3 text-ink-soft hover:bg-surface-soft hover:text-ink">
         <ArrowLeft aria-hidden className="size-4 rtl:-scale-x-100" />
         {t("detail.back")}
       </Link>
@@ -89,7 +104,30 @@ export default async function AdminVolunteerPage(props: { params: Promise<{ loca
       <p className="mt-1 text-ink-soft">{t("appliedOn", { date: dateFmt.format(new Date(v.created_at)) })}</p>
 
       <div className="mt-8 rounded-3xl bg-surface p-6 shadow-soft">
-        <StatusForm id={v.id} status={v.status} />
+        <p className="mb-3 text-sm font-medium text-ink-soft">{t(`volunteers.statusLabel.${v.status}`)}</p>
+        <VolunteerStatusActions
+          id={v.id}
+          name={v.full_name}
+          status={v.status}
+          variant="detail"
+          meeting={open}
+          badge={badge?.text}
+          passed={badge?.passed}
+          lastMissed={past[0]?.outcome === "missed"}
+        />
+        {past.length > 0 && (
+          <div className="mt-6 border-t border-line/60 pt-4">
+            <h2 className="text-sm font-medium text-ink-soft">{tm("history")}</h2>
+            <ul className="mt-2 space-y-1.5">
+              {past.map((m) => (
+                <li key={m.id} className="text-sm text-ink">
+                  {formatIsraelDateTime(m.scheduled_at, locale)} · <span className="text-ink-soft">{tm(`outcomes.${m.outcome as "held" | "cancelled" | "missed"}`)}</span>
+                  {m.note ? <span className="block text-ink-soft">{m.note}</span> : null}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       <dl className="mt-6 divide-y divide-line/60 rounded-3xl bg-surface shadow-soft">

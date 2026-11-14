@@ -185,6 +185,8 @@ export function VolunteerApplication() {
                   error={error("birthDate")}
                   type="date"
                   autoComplete="bday"
+                  dir="ltr"
+                  className="[direction:ltr] rtl:text-right"
                 />
               </div>
               <div className="grid gap-5 sm:grid-cols-2">
