@@ -4,9 +4,11 @@ import { useState, useTransition, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import {
   CalendarDays,
+  Car,
   Check,
   CircleCheck,
   Flag,
+  Hourglass,
   Languages,
   LoaderCircle,
   Mail,
@@ -14,6 +16,7 @@ import {
   Phone,
   Sparkles,
   Undo2,
+  Video,
 } from "lucide-react";
 import { Modal } from "@/components/ui/Modal";
 import { Notice } from "@/components/form/FormParts";
@@ -24,6 +27,7 @@ import {
   ISSUE_KINDS,
   RELEASE_REASONS,
   type FitBadges,
+  type FitTag,
   type IssueKind,
   type MyRequest,
   type OpenRequest,
@@ -141,16 +145,29 @@ function NoteBox({ label, hint, value, onChange }: { label: string; hint?: strin
 
 // ----------------------------------------------------------------------------- open request
 
+const FIT_TAG_ICONS: Record<FitTag, typeof Check> = {
+  language: Languages,
+  same_city: MapPin,
+  nearby: MapPin,
+  meeting_mode: Video,
+  support: Check,
+  transport: Car,
+  long_wait: Hourglass,
+};
+
 export function OpenRequestCard({
   req,
   badges,
   waiting,
   atLimit,
+  fitTags,
 }: {
   req: OpenRequest;
   badges: FitBadges;
   waiting: string;
   atLimit: boolean;
+  /** From the Best matches agent; replaces the rule badges when given. */
+  fitTags?: FitTag[];
 }) {
   const t = useTranslations("requests");
   const errorText = useErrorText();
@@ -165,9 +182,22 @@ export function OpenRequestCard({
           <p className="text-sm text-ink-soft">{waiting}</p>
         </div>
         <div className="flex flex-wrap gap-2">
-          {badges.language && <Chip tone="good" icon={<Sparkles aria-hidden className="size-4 text-primary" />}>{t("badges.language")}</Chip>}
-          {badges.city && <Chip tone="good" icon={<MapPin aria-hidden className="size-4 text-primary" />}>{t("badges.city")}</Chip>}
-          {badges.support > 0 && <Chip tone="good" icon={<Check aria-hidden className="size-4 text-primary" />}>{t("badges.support", { count: badges.support })}</Chip>}
+          {fitTags ? (
+            fitTags.map((tag) => {
+              const Icon = FIT_TAG_ICONS[tag];
+              return (
+                <Chip key={tag} tone="good" icon={<Icon aria-hidden className="size-4 text-primary" />}>
+                  {t(`bestMatch.tags.${tag}`)}
+                </Chip>
+              );
+            })
+          ) : (
+            <>
+              {badges.language && <Chip tone="good" icon={<Sparkles aria-hidden className="size-4 text-primary" />}>{t("badges.language")}</Chip>}
+              {badges.city && <Chip tone="good" icon={<MapPin aria-hidden className="size-4 text-primary" />}>{t("badges.city")}</Chip>}
+              {badges.support > 0 && <Chip tone="good" icon={<Check aria-hidden className="size-4 text-primary" />}>{t("badges.support", { count: badges.support })}</Chip>}
+            </>
+          )}
         </div>
       </div>
       <div className="mt-4">

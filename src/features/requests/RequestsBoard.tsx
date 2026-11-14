@@ -1,17 +1,22 @@
 import { getLocale, getTranslations } from "next-intl/server";
-import { Inbox } from "lucide-react";
 import { createSessionClient } from "@/lib/supabase/server";
-import { MAX_ACTIVE_REQUESTS, scoreFit, type MyRequest, type OpenRequest, type VolunteerProfile } from "./model";
-import { MyRequestCard, OpenRequestCard } from "./RequestCards";
+import { getBestMatches } from "@/features/matching/getBestMatches";
+import { MAX_ACTIVE_REQUESTS, daysSince, scoreFit, type MyRequest, type OpenRequest, type VolunteerProfile } from "./model";
+import { MyRequestCard } from "./RequestCards";
+import { RequestsTabs, type BoardItem } from "./RequestsTabs";
 
-/** Approved volunteer's view: their requests first, then open requests sorted by fit. */
+/** Approved volunteer's view: their requests first, then open requests in tabs (Best matches, Newest, All). */
 export async function RequestsBoard({ userId }: { userId: string }) {
   const t = await getTranslations("requests");
   const locale = await getLocale();
   const supabase = await createSessionClient();
 
   const [{ data: profile }, { data: mine, error: mineError }, { data: open, error: openError }] = await Promise.all([
-    supabase.from("volunteers").select("city, languages, support_types, meeting_modes").eq("id", userId).single<VolunteerProfile>(),
+    supabase
+      .from("volunteers")
+      .select("city, languages, support_types, meeting_modes, availability, transport")
+      .eq("id", userId)
+      .single<VolunteerProfile>(),
     supabase.rpc("list_my_requests"),
     supabase.rpc("list_open_requests"),
   ]);
@@ -23,16 +28,17 @@ export async function RequestsBoard({ userId }: { userId: string }) {
 
   const myRequests = (mine ?? []) as MyRequest[];
   const atLimit = myRequests.length >= MAX_ACTIVE_REQUESTS;
-  const ranked = ((open ?? []) as OpenRequest[])
-    .map((req) => ({ req, ...scoreFit(req, profile) }))
-    // Best fit first; among equals, whoever has waited longest.
-    .sort((a, b) => b.score - a.score || a.req.created_at.localeCompare(b.req.created_at));
+  const openRequests = (open ?? []) as OpenRequest[];
+  // Started now, not awaited: the promise streams to the "Best matches" tab while the rest of the board renders.
+  const bestMatches = getBestMatches(userId, profile, openRequests);
 
   const rtf = new Intl.RelativeTimeFormat(locale === "he" ? "he" : "en", { numeric: "auto" });
-  const waiting = (iso: string) => {
-    const days = Math.floor((Date.now() - new Date(iso).getTime()) / 86_400_000);
-    return t("open.waiting", { time: rtf.format(-days, "day") });
-  };
+  const waiting = (iso: string) => t("open.waiting", { time: rtf.format(-daysSince(iso), "day") });
+
+  const ranked: BoardItem[] = openRequests
+    .map((req) => ({ req, ...scoreFit(req, profile), waiting: waiting(req.created_at) }))
+    // Best fit first; among equals, whoever has waited longest.
+    .sort((a, b) => b.score - a.score || a.req.created_at.localeCompare(b.req.created_at));
 
   return (
     <>
@@ -54,24 +60,7 @@ export async function RequestsBoard({ userId }: { userId: string }) {
         )}
       </section>
 
-      <section aria-labelledby="open-title" className="mt-14">
-        <h2 id="open-title" className="text-2xl font-semibold text-ink">
-          {t("open.title")}
-        </h2>
-        <p className="mt-1 text-ink-soft">{t("open.intro")}</p>
-        {ranked.length > 0 ? (
-          <ul className="mt-5 space-y-4">
-            {ranked.map(({ req, badges }) => (
-              <OpenRequestCard key={req.id} req={req} badges={badges} waiting={waiting(req.created_at)} atLimit={atLimit} />
-            ))}
-          </ul>
-        ) : (
-          <div className="mt-5 flex items-center gap-4 rounded-3xl bg-surface-soft p-6 text-ink-soft">
-            <Inbox aria-hidden className="size-6 shrink-0" />
-            {t("open.empty")}
-          </div>
-        )}
-      </section>
+      <RequestsTabs ranked={ranked} bestMatches={bestMatches} atLimit={atLimit} />
     </>
   );
 }

@@ -558,6 +558,42 @@
     "close": "Close",
     "optionalNote": "A few words (optional)",
     "noMedical": "Please don't include medical details.",
+    "tabs": {
+      "label": "Sort open requests",
+      "best": "Best matches",
+      "newest": "Newest",
+      "all": "All requests",
+      "bestCount": "{count, plural, =0 {No matches} one {# match} other {# matches}}",
+      "newestCount": "{count, plural, one {# request} other {# requests}}",
+      "allCount": "{count} open"
+    },
+    "filters": {
+      "button": "Filter",
+      "active": "filters on",
+      "support": "Type of help",
+      "meeting": "Meeting format",
+      "language": "Language",
+      "city": "City",
+      "cityPlaceholder": "For example, Haifa",
+      "clear": "Clear filters",
+      "done": "Done",
+      "empty": "No requests match these filters."
+    },
+    "bestMatch": {
+      "aiLabel": "AI pick",
+      "rulesLabel": "By your profile",
+      "loading": "Finding your best matches…",
+      "empty": "No strong matches right now. Have a look at all requests.",
+      "tags": {
+        "language": "Speaks their language",
+        "same_city": "Same city",
+        "nearby": "Near you",
+        "meeting_mode": "Your meeting format",
+        "support": "Matches your skills",
+        "transport": "Easy to get to",
+        "long_wait": "Waiting a while"
+      }
+    },
     "badges": {
       "language": "Speaks their language",
       "city": "Same city",

@@ -558,6 +558,42 @@
     "close": "סגירה",
     "optionalNote": "כמה מילים (לא חובה)",
     "noMedical": "בבקשה לא לכלול פרטים רפואיים.",
+    "tabs": {
+      "label": "מיון בקשות פתוחות",
+      "best": "ההתאמות הטובות",
+      "newest": "החדשות ביותר",
+      "all": "כל הבקשות",
+      "bestCount": "{count, plural, =0 {אין התאמות} one {התאמה אחת} other {# התאמות}}",
+      "newestCount": "{count, plural, one {בקשה אחת} other {# בקשות}}",
+      "allCount": "{count} פתוחות"
+    },
+    "filters": {
+      "button": "סינון",
+      "active": "סינונים פעילים",
+      "support": "סוג העזרה",
+      "meeting": "אופן המפגש",
+      "language": "שפה",
+      "city": "עיר",
+      "cityPlaceholder": "לדוגמה, חיפה",
+      "clear": "ניקוי הסינון",
+      "done": "סיום",
+      "empty": "אין בקשות שמתאימות לסינון הזה."
+    },
+    "bestMatch": {
+      "aiLabel": "בחירת AI",
+      "rulesLabel": "לפי הפרופיל שלכם",
+      "loading": "מחפשים את ההתאמות הטובות עבורכם…",
+      "empty": "אין כרגע התאמות חזקות. אפשר לעיין בכל הבקשות.",
+      "tags": {
+        "language": "מדבר/ת את השפה שלהם",
+        "same_city": "אותה עיר",
+        "nearby": "קרוב אליכם",
+        "meeting_mode": "אופן המפגש שלכם",
+        "support": "מתאים לכישורים שלכם",
+        "transport": "נוח להגיע",
+        "long_wait": "מחכים כבר זמן מה"
+      }
+    },
     "badges": {
       "language": "מדבר/ת את השפה שלהם",
       "city": "אותה עיר",
