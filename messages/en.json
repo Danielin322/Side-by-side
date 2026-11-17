@@ -562,10 +562,7 @@
       "label": "Sort open requests",
       "best": "Best matches",
       "newest": "Newest",
-      "all": "All requests",
-      "bestCount": "{count, plural, =0 {No matches} one {# match} other {# matches}}",
-      "newestCount": "{count, plural, one {# request} other {# requests}}",
-      "allCount": "{count} open"
+      "all": "All requests"
     },
     "filters": {
       "button": "Filter",

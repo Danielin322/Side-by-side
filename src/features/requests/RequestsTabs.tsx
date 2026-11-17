@@ -67,14 +67,13 @@ export function RequestsTabs({
     select(VIEWS[next], true);
   };
 
-  const subtitles: Record<View, ReactNode> = {
+  // Only Best matches has a subtitle: whether the AI or the rules picked them. No counts are shown.
+  const subtitles: Partial<Record<View, ReactNode>> = {
     best: (
       <Suspense fallback={<span aria-hidden>…</span>}>
-        <BestSubtitle promise={bestMatches} byId={byId} />
+        <BestSubtitle promise={bestMatches} />
       </Suspense>
     ),
-    newest: t("tabs.newestCount", { count: filtered.length }),
-    all: t("tabs.allCount", { count: filtered.length }),
   };
 
   const empty = ranked.length === 0;
@@ -113,7 +112,9 @@ export function RequestsTabs({
                 } ${active ? "bg-ink text-surface" : "text-ink hover:bg-surface-soft"}`}
               >
                 <span className="block font-semibold">{t(`tabs.${v}`)}</span>
-                <span className={`block text-sm ${active ? "opacity-80" : "text-ink-soft"}`}>{subtitles[v]}</span>
+                {subtitles[v] && (
+                  <span className={`block text-sm ${active ? "opacity-80" : "text-ink-soft"}`}>{subtitles[v]}</span>
+                )}
               </button>
             );
           })}
@@ -158,18 +159,14 @@ function usePicked(promise: Promise<BestMatches>, byId: Map<string, BoardItem>) 
   return { picked, source: result.source };
 }
 
-function BestSubtitle({ promise, byId }: { promise: Promise<BestMatches>; byId: Map<string, BoardItem> }) {
+function BestSubtitle({ promise }: { promise: Promise<BestMatches> }) {
   const t = useTranslations("requests");
-  const { picked, source } = usePicked(promise, byId);
+  const { source } = use(promise);
   const Icon = source === "ai" ? Sparkles : UserRound;
   return (
-    <span className="inline-flex items-center gap-x-1.5">
-      {t("tabs.bestCount", { count: picked.length })}
-      <span aria-hidden>·</span>
-      <span className="inline-flex items-center gap-1">
-        <Icon aria-hidden className="size-3.5" />
-        {t(source === "ai" ? "bestMatch.aiLabel" : "bestMatch.rulesLabel")}
-      </span>
+    <span className="inline-flex items-center gap-1">
+      <Icon aria-hidden className="size-3.5" />
+      {t(source === "ai" ? "bestMatch.aiLabel" : "bestMatch.rulesLabel")}
     </span>
   );
 }
