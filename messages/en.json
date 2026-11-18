@@ -76,11 +76,9 @@
     "close": "Close"
   },
   "pages": {
-    "askForHelp": "Get support",
     "guide": "Rights guide",
     "terms": "Scope of support",
     "volunteer": "Volunteer with us",
-    "volunteerDashboard": "Volunteer dashboard",
     "privacy": "Safety & privacy",
     "about": "About us",
     "stub": "This page is on its way. Thank you for your patience."
@@ -418,7 +416,6 @@
     },
     "overview": {
       "label": "At a glance",
-      "verification": "Verification",
       "verified": "Verified volunteer",
       "nextMeeting": "Next meeting",
       "noMeetings": "Nothing scheduled",
@@ -506,7 +503,6 @@
     "detail": {
       "back": "All applications",
       "status": "Status",
-      "updateStatus": "Update status",
       "email": "Email",
       "phone": "Phone",
       "notes": "Internal notes",
@@ -679,16 +675,13 @@
     },
     "open": {
       "title": "Open requests",
-      "intro": "Best matches for you are at the top.",
       "waiting": "Asked {time}",
       "accept": "I'll take this one",
       "atLimit": "You're already holding 3 requests.",
       "empty": "No open requests right now. Thank you for being here."
     },
     "mine": {
-      "title": "My requests",
       "count": "{count} of {max}",
-      "empty": "You're not holding any requests yet. Choose one below when you're ready.",
       "progress": "{done} of {total} steps done",
       "note": "Their note",
       "nextMeeting": "Next meeting",
