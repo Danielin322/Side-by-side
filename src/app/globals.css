@@ -29,8 +29,9 @@
   color-scheme: light;
 }
 
+/* Dark: follows the device unless the visitor picked Light in the header's switch. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #1a211f;
     --surface: #222b28;
     --surface-soft: #29332f;
@@ -54,6 +55,30 @@
   }
 }
 
+/* Dark, picked in the header's switch. Keep these values in sync with the block above. */
+:root[data-theme="dark"] {
+  --bg: #1a211f;
+  --surface: #222b28;
+  --surface-soft: #29332f;
+  --ink: #e8eee9;
+  --ink-soft: #b2bdb7;
+  --line: #34403b;
+
+  --primary: #a3c49c;
+  --primary-hover: #b5d2ae;
+  --primary-ink: #16201a;
+  --primary-soft: #2e3c2d;
+
+  --secondary: #a3c5e0;
+  --secondary-soft: #24333f;
+
+  --warm-soft: #3b322a;
+  --focus: #a3c5e0;
+  --shadow-rgb: 0 0 0;
+
+  color-scheme: dark;
+}
+
 /* High contrast (accessibility panel) */
 :root[data-contrast="high"] {
   --bg: #ffffff;
@@ -73,7 +98,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root[data-contrast="high"] {
+  :root[data-contrast="high"]:not([data-theme="light"]) {
     --bg: #000000;
     --surface: #000000;
     --surface-soft: #000000;
@@ -89,6 +114,24 @@
     --warm-soft: #000000;
     --focus: #ffffff;
   }
+}
+
+/* High contrast + Dark picked in the switch. Keep in sync with the block above. */
+:root[data-contrast="high"][data-theme="dark"] {
+  --bg: #000000;
+  --surface: #000000;
+  --surface-soft: #000000;
+  --ink: #ffffff;
+  --ink-soft: #f0f0f0;
+  --line: #ffffff;
+  --primary: #d4f0cc;
+  --primary-hover: #ffffff;
+  --primary-ink: #000000;
+  --primary-soft: #000000;
+  --secondary: #d2e8f8;
+  --secondary-soft: #000000;
+  --warm-soft: #000000;
+  --focus: #ffffff;
 }
 
 @theme inline {

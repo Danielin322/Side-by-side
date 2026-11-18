@@ -1,18 +1,9 @@
 import type { Language, MeetingMode, SupportType } from "@/features/intake/schema";
 
-/**
- * Checklist items per support type. Stored as "type.item" keys (see save_request_progress()).
- * Copy lives under "requests.checklist" in messages/*.json.
- */
-export const CHECKLISTS: Record<SupportType, readonly string[]> = {
-  documents: ["sorted", "downloaded", "ready"],
-  rights: ["reviewed", "explained", "list"],
-  co_typing: ["opened", "typed", "reviewed", "sent"],
-  scheduling: ["found", "booked", "noted"],
-  calls: ["prepared", "verified", "answers"],
-  accompaniment: ["prepared", "arrived", "notes"],
-  follow_up: ["reminder", "status", "next"],
-};
+/** One step on a volunteer's own checklist for a request (stored in help_requests.checklist_items). */
+export type ChecklistItem = { id: string; text: string; done: boolean };
+export const MAX_CHECKLIST_ITEMS = 40;
+export const MAX_CHECKLIST_TEXT = 200;
 
 export const MAX_ACTIVE_REQUESTS = 3;
 export const ISSUE_KINDS = ["unreachable", "professional", "safety", "coordinator"] as const;
@@ -42,7 +33,7 @@ export type MyRequest = OpenRequest & {
   phone: string;
   email: string | null;
   note: string | null;
-  checklist: string[];
+  checklist_items: ChecklistItem[];
   next_meeting: string | null;
   assigned_at: string;
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition, type ReactNode } from "react";
+import { useId, useRef, useState, useTransition, type FormEvent, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import {
   CalendarDays,
@@ -14,7 +14,9 @@ import {
   Mail,
   MapPin,
   Phone,
+  Plus,
   Sparkles,
+  Trash2,
   Undo2,
   Video,
 } from "lucide-react";
@@ -23,9 +25,11 @@ import { Notice } from "@/components/form/FormParts";
 import { LANGUAGE_NAMES } from "@/features/intake/schema";
 import { MEETING_ICONS, SUPPORT_ICONS } from "@/features/intake/icons";
 import {
-  CHECKLISTS,
   ISSUE_KINDS,
+  MAX_CHECKLIST_ITEMS,
+  MAX_CHECKLIST_TEXT,
   RELEASE_REASONS,
+  type ChecklistItem,
   type FitBadges,
   type FitTag,
   type IssueKind,
@@ -34,7 +38,7 @@ import {
   type ReleaseReason,
   type RequestActionResult,
 } from "./model";
-import { acceptRequest, completeRequest, releaseRequest, reportIssue, saveProgress } from "./actions";
+import { acceptRequest, completeRequest, releaseRequest, reportIssue, saveChecklist, saveNextMeeting } from "./actions";
 
 // ----------------------------------------------------------------------------- shared bits
 
@@ -251,15 +255,108 @@ export function OpenRequestCard({
   );
 }
 
+// ----------------------------------------------------------------------------- volunteer checklist
+
+/**
+ * The volunteer's own list of steps for a request: they add steps, tick them off and delete them.
+ * Nothing is built in; the list starts empty when a volunteer takes on a request.
+ */
+function VolunteerChecklist({ items, onChange }: { items: ChecklistItem[]; onChange: (next: ChecklistItem[]) => void }) {
+  const t = useTranslations("requests");
+  const [draft, setDraft] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+  const titleId = useId();
+  const full = items.length >= MAX_CHECKLIST_ITEMS;
+
+  const add = (e: FormEvent) => {
+    e.preventDefault();
+    const text = draft.trim();
+    if (!text || full) return;
+    onChange([...items, { id: crypto.randomUUID(), text, done: false }]);
+    setDraft("");
+    inputRef.current?.focus();
+  };
+
+  return (
+    <section aria-labelledby={titleId} className="mt-6">
+      <h4 id={titleId} className="font-medium text-ink">
+        {t("checklist.title")}
+      </h4>
+      <p className="mt-1 text-sm text-ink-soft">
+        {t("checklist.hint")} {t("noMedical")}
+      </p>
+
+      {items.length === 0 ? (
+        <p className="mt-3 rounded-2xl bg-surface-soft px-4 py-3 text-ink-soft">{t("checklist.empty")}</p>
+      ) : (
+        <ul className="mt-3 space-y-2">
+          {items.map((item) => (
+            <li key={item.id} className="flex items-start gap-2 rounded-2xl bg-surface-soft py-1.5 pe-1.5 ps-4">
+              <label className="flex min-w-0 flex-1 cursor-pointer items-start gap-3 py-1.5">
+                <input
+                  type="checkbox"
+                  checked={item.done}
+                  onChange={() => onChange(items.map((i) => (i.id === item.id ? { ...i, done: !i.done } : i)))}
+                  className="peer sr-only"
+                />
+                <span
+                  aria-hidden
+                  className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-lg text-transparent ring-2 ring-line peer-checked:bg-primary peer-checked:text-primary-ink peer-checked:ring-primary peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[var(--focus)]"
+                >
+                  <Check className="size-4" strokeWidth={3} />
+                </span>
+                <span className={`min-w-0 break-words ${item.done ? "text-ink-soft line-through decoration-line" : "text-ink"}`}>
+                  {item.text}
+                </span>
+              </label>
+              <button
+                type="button"
+                onClick={() => onChange(items.filter((i) => i.id !== item.id))}
+                aria-label={t("checklist.delete", { step: item.text })}
+                title={t("checklist.deleteShort")}
+                className="flex size-9 shrink-0 items-center justify-center rounded-xl text-ink-soft hover:bg-surface hover:text-ink"
+              >
+                <Trash2 aria-hidden className="size-4" />
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <form onSubmit={add} className="mt-3 flex flex-wrap gap-2">
+        <input
+          ref={inputRef}
+          type="text"
+          value={draft}
+          onChange={(e) => setDraft(e.target.value)}
+          maxLength={MAX_CHECKLIST_TEXT}
+          disabled={full}
+          aria-label={t("checklist.newLabel")}
+          placeholder={t("checklist.placeholder")}
+          className="min-w-0 flex-1 rounded-2xl bg-surface-soft px-4 py-3 text-ink outline-none ring-1 ring-line focus:ring-2 focus:ring-secondary disabled:opacity-60"
+        />
+        <button
+          type="submit"
+          disabled={!draft.trim() || full}
+          className="pill bg-surface-soft px-4 py-3 text-ink hover:shadow-soft disabled:opacity-50"
+        >
+          <Plus aria-hidden className="size-4" />
+          {t("checklist.add")}
+        </button>
+      </form>
+      {full && <p className="mt-2 text-sm text-ink-soft">{t("checklist.full", { max: MAX_CHECKLIST_ITEMS })}</p>}
+    </section>
+  );
+}
+
 // ----------------------------------------------------------------------------- my request
 
 type Dialog = "issue" | "release" | "complete" | null;
 
 export function MyRequestCard({ req }: { req: MyRequest }) {
   const t = useTranslations("requests");
-  const tIntake = useTranslations("intake");
   const errorText = useErrorText();
-  const [checklist, setChecklist] = useState<string[]>(req.checklist);
+  const [items, setItems] = useState<ChecklistItem[]>(req.checklist_items ?? []);
   const [nextMeeting, setNextMeeting] = useState(req.next_meeting ?? "");
   const [saveState, setSaveState] = useState<"idle" | "saving" | "saved">("idle");
   const [result, setResult] = useState<RequestActionResult | null>(null);
@@ -271,19 +368,19 @@ export function MyRequestCard({ req }: { req: MyRequest }) {
   const [pending, start] = useTransition();
   const [reported, setReported] = useState(false);
 
-  const persist = (items: string[], date: string) => {
+  const save = (fn: () => Promise<RequestActionResult>) => {
     setSaveState("saving");
     start(async () => {
-      const r = await saveProgress(req.id, items, date || null);
+      const r = await fn();
       setResult(r.ok ? null : r);
       setSaveState(r.ok ? "saved" : "idle");
     });
   };
 
-  const toggle = (key: string) => {
-    const next = checklist.includes(key) ? checklist.filter((k) => k !== key) : [...checklist, key];
-    setChecklist(next);
-    persist(next, nextMeeting);
+  /** Every change (add, tick, delete) saves the whole list. */
+  const updateItems = (next: ChecklistItem[]) => {
+    setItems(next);
+    save(() => saveChecklist(req.id, next));
   };
 
   const openDialog = (d: Dialog) => {
@@ -305,8 +402,8 @@ export function MyRequestCard({ req }: { req: MyRequest }) {
       }
     });
 
-  const total = req.support_types.reduce((n, s) => n + CHECKLISTS[s].length, 0);
-  const done = checklist.length;
+  const total = items.length;
+  const done = items.filter((i) => i.done).length;
 
   return (
     <li className="rounded-3xl bg-surface p-6 shadow-soft sm:p-7">
@@ -315,7 +412,7 @@ export function MyRequestCard({ req }: { req: MyRequest }) {
           <h3 className="text-2xl font-semibold text-ink">
             {req.first_name} {req.last_name}
           </h3>
-          <p className="text-sm text-ink-soft">{t("mine.progress", { done, total })}</p>
+          {total > 0 && <p className="text-sm text-ink-soft">{t("mine.progress", { done, total })}</p>}
         </div>
         <div className="flex flex-wrap gap-2">
           <a href={`tel:${req.phone}`} className="pill bg-primary px-4 py-2.5 text-primary-ink shadow-soft hover:bg-primary-hover">
@@ -342,36 +439,7 @@ export function MyRequestCard({ req }: { req: MyRequest }) {
         </div>
       )}
 
-      {/* Checklist per support type */}
-      <div className="mt-6 space-y-5">
-        {req.support_types.map((s) => (
-          <fieldset key={s}>
-            <legend className="font-medium text-ink">{tIntake(`support.options.${s}.title`)}</legend>
-            <ul className="mt-2 space-y-2">
-              {CHECKLISTS[s].map((item) => {
-                const key = `${s}.${item}`;
-                const checked = checklist.includes(key);
-                return (
-                  <li key={key}>
-                    <label className="flex cursor-pointer items-start gap-3 rounded-2xl bg-surface-soft px-4 py-3">
-                      <input type="checkbox" checked={checked} onChange={() => toggle(key)} className="peer sr-only" />
-                      <span
-                        aria-hidden
-                        className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-lg text-transparent ring-2 ring-line peer-checked:bg-primary peer-checked:text-primary-ink peer-checked:ring-primary peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[var(--focus)]"
-                      >
-                        <Check className="size-4" strokeWidth={3} />
-                      </span>
-                      <span className={checked ? "text-ink-soft line-through decoration-line" : "text-ink"}>
-                        {t(`checklist.${s}.${item}` as Parameters<typeof t>[0])}
-                      </span>
-                    </label>
-                  </li>
-                );
-              })}
-            </ul>
-          </fieldset>
-        ))}
-      </div>
+      <VolunteerChecklist items={items} onChange={updateItems} />
 
       <div className="mt-6 flex flex-wrap items-end gap-4">
         <label className="block">
@@ -385,7 +453,7 @@ export function MyRequestCard({ req }: { req: MyRequest }) {
             dir="ltr"
             onChange={(e) => {
               setNextMeeting(e.target.value);
-              persist(checklist, e.target.value);
+              save(() => saveNextMeeting(req.id, e.target.value || null));
             }}
             className="mt-2 rounded-2xl bg-surface-soft px-4 py-3 text-ink outline-none ring-1 ring-line focus:ring-2 focus:ring-secondary [direction:ltr] rtl:text-right"
           />

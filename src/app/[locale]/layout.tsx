@@ -9,6 +9,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { AccessibilityPanel } from "@/components/a11y/AccessibilityPanel";
 import { A11Y_INIT_SCRIPT } from "@/components/a11y/preferences";
+import { THEME_INIT_SCRIPT } from "@/components/layout/theme";
 
 // Rubik covers both Hebrew and Latin with soft, rounded letterforms.
 const rubik = Rubik({
@@ -34,10 +35,11 @@ export default async function LocaleLayout({
   const locale = await resolveLocale(props);
 
   return (
-    // suppressHydrationWarning: the init script sets accessibility data-* attributes before React loads.
+    // suppressHydrationWarning: the init scripts set accessibility and theme data-* attributes before React loads.
     <html lang={locale} dir={localeDirection[locale]} className={rubik.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: A11Y_INIT_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
       <body className="min-h-screen flex flex-col">
         <NextIntlClientProvider>

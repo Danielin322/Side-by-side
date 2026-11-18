@@ -16,7 +16,10 @@
     "chat": "Online intake & chat",
     "chatSoon": "Online chat is coming soon. For now, you can start with our short form.",
     "chatStart": "Open the short form",
-    "close": "Close"
+    "close": "Close",
+    "theme": {
+      "label": "Dark mode"
+    }
   },
   "nav": {
     "label": "Main",
@@ -727,42 +730,15 @@
       "submit": "Complete request"
     },
     "checklist": {
-      "documents": {
-        "sorted": "Sorted the letters and mail together",
-        "downloaded": "Downloaded the needed documents from the health portal (they logged in themselves)",
-        "ready": "Files are scanned and ready to upload"
-      },
-      "rights": {
-        "reviewed": "Went over possible rights together",
-        "explained": "Explained the next steps in plain language",
-        "list": "Made a checklist of documents to gather"
-      },
-      "co_typing": {
-        "opened": "Opened the form together (they logged in themselves)",
-        "typed": "Typed the answers they dictated",
-        "reviewed": "Read the answers back together",
-        "sent": "They pressed Send themselves"
-      },
-      "scheduling": {
-        "found": "Found the right office or clinic",
-        "booked": "Booked the appointment together",
-        "noted": "Noted the date and what to bring"
-      },
-      "calls": {
-        "prepared": "Prepared the questions before the call",
-        "verified": "They called and confirmed their identity themselves",
-        "answers": "Wrote down the answers and next steps"
-      },
-      "accompaniment": {
-        "prepared": "Prepared together what they want to say",
-        "arrived": "Came along on the day",
-        "notes": "Took notes during the committee"
-      },
-      "follow_up": {
-        "reminder": "Sent a gentle reminder about the next step",
-        "status": "Checked the case status together",
-        "next": "Agreed on the next step"
-      }
+      "title": "Your steps",
+      "hint": "Add the steps you plan to take together, and tick them off as you go. Only you and our team can see them.",
+      "empty": "No steps yet. Add the first one below.",
+      "newLabel": "New step",
+      "placeholder": "For example: call the National Insurance office",
+      "add": "Add step",
+      "delete": "Delete step: {step}",
+      "deleteShort": "Delete step",
+      "full": "You can add up to {max} steps."
     },
     "errors": {
       "not_approved": "Only approved volunteers can do this.",
