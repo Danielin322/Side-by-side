@@ -9,7 +9,7 @@ import { requireAdmin } from "@/features/admin/guard";
 import { AdminNav } from "@/features/admin/AdminNav";
 import { RequestAdminActions, ResolveIssueButton } from "@/features/admin/RequestAdminForms";
 import { LANGUAGE_NAMES, type Language, type MeetingMode, type SupportType } from "@/features/intake/schema";
-import { CHECKLISTS, type RequestStatus } from "@/features/requests/model";
+import type { ChecklistItem, RequestStatus } from "@/features/requests/model";
 
 type Request = {
   id: string;
@@ -21,7 +21,8 @@ type Request = {
   language: Language;
   note: string | null;
   first_name: string;
-  checklist: string[];
+  /** Migration 0007; empty before it runs. */
+  checklist_items?: ChecklistItem[];
   next_meeting: string | null;
   summary: string | null;
   assigned_at: string | null;
@@ -62,7 +63,7 @@ export default async function AdminRequestPage(props: { params: Promise<{ locale
   const dt = new Intl.DateTimeFormat(locale === "he" ? "he-IL" : "en-GB", { dateStyle: "medium", timeStyle: "short" });
   const d = new Intl.DateTimeFormat(locale === "he" ? "he-IL" : "en-GB", { dateStyle: "medium" });
   const contact = r.help_request_contacts;
-  const totalItems = r.support_types.reduce((n, s) => n + CHECKLISTS[s].length, 0);
+  const items = r.checklist_items ?? [];
 
   const rows: [string, React.ReactNode][] = [
     [t("requests.status"), t(`requests.statuses.${r.status}`)],
@@ -72,7 +73,7 @@ export default async function AdminRequestPage(props: { params: Promise<{ locale
     [t("requests.language"), <span key="l" lang={r.language}>{LANGUAGE_NAMES[r.language]}</span>],
     [tr("mine.note"), <span key="n" className="whitespace-pre-line">{r.note ?? "—"}</span>],
     [t("requests.volunteer"), r.volunteers ? `${r.volunteers.full_name} · ${r.volunteers.phone}` : "—"],
-    [t("requests.checklist"), `${r.checklist.length}/${totalItems}`],
+    [t("requests.checklist"), items.length ? `${items.filter((i) => i.done).length}/${items.length}` : "—"],
     [tr("mine.nextMeeting"), r.next_meeting ? d.format(new Date(r.next_meeting)) : "—"],
     [tr("complete.summary"), <span key="s" className="whitespace-pre-line">{r.summary ?? "—"}</span>],
   ];

@@ -3,16 +3,17 @@
 import { revalidatePath } from "next/cache";
 import { createSessionClient } from "@/lib/supabase/server";
 import {
-  CHECKLISTS,
   ISSUE_KINDS,
+  MAX_CHECKLIST_ITEMS,
+  MAX_CHECKLIST_TEXT,
   RELEASE_REASONS,
+  type ChecklistItem,
   type IssueKind,
   type ReleaseReason,
   type RequestActionResult,
 } from "./model";
 
 const KNOWN_ERRORS = ["not_approved", "not_yours", "not_open", "limit_reached", "forbidden", "invalid"] as const;
-const VALID_ITEMS = new Set(Object.entries(CHECKLISTS).flatMap(([type, items]) => items.map((i) => `${type}.${i}`)));
 const isUuid = (v: string) => /^[0-9a-f-]{36}$/i.test(v);
 
 /** Calls a database function as the signed-in user and maps its errors to known keys. */
@@ -34,10 +35,19 @@ export async function acceptRequest(id: string) {
   return call("accept_request", { p_id: id });
 }
 
-export async function saveProgress(id: string, checklist: string[], nextMeeting: string | null) {
-  if (!isUuid(id) || !checklist.every((i) => VALID_ITEMS.has(i))) return { ok: false, error: "invalid" } as const;
+/** Saves the volunteer's own checklist for a request they hold (the whole list, in order). */
+export async function saveChecklist(id: string, items: ChecklistItem[]) {
+  if (!isUuid(id) || !Array.isArray(items) || items.length > MAX_CHECKLIST_ITEMS) return { ok: false, error: "invalid" } as const;
+  const clean = items.map((i) => ({ id: String(i?.id ?? "").slice(0, 64), text: text(i?.text, MAX_CHECKLIST_TEXT), done: i?.done === true }));
+  if (clean.some((i) => !i.id || !i.text)) return { ok: false, error: "invalid" } as const;
+  return call("save_request_checklist", { p_id: id, p_items: clean });
+}
+
+/** Saves the date of the next meeting. The old built-in checklist column is no longer used, so it's left empty. */
+export async function saveNextMeeting(id: string, nextMeeting: string | null) {
+  if (!isUuid(id)) return { ok: false, error: "invalid" } as const;
   if (nextMeeting && !/^\d{4}-\d{2}-\d{2}$/.test(nextMeeting)) return { ok: false, error: "invalid" } as const;
-  return call("save_request_progress", { p_id: id, p_checklist: checklist, p_next_meeting: nextMeeting || null });
+  return call("save_request_progress", { p_id: id, p_checklist: [], p_next_meeting: nextMeeting || null });
 }
 
 export async function reportIssue(id: string, kind: IssueKind, note: string) {
