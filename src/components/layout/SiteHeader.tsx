@@ -6,6 +6,7 @@ import { LogoMark } from "@/components/brand/Logo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ChatComingSoon } from "./ChatComingSoon";
 import { MainNav } from "./MainNav";
+import { HideInVolunteerArea } from "./HideInVolunteerArea";
 
 /**
  * Utility bar (brand at the start, quick support at the end) and main navigation.
@@ -27,16 +28,19 @@ export function SiteHeader() {
           </Link>
 
           <div role="group" aria-label={t("topBar.label")} className="flex flex-wrap items-center gap-2">
-            <a
-              href={`tel:${HELPLINE_TEL}`}
-              className="pill bg-secondary-soft text-ink hover:shadow-soft"
-            >
-              <Phone aria-hidden className="size-4 text-secondary" />
-              <span>
-                {t("topBar.helpline")}: <span dir="ltr">{t("topBar.helplineNumber")}</span>
-              </span>
-            </a>
-            <ChatComingSoon />
+            {/* Help-seeker shortcuts: not shown on the volunteer dashboard. */}
+            <HideInVolunteerArea>
+              <a
+                href={`tel:${HELPLINE_TEL}`}
+                className="pill bg-secondary-soft text-ink hover:shadow-soft"
+              >
+                <Phone aria-hidden className="size-4 text-secondary" />
+                <span>
+                  {t("topBar.helpline")}: <span dir="ltr">{t("topBar.helplineNumber")}</span>
+                </span>
+              </a>
+              <ChatComingSoon />
+            </HideInVolunteerArea>
             <LanguageSwitcher />
           </div>
         </div>
