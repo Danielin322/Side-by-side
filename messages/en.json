@@ -16,7 +16,10 @@
     "chat": "Online intake & chat",
     "chatSoon": "Online chat is coming soon. For now, you can start with our short form.",
     "chatStart": "Open the short form",
-    "close": "Close"
+    "close": "Close",
+    "theme": {
+      "label": "Dark mode"
+    }
   },
   "nav": {
     "label": "Main",

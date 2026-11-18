@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { HELPLINE_TEL, routes } from "@/lib/routes";
 import { LogoMark } from "@/components/brand/Logo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 import { ChatComingSoon } from "./ChatComingSoon";
 import { MainNav } from "./MainNav";
 import { HideInVolunteerArea } from "./HideInVolunteerArea";
@@ -41,6 +42,7 @@ export function SiteHeader() {
               </a>
               <ChatComingSoon />
             </HideInVolunteerArea>
+            <ThemeSwitcher />
             <LanguageSwitcher />
           </div>
         </div>
