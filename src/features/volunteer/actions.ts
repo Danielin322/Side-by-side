@@ -1,8 +1,9 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { createAdminClient, createSessionClient } from "@/lib/supabase/server";
 import { normalizeIsraeliId, normalizeIsraeliPhone } from "@/lib/validation";
-import { volunteerSchema, type VolunteerValues } from "./schema";
+import { languagesFromForm, profileSchema, volunteerSchema, type ProfileValues, type VolunteerValues } from "./schema";
 import type { Locale } from "@/i18n/routing";
 import { siteOrigin } from "@/lib/origin";
 
@@ -46,9 +47,7 @@ export async function submitVolunteerApplication(values: VolunteerValues, locale
   // With email confirmation on, Supabase hides "already registered" by returning a user with no identities.
   if (!data.user || data.user.identities?.length === 0) return { ok: false, reason: "emailTaken" };
 
-  const languages = Object.entries(d.languages)
-    .filter(([, lvl]) => lvl !== "")
-    .map(([code, lvl]) => ({ code, level: lvl }));
+  const languages = languagesFromForm(d.languages);
 
   const { error: rpcError } = await admin.rpc("create_volunteer_application", {
     p_user_id: data.user.id,
@@ -81,4 +80,33 @@ export async function submitVolunteerApplication(values: VolunteerValues, locale
   }
 
   return { ok: true, needsConfirmation: !data.session };
+}
+
+export type ProfileResult = { ok: true } | { ok: false; reason: "invalid" | "failed" };
+
+/** Saves the practical parts of the signed-in volunteer's profile. Their session decides whose row changes. */
+export async function updateMyProfile(values: ProfileValues): Promise<ProfileResult> {
+  const parsed = profileSchema.safeParse(values);
+  if (!parsed.success) return { ok: false, reason: "invalid" };
+  const d = parsed.data;
+
+  const supabase = await createSessionClient();
+  const { error } = await supabase.rpc("update_my_volunteer_profile", {
+    p_phone: normalizeIsraeliPhone(d.phone),
+    p_city: d.city,
+    p_occupation: d.occupation || null,
+    p_availability: d.availability,
+    p_transport: d.transport,
+    p_languages: languagesFromForm(d.languages),
+    p_support_types: d.supportTypes,
+    p_meeting_modes: d.meetingModes,
+  });
+
+  if (error) {
+    // Code and message only: never log the submitted details.
+    console.error("[volunteer] update_my_volunteer_profile failed:", error.code, error.message);
+    return { ok: false, reason: error.message === "invalid" || error.code === "23514" ? "invalid" : "failed" };
+  }
+  revalidatePath("/[locale]/volunteer/dashboard", "page");
+  return { ok: true };
 }

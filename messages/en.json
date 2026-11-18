@@ -405,7 +405,80 @@
       "body": "Review volunteer applications."
     },
     "meeting": "Your video chat: {when}",
-    "join": "Join the video chat"
+    "join": "Join the video chat",
+    "tabs": {
+      "label": "Volunteer dashboard",
+      "opportunities": "Requests",
+      "requests": "In progress",
+      "activity": "My activity",
+      "profile": "My profile"
+    },
+    "overview": {
+      "label": "At a glance",
+      "verification": "Verification",
+      "verified": "Verified volunteer",
+      "nextMeeting": "Next meeting",
+      "noMeetings": "Nothing scheduled",
+      "more": "{count, plural, one {+ # more} other {+ # more}}",
+      "verificationMeeting": "Video chat with our team",
+      "requestMeeting": "Meeting with {name}",
+      "activity": "Activity",
+      "active": "{count, plural, =0 {No active requests} one {# active request} other {# active requests}}",
+      "completed": "{count, plural, one {# completed} other {# completed}}",
+      "activityLocked": "Starts once you're verified"
+    },
+    "steps": {
+      "title": "Your verification",
+      "applied": "Application sent",
+      "interview": "Video chat",
+      "approved": "Verified",
+      "done": "done"
+    },
+    "locked": {
+      "title": "Requests open after verification",
+      "body": "Once our team has verified you, requests for support will appear here, with the best matches for you at the top."
+    },
+    "activity": {
+      "meetings": "Upcoming meetings",
+      "noMeetings": "No meetings coming up.",
+      "join": "Join",
+      "history": "History",
+      "historyEmpty": "Requests you complete or hand back will appear here.",
+      "historyUnavailable": "Your history isn't available right now. Please try again later.",
+      "notVerified": "Your volunteering activity will appear here once you're verified.",
+      "completed": "Completed",
+      "released": "Handed back",
+      "period": "{from} – {to}",
+      "summary": "Your summary",
+      "reason": "Reason"
+    },
+    "profile": {
+      "title": "My details",
+      "editTitle": "Edit my details",
+      "edit": "Edit details",
+      "save": "Save changes",
+      "saving": "Saving…",
+      "cancel": "Cancel",
+      "saved": "Your details were saved.",
+      "contact": "Contact details",
+      "none": "Not added",
+      "commit": "Committed to volunteering for at least six months.",
+      "memberSince": "Volunteering with us since {date}",
+      "lockedNote": "To change your name or email, please contact our team.",
+      "errors": {
+        "invalid": "Some details aren't valid. Please check the fields above.",
+        "failed": "We couldn't save your changes. Please try again."
+      },
+      "languages": "Languages",
+      "support": "How I can help",
+      "meeting": "Ways to meet",
+      "transport": "Getting around"
+    },
+    "requests": {
+      "title": "Requests I'm supporting",
+      "empty": "You're not supporting anyone right now. You can choose someone to help under Requests.",
+      "locked": "Once you're verified, the requests you take on will appear here, with contact details and a checklist for each."
+    }
   },
   "admin": {
     "title": "Volunteer applications",
@@ -572,7 +645,12 @@
       "language": "Language",
       "city": "City",
       "cityPlaceholder": "For example, Haifa",
-      "clear": "Clear filters",
+      "clear": "Tick everything again",
+      "untickAll": "Untick all",
+      "tickAll": "Tick all",
+      "untickAllIn": "Untick all in {section}",
+      "tickAllIn": "Tick all in {section}",
+      "cancel": "Cancel",
       "done": "Done",
       "empty": "No requests match these filters."
     },
@@ -694,6 +772,11 @@
       "forbidden": "You don't have permission to do this.",
       "invalid": "Something wasn't valid. Please try again.",
       "failed": "Something went wrong. Please try again."
+    },
+    "needs": {
+      "title": "What they need help with",
+      "language": "Language",
+      "meeting": "How to meet"
     }
   }
 }

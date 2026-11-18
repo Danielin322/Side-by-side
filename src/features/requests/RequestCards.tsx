@@ -56,26 +56,54 @@ function Chip({ icon, children, tone = "plain" }: { icon?: ReactNode; children: 
   );
 }
 
-function RequestChips({ req }: { req: OpenRequest }) {
-  const t = useTranslations("intake");
+/**
+ * What the person asked for, laid out to read at a glance: a list of the kinds of help they need,
+ * and beside it the practical details (language, how to meet).
+ */
+function RequestNeeds({ req }: { req: OpenRequest }) {
+  const t = useTranslations("requests.needs");
+  const tIntake = useTranslations("intake");
   const MeetingIcon = MEETING_ICONS[req.meeting_mode];
   return (
-    <div className="flex flex-wrap gap-2">
-      <Chip icon={<MeetingIcon aria-hidden className="size-4" />}>
-        {t(`meeting.options.${req.meeting_mode}`)}
-        {req.city ? ` · ${req.city}` : ""}
-      </Chip>
-      <Chip icon={<Languages aria-hidden className="size-4" />}>
-        <span lang={req.language}>{LANGUAGE_NAMES[req.language]}</span>
-      </Chip>
-      {req.support_types.map((s) => {
-        const Icon = SUPPORT_ICONS[s];
-        return (
-          <Chip key={s} icon={<Icon aria-hidden className="size-4" />}>
-            {t(`support.options.${s}.title`)}
-          </Chip>
-        );
-      })}
+    <div className="grid gap-4 sm:grid-cols-[1fr_auto]">
+      <div>
+        <h4 className="text-sm font-medium text-ink-soft">{t("title")}</h4>
+        <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+          {req.support_types.map((s) => {
+            const Icon = SUPPORT_ICONS[s];
+            return (
+              <li key={s} className="flex items-center gap-3">
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-primary-soft">
+                  <Icon aria-hidden className="size-5 text-primary" strokeWidth={1.75} />
+                </span>
+                <span className="text-ink">{tIntake(`support.options.${s}.title`)}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <dl className="space-y-3 self-start rounded-2xl bg-surface-soft p-4 sm:min-w-52">
+        <div className="flex items-start gap-3">
+          <Languages aria-hidden className="mt-0.5 size-5 shrink-0 text-ink-soft" />
+          <div>
+            <dt className="text-sm text-ink-soft">{t("language")}</dt>
+            <dd className="font-medium text-ink" lang={req.language}>
+              {LANGUAGE_NAMES[req.language]}
+            </dd>
+          </div>
+        </div>
+        <div className="flex items-start gap-3">
+          <MeetingIcon aria-hidden className="mt-0.5 size-5 shrink-0 text-ink-soft" />
+          <div>
+            <dt className="text-sm text-ink-soft">{t("meeting")}</dt>
+            <dd className="font-medium text-ink">
+              {tIntake(`meeting.options.${req.meeting_mode}`)}
+              {req.city && <span className="block text-sm font-normal text-ink-soft">{req.city}</span>}
+            </dd>
+          </div>
+        </div>
+      </dl>
     </div>
   );
 }
@@ -201,7 +229,7 @@ export function OpenRequestCard({
         </div>
       </div>
       <div className="mt-4">
-        <RequestChips req={req} />
+        <RequestNeeds req={req} />
       </div>
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <PrimaryButton
@@ -304,7 +332,7 @@ export function MyRequestCard({ req }: { req: MyRequest }) {
       </div>
 
       <div className="mt-4">
-        <RequestChips req={req} />
+        <RequestNeeds req={req} />
       </div>
 
       {req.note && (

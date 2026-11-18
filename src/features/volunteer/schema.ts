@@ -84,3 +84,36 @@ export const DEFAULT_LANGUAGES = Object.fromEntries(VOLUNTEER_LANGUAGES.map((l) 
   VolunteerLanguage,
   ""
 >;
+
+/** The parts of the profile a volunteer can edit from their dashboard (see update_my_volunteer_profile()). */
+export const profileSchema = baseSchema.pick({
+  phone: true,
+  city: true,
+  occupation: true,
+  availability: true,
+  transport: true,
+  languages: true,
+  supportTypes: true,
+  meetingModes: true,
+});
+
+export type ProfileValues = z.input<typeof profileSchema>;
+
+/** Stored as [{ code, level }]; the form uses one radio group per language. */
+export type StoredLanguage = { code: string; level: string };
+
+export function languagesToForm(stored: StoredLanguage[]): ProfileValues["languages"] {
+  const form: Record<VolunteerLanguage, "" | LanguageLevel> = { ...DEFAULT_LANGUAGES };
+  for (const { code, level } of stored) {
+    if ((VOLUNTEER_LANGUAGES as readonly string[]).includes(code) && (LANGUAGE_LEVELS as readonly string[]).includes(level)) {
+      form[code as VolunteerLanguage] = level as LanguageLevel;
+    }
+  }
+  return form;
+}
+
+export function languagesFromForm(form: Record<string, string>): StoredLanguage[] {
+  return Object.entries(form)
+    .filter(([, level]) => level !== "")
+    .map(([code, level]) => ({ code, level }));
+}

@@ -25,10 +25,13 @@ export function RequestsTabs({
   ranked,
   bestMatches,
   atLimit,
+  embedded = false,
 }: {
   ranked: BoardItem[];
   bestMatches: Promise<BestMatches>;
   atLimit: boolean;
+  /** Inside the dashboard's Opportunities tab: no top margin, and the heading is for screen readers only. */
+  embedded?: boolean;
 }) {
   const t = useTranslations("requests");
   const dir = localeDirection[useLocale() as Locale];
@@ -80,12 +83,12 @@ export function RequestsTabs({
   const clearFilters = () => setFilters(NO_FILTERS);
 
   return (
-    <section aria-labelledby={`${baseId}-title`} className="mt-14">
-      <h2 id={`${baseId}-title`} className="text-2xl font-semibold text-ink">
+    <section aria-labelledby={`${baseId}-title`} className={embedded ? "" : "mt-14"}>
+      <h2 id={`${baseId}-title`} className={embedded ? "sr-only" : "text-2xl font-semibold text-ink"}>
         {t("open.title")}
       </h2>
 
-      <div className="relative mt-5 flex rounded-2xl bg-surface shadow-soft">
+      <div className={`relative flex rounded-2xl bg-surface shadow-soft ${embedded ? "" : "mt-5"}`}>
         <div
           role="tablist"
           aria-label={t("tabs.label")}

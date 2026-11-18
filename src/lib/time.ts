@@ -73,3 +73,23 @@ export function formatIsraelDateTime(iso: string, locale: string) {
     minute: "2-digit",
   }).format(new Date(iso));
 }
+
+/** A date-only value like a request's "YYYY-MM-DD" next meeting, e.g. "Thursday, 20 Nov". */
+export function formatDateOnly(date: string, locale: string) {
+  return new Intl.DateTimeFormat(locale === "he" ? "he-IL" : "en-GB", {
+    timeZone: "UTC",
+    weekday: "long",
+    day: "numeric",
+    month: "short",
+  }).format(new Date(date + "T00:00:00Z"));
+}
+
+/** The calendar day of a timestamp in Israel, e.g. "18 Nov 2026". */
+export function formatIsraelDay(iso: string, locale: string) {
+  return new Intl.DateTimeFormat(locale === "he" ? "he-IL" : "en-GB", {
+    timeZone: APP_TIME_ZONE,
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(iso));
+}

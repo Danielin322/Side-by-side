@@ -5,15 +5,34 @@ import { useTranslations } from "next-intl";
 import { Heart, Menu, X } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { mainNav, routes } from "@/lib/routes";
+import { useInVolunteerArea } from "./HideInVolunteerArea";
 
-/** Main menu tabs plus the highlighted volunteer pill. Collapses into a menu on small screens. */
+/**
+ * Whether a Supabase session cookie is present. Only used to hide the "I want to volunteer"
+ * pill from people who are already signed in; nothing is protected by it.
+ * Checking in the browser keeps every page statically rendered.
+ */
+function hasSessionCookie() {
+  return document.cookie.split("; ").some((c) => /^sb-[^=]+-auth-token(\.\d+)?=/.test(c));
+}
+
+/** Main menu tabs plus the highlighted volunteer pill (hidden once signed in). Collapses into a menu on small screens. */
 export function MainNav() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  const [signedIn, setSignedIn] = useState(false);
+
   // Close the mobile menu after navigating.
   useEffect(() => setOpen(false), [pathname]);
+
+  // Re-check on every navigation, so the pill hides right after signing in and returns after signing out.
+  useEffect(() => setSignedIn(hasSessionCookie()), [pathname]);
+
+  // The public site's menu isn't relevant on the volunteer dashboard.
+  const inVolunteerArea = useInVolunteerArea();
+  if (inVolunteerArea) return null;
 
   const tabs = mainNav.map((item) => {
     const active = !item.href.includes("#") && pathname.startsWith(item.href);
@@ -33,7 +52,7 @@ export function MainNav() {
     );
   });
 
-  const volunteerPill = (
+  const volunteerPill = signedIn ? null : (
     <Link
       href={routes.volunteer}
       className="pill bg-primary px-4 py-2.5 text-primary-ink shadow-soft hover:bg-primary-hover sm:px-5 sm:text-base"

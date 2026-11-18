@@ -61,7 +61,7 @@ async function run(profile: VolunteerProfile, requests: OpenRequest[], now: numb
 
 /**
  * The volunteer's best matches (up to 8). Never rejects: any failure falls back to scoreFit().
- * Called without await from RequestsBoard, so the promise streams to the "Best matches" tab.
+ * Called without await from OpenRequestsPanel, so the promise streams to the "Best matches" tab.
  */
 export function getBestMatches(volunteerId: string, profile: VolunteerProfile, requests: OpenRequest[]): Promise<BestMatches> {
   const now = Date.now();
