@@ -20,6 +20,8 @@ export function ThemeSwitcher() {
     const media = window.matchMedia(DEVICE_DARK);
     const sync = () => {
       const saved = loadTheme();
+      // Switching language remounts <html> and drops data-theme, and the head script doesn't re-run, so re-apply it here.
+      applyTheme(saved);
       setDark(saved === "system" ? media.matches : saved === "dark");
     };
     sync();
