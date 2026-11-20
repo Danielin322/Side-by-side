@@ -3,6 +3,7 @@ import { createSessionClient } from "@/lib/supabase/server";
 import { pickBestMatches, scoreFit } from "@/features/matching/score";
 import { daysSince, type OpenRequest, type VolunteerProfile } from "./model";
 import { RequestsTabs, type BoardItem } from "./RequestsTabs";
+import { errorMeta, logError } from "@/lib/logs";
 
 /**
  * The dashboard's Opportunities tab: open requests in tabs (Best matches, Newest, All) with filters.
@@ -21,7 +22,7 @@ export async function OpenRequestsPanel({
 
   const { data: open, error } = await supabase.rpc("list_open_requests");
   if (error) {
-    console.error("[requests] list_open_requests failed:", error.code, error.message);
+    await logError("requests", "system.rpc_failed", "[requests] list_open_requests failed", { fn: "list_open_requests", ...errorMeta(error) });
     return <p className="rounded-2xl bg-secondary-soft p-4 text-ink">{t("errors.failed")}</p>;
   }
 

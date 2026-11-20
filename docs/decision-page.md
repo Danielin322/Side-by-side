@@ -11,6 +11,7 @@ never written down, the entry says **Reason not recorded**. Fill those in when y
 1. [Best matches (matching rules)](#1-best-matches-matching-rules)
 2. [Tech stack](#2-tech-stack)
 3. [Data and privacy](#3-data-and-privacy)
+4. [Logging](#4-logging)
 
 ---
 
@@ -60,3 +61,36 @@ The "Best matches" tab on the volunteer dashboard. It picks the open requests th
 ### Sensitive details kept in separate, locked tables
 - **Decision:** A help-seeker's last name, phone and email are stored separately from the request itself. A volunteer's ID number, birth date and admin notes are stored where only admins can see them.
 - **Why:** Privacy. Most of the app never touches the sensitive details.
+
+---
+
+## 4. Logging
+
+The Logs tab in the admin area (`/admin/logs`), backed by the `system_logs` table (migration 0008).
+
+### One log table for business events and errors
+- **Decision:** A single `system_logs` table holds both business events (sign-ups, approvals, new requests, request
+  actions, meetings) and errors or warnings (failed logins, failed emails, server errors). Each row has a severity,
+  category, event code, person, English message and JSON metadata.
+- **Why:** Admins get one place to see what happened and what broke, with the same filters for both. Before this,
+  errors only went to the server console and most activity wasn't recorded at all.
+
+### Business events come from database triggers, errors from the app
+- **Decision:** Triggers on the volunteers, help requests, request history, issues and meetings tables write the
+  business events. The app writes errors and warnings with the secret key, through `src/lib/logs.ts`.
+- **Why:** Triggers catch every change, whichever code path made it, without editing the existing database functions.
+  Errors happen in the app, often for signed-out visitors (like a failed login), who aren't allowed to write to the
+  database themselves.
+
+### Append-only, no medical details
+- **Decision:** Only admins can read the log, and nobody can edit or delete entries through the app. There is no
+  "clear logs" button. Entries hold IDs, statuses and error codes, never free-text notes or medical details. Failed
+  logins record the email that was tried.
+- **Why:** A log is only useful if it can be trusted, and the privacy rules for the rest of the app apply here too.
+
+### Retention: info entries are kept for 6 months
+- **Decision:** `info` entries older than 6 months are deleted every night at 03:00 UTC by `purge_old_logs()`, run by
+  `pg_cron`. Warnings and errors are kept indefinitely. If `pg_cron` isn't enabled in Supabase, the migration says so
+  and the cleanup must be scheduled by enabling the extension and re-running that part of the migration.
+- **Why:** Routine activity piles up fast and loses value after a few months. Errors are rare and worth keeping for
+  spotting patterns.

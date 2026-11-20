@@ -6,6 +6,7 @@ import { createSessionClient } from "@/lib/supabase/server";
 import { siteOrigin } from "@/lib/origin";
 import { routes } from "@/lib/routes";
 import { routing, type Locale } from "@/i18n/routing";
+import { errorMeta, logEvent } from "@/lib/logs";
 
 export type AuthState = { error?: string; sent?: boolean } | null;
 
@@ -26,6 +27,14 @@ export async function signIn(_prev: AuthState, form: FormData): Promise<AuthStat
   const supabase = await createSessionClient();
   const { error } = await supabase.auth.signInWithPassword({ email: email.data, password });
   if (error) {
+    await logEvent({
+      severity: "warning",
+      category: "auth",
+      event: "auth.login_failed",
+      message: `Failed login attempt (${error.code ?? "unknown"})`,
+      metadata: errorMeta(error),
+      actorLabel: email.data,
+    });
     if (error.code === "email_not_confirmed") return { error: "notConfirmed" };
     if (error.code?.includes("rate_limit")) return { error: "rateLimited" };
     return { error: "invalidCredentials" };
@@ -51,6 +60,16 @@ export async function requestPasswordReset(_prev: AuthState, form: FormData): Pr
     redirectTo: `${await siteOrigin()}/api/auth/confirm?next=/${locale}${routes.volunteerReset}`,
   });
   if (error?.code?.includes("rate_limit")) return { error: "rateLimited" };
+  if (error) {
+    await logEvent({
+      severity: "error",
+      category: "auth",
+      event: "auth.email_failed",
+      message: "Password reset email could not be sent",
+      metadata: { flow: "password_reset", ...errorMeta(error) },
+      actorLabel: email.data,
+    });
+  }
   return { sent: true };
 }
 

@@ -23,6 +23,14 @@
   --secondary-soft: #e0ecf5;
 
   --warm-soft: #f5e8da; /* peach accent for illustrations */
+
+  /* Log severity badges: soft blue / yellow / red, dark text on a light tint (WCAG AA). */
+  --info-soft: #e0ecf5;
+  --info-ink: #1f4a6b;
+  --warning-soft: #fbf0c4;
+  --warning-ink: #6b5200;
+  --danger-soft: #fbe2df;
+  --danger-ink: #8a2a22;
   --focus: #3b6380;
   --shadow-rgb: 47 58 54;
 
@@ -48,6 +56,12 @@
     --secondary-soft: #24333f;
 
     --warm-soft: #3b322a;
+    --info-soft: #22364a;
+    --info-ink: #b8d6f0;
+    --warning-soft: #3d3518;
+    --warning-ink: #f0dc8a;
+    --danger-soft: #452624;
+    --danger-ink: #f3b8b1;
     --focus: #a3c5e0;
     --shadow-rgb: 0 0 0;
 
@@ -73,6 +87,12 @@
   --secondary-soft: #24333f;
 
   --warm-soft: #3b322a;
+  --info-soft: #22364a;
+  --info-ink: #b8d6f0;
+  --warning-soft: #3d3518;
+  --warning-ink: #f0dc8a;
+  --danger-soft: #452624;
+  --danger-ink: #f3b8b1;
   --focus: #a3c5e0;
   --shadow-rgb: 0 0 0;
 
@@ -148,6 +168,12 @@
   --color-secondary: var(--secondary);
   --color-secondary-soft: var(--secondary-soft);
   --color-warm-soft: var(--warm-soft);
+  --color-info-soft: var(--info-soft);
+  --color-info-ink: var(--info-ink);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning-ink: var(--warning-ink);
+  --color-danger-soft: var(--danger-soft);
+  --color-danger-ink: var(--danger-ink);
 
   --font-sans: var(--font-rubik), system-ui, sans-serif;
 

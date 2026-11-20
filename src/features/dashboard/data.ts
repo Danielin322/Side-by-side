@@ -4,6 +4,7 @@ import { israelToday, isoToIsraelLocal } from "@/lib/time";
 import type { MeetingMode, SupportType } from "@/features/intake/schema";
 import type { MyRequest, ReleaseReason } from "@/features/requests/model";
 import type { StoredLanguage, VolunteerStatus } from "@/features/volunteer/schema";
+import { errorMeta, logError } from "@/lib/logs";
 
 /** The volunteer's own row (Row Level Security lets them read it). Sensitive data stays in volunteer_sensitive. */
 export type VolunteerDetails = {
@@ -60,7 +61,7 @@ export async function loadDashboard(userId: string): Promise<DashboardData | nul
     .select(DETAIL_COLUMNS)
     .eq("id", userId)
     .maybeSingle<VolunteerDetails>();
-  if (detailsError) console.error("[dashboard] volunteer load failed:", detailsError.code, detailsError.message);
+  if (detailsError) await logError("volunteers", "system.rpc_failed", "[dashboard] volunteer load failed", errorMeta(detailsError));
   if (!details) return null;
 
   const approved = details.status === "approved";
@@ -71,10 +72,10 @@ export async function loadDashboard(userId: string): Promise<DashboardData | nul
     details.status === "interview" ? supabase.rpc("get_my_meeting") : Promise.resolve({ data: [], error: null }),
   ]);
 
-  if (mine.error) console.error("[dashboard] list_my_requests failed:", mine.error.code, mine.error.message);
+  if (mine.error) await logError("volunteers", "system.rpc_failed", "[dashboard] list_my_requests failed", { fn: "list_my_requests", ...errorMeta(mine.error) });
   // Before migration 0006 runs, history is missing: show a gentle note instead of breaking the page.
-  if (history.error) console.error("[dashboard] list_my_history failed:", history.error.code, history.error.message);
-  if (meeting.error) console.error("[dashboard] get_my_meeting failed:", meeting.error.code, meeting.error.message);
+  if (history.error) await logError("volunteers", "system.rpc_failed", "[dashboard] list_my_history failed", { fn: "list_my_history", ...errorMeta(history.error) });
+  if (meeting.error) await logError("volunteers", "system.rpc_failed", "[dashboard] get_my_meeting failed", { fn: "get_my_meeting", ...errorMeta(meeting.error) });
 
   const myRequests = (mine.data ?? []) as MyRequest[];
   const verification = ((meeting.data ?? []) as { scheduled_at: string; link: string | null }[])[0];

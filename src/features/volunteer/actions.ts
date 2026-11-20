@@ -6,6 +6,7 @@ import { normalizeIsraeliId, normalizeIsraeliPhone } from "@/lib/validation";
 import { languagesFromForm, profileSchema, volunteerSchema, type ProfileValues, type VolunteerValues } from "./schema";
 import type { Locale } from "@/i18n/routing";
 import { siteOrigin } from "@/lib/origin";
+import { errorMeta, logError, logEvent } from "@/lib/logs";
 
 export type ApplyResult =
   | { ok: true; needsConfirmation: boolean }
@@ -23,7 +24,7 @@ export async function submitVolunteerApplication(values: VolunteerValues, locale
 
   const admin = createAdminClient();
   if (!admin) {
-    console.error("[volunteer] SUPABASE_URL / SUPABASE_SECRET_KEY are not set.");
+    await logError("system", "system.misconfigured", "[volunteer] SUPABASE_URL / SUPABASE_SECRET_KEY are not set.");
     return { ok: false, reason: "unavailable" };
   }
   const supabase = await createSessionClient();
@@ -38,7 +39,17 @@ export async function submitVolunteerApplication(values: VolunteerValues, locale
   });
 
   if (error) {
-    console.error("[volunteer] signUp failed:", error.code);
+    const emailFailure = /email/i.test(error.message) && /send|deliver|smtp/i.test(error.message);
+    if (emailFailure || !["user_already_exists", "email_exists", "weak_password"].includes(error.code ?? "")) {
+      await logEvent({
+        severity: emailFailure ? "error" : "warning",
+        category: "auth",
+        event: emailFailure ? "auth.email_failed" : "auth.signup_failed",
+        message: emailFailure ? "Confirmation email could not be sent" : `Volunteer sign-up failed: ${error.code ?? "unknown"}`,
+        metadata: { flow: "signup", ...errorMeta(error) },
+        actorLabel: d.email,
+      });
+    }
     if (error.code === "user_already_exists" || error.code === "email_exists") return { ok: false, reason: "emailTaken" };
     if (error.code === "weak_password") return { ok: false, reason: "weakPassword" };
     if (error.code?.includes("rate_limit")) return { ok: false, reason: "rateLimited" };
@@ -72,7 +83,7 @@ export async function submitVolunteerApplication(values: VolunteerValues, locale
 
   if (rpcError) {
     // Never log submitted personal details: code and message only.
-    console.error("[volunteer] create_volunteer_application failed:", rpcError.code, rpcError.message);
+    await logError("volunteers", "system.rpc_failed", "[volunteer] create_volunteer_application failed", { fn: "create_volunteer_application", ...errorMeta(rpcError) });
     // Roll back the account so the person can try again with the same email.
     await supabase.auth.signOut();
     await admin.auth.admin.deleteUser(data.user.id);
@@ -104,7 +115,7 @@ export async function updateMyProfile(values: ProfileValues): Promise<ProfileRes
 
   if (error) {
     // Code and message only: never log the submitted details.
-    console.error("[volunteer] update_my_volunteer_profile failed:", error.code, error.message);
+    await logError("volunteers", "system.rpc_failed", "[volunteer] update_my_volunteer_profile failed", { fn: "update_my_volunteer_profile", ...errorMeta(error) });
     return { ok: false, reason: error.message === "invalid" || error.code === "23514" ? "invalid" : "failed" };
   }
   revalidatePath("/[locale]/volunteer/dashboard", "page");
