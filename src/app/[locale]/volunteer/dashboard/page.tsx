@@ -89,7 +89,7 @@ export default async function VolunteerDashboardPage(props: LocaleParams) {
   const verificationMeeting = meetings.find((m) => m.kind === "verification");
 
   const opportunities = approved ? (
-    <OpenRequestsPanel userId={viewer!.userId} profile={details} atLimit={myRequests.length >= MAX_ACTIVE_REQUESTS} />
+    <OpenRequestsPanel profile={details} atLimit={myRequests.length >= MAX_ACTIVE_REQUESTS} />
   ) : (
     <div className="flex items-start gap-5 rounded-3xl bg-surface-soft p-7">
       <Lock aria-hidden className="mt-1 size-6 shrink-0 text-ink-soft" />

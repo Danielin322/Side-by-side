@@ -1,13 +1,13 @@
 "use client";
 
-import { Suspense, use, useId, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { useId, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
-import { Inbox, Sparkles, UserRound } from "lucide-react";
+import { Inbox, UserRound } from "lucide-react";
 import { localeDirection, type Locale } from "@/i18n/routing";
 import { OpenRequestCard } from "./RequestCards";
 import { FilterButton, NO_FILTERS, activeFilterCount, applyFilters, type Filters } from "./RequestFilters";
-import type { BestMatches, FitBadges, FitTag, OpenRequest } from "./model";
+import type { BestMatchPick, FitBadges, FitTag, OpenRequest } from "./model";
 
 /** One open request with its rule score, badges and "asked x days ago" text, prepared on the server. */
 export type BoardItem = { req: OpenRequest; score: number; badges: FitBadges; waiting: string };
@@ -18,8 +18,8 @@ type View = (typeof VIEWS)[number];
 const isView = (v: string | null): v is View => !!v && (VIEWS as readonly string[]).includes(v);
 
 /**
- * Segmented tab bar over the open requests: Best matches (agent), Newest, All requests (by fit), plus Filter.
- * `ranked` is already sorted by scoreFit(); `bestMatches` is the agent's un-awaited promise.
+ * Segmented tab bar over the open requests: Best matches, Newest, All requests (by fit), plus Filter.
+ * `ranked` is already sorted by scoreFit(); `bestMatches` is the top picks from pickBestMatches().
  */
 export function RequestsTabs({
   ranked,
@@ -28,7 +28,7 @@ export function RequestsTabs({
   embedded = false,
 }: {
   ranked: BoardItem[];
-  bestMatches: Promise<BestMatches>;
+  bestMatches: BestMatchPick[];
   atLimit: boolean;
   /** Inside the dashboard's Opportunities tab: no top margin, and the heading is for screen readers only. */
   embedded?: boolean;
@@ -70,12 +70,13 @@ export function RequestsTabs({
     select(VIEWS[next], true);
   };
 
-  // Only Best matches has a subtitle: whether the AI or the rules picked them. No counts are shown.
+  // Only Best matches has a subtitle. No counts are shown.
   const subtitles: Partial<Record<View, ReactNode>> = {
     best: (
-      <Suspense fallback={<span aria-hidden>…</span>}>
-        <BestSubtitle promise={bestMatches} />
-      </Suspense>
+      <span className="inline-flex items-center gap-1">
+        <UserRound aria-hidden className="size-3.5" />
+        {t("bestMatch.rulesLabel")}
+      </span>
     ),
   };
 
@@ -138,9 +139,7 @@ export function RequestsTabs({
           {v !== view ? null : empty ? (
             <EmptyState>{t("open.empty")}</EmptyState>
           ) : v === "best" ? (
-            <Suspense fallback={<CardSkeletons label={t("bestMatch.loading")} />}>
-              <BestPanel promise={bestMatches} byId={byId} atLimit={atLimit} filtering={filtering} onClear={clearFilters} />
-            </Suspense>
+            <BestPanel picks={bestMatches} byId={byId} atLimit={atLimit} filtering={filtering} onClear={clearFilters} />
           ) : (
             <ItemList items={v === "newest" ? newest : filtered} atLimit={atLimit} filtering={filtering} onClear={clearFilters} />
           )}
@@ -152,43 +151,25 @@ export function RequestsTabs({
 
 type Picked = BoardItem & { fitTags: FitTag[] };
 
-/** The agent's picks that pass the current filters, in the agent's order. */
-function usePicked(promise: Promise<BestMatches>, byId: Map<string, BoardItem>) {
-  const result = use(promise);
-  const picked = result.picks.flatMap((p): Picked[] => {
-    const item = byId.get(p.requestId);
-    return item ? [{ ...item, fitTags: p.fitTags }] : [];
-  });
-  return { picked, source: result.source };
-}
-
-function BestSubtitle({ promise }: { promise: Promise<BestMatches> }) {
-  const t = useTranslations("requests");
-  const { source } = use(promise);
-  const Icon = source === "ai" ? Sparkles : UserRound;
-  return (
-    <span className="inline-flex items-center gap-1">
-      <Icon aria-hidden className="size-3.5" />
-      {t(source === "ai" ? "bestMatch.aiLabel" : "bestMatch.rulesLabel")}
-    </span>
-  );
-}
-
+/** Best matches that pass the current filters, best first. */
 function BestPanel({
-  promise,
+  picks,
   byId,
   atLimit,
   filtering,
   onClear,
 }: {
-  promise: Promise<BestMatches>;
+  picks: BestMatchPick[];
   byId: Map<string, BoardItem>;
   atLimit: boolean;
   filtering: boolean;
   onClear: () => void;
 }) {
   const t = useTranslations("requests");
-  const { picked } = usePicked(promise, byId);
+  const picked = picks.flatMap((p): Picked[] => {
+    const item = byId.get(p.requestId);
+    return item ? [{ ...item, fitTags: p.fitTags }] : [];
+  });
   if (picked.length === 0 && !filtering) return <EmptyState>{t("bestMatch.empty")}</EmptyState>;
   return <ItemList items={picked} atLimit={atLimit} filtering={filtering} onClear={onClear} />;
 }
@@ -229,27 +210,6 @@ function EmptyState({ children }: { children: ReactNode }) {
     <div className="flex flex-wrap items-center gap-4 rounded-3xl bg-surface-soft p-6 text-ink-soft">
       <Inbox aria-hidden className="size-6 shrink-0" />
       {children}
-    </div>
-  );
-}
-
-function CardSkeletons({ label }: { label: string }) {
-  return (
-    <div role="status" aria-live="polite">
-      <span className="sr-only">{label}</span>
-      <ul aria-hidden className="space-y-4">
-        {[0, 1, 2].map((i) => (
-          <li key={i} className="animate-pulse rounded-3xl bg-surface p-6 shadow-soft">
-            <div className="h-5 w-32 rounded-full bg-surface-soft" />
-            <div className="mt-3 h-4 w-24 rounded-full bg-surface-soft" />
-            <div className="mt-5 flex gap-2">
-              <div className="h-7 w-28 rounded-full bg-surface-soft" />
-              <div className="h-7 w-20 rounded-full bg-surface-soft" />
-              <div className="h-7 w-24 rounded-full bg-surface-soft" />
-            </div>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }

@@ -198,7 +198,7 @@ export function OpenRequestCard({
   badges: FitBadges;
   waiting: string;
   atLimit: boolean;
-  /** From the Best matches agent; replaces the rule badges when given. */
+  /** "Why it fits" chips for Best matches; replaces the rule badges when given. */
   fitTags?: FitTag[];
 }) {
   const t = useTranslations("requests");
@@ -227,6 +227,7 @@ export function OpenRequestCard({
             <>
               {badges.language && <Chip tone="good" icon={<Sparkles aria-hidden className="size-4 text-primary" />}>{t("badges.language")}</Chip>}
               {badges.city && <Chip tone="good" icon={<MapPin aria-hidden className="size-4 text-primary" />}>{t("badges.city")}</Chip>}
+              {badges.nearby && <Chip tone="good" icon={<MapPin aria-hidden className="size-4 text-primary" />}>{t("bestMatch.tags.nearby")}</Chip>}
               {badges.support > 0 && <Chip tone="good" icon={<Check aria-hidden className="size-4 text-primary" />}>{t("badges.support", { count: badges.support })}</Chip>}
             </>
           )}

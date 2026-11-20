@@ -48,7 +48,17 @@ export type VolunteerProfile = {
   transport: ("license" | "car" | "public_transit")[];
 };
 
-export type FitBadges = { language: boolean; city: boolean; support: number; meeting: boolean };
+/** Rule-based fit signals from scoreFit() in features/matching/score.ts. */
+export type FitBadges = {
+  language: boolean;
+  city: boolean;
+  /** In person in a nearby city (within 15 km, or 30 km with a car). */
+  nearby: boolean;
+  support: number;
+  meeting: boolean;
+  /** Nearby and the volunteer has a car. */
+  transport: boolean;
+};
 
 /** Why a request suits a volunteer, as short translated chips (labels under "requests.bestMatch.tags"). */
 export const FIT_TAGS = ["language", "same_city", "nearby", "meeting_mode", "support", "transport", "long_wait"] as const;
@@ -58,37 +68,10 @@ export type FitTag = (typeof FIT_TAGS)[number];
 export const LONG_WAIT_DAYS = 5;
 
 export type BestMatchPick = { requestId: string; fitTags: FitTag[] };
-/** "ai" = ranked by the matching agent; "rules" = scoreFit() fallback. */
-export type BestMatches = { picks: BestMatchPick[]; source: "ai" | "rules" };
 
 export const normalizeCity = (c: string) => c.trim().toLocaleLowerCase();
-const sameCity = (a: string | null, b: string) => !!a && normalizeCity(a) === normalizeCity(b);
 
 export const daysSince = (iso: string, now = Date.now()) => Math.max(0, Math.floor((now - new Date(iso).getTime()) / 86_400_000));
-
-/**
- * Scores how well a request suits a volunteer. Higher is better; nothing is filtered out.
- * Language matters most, then same city for in-person, then overlapping support and a workable meeting mode.
- */
-export function scoreFit(req: OpenRequest, v: VolunteerProfile): { score: number; badges: FitBadges } {
-  const language = v.languages.some((l) => l.code === req.language);
-  const support = req.support_types.filter((s) => v.support_types.includes(s)).length;
-  const meeting = req.meeting_mode === "any" || v.meeting_modes.includes(req.meeting_mode);
-  const city = req.meeting_mode === "in_person" && sameCity(req.city, v.city);
-  const score = (language ? 6 : 0) + (city ? 3 : 0) + support * 2 + (meeting ? 2 : 0);
-  return { score, badges: { language, city, support, meeting } };
-}
-
-/** Fit tags the rules can prove on their own (the agent may add "nearby" and "transport"). */
-export function fitTagsFromBadges(createdAt: string, badges: FitBadges, now = Date.now()): FitTag[] {
-  const tags: FitTag[] = [];
-  if (badges.language) tags.push("language");
-  if (badges.city) tags.push("same_city");
-  if (badges.meeting) tags.push("meeting_mode");
-  if (badges.support > 0) tags.push("support");
-  if (daysSince(createdAt, now) >= LONG_WAIT_DAYS) tags.push("long_wait");
-  return tags;
-}
 
 export type RequestActionResult =
   | { ok: true }

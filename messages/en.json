@@ -654,9 +654,7 @@
       "empty": "No requests match these filters."
     },
     "bestMatch": {
-      "aiLabel": "AI pick",
       "rulesLabel": "By your profile",
-      "loading": "Finding your best matches…",
       "empty": "No strong matches right now. Have a look at all requests.",
       "tags": {
         "language": "Speaks their language",
