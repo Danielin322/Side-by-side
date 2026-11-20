@@ -7,7 +7,8 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { ChatComingSoon } from "./ChatComingSoon";
 import { MainNav } from "./MainNav";
-import { HideInVolunteerArea } from "./HideInVolunteerArea";
+import { HideInVolunteerArea, ShowInVolunteerArea } from "./HideInVolunteerArea";
+import { SignOutButton } from "@/features/auth/SignOutButton";
 
 /**
  * Utility bar (brand at the start, quick support at the end) and main navigation.
@@ -31,7 +32,7 @@ export function SiteHeader() {
           </Link>
 
           <div role="group" aria-label={t("topBar.label")} className="order-2 flex basis-full flex-wrap items-center gap-2 lg:ms-auto lg:basis-auto">
-            {/* Help-seeker shortcuts: not shown on the volunteer dashboard. */}
+            {/* Help-seeker shortcuts: not shown on the volunteer dashboard or in the admin area. */}
             <HideInVolunteerArea>
               <a
                 href={`tel:${HELPLINE_TEL}`}
@@ -45,6 +46,10 @@ export function SiteHeader() {
               <ChatComingSoon />
             </HideInVolunteerArea>
             <ThemeSwitcher />
+            {/* Signed-in pages only: the dashboard and the admin area. */}
+            <ShowInVolunteerArea>
+              <SignOutButton />
+            </ShowInVolunteerArea>
           </div>
 
           {/* Always the physical right edge of the first row. Hebrew: first item (right edge in RTL).

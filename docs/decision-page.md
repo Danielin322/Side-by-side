@@ -8,40 +8,42 @@ never written down, the entry says **Reason not recorded**. Fill those in when y
 
 **Contents**
 
-1. [Best match agent (AI)](#1-best-match-agent-ai)
+1. [Best matches (matching rules)](#1-best-matches-matching-rules)
 2. [Tech stack](#2-tech-stack)
 3. [Data and privacy](#3-data-and-privacy)
+4. [Logging](#4-logging)
 
 ---
 
-## 1. Best match agent (AI)
+## 1. Best matches (matching rules)
 
 The "Best matches" tab on the volunteer dashboard. It picks the open requests that best fit a volunteer.
 
-### Model: Claude Haiku 5.5
-- **Decision:** Ranking uses Claude Haiku 5.5 by default. A setting can switch to another Claude model without changing the code.
-- **Why:** Ranking a short list of requests is a simple task. Haiku is the cheapest and fastest Claude model and is good enough for it.
-- **Details:** Haiku's "thinking" mode is turned off. That keeps the cost low and lets the model reply in the fixed format we need.
+### No AI: plain scoring rules with city distances
+- **Decision:** Best matches come from a fixed scoring rule, not an AI model. The earlier AI agent (Claude Haiku via
+  LangGraph.js, with LangSmith tracing) was removed, along with its API key, cache and fallback path.
+- **Why:** The AI only ever saw a handful of structured fields (language, meeting type, city, support types, transport,
+  days waiting). Ranking those is a weighted score, and the one thing the AI knew that the rules didn't, which cities
+  are near each other, is solved by a distance table. Rules are free, instant, give the same answer every time, are
+  easy to test and explain, and send no request data outside our server.
+- **When to reconsider:** If matching ever needs to read free text (like a description of the request), an AI could
+  add something the rules can't.
 
-### Agent type: a fixed workflow (LangGraph.js), not a free-roaming agent
-- **Decision:** The agent always follows the same steps: prepare the data, shortlist requests, ask the AI to rank them (one call), and check the answer. If anything goes wrong, a set of simple rules picks the matches instead. It is not an agent that decides its own steps.
-- **Why:** The task is always the same, so a fixed path is predictable, cheap (exactly one AI call) and easy to test. The rules always produce an answer, so the dashboard works even when the AI fails.
-- **Why LangGraph.js specifically:** Reason not recorded.
+### How the score works
+- **Decision:** Shared language +6 (or +4 at "basic" level). Meeting format the volunteer offers +2. For in-person
+  requests: same city +3, or nearby +2. Each matching support type +2. Ties go to whoever has waited longest. Best
+  matches shows the top 8 requests where the volunteer shares the language and offers the meeting format. The same
+  score orders the "All requests" tab.
+- **Nearby:** Within 15 km in a straight line, or 30 km if the volunteer has a car.
+- **Why:** These are the same priorities the AI was told to follow, written as numbers.
 
-### When the AI runs, and the fallback
-- **Decision:** The existing matching rules score every open request and drop the ones the volunteer can't serve (no shared language or meeting type). The top 25 go to the AI, which picks up to 8. The AI is skipped and the rules decide alone when there are 8 or fewer requests, when no AI key is set up, or when the AI's answer doesn't pass the check.
-- **Why:** With 8 or fewer requests there's nothing to rank, so an AI call would only cost money. The check makes sure the AI only returns requests that really exist.
-
-### Privacy: only anonymous details go to the AI
-- **Decision:** The AI sees only anonymous details: type of help needed, meeting type, city (only for in-person meetings), language and how long the request has waited, plus the volunteer's practical profile. No names, contact details or personal notes are sent. The AI answers only with which requests fit and why, from a fixed list of reasons, never free text.
-- **Why:** The privacy and no-medical-data rules in the PRD. With no free text in the answer, the AI can't make up anything a user would see.
-
-### Caching: 24 hours for AI results, 3 minutes for rule results
-- **Decision:** Each volunteer's matches are saved and reused instead of asking the AI every time. They are recalculated when an open request changes, the volunteer edits their profile, or a new day starts. AI results are kept for 24 hours. Rule results are kept for only 3 minutes, so the AI gets another try soon.
-- **Why:** This keeps AI costs down without showing out-of-date matches.
-
-### Debugging: optional tracing
-- **Decision:** Each AI run can be recorded in LangSmith (a tool for inspecting AI runs) while debugging. It's off by default.
+### City distances: a built-in list of Israeli towns
+- **Decision:** About 110 Israeli cities and towns with approximate coordinates, Hebrew and English names and common
+  spellings, are kept in the code. Distance is the straight line between town centres. A town not in the list can
+  still match by exact name, but gets no "nearby".
+- **Why:** City is typed as free text, so names must match in both languages and several spellings. Straight-line
+  distance is good enough for 15 / 30 km buckets; road distance only matters in a few edge cases. A small list in the
+  code needs no outside service.
 
 ---
 
@@ -59,3 +61,36 @@ The "Best matches" tab on the volunteer dashboard. It picks the open requests th
 ### Sensitive details kept in separate, locked tables
 - **Decision:** A help-seeker's last name, phone and email are stored separately from the request itself. A volunteer's ID number, birth date and admin notes are stored where only admins can see them.
 - **Why:** Privacy. Most of the app never touches the sensitive details.
+
+---
+
+## 4. Logging
+
+The Logs tab in the admin area (`/admin/logs`), backed by the `system_logs` table (migration 0008).
+
+### One log table for business events and errors
+- **Decision:** A single `system_logs` table holds both business events (sign-ups, approvals, new requests, request
+  actions, meetings) and errors or warnings (failed logins, failed emails, server errors). Each row has a severity,
+  category, event code, person, English message and JSON metadata.
+- **Why:** Admins get one place to see what happened and what broke, with the same filters for both. Before this,
+  errors only went to the server console and most activity wasn't recorded at all.
+
+### Business events come from database triggers, errors from the app
+- **Decision:** Triggers on the volunteers, help requests, request history, issues and meetings tables write the
+  business events. The app writes errors and warnings with the secret key, through `src/lib/logs.ts`.
+- **Why:** Triggers catch every change, whichever code path made it, without editing the existing database functions.
+  Errors happen in the app, often for signed-out visitors (like a failed login), who aren't allowed to write to the
+  database themselves.
+
+### Append-only, no medical details
+- **Decision:** Only admins can read the log, and nobody can edit or delete entries through the app. There is no
+  "clear logs" button. Entries hold IDs, statuses and error codes, never free-text notes or medical details. Failed
+  logins record the email that was tried.
+- **Why:** A log is only useful if it can be trusted, and the privacy rules for the rest of the app apply here too.
+
+### Retention: info entries are kept for 6 months
+- **Decision:** `info` entries older than 6 months are deleted every night at 03:00 UTC by `purge_old_logs()`, run by
+  `pg_cron`. Warnings and errors are kept indefinitely. If `pg_cron` isn't enabled in Supabase, the migration says so
+  and the cleanup must be scheduled by enabling the extension and re-running that part of the migration.
+- **Why:** Routine activity piles up fast and loses value after a few months. Errors are rare and worth keeping for
+  spotting patterns.

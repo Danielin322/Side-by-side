@@ -10,9 +10,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^7.0.5",
-    "@langchain/anthropic": "^1.6.5",
-    "@langchain/core": "^1.4.1",
-    "@langchain/langgraph": "^1.7.4",
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.119.0",
     "lucide-react": "^1.70.0",

@@ -92,7 +92,7 @@
     "exit": "Exit",
     "back": "Back",
     "next": "Continue",
-    "send": "Send my request",
+    "send": "Send my case",
     "sending": "Sending…",
     "optional": "optional",
     "recommended": "Recommended",
@@ -163,7 +163,7 @@
     },
     "details": {
       "title": "How can we reach you?",
-      "hint": "Only the volunteer who takes your request will see your full name and phone number.",
+      "hint": "Only the volunteer who takes your case will see your full name and phone number.",
       "firstName": "First name",
       "lastName": "Last name",
       "phone": "Phone number",
@@ -178,7 +178,7 @@
       "terms": "Read the scope of support"
     },
     "done": {
-      "title": "We received your request",
+      "title": "We received your case",
       "body": "Thank you for reaching out. A volunteer will call you soon to say hello and plan the next step together.",
       "home": "Back to home"
     },
@@ -195,8 +195,8 @@
       "emailInvalid": "This email address doesn't look complete.",
       "tooLong": "This is a bit too long.",
       "scopeRequired": "Please tick the box to continue.",
-      "sendFailed": "Something went wrong on our side and your request wasn't sent. Your answers are still here, please try again.",
-      "unavailable": "We can't receive requests right now. Please try again a little later."
+      "sendFailed": "Something went wrong on our side and your case wasn't sent. Your answers are still here, please try again.",
+      "unavailable": "We can't receive new cases right now. Please try again a little later."
     }
   },
   "volunteer": {
@@ -388,7 +388,7 @@
       "approved": {
         "label": "Approved",
         "title": "Welcome aboard!",
-        "body": "Requests for support will appear here soon."
+        "body": "Cases for support will appear here soon."
       },
       "not_approved": {
         "label": "Update",
@@ -409,7 +409,7 @@
     "join": "Join the video chat",
     "tabs": {
       "label": "Volunteer dashboard",
-      "opportunities": "Requests",
+      "opportunities": "Cases",
       "requests": "In progress",
       "activity": "My activity",
       "profile": "My profile"
@@ -423,7 +423,7 @@
       "verificationMeeting": "Video chat with our team",
       "requestMeeting": "Meeting with {name}",
       "activity": "Activity",
-      "active": "{count, plural, =0 {No active requests} one {# active request} other {# active requests}}",
+      "active": "{count, plural, =0 {No active cases} one {# active case} other {# active cases}}",
       "completed": "{count, plural, one {# completed} other {# completed}}",
       "activityLocked": "Starts once you're verified"
     },
@@ -435,15 +435,15 @@
       "done": "done"
     },
     "locked": {
-      "title": "Requests open after verification",
-      "body": "Once our team has verified you, requests for support will appear here, with the best matches for you at the top."
+      "title": "Cases open after verification",
+      "body": "Once our team has verified you, cases for support will appear here, with the best matches for you at the top."
     },
     "activity": {
       "meetings": "Upcoming meetings",
       "noMeetings": "No meetings coming up.",
       "join": "Join",
       "history": "History",
-      "historyEmpty": "Requests you complete or hand back will appear here.",
+      "historyEmpty": "Cases you complete or hand back will appear here.",
       "historyUnavailable": "Your history isn't available right now. Please try again later.",
       "notVerified": "Your volunteering activity will appear here once you're verified.",
       "completed": "Completed",
@@ -475,9 +475,9 @@
       "transport": "Getting around"
     },
     "requests": {
-      "title": "Requests I'm supporting",
-      "empty": "You're not supporting anyone right now. You can choose someone to help under Requests.",
-      "locked": "Once you're verified, the requests you take on will appear here, with contact details and a checklist for each."
+      "title": "Cases I'm supporting",
+      "empty": "You're not supporting anyone right now. You can choose someone to help under Cases.",
+      "locked": "Once you're verified, the cases you take on will appear here, with contact details and a checklist for each."
     }
   },
   "admin": {
@@ -512,12 +512,13 @@
     "nav": {
       "label": "Admin sections",
       "volunteers": "Volunteers",
-      "requests": "Requests",
-      "attention": "Needs attention"
+      "requests": "Cases",
+      "attention": "Needs attention",
+      "logs": "Logs"
     },
     "requests": {
-      "title": "Help requests",
-      "intro": "Follow every request from first contact to completion.",
+      "title": "Support cases",
+      "intro": "Follow every case from first contact to completion.",
       "statuses": {
         "open": "Open",
         "in_progress": "In progress",
@@ -526,7 +527,7 @@
       },
       "received": "Received {date}",
       "heldBy": "with {name}",
-      "back": "All requests",
+      "back": "All cases",
       "status": "Status",
       "volunteer": "Volunteer",
       "checklist": "Checklist",
@@ -535,14 +536,14 @@
       "team": "The team",
       "actionNote": "Note for the history (optional)",
       "release": "Return to open list",
-      "close": "Close request",
+      "close": "Close case",
       "done": "Done",
       "events": {
-        "accepted": "{name} accepted the request",
+        "accepted": "{name} accepted the case",
         "released": "{name} handed it back",
-        "completed": "{name} completed the request",
+        "completed": "{name} completed the case",
         "admin_released": "{name} returned it to the open list",
-        "admin_closed": "{name} closed the request"
+        "admin_closed": "{name} closed the case"
       },
       "meeting": "Meeting",
       "language": "Language"
@@ -553,7 +554,7 @@
       "empty": "Nothing needs attention right now.",
       "resolve": "Mark resolved",
       "resolved": "Resolved",
-      "open": "Open request",
+      "open": "Open case",
       "meta": "{person} · reported by {volunteer} · {date}",
       "kinds": {
         "safety": "Safety or wellbeing concern",
@@ -573,7 +574,7 @@
       "emptyVerified": "No verified volunteers yet.",
       "details": "Details",
       "verify": "Verify volunteer",
-      "verifyConfirm": "Verify {name}? They'll be able to accept requests.",
+      "verifyConfirm": "Verify {name}? They'll be able to accept cases.",
       "verifyYes": "Yes, verify",
       "cancel": "Cancel",
       "notApprove": "Not approved",
@@ -581,7 +582,7 @@
       "rejectedBadge": "Not approved",
       "unverify": "Move back to unverified",
       "reconsider": "Reconsider application",
-      "holding": "{count, plural, =0 {No active requests} one {Holding # request} other {Holding # requests}}",
+      "holding": "{count, plural, =0 {No active cases} one {Holding # case} other {Holding # cases}}",
       "statusLabel": {
         "applied": "Waiting for verification · no meeting scheduled yet",
         "interview": "Waiting for verification · meeting scheduled",
@@ -624,6 +625,92 @@
         "cancelled": "Cancelled",
         "missed": "Didn't happen"
       }
+    },
+    "logs": {
+      "title": "System logs",
+      "export": "Export CSV",
+      "viewLabel": "Which logs",
+      "views": {
+        "audit": "Audit Log",
+        "events": "Event Log"
+      },
+      "severityLabel": "Filter by severity",
+      "severities": {
+        "info": "Info",
+        "warning": "Warning",
+        "error": "Error"
+      },
+      "filtersLabel": "Filter logs",
+      "category": "Category",
+      "allCategories": "All categories",
+      "categories": {
+        "requests": "Cases",
+        "volunteers": "Volunteers",
+        "meetings": "Meetings",
+        "auth": "Sign-in",
+        "system": "System"
+      },
+      "from": "From",
+      "to": "To",
+      "search": "Search",
+      "searchPlaceholder": "Message, email or event",
+      "apply": "Apply",
+      "person": "Person:",
+      "clearPerson": "Remove person filter",
+      "filterByPerson": "Show only this person",
+      "system": "System",
+      "loadFailed": "Logs couldn't be loaded. Has migration 0008 been run?",
+      "empty": "No log entries match these filters.",
+      "columns": {
+        "time": "Time",
+        "severity": "Severity",
+        "category": "Category",
+        "actor": "Person",
+        "message": "What happened"
+      },
+      "eventCode": "Event",
+      "pagination": "Pages",
+      "newer": "Newer",
+      "older": "Older",
+      "pageOf": "Page {page} of {pages}",
+      "events": {
+        "volunteer": {
+          "signed_up": "New volunteer application",
+          "approved": "Volunteer approved",
+          "not_approved": "Volunteer not approved",
+          "status_changed": "Volunteer status changed"
+        },
+        "request": {
+          "created": "New case",
+          "accepted": "Case accepted",
+          "released": "Case handed back",
+          "completed": "Case completed",
+          "admin_released": "Case returned to the open list",
+          "admin_closed": "Case closed by the team",
+          "issue_reported": "Issue reported on a case",
+          "issue_resolved": "Issue resolved"
+        },
+        "meeting": {
+          "scheduled": "Meeting scheduled",
+          "rescheduled": "Meeting rescheduled",
+          "cancelled": "Meeting cancelled",
+          "missed": "Meeting didn't happen",
+          "held": "Meeting held"
+        },
+        "auth": {
+          "login_failed": "Failed sign-in attempt",
+          "email_failed": "Email couldn't be sent",
+          "signup_failed": "Sign-up failed"
+        },
+        "system": {
+          "unhandled_error": "Unhandled server error",
+          "client_error": "Error shown on a page",
+          "rpc_failed": "Database call failed",
+          "misconfigured": "Server setting missing"
+        }
+      },
+      "time": "Time",
+      "clearDates": "Clear"
     }
   },
   "requests": {
@@ -631,10 +718,10 @@
     "optionalNote": "A few words (optional)",
     "noMedical": "Please don't include medical details.",
     "tabs": {
-      "label": "Sort open requests",
+      "label": "Sort open cases",
       "best": "Best matches",
       "newest": "Newest",
-      "all": "All requests"
+      "all": "All cases"
     },
     "filters": {
       "button": "Filter",
@@ -651,13 +738,11 @@
       "tickAllIn": "Tick all in {section}",
       "cancel": "Cancel",
       "done": "Done",
-      "empty": "No requests match these filters."
+      "empty": "No cases match these filters."
     },
     "bestMatch": {
-      "aiLabel": "AI pick",
       "rulesLabel": "By your profile",
-      "loading": "Finding your best matches…",
-      "empty": "No strong matches right now. Have a look at all requests.",
+      "empty": "No strong matches right now. Have a look at all cases.",
       "tags": {
         "language": "Speaks their language",
         "same_city": "Same city",
@@ -674,11 +759,11 @@
       "support": "{count, plural, one {# matching skill} other {# matching skills}}"
     },
     "open": {
-      "title": "Open requests",
+      "title": "Open cases",
       "waiting": "Asked {time}",
       "accept": "I'll take this one",
-      "atLimit": "You're already holding 3 requests.",
-      "empty": "No open requests right now. Thank you for being here."
+      "atLimit": "You're already holding 3 cases.",
+      "empty": "No open cases right now. Thank you for being here."
     },
     "mine": {
       "count": "{count} of {max}",
@@ -704,7 +789,7 @@
       "sent": "Thank you. The team received your report."
     },
     "release": {
-      "title": "Hand this request back",
+      "title": "Hand this case back",
       "intro": "It will return to the open list so another volunteer can help. That's completely okay.",
       "reasons": {
         "availability": "My availability changed",
@@ -720,7 +805,7 @@
       "summary": "Short summary (optional)",
       "concern": "Is there something the team should know? (optional)",
       "concernHint": "For example a worry about their wellbeing. Writing here alerts the team.",
-      "submit": "Complete request"
+      "submit": "Complete case"
     },
     "checklist": {
       "title": "Your steps",
@@ -735,9 +820,9 @@
     },
     "errors": {
       "not_approved": "Only approved volunteers can do this.",
-      "not_yours": "This request is no longer assigned to you.",
-      "not_open": "Another volunteer just took this request. Thank you for offering!",
-      "limit_reached": "You're already holding 3 requests. Complete or hand one back first.",
+      "not_yours": "This case is no longer assigned to you.",
+      "not_open": "Another volunteer just took this case. Thank you for offering!",
+      "limit_reached": "You're already holding 3 cases. Complete or hand one back first.",
       "forbidden": "You don't have permission to do this.",
       "invalid": "Something wasn't valid. Please try again.",
       "failed": "Something went wrong. Please try again."
@@ -747,5 +832,10 @@
       "language": "Language",
       "meeting": "How to meet"
     }
+  },
+  "errorPage": {
+    "title": "Something went wrong",
+    "body": "The page couldn't load. The team has been notified.",
+    "retry": "Try again"
   }
 }

@@ -3,7 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { routes } from "@/lib/routes";
 import { createSessionClient } from "@/lib/supabase/server";
 
-type Section = "volunteers" | "requests" | "attention";
+type Section = "volunteers" | "requests" | "attention" | "logs";
 
 /** Tabs across the admin area, with a count of unresolved issues. */
 export async function AdminNav({ current }: { current: Section }) {
@@ -18,6 +18,7 @@ export async function AdminNav({ current }: { current: Section }) {
     { key: "volunteers", href: routes.admin },
     { key: "requests", href: `${routes.admin}/requests` },
     { key: "attention", href: `${routes.admin}/attention`, badge: count ?? 0 },
+    { key: "logs", href: `${routes.admin}/logs` },
   ];
 
   return (

@@ -4,6 +4,7 @@ import { getSupabase } from "@/lib/supabase/server";
 import { normalizeIsraeliPhone } from "@/lib/validation";
 import { intakeSchema, type IntakeValues } from "./schema";
 import type { Locale } from "@/i18n/routing";
+import { errorMeta, logError } from "@/lib/logs";
 
 export type SubmitResult = { ok: true } | { ok: false; reason: "invalid" | "unavailable" | "failed" };
 
@@ -15,7 +16,7 @@ export async function submitHelpRequest(values: IntakeValues, locale: Locale): P
 
   const supabase = getSupabase();
   if (!supabase) {
-    console.error("[intake] SUPABASE_URL / SUPABASE_PUBLISHABLE_KEY are not set.");
+    await logError("system", "system.misconfigured", "[intake] SUPABASE_URL / SUPABASE_PUBLISHABLE_KEY are not set.");
     return { ok: false, reason: "unavailable" };
   }
 
@@ -34,7 +35,7 @@ export async function submitHelpRequest(values: IntakeValues, locale: Locale): P
 
   if (error) {
     // Log the code only: never log the submitted personal details.
-    console.error("[intake] submit_help_request failed:", error.code, error.message);
+    await logError("requests", "system.rpc_failed", "[intake] submit_help_request failed", { fn: "submit_help_request", ...errorMeta(error) });
     return { ok: false, reason: "failed" };
   }
   return { ok: true };

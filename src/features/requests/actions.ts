@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { createSessionClient } from "@/lib/supabase/server";
+import { errorMeta, logError } from "@/lib/logs";
 import {
   ISSUE_KINDS,
   MAX_CHECKLIST_ITEMS,
@@ -24,7 +25,7 @@ async function call(fn: string, args: Record<string, unknown>): Promise<RequestA
   revalidatePath("/[locale]/admin", "layout");
   if (!error) return { ok: true };
   const known = KNOWN_ERRORS.find((k) => error.message === k);
-  if (!known) console.error(`[requests] ${fn} failed:`, error.code, error.message);
+  if (!known) await logError("requests", "system.rpc_failed", `[requests] ${fn} failed`, { fn, ...errorMeta(error) });
   return { ok: false, error: known ?? "failed" };
 }
 

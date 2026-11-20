@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { createSessionClient } from "@/lib/supabase/server";
 import { VOLUNTEER_STATUSES, type VolunteerStatus } from "@/features/volunteer/schema";
 import { israelLocalToIso } from "@/lib/time";
+import { errorMeta, logError } from "@/lib/logs";
 
 export type AdminState = { ok?: boolean; error?: "forbidden" | "invalid" | "failed" | "in_past" | "badLink" } | null;
 
@@ -47,7 +48,7 @@ async function rpcAsAdmin(fn: string, args: Record<string, unknown>): Promise<Ad
   revalidatePath("/[locale]/admin", "layout");
   if (!error) return { ok: true };
   if (error.message === "forbidden" || error.message === "invalid" || error.message === "in_past") return { error: error.message };
-  console.error(`[admin] ${fn} failed:`, error.code, error.message);
+  await logError("system", "system.rpc_failed", `[admin] ${fn} failed`, { fn, ...errorMeta(error) });
   return { error: "failed" };
 }
 

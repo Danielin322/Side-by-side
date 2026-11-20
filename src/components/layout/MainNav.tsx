@@ -30,7 +30,7 @@ export function MainNav() {
   // Re-check on every navigation, so the pill hides right after signing in and returns after signing out.
   useEffect(() => setSignedIn(hasSessionCookie()), [pathname]);
 
-  // The public site's menu isn't relevant on the volunteer dashboard.
+  // The public site's menu isn't relevant on the volunteer dashboard or in the admin area.
   const inVolunteerArea = useInVolunteerArea();
   if (inVolunteerArea) return null;
 
