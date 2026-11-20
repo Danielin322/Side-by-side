@@ -8,7 +8,6 @@ import { resolveLocale, type LocaleParams } from "@/i18n/locale";
 import { Link, redirect } from "@/i18n/navigation";
 import { routes } from "@/lib/routes";
 import { getViewer } from "@/features/auth/viewer";
-import { SignOutButton } from "@/features/auth/SignOutButton";
 import { MAX_ACTIVE_REQUESTS } from "@/features/requests/model";
 import { OpenRequestsPanel } from "@/features/requests/RequestsBoard";
 import { loadDashboard } from "@/features/dashboard/data";
@@ -55,7 +54,6 @@ export default async function VolunteerDashboardPage(props: LocaleParams) {
           </BadgeCheck>
         )}
       </h1>
-      <SignOutButton />
     </div>
   );
 
