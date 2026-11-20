@@ -12,6 +12,8 @@ import { HideInVolunteerArea } from "./HideInVolunteerArea";
 /**
  * Utility bar (brand at the start, quick support at the end) and main navigation.
  * "start"/"end" mirror automatically: in Hebrew the brand sits on the right.
+ * The language switcher is the exception: it stays in the top-right corner in both languages,
+ * so it doesn't jump out from under the cursor when the language changes.
  */
 export function SiteHeader() {
   const t = useTranslations();
@@ -19,8 +21,8 @@ export function SiteHeader() {
   return (
     <header className="bg-bg">
       <div className="border-b border-line/60">
-        <div className="container-page flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-4">
-          <Link href={routes.home} aria-label={t("brand.homeLink")} className="flex items-center gap-3">
+        <div className="container-page flex flex-wrap items-center gap-x-6 gap-y-3 py-4">
+          <Link href={routes.home} aria-label={t("brand.homeLink")} className="flex min-w-0 flex-1 items-center gap-3 lg:flex-none">
             <LogoMark className="size-11 shrink-0" />
             <span className="flex flex-col leading-tight">
               <span className="text-xl font-semibold text-ink">{t("brand.name")}</span>
@@ -28,7 +30,7 @@ export function SiteHeader() {
             </span>
           </Link>
 
-          <div role="group" aria-label={t("topBar.label")} className="flex flex-wrap items-center gap-2">
+          <div role="group" aria-label={t("topBar.label")} className="order-2 flex basis-full flex-wrap items-center gap-2 lg:ms-auto lg:basis-auto">
             {/* Help-seeker shortcuts: not shown on the volunteer dashboard. */}
             <HideInVolunteerArea>
               <a
@@ -43,6 +45,11 @@ export function SiteHeader() {
               <ChatComingSoon />
             </HideInVolunteerArea>
             <ThemeSwitcher />
+          </div>
+
+          {/* Always the physical right edge of the first row. Hebrew: first item (right edge in RTL).
+              English: next to the brand on small screens (support buttons wrap below), last on wide ones. */}
+          <div className="self-start lg:self-center rtl:order-first ltr:order-1 ltr:ms-auto ltr:lg:order-3 ltr:lg:ms-0">
             <LanguageSwitcher />
           </div>
         </div>
