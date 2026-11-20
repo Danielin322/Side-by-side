@@ -37,5 +37,9 @@ export function savePrefs(prefs: A11yPrefs) {
   }
 }
 
-/** Runs in <head> before first paint so saved preferences don't flash. */
-export const A11Y_INIT_SCRIPT = `try{var p=JSON.parse(localStorage.getItem("${A11Y_STORAGE_KEY}")||"{}"),e=document.documentElement;if(typeof p.textScale==="number")e.dataset.textScale=String(p.textScale);if(p.contrast)e.dataset.contrast="high";if(p.motion)e.dataset.motion="reduce";}catch(_){}`;
+/**
+ * Runs in <head> before first paint so saved preferences don't flash.
+ * Switching language re-renders <html> and React strips these attributes; applyPrefs always sets
+ * data-text-scale, so when it goes missing the observer re-applies the saved prefs before paint.
+ */
+export const A11Y_INIT_SCRIPT = `(function(){try{var e=document.documentElement,a=function(){var p=JSON.parse(localStorage.getItem("${A11Y_STORAGE_KEY}")||"{}");if(typeof p.textScale==="number")e.dataset.textScale=String(p.textScale);if(p.contrast)e.dataset.contrast="high";if(p.motion)e.dataset.motion="reduce";};a();new MutationObserver(function(){if(!e.dataset.textScale)a();}).observe(e,{attributes:true,attributeFilter:["data-text-scale"]});}catch(_){}})();`;

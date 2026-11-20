@@ -24,7 +24,12 @@ export function AccessibilityPanel() {
   const panelRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
 
-  useEffect(() => setPrefs(loadPrefs()), []);
+  useEffect(() => {
+    const saved = loadPrefs();
+    setPrefs(saved);
+    // Switching language remounts <html> and drops the data-* attributes, so re-apply the saved prefs.
+    applyPrefs(saved);
+  }, []);
 
   useEffect(() => {
     if (!open) return;

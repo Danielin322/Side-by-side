@@ -33,5 +33,9 @@ export function saveTheme(theme: Theme) {
   }
 }
 
-/** Runs in <head> before first paint so a saved choice doesn't flash the other theme. */
-export const THEME_INIT_SCRIPT = `try{var t=localStorage.getItem("${THEME_STORAGE_KEY}");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(_){}`;
+/**
+ * Runs in <head> before first paint so a saved choice doesn't flash the other theme.
+ * Switching language re-renders <html> and React strips data-theme; the observer puts it back
+ * as a microtask, before the browser paints, so there's no flash of the device theme.
+ */
+export const THEME_INIT_SCRIPT = `(function(){try{var e=document.documentElement,a=function(){var t=localStorage.getItem("${THEME_STORAGE_KEY}");if(t==="light"||t==="dark")e.dataset.theme=t;};a();new MutationObserver(function(){if(!e.dataset.theme)a();}).observe(e,{attributes:true,attributeFilter:["data-theme"]});}catch(_){}})();`;
