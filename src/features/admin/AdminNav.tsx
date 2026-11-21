@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { routes } from "@/lib/routes";
@@ -12,8 +13,9 @@ type Section = "volunteers" | "requests" | "attention" | "logs";
  * Top of every admin page: the same bar as the volunteer dashboard with "Admin area" selected,
  * and the admin tabs in a second row underneath (with a count of unresolved issues).
  * Admins without a volunteer profile only see the "Admin area" tab, since the others would be empty.
+ * `subnav` is an optional third row for the current section (the Logs page uses it for Audit / Event log).
  */
-export async function AdminNav({ current }: { current: Section }) {
+export async function AdminNav({ current, subnav }: { current: Section; subnav?: ReactNode }) {
   const [t, td, viewer, supabase] = await Promise.all([
     getTranslations("admin.nav"),
     getTranslations("dashboard.tabs"),
@@ -58,7 +60,7 @@ export async function AdminNav({ current }: { current: Section }) {
             href={tab.href}
             aria-current={tab.key === current ? "page" : undefined}
             className={`-mb-px inline-flex shrink-0 items-center gap-2 whitespace-nowrap border-b-2 px-4 py-2.5 text-sm font-medium ${
-              tab.key === current ? "border-primary text-ink" : "border-transparent text-ink-soft hover:text-ink"
+              tab.key === current ? "border-primary bg-primary-soft text-ink" : "border-transparent text-ink-soft hover:text-ink"
             }`}
           >
             {t(tab.key)}
@@ -68,6 +70,7 @@ export async function AdminNav({ current }: { current: Section }) {
           </Link>
         ))}
       </ScrollToCurrent>
+      {subnav}
     </div>
   );
 }
