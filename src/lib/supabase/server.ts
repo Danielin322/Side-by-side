@@ -2,8 +2,9 @@ import "server-only";
 import { cookies } from "next/headers";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { createServerClient } from "@supabase/ssr";
+import { supabaseUrl } from "./env";
 
-const url = () => process.env.SUPABASE_URL;
+const url = supabaseUrl;
 const publishableKey = () => process.env.SUPABASE_PUBLISHABLE_KEY;
 
 /**
