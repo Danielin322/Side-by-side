@@ -9,7 +9,7 @@ export function LogFilterForm({ children, label }: { children: ReactNode; label:
       method="get"
       role="search"
       aria-label={label}
-      className="mt-4 flex flex-wrap items-end gap-3"
+      className="flex flex-wrap items-end gap-3"
       onChange={(e) => {
         if (e.target instanceof HTMLSelectElement) e.currentTarget.requestSubmit();
       }}

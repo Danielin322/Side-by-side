@@ -18,7 +18,7 @@ export const TAB_ICONS: Record<DashboardTab | "admin", LucideIcon> = {
 /** One tab in the signed-in bar. Shared by the dashboard and the admin area so the bar looks the same in both. */
 export const tabClass = (active: boolean) =>
   `-mb-px flex shrink-0 items-center gap-2 whitespace-nowrap border-b-3 px-4 py-3 text-base font-medium transition-colors sm:px-5 ${
-    active ? "border-primary text-ink" : "border-transparent text-ink-soft hover:text-ink"
+    active ? "border-primary bg-primary-soft text-ink" : "border-transparent text-ink-soft hover:text-ink"
   }`;
 
 /** The bar's row: tabs side by side, scrolling sideways on narrow screens. */

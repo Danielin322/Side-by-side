@@ -1,6 +1,6 @@
+import { Fragment } from "react";
 import { getTranslations } from "next-intl/server";
-import type { ComponentType, SVGProps } from "react";
-import { ChevronDown, ChevronLeft, Shapes, ChevronRight, Download, Info, Search, TriangleAlert, X } from "lucide-react";
+import { ChevronDown, ChevronLeft, Shapes, ChevronRight, Download, Info, OctagonAlert, Search, TriangleAlert, X } from "lucide-react";
 import { resolveLocale, type LocaleParams } from "@/i18n/locale";
 import { Link } from "@/i18n/navigation";
 import { routes } from "@/lib/routes";
@@ -24,35 +24,10 @@ import {
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
-/**
- * Lucide's octagon-alert with the octagon drawn first: Lucide draws the "!" first, so a filled
- * octagon would cover it. Same props and look as a Lucide icon.
- */
-function OctagonAlertIcon({ className, ...props }: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      {...props}
-    >
-      <path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z" />
-      <path d="M12 8v4" />
-      <path d="M12 16h.01" />
-    </svg>
-  );
-}
-
-// `solid`: a filled icon (ink-colored shape, the mark inside cut out in the soft background color).
-const SEVERITY_STYLE: Record<LogSeverity, { Icon: ComponentType<SVGProps<SVGSVGElement>>; className: string; solid: string }> = {
-  info: { Icon: Info, className: "bg-info-soft text-info-ink", solid: "fill-info-ink text-info-soft" },
-  warning: { Icon: TriangleAlert, className: "bg-warning-soft text-warning-ink", solid: "fill-warning-ink text-warning-soft" },
-  error: { Icon: OctagonAlertIcon, className: "bg-danger-soft text-danger-ink", solid: "fill-danger-ink text-danger-soft" },
+const SEVERITY_STYLE: Record<LogSeverity, { Icon: typeof Info; className: string }> = {
+  info: { Icon: Info, className: "bg-info-soft text-info-ink" },
+  warning: { Icon: TriangleAlert, className: "bg-warning-soft text-warning-ink" },
+  error: { Icon: OctagonAlert, className: "bg-danger-soft text-danger-ink" },
 };
 
 const fieldClass =
@@ -89,34 +64,30 @@ export default async function AdminLogsPage(props: LocaleParams & { searchParams
 
   return (
     <section className="container-page max-w-5xl py-10 sm:py-16">
-      <AdminNav current="logs" />
-      {/* The tab above names the page; the heading stays for screen readers. */}
+      <AdminNav
+        current="logs"
+        subnav={
+          // Audit log | Event log: two equal halves with a divider between them.
+          <nav aria-label={t("viewLabel")} className="grid grid-cols-[1fr_auto_1fr] border-t border-line/60 bg-surface-soft/30">
+            {LOG_VIEWS.map((v, i) => (
+              <Fragment key={v}>
+                {i > 0 && <span aria-hidden className="my-2 w-px bg-line" />}
+                <Link
+                  href={href({ view: v, sev: [], cat: null })}
+                  aria-current={f.view === v ? "page" : undefined}
+                  className={`-mb-px border-b-2 px-4 py-2.5 text-center text-sm font-medium ${
+                    f.view === v ? "border-primary bg-primary-soft text-ink" : "border-transparent text-ink-soft hover:text-ink"
+                  }`}
+                >
+                  {t(`views.${v}`)}
+                </Link>
+              </Fragment>
+            ))}
+          </nav>
+        }
+      />
+      {/* The tabs above name the page; the heading stays for screen readers. */}
       <h1 className="sr-only">{t("title")}</h1>
-
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        {/* Audit log / Event log */}
-        <nav aria-label={t("viewLabel")} className="flex flex-wrap gap-2">
-          {LOG_VIEWS.map((v) => (
-            <Link
-              key={v}
-              href={href({ view: v, sev: [], cat: null })}
-              aria-current={f.view === v ? "page" : undefined}
-              className={`pill ${f.view === v ? "bg-primary text-primary-ink" : "bg-surface text-ink-soft shadow-soft hover:text-ink"}`}
-            >
-              {t(`views.${v}`)}
-            </Link>
-          ))}
-        </nav>
-        {/* A plain <a>: the export is a file download from an API route, not a locale page. */}
-        <a
-          href={`/api/admin/logs/export${logFiltersQuery(f, { page: 1 })}`}
-          className="pill bg-surface text-ink shadow-soft hover:bg-surface-soft"
-          download
-        >
-          <Download aria-hidden className="size-4" />
-          {t("export")}
-        </a>
-      </div>
 
       {/* Category, dates, search */}
       <LogFilterForm label={t("filtersLabel")}>
@@ -155,12 +126,21 @@ export default async function AdminLogsPage(props: LocaleParams & { searchParams
           <Search aria-hidden className="size-4" />
           {t("apply")}
         </button>
+        {/* A plain <a>: the export is a file download from an API route, not a locale page. */}
+        <a
+          href={`/api/admin/logs/export${logFiltersQuery(f, { page: 1 })}`}
+          className="pill bg-surface py-2.5 text-ink shadow-soft hover:bg-surface-soft"
+          download
+        >
+          <Download aria-hidden className="size-4" />
+          {t("export")}
+        </a>
       </LogFilterForm>
 
       {/* Severity quick filters */}
       <div role="group" aria-label={t("severityLabel")} className="mt-4 flex flex-wrap items-center gap-2">
         {LOG_SEVERITIES.map((s) => {
-          const { Icon, className, solid } = SEVERITY_STYLE[s];
+          const { Icon, className } = SEVERITY_STYLE[s];
           const active = f.sev.includes(s);
           return (
             <Link
@@ -170,7 +150,7 @@ export default async function AdminLogsPage(props: LocaleParams & { searchParams
               // Same colors as the severity badges in the table; the selected ones get an outline.
               className={`pill gap-1.5 px-3 py-1 text-xs ${className} ${active ? "ring-2 ring-current" : "hover:shadow-soft"}`}
             >
-              <Icon aria-hidden className={`size-4 ${solid}`} />
+              <Icon aria-hidden className="size-4" />
               {t(`severities.${s}`)}
               <span className="rounded-full bg-surface/70 px-1.5 text-[11px]">{counts[s] ?? 0}</span>
             </Link>
