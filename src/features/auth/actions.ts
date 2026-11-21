@@ -1,6 +1,7 @@
 "use server";
 
 import { z } from "zod";
+import { isAuthRetryableFetchError } from "@supabase/supabase-js";
 import { redirect } from "@/i18n/navigation";
 import { createSessionClient } from "@/lib/supabase/server";
 import { siteOrigin } from "@/lib/origin";
@@ -35,6 +36,8 @@ export async function signIn(_prev: AuthState, form: FormData): Promise<AuthStat
       metadata: errorMeta(error),
       actorLabel: email.data,
     });
+    // Supabase couldn't be reached (no internet, timeout): the password was never checked.
+    if (isAuthRetryableFetchError(error)) return { error: "network" };
     if (error.code === "email_not_confirmed") return { error: "notConfirmed" };
     if (error.code?.includes("rate_limit")) return { error: "rateLimited" };
     return { error: "invalidCredentials" };

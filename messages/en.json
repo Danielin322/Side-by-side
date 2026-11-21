@@ -362,6 +362,7 @@
       "missingFields": "Please fill in your email and password.",
       "invalidCredentials": "The email or password isn't right.",
       "notConfirmed": "Please confirm your email first. Check your inbox for our link.",
+      "network": "We couldn't connect just now, so your details weren't checked. Please check your internet connection and try again.",
       "rateLimited": "Too many attempts right now. Please wait a few minutes and try again.",
       "emailInvalid": "This email address doesn't look complete.",
       "passwordShort": "Please use at least 8 characters.",
@@ -401,10 +402,6 @@
       "body": "Apply to volunteer and we'll get in touch.",
       "apply": "Apply to volunteer"
     },
-    "admin": {
-      "title": "Admin area",
-      "body": "Review volunteer applications."
-    },
     "meeting": "Your video chat: {when}",
     "join": "Join the video chat",
     "tabs": {
@@ -412,7 +409,8 @@
       "opportunities": "Cases",
       "requests": "In progress",
       "activity": "My activity",
-      "profile": "My profile"
+      "profile": "My profile",
+      "admin": "Admin area"
     },
     "overview": {
       "label": "At a glance",
@@ -665,8 +663,8 @@
         "time": "Time",
         "severity": "Severity",
         "category": "Category",
-        "actor": "Person",
-        "message": "What happened"
+        "actor": "User",
+        "message": "Description"
       },
       "eventCode": "Event",
       "pagination": "Pages",

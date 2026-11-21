@@ -2,7 +2,7 @@
 // Opportunities (open requests), My requests (the ones they support now), My activity (meetings, history) and My profile.
 // Reminder (PRD §2): hide help-seeker last name / exact address until a request is accepted.
 import { getTranslations } from "next-intl/server";
-import { BadgeCheck, HeartHandshake, Lock, ShieldCheck } from "lucide-react";
+import { BadgeCheck, HeartHandshake, Lock } from "lucide-react";
 import { formatIsraelDay } from "@/lib/time";
 import { resolveLocale, type LocaleParams } from "@/i18n/locale";
 import { Link, redirect } from "@/i18n/navigation";
@@ -23,20 +23,9 @@ export default async function VolunteerDashboardPage(props: LocaleParams) {
   const viewer = await getViewer();
   if (!viewer) redirect({ href: routes.volunteerLogin, locale });
   const t = await getTranslations("dashboard");
+  // Admin accounts without a volunteer profile have nothing on the dashboard: send them to the admin area.
+  if (!viewer!.volunteer && viewer!.isAdmin) redirect({ href: routes.admin, locale });
   const data = viewer!.volunteer ? await loadDashboard(viewer!.userId) : null;
-
-  const adminLink = viewer!.isAdmin && (
-    <Link
-      href={routes.admin}
-      className="mt-10 flex items-center gap-4 rounded-3xl bg-secondary-soft p-6 text-ink transition-shadow hover:shadow-soft"
-    >
-      <ShieldCheck aria-hidden className="size-6 text-secondary" />
-      <span>
-        <span className="block font-semibold">{t("admin.title")}</span>
-        <span className="block text-sm text-ink-soft">{t("admin.body")}</span>
-      </span>
-    </Link>
-  );
 
   const header = (
     <div className="flex flex-wrap items-center justify-between gap-4">
@@ -69,14 +58,11 @@ export default async function VolunteerDashboardPage(props: LocaleParams) {
           <div>
             <h2 className="text-xl font-semibold text-ink">{t("noApplication.title")}</h2>
             <p className="mt-2 text-ink-soft">{t("noApplication.body")}</p>
-            {!viewer!.isAdmin && (
-              <Link href={routes.volunteer} className="btn-secondary mt-5">
-                {t("noApplication.apply")}
-              </Link>
-            )}
+            <Link href={routes.volunteer} className="btn-secondary mt-5">
+              {t("noApplication.apply")}
+            </Link>
           </div>
         </div>
-        {adminLink}
       </section>
     );
   }
@@ -115,6 +101,7 @@ export default async function VolunteerDashboardPage(props: LocaleParams) {
         label={t("tabs.label")}
         labels={Object.fromEntries(DASHBOARD_TABS.map((k) => [k, t(`tabs.${k}`)])) as Record<DashboardTab, string>}
         // Volunteers already supporting someone land on those requests; others start with what's open.
+        adminTab={viewer!.isAdmin ? { href: routes.admin, label: t("tabs.admin") } : undefined}
         defaultTab={approved ? (myRequests.length > 0 ? "requests" : "opportunities") : "profile"}
         panels={{
           opportunities,
@@ -123,8 +110,6 @@ export default async function VolunteerDashboardPage(props: LocaleParams) {
           profile: <ProfilePanel details={details} memberSince={formatIsraelDay(details.created_at, locale)} />,
         }}
       />
-
-      {adminLink}
     </section>
   );
 }

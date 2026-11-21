@@ -35,13 +35,13 @@ export default async function AdminAttentionPage(props: LocaleParams) {
   const dt = new Intl.DateTimeFormat(locale === "he" ? "he-IL" : "en-GB", { dateStyle: "medium", timeStyle: "short" });
 
   return (
-    <section className="container-page py-10 sm:py-14">
+    <section className="container-page max-w-5xl py-10 sm:py-16">
       <AdminNav current="attention" />
-      <h1 className="text-3xl font-semibold text-ink sm:text-4xl">{t("attention.title")}</h1>
-      <p className="mt-2 text-ink-soft">{t("attention.intro")}</p>
+      {/* The tab above names the page; the heading stays for screen readers. */}
+      <h1 className="sr-only">{t("attention.title")}</h1>
 
       {issues.length > 0 ? (
-        <ul className="mt-8 space-y-3">
+        <ul className="space-y-3">
           {issues.map((i) => (
             <li
               key={i.id}
@@ -71,7 +71,7 @@ export default async function AdminAttentionPage(props: LocaleParams) {
           ))}
         </ul>
       ) : (
-        <div className="mt-8 flex items-center gap-4 rounded-3xl bg-surface-soft p-6 text-ink-soft">
+        <div className="flex items-center gap-4 rounded-3xl bg-surface-soft p-6 text-ink-soft">
           <ShieldCheck aria-hidden className="size-6 shrink-0 text-primary" />
           {t("attention.empty")}
         </div>

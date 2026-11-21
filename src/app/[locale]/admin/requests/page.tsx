@@ -41,12 +41,12 @@ export default async function AdminRequestsPage(props: LocaleParams & { searchPa
   const dateFmt = new Intl.DateTimeFormat(locale === "he" ? "he-IL" : "en-GB", { dateStyle: "medium" });
 
   return (
-    <section className="container-page py-10 sm:py-14">
+    <section className="container-page max-w-5xl py-10 sm:py-16">
       <AdminNav current="requests" />
-      <h1 className="text-3xl font-semibold text-ink sm:text-4xl">{t("requests.title")}</h1>
-      <p className="mt-2 text-ink-soft">{t("requests.intro")}</p>
+      {/* The tab above names the page; the heading stays for screen readers. */}
+      <h1 className="sr-only">{t("requests.title")}</h1>
 
-      <nav aria-label={t("filterLabel")} className="mt-8 flex flex-wrap gap-2">
+      <nav aria-label={t("filterLabel")} className="flex flex-wrap gap-2">
         {REQUEST_STATUSES.map((s) => (
           <Link
             key={s}
