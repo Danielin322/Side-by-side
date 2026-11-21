@@ -698,6 +698,7 @@
         "auth": {
           "login_failed": "Failed sign-in attempt",
           "email_failed": "Email couldn't be sent",
+          "link_failed": "Email link couldn't be used",
           "signup_failed": "Sign-up failed"
         },
         "system": {

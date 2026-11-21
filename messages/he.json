@@ -698,6 +698,7 @@
         "auth": {
           "login_failed": "ניסיון התחברות נכשל",
           "email_failed": "שליחת אימייל נכשלה",
+          "link_failed": "קישור מהאימייל לא עבד",
           "signup_failed": "ההרשמה נכשלה"
         },
         "system": {
