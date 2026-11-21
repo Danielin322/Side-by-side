@@ -12,6 +12,7 @@ never written down, the entry says **Reason not recorded**. Fill those in when y
 2. [Tech stack](#2-tech-stack)
 3. [Data and privacy](#3-data-and-privacy)
 4. [Logging](#4-logging)
+5. [Hosting and environments](#5-hosting-and-environments)
 
 ---
 
@@ -94,3 +95,40 @@ The Logs tab in the admin area (`/admin/logs`), backed by the `system_logs` tabl
   and the cleanup must be scheduled by enabling the extension and re-running that part of the migration.
 - **Why:** Routine activity piles up fast and loses value after a few months. Errors are rare and worth keeping for
   spotting patterns.
+
+---
+
+## 5. Hosting and environments
+
+### Vercel hosts the site, deployed from `main`
+- **Decision:** The site runs on Vercel, connected to the GitHub repo. Every merge into `main` deploys to production
+  (`side-by-side-mocha.vercel.app`). Every pushed branch or PR gets its own preview address. Server code runs in
+  Frankfurt (`fra1`), next to the database.
+- **Why:** Vercel builds Next.js with no extra setup, and automatic deploys mean merging is the only release step.
+  Frankfurt is the closest region to Israel that both Vercel and Supabase offer.
+
+### Two Supabase projects: testing and live
+- **Decision:** Production uses its own Supabase project (Frankfurt). The original project is the testing database,
+  used by localhost and by preview builds. In Vercel, the three Supabase settings are set twice: live values for
+  Production, testing values for Preview.
+- **Why:** Real volunteers' and help-seekers' details never mix with test data, and nothing done while developing or
+  previewing can change live data.
+- **What it costs:** Every new migration must be run in both projects. In the live project, run it before or right
+  when the PR merges, or the live site will look for tables and functions that aren't there yet.
+
+### `SUPABASE_URL` is cleaned up in code
+- **Decision:** `src/lib/supabase/env.ts` removes spaces, a trailing slash and a copied `/rest/v1` or `/auth/v1` from
+  `SUPABASE_URL` before use.
+- **Why:** The first production deploy broke because the address was copied with `/rest/v1/` at the end, which made
+  every request a 404 (sign-in, emails and logging all failed).
+
+### Emails go through a Gmail account, with links that work on any device
+- **Decision:** The live project sends its emails (sign-up confirmation, password reset) through a dedicated Gmail
+  account using an app password, set in Supabase's SMTP settings. The email templates link to
+  `/api/auth/confirm` with `token_hash`, not Supabase's default link. That route signs out any other account on the
+  browser before using the link, and logs failed links as `auth.link_failed`.
+- **Why:** Supabase's built-in sender allows only a few emails an hour. Gmail is free and needs no domain, which is
+  enough at this size; Resend with our own domain is the upgrade if emails start landing in spam. The default link
+  only works in the browser that asked for the email, and most people open emails on their phone. Leftover cookies
+  from another signed-in account made valid links look expired.
+
