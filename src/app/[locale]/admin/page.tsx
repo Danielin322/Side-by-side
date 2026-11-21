@@ -78,12 +78,12 @@ export default async function AdminVolunteersPage(props: LocaleParams & { search
   );
 
   return (
-    <section className="container-page py-10 sm:py-14">
+    <section className="container-page max-w-5xl py-10 sm:py-16">
       <AdminNav current="volunteers" />
-      <h1 className="text-3xl font-semibold text-ink sm:text-4xl">{t("volunteers.title")}</h1>
-      <p className="mt-2 text-ink-soft">{t("volunteers.intro")}</p>
+      {/* The tab above names the page; the heading stays for screen readers. */}
+      <h1 className="sr-only">{t("volunteers.title")}</h1>
 
-      <nav aria-label={t("filterLabel")} className="mt-8 flex flex-wrap gap-2">
+      <nav aria-label={t("filterLabel")} className="flex flex-wrap gap-2">
         {VIEWS.map(({ key, Icon }) => (
           <Link
             key={key}

@@ -79,7 +79,7 @@ export default async function AdminRequestPage(props: { params: Promise<{ locale
   ];
 
   return (
-    <section className="container-page max-w-4xl py-10 sm:py-14">
+    <section className="container-page max-w-5xl py-10 sm:py-16">
       <AdminNav current="requests" />
       <Link href={`${routes.admin}/requests?status=${r.status}`} className="pill -ms-3 text-ink-soft hover:bg-surface-soft hover:text-ink">
         <ArrowLeft aria-hidden className="size-4 rtl:-scale-x-100" />

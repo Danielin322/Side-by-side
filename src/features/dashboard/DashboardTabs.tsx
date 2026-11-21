@@ -3,36 +3,35 @@
 import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
-import { HeartHandshake, History, Search, UserRound, type LucideIcon } from "lucide-react";
 import { localeDirection, type Locale } from "@/i18n/routing";
-import { DASHBOARD_TABS, type DashboardTab } from "./tabs";
+import { Link } from "@/i18n/navigation";
+import { DASHBOARD_TABS, TAB_BAR_CLASS, TAB_ICONS, tabClass, type DashboardTab } from "./tabs";
 
-const ICONS: Record<DashboardTab, LucideIcon> = {
-  opportunities: Search,
-  requests: HeartHandshake,
-  activity: History,
-  profile: UserRound,
-};
 const isTab = (v: string | null): v is DashboardTab => !!v && (DASHBOARD_TABS as readonly string[]).includes(v);
 
 /**
  * The volunteer dashboard's main tabs. Panels are rendered on the server and passed in;
  * the chosen tab is kept in the URL (?tab=) so a refresh stays put.
+ * For admins, `adminTab` adds an "Admin area" link at the end of the bar (its pages live elsewhere).
  */
 export function DashboardTabs({
   labels,
   label,
   panels,
   defaultTab,
+  adminTab,
 }: {
   labels: Record<DashboardTab, string>;
   label: string;
   panels: Record<DashboardTab, ReactNode>;
   defaultTab: DashboardTab;
+  adminTab?: { href: string; label: string };
 }) {
   const dir = localeDirection[useLocale() as Locale];
   const params = useSearchParams();
-  const [tab, setTab] = useState<DashboardTab>(() => (isTab(params.get("tab")) ? (params.get("tab") as DashboardTab) : defaultTab));
+  const [tab, setTab] = useState<DashboardTab>(() =>
+    isTab(params.get("tab")) ? (params.get("tab") as DashboardTab) : defaultTab,
+  );
   const refs = useRef<Record<DashboardTab, HTMLButtonElement | null>>({
     opportunities: null,
     requests: null,
@@ -66,37 +65,38 @@ export function DashboardTabs({
 
   return (
     <div className="mt-12">
-      <div
-        role="tablist"
-        aria-label={label}
-        onKeyDown={onKeyDown}
-        className="flex gap-1 overflow-x-auto border-b border-line [scrollbar-width:none]"
-      >
-        {DASHBOARD_TABS.map((t) => {
-          const active = t === tab;
-          const Icon = ICONS[t];
-          return (
-            <button
-              key={t}
-              ref={(el) => {
-                refs.current[t] = el;
-              }}
-              type="button"
-              role="tab"
-              id={`${baseId}-tab-${t}`}
-              aria-selected={active}
-              aria-controls={`${baseId}-panel-${t}`}
-              tabIndex={active ? 0 : -1}
-              onClick={() => select(t)}
-              className={`-mb-px flex shrink-0 items-center gap-2 whitespace-nowrap border-b-3 px-4 py-3 text-base font-medium transition-colors sm:px-5 ${
-                active ? "border-primary text-ink" : "border-transparent text-ink-soft hover:text-ink"
-              }`}
-            >
-              <Icon aria-hidden className="size-5" />
-              {labels[t]}
-            </button>
-          );
-        })}
+      <div className={TAB_BAR_CLASS}>
+        <div role="tablist" aria-label={label} onKeyDown={onKeyDown} className="flex gap-1">
+          {DASHBOARD_TABS.map((t) => {
+            const active = t === tab;
+            const Icon = TAB_ICONS[t];
+            return (
+              <button
+                key={t}
+                ref={(el) => {
+                  refs.current[t] = el;
+                }}
+                type="button"
+                role="tab"
+                id={`${baseId}-tab-${t}`}
+                aria-selected={active}
+                aria-controls={`${baseId}-panel-${t}`}
+                tabIndex={active ? 0 : -1}
+                onClick={() => select(t)}
+                className={tabClass(active)}
+              >
+                <Icon aria-hidden className="size-5" />
+                {labels[t]}
+              </button>
+            );
+          })}
+        </div>
+        {adminTab && (
+          <Link href={adminTab.href} className={tabClass(false)}>
+            <TAB_ICONS.admin aria-hidden className="size-5" />
+            {adminTab.label}
+          </Link>
+        )}
       </div>
 
       {DASHBOARD_TABS.map((t) => (
