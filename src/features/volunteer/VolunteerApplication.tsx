@@ -24,14 +24,14 @@ import {
 import { SUPPORT_TYPES } from "@/features/intake/schema";
 import { MEETING_ICONS, SUPPORT_ICONS } from "@/features/intake/icons";
 import { adminVolunteerSchema, DEFAULT_LANGUAGES, TRANSPORT, VOLUNTEER_MEETING_MODES, volunteerSchema, type VolunteerValues } from "./schema";
-import { completeAdminVolunteerProfile, submitVolunteerApplication, type ApplyResult } from "./actions";
+import { completeMyVolunteerProfile, submitVolunteerApplication, type ApplyResult } from "./actions";
 import { AvailabilityGrid, LanguageLevels } from "./fields";
 
 type StepId = "personal" | "availability" | "languages" | "offer" | "background" | "declarations" | "account";
 
 const STEPS: StepId[] = ["personal", "availability", "languages", "offer", "background", "declarations", "account"];
-// An admin filling in their own profile is already signed in: no account step.
-const ADMIN_STEPS: StepId[] = STEPS.filter((s) => s !== "account");
+// Someone already signed in (for example an admin) applies for their own account: no account step.
+const SIGNED_IN_STEPS: StepId[] = STEPS.filter((s) => s !== "account");
 
 const STEP_FIELDS: Record<StepId, FieldPath<VolunteerValues>[]> = {
   personal: ["fullName", "nationalId", "birthDate", "city", "phone", "occupation"],
@@ -49,11 +49,13 @@ type FailReason = Extract<ApplyResult, { ok: false }>["reason"];
 
 /**
  * Multi-step volunteer application. Ends by creating the account and sending the application.
- * `mode="admin"`: a signed-in admin without a volunteer profile fills one in for their own account.
+ * `mode="signedIn"`: an account without a volunteer profile applies for itself, with no account step.
+ * `admin`: that account is an admin, so the profile is approved at once (every admin is also a volunteer).
  */
-export function VolunteerApplication({ mode = "signup" }: { mode?: "signup" | "admin" }) {
-  const isAdmin = mode === "admin";
-  const steps = isAdmin ? ADMIN_STEPS : STEPS;
+export function VolunteerApplication({ mode = "signup", admin = false }: { mode?: "signup" | "signedIn"; admin?: boolean }) {
+  const signedIn = mode === "signedIn";
+  const isAdmin = signedIn && admin;
+  const steps = signedIn ? SIGNED_IN_STEPS : STEPS;
   const t = useTranslations("volunteer");
   const tIntake = useTranslations("intake");
   const locale = useLocale();
@@ -73,7 +75,7 @@ export function VolunteerApplication({ mode = "signup" }: { mode?: "signup" | "a
     formState: { errors },
   } = useForm({
     // The admin schema has no account fields; the form keeps one value type for both modes.
-    resolver: (isAdmin ? zodResolver(adminVolunteerSchema) : zodResolver(volunteerSchema)) as Resolver<VolunteerValues>,
+    resolver: (signedIn ? zodResolver(adminVolunteerSchema) : zodResolver(volunteerSchema)) as Resolver<VolunteerValues>,
     mode: "onTouched",
     defaultValues: {
       fullName: "",
@@ -105,9 +107,9 @@ export function VolunteerApplication({ mode = "signup" }: { mode?: "signup" | "a
 
   const send = handleSubmit((values) => {
     startSending(async () => {
-      const res = isAdmin ? await completeAdminVolunteerProfile(values, locale) : await submitVolunteerApplication(values, locale);
+      const res = signedIn ? await completeMyVolunteerProfile(values, locale) : await submitVolunteerApplication(values, locale);
       setResult(res);
-      if (isAdmin && res.ok) router.refresh();
+      if (signedIn && res.ok) router.refresh();
     });
   });
 
@@ -131,8 +133,8 @@ export function VolunteerApplication({ mode = "signup" }: { mode?: "signup" | "a
             {t("done.confirmEmail", { email: watch("email") })}
           </p>
         )}
-        <Link href={isAdmin ? routes.volunteerDashboard : routes.home} className="btn-secondary mt-10">
-          {t(isAdmin ? "adminProfile.toDashboard" : "done.home")}
+        <Link href={signedIn ? routes.volunteerDashboard : routes.home} className="btn-secondary mt-10">
+          {t(signedIn ? "adminProfile.toDashboard" : "done.home")}
         </Link>
       </section>
     );
@@ -142,9 +144,9 @@ export function VolunteerApplication({ mode = "signup" }: { mode?: "signup" | "a
 
   return (
     <section className="container-page max-w-2xl py-8 sm:py-12">
-      {isAdmin && (
+      {signedIn && (
         <div className="mb-6">
-          <Notice>{t("adminProfile.intro")}</Notice>
+          <Notice>{t(isAdmin ? "adminProfile.intro" : "adminProfile.signedInIntro")}</Notice>
         </div>
       )}
       <StepProgress
@@ -411,7 +413,7 @@ export function VolunteerApplication({ mode = "signup" }: { mode?: "signup" | "a
         />
       </form>
 
-      {stepIndex === 0 && !isAdmin && (
+      {stepIndex === 0 && !signedIn && (
         <p className="mt-8 text-center text-sm text-ink-soft">
           {t("account.haveAccount")}{" "}
           <Link href={routes.volunteerLogin} className="font-medium text-primary underline underline-offset-4">
