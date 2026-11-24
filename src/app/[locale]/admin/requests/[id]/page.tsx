@@ -49,7 +49,7 @@ export default async function AdminRequestPage(props: { params: Promise<{ locale
       .eq("id", id)
       .maybeSingle<Request>(),
     supabase.from("request_events").select("id, kind, reason, note, created_at, actor").eq("request_id", id).order("created_at").returns<Event[]>(),
-    supabase.from("request_issues").select("id, kind, note, created_at, resolved_at, flag_outcome, flag_reason, flag_evidence, flag_feedback").eq("request_id", id).order("created_at").returns<Issue[]>(),
+    supabase.from("request_issues").select("id, kind, note, created_at, resolved_at, flag_outcome, flag_feedback").eq("request_id", id).order("created_at").returns<Issue[]>(),
   ]);
   if (!r) notFound();
 

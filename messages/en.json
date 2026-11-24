@@ -553,7 +553,7 @@
       "resolve": "Mark resolved",
       "resolved": "Resolved",
       "open": "Open case",
-      "meta": "{person} · reported by {volunteer} · {date}",
+      "meta": "<v>{person}</v> · reported by <v>{volunteer}</v> · <v>{date}</v>",
       "kinds": {
         "safety": "Safety or wellbeing concern",
         "concern": "Concern raised at completion",
@@ -563,8 +563,6 @@
         "auto_flag": "Hand-back note flagged automatically"
       },
       "flag": {
-        "reason": "Why it was flagged",
-        "evidence": "The words that decided it",
         "failed": "The automatic check didn't work, so please read the note yourself.",
         "refused": "The automatic check gave no answer, so please read the note yourself.",
         "aiNote": "Checked automatically. It can be wrong.",

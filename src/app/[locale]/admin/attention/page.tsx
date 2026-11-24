@@ -29,7 +29,7 @@ export default async function AdminAttentionPage(props: LocaleParams) {
   const { data } = await supabase
     .from("request_issues")
     .select(
-      "id, kind, note, created_at, request_id, flag_outcome, flag_reason, flag_evidence, flag_feedback, help_requests(first_name), volunteers(full_name)",
+      "id, kind, note, created_at, request_id, flag_outcome, flag_feedback, help_requests(first_name), volunteers(full_name)",
     )
     .is("resolved_at", null)
     .returns<Issue[]>();
@@ -50,15 +50,16 @@ export default async function AdminAttentionPage(props: LocaleParams) {
               className={`rounded-3xl p-5 shadow-soft ${i.kind === "safety" ? "bg-secondary-soft ring-2 ring-secondary" : "bg-surface"}`}
             >
               <div className="flex flex-wrap items-start justify-between gap-3">
-                <div className="flex-1">
+                <div className="min-w-64 flex-1">
                   <p className="font-semibold text-ink">{t(`attention.kinds.${i.kind}`)}</p>
                   {i.note && <p className="mt-1 whitespace-pre-line text-ink">{i.note}</p>}
-                  {i.kind === "auto_flag" && <FlagDetails flag={i} />}
                   <p className="mt-2 text-sm text-ink-soft">
-                    {t("attention.meta", {
+                    {/* Each value is isolated, so English names and dates don't scramble the Hebrew line. */}
+                    {t.rich("attention.meta", {
                       person: i.help_requests?.first_name ?? "—",
                       volunteer: i.volunteers?.full_name ?? t("requests.team"),
                       date: dt.format(new Date(i.created_at)),
+                      v: (chunks) => <bdi>{chunks}</bdi>,
                     })}
                   </p>
                 </div>
@@ -70,6 +71,8 @@ export default async function AdminAttentionPage(props: LocaleParams) {
                   </Link>
                 </div>
               </div>
+              {/* The automatic-check line sits at the bottom of the card, under the actions. */}
+              {i.kind === "auto_flag" && <FlagDetails flag={i} />}
             </li>
           ))}
         </ul>
