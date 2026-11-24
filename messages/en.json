@@ -553,13 +553,24 @@
       "resolve": "Mark resolved",
       "resolved": "Resolved",
       "open": "Open case",
-      "meta": "{person} · reported by {volunteer} · {date}",
+      "meta": "<v>{person}</v> · reported by <v>{volunteer}</v> · <v>{date}</v>",
       "kinds": {
         "safety": "Safety or wellbeing concern",
         "concern": "Concern raised at completion",
         "professional": "Needs professional help",
         "unreachable": "Can't reach the person",
-        "coordinator": "Volunteer asked for a coordinator"
+        "coordinator": "Volunteer asked for a coordinator",
+        "auto_flag": "Hand-back note flagged automatically"
+      },
+      "flag": {
+        "failed": "The automatic check didn't work, so please read the note yourself.",
+        "refused": "The automatic check gave no answer, so please read the note yourself.",
+        "aiNote": "Checked automatically. It can be wrong.",
+        "question": "Was this flag right?",
+        "right": "Right",
+        "wrong": "Wrong",
+        "markedRight": "You marked this flag as right.",
+        "markedWrong": "You marked this flag as wrong."
       }
     },
     "volunteers": {
@@ -646,7 +657,8 @@
         "volunteers": "Volunteers",
         "meetings": "Meetings",
         "auth": "Sign-in",
-        "system": "System"
+        "system": "System",
+        "release_flags": "Note flags"
       },
       "from": "From",
       "to": "To",
@@ -706,6 +718,13 @@
           "client_error": "Error shown on a page",
           "rpc_failed": "Database call failed",
           "misconfigured": "Server setting missing"
+        },
+        "release_flag": {
+          "ok": "Hand-back note checked: OK",
+          "flagged": "Hand-back note flagged",
+          "refused": "Note flagged: no answer from the model",
+          "failed": "Note check failed",
+          "feedback": "Admin feedback on a flag"
         }
       },
       "time": "Time",

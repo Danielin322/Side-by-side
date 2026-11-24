@@ -2,7 +2,7 @@ import "server-only";
 import { createAdminClient } from "@/lib/supabase/server";
 
 export type LogSeverity = "info" | "warning" | "error";
-export type LogCategory = "requests" | "volunteers" | "meetings" | "auth" | "system";
+export type LogCategory = "requests" | "volunteers" | "meetings" | "auth" | "system" | "release_flags";
 
 export type LogEntry = {
   severity: LogSeverity;

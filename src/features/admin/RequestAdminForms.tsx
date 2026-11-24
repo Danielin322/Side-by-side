@@ -2,8 +2,8 @@
 
 import { useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
-import { Check, LoaderCircle } from "lucide-react";
-import { adminCloseRequest, adminReleaseRequest, resolveIssue } from "@/features/requests/actions";
+import { Check, LoaderCircle, Sparkles, ThumbsDown, ThumbsUp } from "lucide-react";
+import { adminCloseRequest, adminReleaseRequest, flagFeedback, resolveIssue } from "@/features/requests/actions";
 import type { RequestActionResult, RequestStatus } from "@/features/requests/model";
 
 export function RequestAdminActions({ id, status }: { id: string; status: RequestStatus }) {
@@ -92,5 +92,69 @@ export function ResolveIssueButton({ id }: { id: string }) {
         </span>
       )}
     </span>
+  );
+}
+
+export type FlagInfo = {
+  id: string;
+  flag_outcome: "flagged" | "refused" | "failed" | null;
+  flag_feedback: "right" | "wrong" | null;
+};
+
+/** An automatic flag: a note if the check didn't work, and buttons for the admin to say whether it was right.
+ * The model's reason and evidence are stored for debugging but not shown: the admin reads the note itself. */
+export function FlagDetails({ flag }: { flag: FlagInfo }) {
+  const t = useTranslations("admin.attention.flag");
+  const tReq = useTranslations("requests");
+  const [pending, start] = useTransition();
+  const [feedback, setFeedback] = useState(flag.flag_feedback);
+  const [error, setError] = useState<string | null>(null);
+  const send = (value: "right" | "wrong") =>
+    start(async () => {
+      const r = await flagFeedback(flag.id, value);
+      if (r.ok) {
+        setFeedback(value);
+        setError(null);
+      } else setError(tReq(`errors.${r.error}`));
+    });
+
+  return (
+    <div className="-mb-2 mt-6 text-xs text-ink-soft">
+      {flag.flag_outcome !== "flagged" && <p className="mb-1 text-sm text-ink">{t(flag.flag_outcome === "refused" ? "refused" : "failed")}</p>}
+      {/* One small line: the AI notice, then the question with icon-only buttons. */}
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+        <span className="inline-flex items-center gap-1">
+          <Sparkles aria-hidden className="size-3.5" />
+          {t("aiNote")}
+        </span>
+        {flag.flag_outcome === "flagged" && (
+          <>
+            <span>{feedback ? t(feedback === "right" ? "markedRight" : "markedWrong") : t("question")}</span>
+            {(["right", "wrong"] as const).map((v) => {
+              const Icon = v === "right" ? ThumbsUp : ThumbsDown;
+              return (
+                <button
+                  key={v}
+                  type="button"
+                  disabled={pending}
+                  aria-pressed={feedback === v}
+                  aria-label={t(v)}
+                  title={t(v)}
+                  onClick={() => send(v)}
+                  className={`inline-flex size-7 items-center justify-center rounded-full disabled:opacity-60 ${feedback === v ? "bg-primary text-primary-ink" : "text-ink-soft hover:bg-surface-soft hover:text-ink"}`}
+                >
+                  <Icon aria-hidden className="size-3.5" />
+                </button>
+              );
+            })}
+            {error && (
+              <span role="alert" className="text-secondary">
+                {error}
+              </span>
+            )}
+          </>
+        )}
+      </div>
+    </div>
   );
 }

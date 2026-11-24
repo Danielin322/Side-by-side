@@ -1,0 +1,315 @@
+id,language,text,label,source,group_id
+gem-001,he,"עברתי דירה לחיפה והפונה גר בבת ים, כבר לא רלוונטי לי להגיע פיזית לסניף איתו.",ok,gemini,gem-001
+gem-002,he,התחלתי תקופת מבחנים באוניברסיטה ואין לי איך להתחייב לשעות הבוקר מול ביטוח לאומי. סורי!,ok,gemini,gem-002
+gem-003,he,"דיברתי עם רונית הבוקר, העו""סית מהרווחה כבר סידרה לה את ההנחה בארנונה אז אין צורך בהמשך ליווי.",ok,gemini,gem-003
+gem-004,he,"הפונה מדבר כמעט רק אמהרית וקשה לנו לתקשר בטלפון על טפסים רפואיים, עדיף מישהו דובר השפה.",ok,gemini,gem-004
+gem-005,he,זמינות,ok,gemini,gem-005
+gem-006,he,הוא צריך ליווי פיזי לקופת חולים ואני יכולה להתנדב רק בזום מהבית.,ok,gemini,gem-006
+gem-007,he,"נולד לי תינוק בשבוע שעבר ואני לוקח הפסקה מהתנדבות לכמה חודשים, בהצלחה למתנדב הבא.",ok,gemini,gem-007
+gem-008,he,"הגשנו את כל המסמכים לוועדה רפואית ועכשיו יש המתנה של חודשיים לתור, עד אז אני טס לחו""ל.",ok,gemini,gem-008
+gem-009,he,"התיק שלו מול הוצאה לפועל ממש מורכב עם מלא עיקולים, מרגיש לי שצריך מישהו שמבין בזה יותר ממני.",ok,gemini,gem-009
+gem-010,he,"העומס בעבודה מטורף החודש ואני לא מספיק לעשות follow up על הפניות שלו, עדיף להעביר למישהו פנוי יותר.",ok,gemini,gem-010
+gem-011,he,"כל השיחה הילדים שלו צרחו ברקע והיה רעש מטורף בבית אז בקושי הצלחנו למלא שורה בטופס, ואין לי זמן בערבים כשהם ישנים.",ok,gemini,gem-011
+gem-012,he,"הסיפור חיים שלה ממש קשה לי רגשית ומציף אותי, היא הייתה מקסימה ומנומסת אבל אני מרגיש שאני לא מסוגל להכיל את זה כרגע.",ok,gemini,gem-012
+gem-013,he,"שיחה נוראית מול המוקד של משרד השיכון, חיכינו שעה וחצי על הקו ובסוף הנציגה ניתקה לנו בפרצוף והמערכת קרסה. אין לי פניות לנסות שוב השבוע.",ok,gemini,gem-013
+gem-014,he,"היא בכתה הרבה בשיחה כי דחו לה שוב את הבקשה לסל שיקום והיא ממש מתוסכלת מהמערכת, אבל היא בקשר טוב עם המטפלת שלה. אני פשוט עוברת תפקיד בעבודה.",ok,gemini,gem-014
+gem-015,he,"באמצע הפגישה אח שלו התקשר והם התחילו לצעוק אחד על השני בטלפון, הפונה התנצל ואמר שזה לא יום טוב. שבוע הבא אני מתחיל מילואים אז מעביר הלאה.",ok,gemini,gem-015
+gem-016,he,"עובר עליי שבוע ממש קשוח בבית ואין לי ראש כרגע לבירוקרטיה של עמידר, הפונה אחלה לגמרי פשוט אני חייב לעצור.",ok,gemini,gem-016
+gem-017,he,"הוא התחיל לצרוח עליי בטלפון שאני איטי ולא עוזר לו בכלום, לא מוכן להמשיך ככה.",needs_attention,gemini,gem-017
+gem-018,he,"קבענו 3 פעמים ובכל פעם הוא לא הגיע ולא ענה להודעות בוואטסאפ, חבל על הזמן שלי.",needs_attention,gemini,gem-018
+gem-019,he,"היא מסרבת לשלוח תלושי שכר או דפי חשבון ואומרת שאני סתם מחטט לה בחיים, אי אפשר להגיש ככה בקשה.",needs_attention,gemini,gem-019
+gem-020,he,ביקש ממני להעביר לו 300 שקל בביט עד שתיכנס הקצבה ואמר שאם אני באמת רוצה לעזור שאפתח את הארנק.,needs_attention,gemini,gem-020
+gem-021,he,דרשה שאחתום בשמה על התצהיר לעורך דין כי אין לה כוח להגיע וכשהסברתי שאסור לי היא התעצבנה וניתקה.,needs_attention,gemini,gem-021
+gem-022,he,"לוחץ עליי כל שבוע להסיע אותו לסידורים פרטיים ברכב שלי ולא מקבל לא כתשובה, מרגיש לי חציית גבול.",needs_attention,gemini,gem-022
+gem-023,he,משהו בהתנהלות מולו גורם לי להרגיש ממש לא בנוח ואני מעדיפה לסיים את הליווי הזה.,needs_attention,gemini,gem-023
+gem-024,he,"קם באמצע הפגישה בסניף, זרק לעברי קללה ויצא החוצה.",needs_attention,gemini,gem-024
+gem-025,he,"תכלס גם הנסיעה לשם ארוכה לי מדי, וגם הוא דיבר אליי בזלזול וקרא לי חסר מושג כשניסיתי להסביר לו את הטופס.",needs_attention,gemini,gem-025
+gem-026,he,"אחלה מפגש היה לנו היום, הוא רק צרח עליי פעמיים ודפק על השולחן כי הפקידה ביקשה עוד אישור.",needs_attention,gemini,gem-026
+gem-027,he,ניסיתי להסביר לו שוב ושוב מה ה-boundaries של ההתנדבות אבל הוא מתעלם מכל מה שסיכמנו ודורש שאתקשר בשבילו לבנק כל בוקר.,needs_attention,gemini,gem-027
+gem-028,he,שלח לי רצף הודעות קוליות עצבניות מלאות בהאשמות שאני הורס לו את התיק.,needs_attention,gemini,gem-028
+gem-029,he,"הוא הניח לי יד על הירך בזמן שישבנו על הספסל וזזתי אחורה, לא רוצה להמשיך להיפגש איתו.",needs_attention,gemini,gem-029
+gem-030,he,"כנראה סתם מתוך הרגל של חיבה, אבל ביציאה הוא חיבק אותי חזק ולא שחרר כמה שניות למרות שניסיתי להתרחק.",needs_attention,gemini,gem-030
+gem-031,he,"שלח לי בלילה הודעה בוואטסאפ על איך שנראיתי בפגישה והזמין אותי לבוא אליו לבד בערב, ממש לא לעניין.",needs_attention,gemini,gem-031
+gem-032,he,אמר לי שאם הקצבה לא תאושר החודש הוא ידאג למצוא אותי ולסגור איתי חשבון.,needs_attention,gemini,gem-032
+gem-033,he,"הוא אמר בצחוק שאם הביטוח לאומי שוב דוחים לו את הערעור הוא בא עם ג'ריקן לשרוף להם את הסניף, אותי זה ממש הלחיץ.",needs_attention,gemini,gem-033
+gem-034,he,"בעט בכיסא בחדר ההמתנה והעיף קלסרים על הרצפה, הרגשתי ממש מאוימת פיזית ויצאתי משם.",needs_attention,gemini,gem-034
+gem-035,he,"אמר לי בסוף השיחה שאין לו בשביל מה לקום בבוקר ושהוא חושב לגמור עם הכל, חייבים שמישהו מקצועי יבדוק מה איתו.",needs_attention,gemini,gem-035
+gem-036,he,"לחשה לי בטלפון שבעלה מכה אותה ולוקח לה את הכסף של הקצבה, אני לא יודעת איך לפעול במצב כזה.",needs_attention,gemini,gem-036
+gem-037,he,"השיחה עצמה זרמה רגוע, רק בסוף היא ציינה כדרך אגב שאין לה איפה לישון הלילה ושלא אכלה כלום מיום ראשון.",needs_attention,gemini,gem-037
+gem-038,he,"הוא הופיע היום בלי תיאום בכניסה למקום העבודה שלי וחיכה לי שם, אין לי מושג איך הוא ידע איפה אני עובדת.",needs_attention,gemini,gem-038
+gem-039,he,"ראיתי חתכים טריים על הידיים שלה והיא אמרה שהיא פוגעת בעצמה כשקשה לה, גדול עליי לגמרי.",needs_attention,gemini,gem-039
+gem-040,he,העיר הערות מיניות על הלבוש שלי לאורך כל הפגישה וביקש שאשלח לו תמונה פרטית.,needs_attention,gemini,gem-040
+gem-041,en,"My Hebrew isn't strong enough to argue with Kupat Holim clerks on the phone, she needs a native speaker.",ok,gemini,gem-041
+gem-042,en,"Moving back to the US next month so I need to wrap up my volunteer cases, sorry for the short notice.",ok,gemini,gem-042
+gem-043,en,"Her kids were screaming at each other the entire call so we barely got through the Bituach Leumi form, and my evening schedule just changed so I can't reschedule.",ok,gemini,gem-043
+gem-044,en,"He was really down about his situation and the case feels emotionally heavy for me right now with everything going on in my own family, though he was totally polite.",ok,gemini,gem-044
+gem-045,en,He no-showed three times in a row at the municipality office and refuses to send any of the documents we agreed on.,needs_attention,gemini,gem-045
+gem-046,en,"Honestly the commute to South Tel Aviv is too far for me anyway, plus he yelled at me and called me stupid when the website crashed.",needs_attention,gemini,gem-046
+gem-047,en,"She kept pressuring me to lend her 200 shekels and sign the declaration form in her name, got angry when I said no.",needs_attention,gemini,gem-047
+gem-048,en,"Probably nothing and maybe just cultural, but he kept putting his hand on my knee during our meeting and it made me really uneasy.",needs_attention,gemini,gem-048
+gem-049,en,"Pretty calm meeting overall, though she casually mentioned she hasn't eaten in two days and has nowhere to sleep tonight.",needs_attention,gemini,gem-049
+gem-050,en,"He laughed and said ""I know where you live if you don't get my disability approved this week,"" played it off as a joke but I don't want to meet him again.",needs_attention,gemini,gem-050
+gem-051,he,"עברתי ניתוח בברך השבוע ואני מושבתת לחודש הקרוב, לא אוכל ללוות אותו פיזית למשרד הפנים.",ok,gemini,gem-051
+gem-052,he,חוסר התאמה,ok,gemini,gem-052
+gem-053,he,"עדכנה אותי שהבת שלה חזרה מחו""ל ועזרה לה לסגור את ההסדר מול חברת החשמל, התיק סגור.",ok,gemini,gem-053
+gem-054,he,"הפונה דובר צרפתית בלבד וכל המכתבים ממס הכנסה בעברית, בלי שפה משותפת אנחנו סתם נתקעים.",ok,gemini,gem-054
+gem-055,he,"החליפו לי משמרות בעבודה ועכשיו אני עובד כל יום עד שש, לא נשאר לי חלון זמן לשיחות מול משרדי ממשלה.",ok,gemini,gem-055
+gem-056,he,"אין לי מחשב בבית ואני מתנדב רק מהנייד, ואי אפשר למלא ככה את הטפסים המקוונים של סיוע בשכר דירה.",ok,gemini,gem-056
+gem-057,he,שלח לי הודעה שהחליט בינתיים להקפיא את הבקשה לתו נכה ולהמשיך לבד בהמשך השנה.,ok,gemini,gem-057
+gem-058,he,"מדובר בערעור מורכב על דרגת אי כושר מול ועדה עליונה, מרגיש שזה גדול על הניסיון שלי וצריך מתנדב ותיק יותר.",ok,gemini,gem-058
+gem-059,he,"סיימתי את הלימודים בבאר שבע וחזרתי לגור בצפון, אז כבר לא אוכל להגיע איתה לסניף הדואר בעיר.",ok,gemini,gem-059
+gem-060,he,"תקופה עמוסה בטירוף עם ה-deadlines של סוף רבעון, מעדיפה להעביר למישהו שיוכל לתת לה יחס רציף.",ok,gemini,gem-060
+gem-061,he,"בזמן שישבנו בתור ברשות האוכלוסין פרצה מהומה ליד השומר ושני אנשים צרחו שם אחד על השני, הפונה נלחץ מהרעש והלכנו הביתה. לצערי אני טסה לחודש כך שלא אוכל לקבוע איתו שוב.",ok,gemini,gem-061
+gem-062,he,"יצאתי מהפגישה מרוקן לגמרי, הסיפורים שלה על הבדידות והעוני ממש יושבים לי על הלב ואני לא ישן טוב מזה. היא לא עשתה שום דבר רע, פשוט קשה לי מדי להכיל את זה.",ok,gemini,gem-062
+gem-063,he,"ניסינו להוציא טופס 17 דחוף לבדיקה, האתר של הקופה נפל פעמיים ואז המוקדנית נתנה לנו מידע סותר וניתקה. בזבזנו שעתיים על כלום ואין לי פניות השבוע לנסות שוב.",ok,gemini,gem-063
+gem-064,he,"הוא נשבר ובכה בטלפון כי שוב דחו לו את הבקשה להנחה במים והוא מרגיש חסר אונים מול הבירוקרטיה. הרגעתי אותו והוא אמר שידבר עם אחותו בערב, אני פשוט עובר ניתוח בעיניים ולא אוכל להמשיך.",ok,gemini,gem-064
+gem-065,he,"אי אפשר היה לשמוע מילה בשיחה כי השותף שלו לדירה צרח בטלפון בחדר השני והטלוויזיה הייתה על פול ווליום, והפונה לא יכול לצאת לדבר בחוץ. אני חייב שעות שקטות בערב.",ok,gemini,gem-065
+gem-066,he,"ליוויתי אותה למיון פסיכיאטרי רק כדי להביא סיכום ביקור לביטוח לאומי, הכל עבר בשקט והיא הייתה רגועה לגמרי, פשוט התחלתי עבודה חדשה ואין לי ימי חופש לליווי בבקרים.",ok,gemini,gem-066
+gem-067,he,התעצבן שהמתנו בתור בדואר והתחיל לצעוק עליי שאני חסרת סבלנות ולא מבינה כלום מהחיים שלי.,needs_attention,gemini,gem-067
+gem-068,he,"כבר חודש שהוא לא שולח את האישורים מהבנק ומתעלם מכל מה שסיכמנו לעשות לפני הפגישה, אין לי איך לעזור ככה.",needs_attention,gemini,gem-068
+gem-069,he,"קבעתי איתה פעמיים בסניף של חברת החשמל ופעם שלישית בזום, לא הופיעה לאף אחת מהן ולא טרחה להודיע.",needs_attention,gemini,gem-069
+gem-070,he,ביקש שאשלם לו בינתיים על התרופות בבית מרקחת כי נגמר לו הכסף בכרטיס ויחזיר לי בחודש הבא.,needs_attention,gemini,gem-070
+gem-071,he,"לחצה עליי להתקשר למס הכנסה ולהתחזות לאחותה כדי שיתנו לי מידע, וכשסירבתי אמרה שאני סתם מקשה עליה.",needs_attention,gemini,gem-071
+gem-072,he,"רוצה שאבוא אליו הביתה לנקות ולסדר קלסרים במקום לטפל בטפסים, ומפעיל עליי רגשות אשם כשאני מסבירה שזה לא התפקיד.",needs_attention,gemini,gem-072
+gem-073,he,"משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",needs_attention,gemini,gem-073
+gem-074,he,טרק לי את הדלת בפרצוף באמצע שיחה על הטפסים של סיוע בשכר דירה אחרי שאמרתי שצריך להביא עוד תלוש.,needs_attention,gemini,gem-074
+gem-075,he,"גם ככה השעות של המוקד לא מסתדרות לי עם הלימודים, וגם הוא קרא לי מטומטמת כשהסברתי לו למה הבקשה נדחתה.",needs_attention,gemini,gem-075
+gem-076,he,"ממש תענוג לעבוד איתו, רק קילל אותי פעמיים בטלפון וניתק לי בפנים כי הפקידה ביקשה אישור נוסף.",needs_attention,gemini,gem-076
+gem-077,he,"ניסה לעשות עליי gaslighting כשאמרתי שלא קבענו להיום, ואז דרש שאעביר לו כסף למונית הביתה.",needs_attention,gemini,gem-077
+gem-078,he,"מתקשר אליי כל יום ב-11 בלילה וכשלא עניתי כתב לי שאם יקרה לו משהו זה על המצפון שלי, לא יודעת איך להתמודד עם זה.",needs_attention,gemini,gem-078
+gem-079,he,"בזמן שהסתכלנו יחד במסך של המחשב הוא הצמיד את הגוף שלו אליי ושם יד על המותן שלי, קמתי ויצאתי משם.",needs_attention,gemini,gem-079
+gem-080,he,"לא נעים לי לעשות מזה עניין כי אולי הוא סתם מבוגר וחם, אבל בסוף הפגישה הוא נישק אותי בלחי ממש קרוב לפה ותפס לי את היד חזק.",needs_attention,gemini,gem-080
+gem-081,he,"שלח לי הודעה שהוא חלם עליי בלילה ושאל אם אני פנויה להיפגש לקפה בלי קשר לטפסים, ממש חצה גבול.",needs_attention,gemini,gem-081
+gem-082,he,התחיל לשאול אותי שאלות אישיות על חיי הזוגיות שלי והציע שנעלה אליו לדירה במקום לשבת בבית קפה.,needs_attention,gemini,gem-082
+gem-083,he,אמר שאם אני עוזבת עכשיו את התיק שלו הוא יראה לי מה זה ושאני אתחרט על הרגע שהכרתי אותו.,needs_attention,gemini,gem-083
+gem-084,he,"צחק ואמר לי ""אם לא מסדרים לי את ההנחה בארנונה השבוע אני בא אלייך הביתה עם אלת בייסבול"", ניסה להפוך את זה לבדיחה אבל קפאתי.",needs_attention,gemini,gem-084
+gem-085,he,איים שבפעם הבאה שהוא מגיע לסניף של משרד השיכון הוא הופך שם שולחנות ושובר לפקיד את הראש.,needs_attention,gemini,gem-085
+gem-086,he,"התעצבן שהמערכת קרסה והעיף את הכיסא על הקיר ליד הדלת, הרגשתי בסכנה פיזית מידית.",needs_attention,gemini,gem-086
+gem-087,he,ראיתי אותו מחכה לי ליד תחנת האוטובוס ליד הבית שלי למרות שמעולם לא אמרתי לו איפה אני גרה.,needs_attention,gemini,gem-087
+gem-088,he,כתב לי בוואטסאפ שאין לו כוח להילחם יותר ושהלילה הוא הולך לקחת את כל הכדורים שיש לו בבית.,needs_attention,gemini,gem-088
+gem-089,he,שמתי לב לסימנים כחולים על הזרוע שלה והיא הודתה שבן הזוג שלה נועל אותה בבית ולא נותן לה לצאת לבד.,needs_attention,gemini,gem-089
+gem-090,he,"סיימנו למלא את הטופס למס הכנסה, אגב הוא סיפר לי כדרך אגב שניתקו לו את החשמל והמים לפני שבוע ואין לו כסף לאוכל בכלל.",needs_attention,gemini,gem-090
+gem-091,en,Starting my clinical rotations at the hospital next week so I won't have free mornings to go with him to the tax authority.,ok,gemini,gem-091
+gem-092,en,"She let me know the hospital social worker already submitted her mobility allowance forms, so my help isn't needed anymore.",ok,gemini,gem-092
+gem-093,en,"Two people got into a loud screaming match right next to us in the population registry waiting room and the security guard had to step in, so we left before our turn. I'm going into reserve duty on Sunday so please reassign him.",ok,gemini,gem-093
+gem-094,en,"To be honest his situation with the debt collection office is super depressing and it's weighing heavily on my mood this week. He was completely respectful the whole time, I just don't have the emotional bandwidth right now.",ok,gemini,gem-094
+gem-095,en,She skipped four scheduled calls in a row without a word and still hasn't uploaded a single document to the portal.,needs_attention,gemini,gem-095
+gem-096,en,He asked me to call the water utility pretending to be his lawyer and also wanted me to spot him 150 shekels for groceries.,needs_attention,gemini,gem-096
+gem-097,en,"The bus ride to his neighborhood takes over an hour anyway, plus he snapped at me and called me incompetent when the clerk asked for another form.",needs_attention,gemini,gem-097
+gem-098,en,"I'm probably overthinking it because he seemed lonely, but he rubbed my back while we were looking at the forms and kept trying to hold my hand.",needs_attention,gemini,gem-098
+gem-099,en,"He smirked and said ""if Bituach Leumi denies me again I'm bringing a knife to the branch, just kidding of course,"" which really shook me up.",needs_attention,gemini,gem-099
+gem-100,en,"At the end of our call she quietly said she sees no reason to keep going and plans to end her life this weekend, someone needs to reach out to her immediately.",needs_attention,gemini,gem-100
+gpt-001,he,"ניסיתי לעבור איתה על הטפסים אבל הילדים שלה צרחו ברקע כל השיחה. היה קשה להתרכז, אבל הצעקות לא היו אליי.",ok,chatgpt,gpt-001
+gpt-002,he,"אני בתקופה די קשוחה בעצמי והשיחות בתיק הזה היו לי כבדות רגשית. מעדיף להעביר למתנדב אחר, לא היה משהו חריג בהתנהלות שלה.",ok,chatgpt,gpt-002
+gpt-004,he,"היא הייתה מאוד עצובה ובכתה קצת בפגישה. אמרה שעובר עליה שבוע קשה ושהיא הולכת לישון אצל אחותה הערב, לא עלה משהו שמצריך טיפול נוסף.",ok,chatgpt,gpt-004
+gpt-005,he,"באמצע השיחה הוא התווכח בקול עם אחיו שהיה לידו, אז עצרנו כמה פעמים. זה לא היה מופנה אליי, פשוט לא הייתה אווירה לעבוד.",ok,chatgpt,gpt-005
+gpt-006,he,התחלתי לעבוד במשמרות ערב ואין לי יותר אפשרות להגיע לפגישות בשעות שנוחות לו. עדיף שימצאו לו מישהו עם זמינות אחרת.,ok,chatgpt,gpt-006
+gpt-007,he,נראה לי שהיא תוכל להתקדם הרבה יותר טוב עם מתנדבת שמדברת רוסית. אני מסתדר רק בעברית וזה מקשה על ההסברים.,ok,chatgpt,gpt-007
+gpt-008,he,חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.,ok,chatgpt,gpt-008
+gpt-009,he,"בדקתי את הנסיעה כמה פעמים וזה כמעט שעה לכל כיוון בתחבורה ציבורית. לא אצליח לשמור על מפגשים קבועים, כדאי מישהו מקרוב.",ok,chatgpt,gpt-009
+gpt-011,he,הוא מעדיף פגישות פנים אל פנים ואני יכול להיפגש רק בזום בתקופה הקרובה. נראה לי שצריך להתאים לו מתנדב אחר.,ok,chatgpt,gpt-011
+gpt-012,he,אני עובר לגור בדרום בחודש הבא ולא אוכל להמשיך ללוות את התיק באזור חיפה. מעדיף להעביר אותו מסודר עכשיו.,ok,chatgpt,gpt-012
+gpt-013,he,"היא צריכה עזרה בעיקר עם העלאת מסמכים וסריקות מהמחשב, ואני לא מספיק מבין בזה כדי לעזור לה כמו שצריך. אולי מתנדב עם רקע טכני יתאים יותר.",ok,chatgpt,gpt-013
+gpt-014,he,ניסיתי לקבוע איתו תור בעירייה אבל הם דחו את התאריך פעמיים בגלל עומס אצלם. אין כרגע משהו נוסף שאני יכול לקדם.,ok,chatgpt,gpt-014
+gpt-015,he,אמא שלי צריכה ממני עזרה בתקופה הקרובה ואני לא אצליח להמשיך את הפגישות השבועיות. מבקש להעביר את הליווי למישהו אחר.,ok,chatgpt,gpt-015
+gpt-016,he,הוא ביקש שנעצור עד שיסיים את המעבר דירה ושאחזור אליו בחודש הבא. כרגע אין טעם להמשיך בפגישות.,ok,chatgpt,gpt-016
+gpt-017,he,כל פעם שביקשתי ממנה להביא מסמך היא התחילה לצעוק עליי שאני לא מבין כלום. השיחה האחרונה כבר הייתה ממש תוקפנית.,needs_attention,chatgpt,gpt-017
+gpt-018,he,אני לא מצליח להתקדם איתו. הוא מסרב להעביר את המסמכים שסיכמנו עליהם ולא עונה להודעות כבר שבועיים.,needs_attention,chatgpt,gpt-018
+gpt-019,he,בסוף הפגישה הוא ביקש שאלווה לו 500 שקל עד שייכנס הקצבה. אמרתי שזה לא חלק מהתפקיד והוא המשיך ללחוץ.,needs_attention,chatgpt,gpt-019
+gpt-020,he,"היא התחילה לבקש שאקפיץ אותה לכל מיני סידורים בעיר, לא רק לפגישות שלנו. הסברתי שאני לא שירות הסעות אבל היא ממשיכה להתעקש.",needs_attention,chatgpt,gpt-020
+gpt-021,he,"הוא שולח לי הודעות גם מאוחר בלילה ומצפה שאענה מיד. לא נעים לי להגיד לו לא, אבל אני כבר מרגישה לא בנוח עם הלחץ הזה.",needs_attention,chatgpt,gpt-021
+gpt-022,he,"שלוש פגישות ברצף הוא לא הגיע ולא הודיע מראש. התקשרתי, שלחתי הודעות וניסיתי לתאם מחדש אבל אין שום תגובה.",needs_attention,chatgpt,gpt-022
+gpt-023,he,במהלך הפגישה היא העירה כמה פעמים הערות מיניות על המראה שלי. ניסיתי להחזיר את השיחה לנושא של ביטוח לאומי וזה לא הפסיק.,needs_attention,chatgpt,gpt-023
+gpt-024,he,"הוא חיבק אותי בסוף הפגישה ולא ממש שחרר, אבל אולי אני עושה מזה עניין. הרגשתי ממש לא בנוח ולא ידעתי איך לצאת מזה.",needs_attention,chatgpt,gpt-024
+gpt-025,he,הוא צחק ואמר שאם אני לא אסדר לו את הקצבה הוא עוד יגיע אליי הביתה ויטפל בי. הוא אמר את זה בחיוך אבל זה לא הצחיק אותי.,needs_attention,chatgpt,gpt-025
+gpt-026,he,היא סיפרה לי שהיא מתכננת לפגוע בשכנה שלה בגלל הריב ביניהן. לא ידעתי איך להגיב ונראה לי שצריך לבדוק את זה.,needs_attention,chatgpt,gpt-026
+gpt-027,he,באמצע השיחה הוא אמר שאין לו יותר בשביל מה לחיות ושחשב כמה פעמים לסיים עם הכול. לא הרגשתי שאני יודע איך להתמודד עם זה לבד.,needs_attention,chatgpt,gpt-027
+gpt-031,he,הוא הופיע ליד הבית שלי אתמול בערב בלי שתיאמנו שום דבר. לא נתתי לו את הכתובת שלי לצורך פגישות ואני לא רוצה שזה יקרה שוב.,needs_attention,chatgpt,gpt-031
+gpt-032,he,"במהלך הפגישה הוא התעצבן וזרק את הקלסר על הרצפה, ואז העיף כיסא לכיוון הקיר. קמתי ויצאתי כי הרגשתי לא בטוח.",needs_attention,chatgpt,gpt-032
+gpt-033,he,היא יצאה מהפגישה באמצע כשביקשתי שנעבור יחד על המסמכים. היא אמרה שלא תשתף פעולה עם שום דבר ושאין לה מה לדבר איתי.,needs_attention,chatgpt,gpt-033
+gpt-034,he,"הוא אמר שאני מתנדב חסר תועלת ושאין לי מושג מה אני עושה. גם ככה נראה לי שאני לא האדם המתאים לתיק, אבל היחס שלו היה ממש פוגעני.",needs_attention,chatgpt,gpt-034
+gpt-035,he,כל השיחה הוא קילל אותי ואמר שאני עובד בשביל הרשויות ושאני צריך להתבייש בעצמי. ניסיתי להרגיע אבל הוא רק הגביר את הטון.,needs_attention,chatgpt,gpt-035
+gpt-036,he,"הוא ביקש שאחתום בשמו על הצהרה לביטוח לאומי כי אין לו כוח להתמודד עם זה. כשאמרתי שאסור לי, הוא התעצבן ואמר שאני חייב לו.",needs_attention,chatgpt,gpt-036
+gpt-037,he,אחרי הפגישה קיבלתי ממנו הודעה עם הזמנה לצאת איתו בערב ועוד הודעה עם רמיזה מינית. לא נתתי את המספר שלי לשיחות כאלה.,needs_attention,chatgpt,gpt-037
+gpt-038,he,היא מצפה שאייצג אותה מול העירייה ושאדבר בשמה כאילו אני עורך הדין שלה. הסברתי כמה פעמים שזה לא התפקיד שלי והיא לא מקבלת את זה.,needs_attention,chatgpt,gpt-038
+gpt-039,he,כשהגעתי לפגישה הוא דפק בחוזקה על השולחן והתקרב אליי תוך כדי צעקות. הרגשתי שאני עלול להיפגע ועזבתי את המקום.,needs_attention,chatgpt,gpt-039
+gpt-041,en,"I tried to go over the municipality forms with her, but her kids were shouting and running around in the background the whole time. It wasn't directed at me, just impossible to concentrate.",ok,chatgpt,gpt-041
+gpt-043,en,He told me he found someone at the community centre who can help him with the application. I checked that he had their contact details and he doesn't need me to continue.,ok,chatgpt,gpt-043
+gpt-044,en,My work schedule changed and I can't make the regular morning meetings anymore. She needs someone who can meet during the day.,ok,chatgpt,gpt-044
+gpt-045,en,He shouted at me when I asked for the missing paperwork and called me useless. I don't think I should be handling this case without an admin stepping in.,needs_attention,chatgpt,gpt-045
+gpt-046,en,She missed the last three appointments without letting me know and hasn't replied to any of my messages asking to reschedule.,needs_attention,chatgpt,gpt-046
+gpt-047,en,"He asked me to lend him money for his rent and said he'd pay me back when his benefit comes through. I said I couldn't, but he kept asking.",needs_attention,chatgpt,gpt-047
+gpt-048,en,"He put his hand on my waist while I was helping him with the paperwork. I brushed it off at the time, but it was unwanted and made me uncomfortable.",needs_attention,chatgpt,gpt-048
+gpt-049,en,"At the end of the call she laughed and said, 'Keep ignoring me and you'll be sorry.' Maybe she meant it as a joke, but I took it as a threat.",needs_attention,chatgpt,gpt-049
+gpt-051,he,"ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",ok,chatgpt,gpt-051
+gpt-052,he,"השבוע היה לי ממש קשה מבחינה אישית ולא הצלחתי להתרכז בשיחות. הוא היה בסדר גמור, פשוט אני צריך לקחת הפסקה מההתנדבות.",ok,chatgpt,gpt-052
+gpt-054,he,היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.,ok,chatgpt,gpt-054
+gpt-055,he,אני לא יכול להמשיך להגיע למרכז הקליטה בשעות האלה בגלל הלימודים. אולי מישהו שגר באזור ויכול להגיע בבקרים יתאים יותר.,ok,chatgpt,gpt-055
+gpt-056,he,הוא הסתדר בסוף עם מוקד השירות של חברת החשמל דרך הבן שלו. דיברתי איתו והוא אמר שהנושא נסגר ואין צורך שאמשיך לבדוק.,ok,chatgpt,gpt-056
+gpt-058,he,"אני עוברת לתפקיד חדש בעבודה ולא אוכל להמשיך עם התיקים הקבועים. זה לא משהו שהיא עשתה, פשוט אין לי יותר את הזמן לזה.",ok,chatgpt,gpt-058
+gpt-059,he,הוא צריך עזרה בעיקר בקריאת מסמכים בצרפתית ואני לא יודעת צרפתית בכלל. נראה לי שעדיף למצוא לו מתנדב שיוכל להבין איתו את המכתבים.,ok,chatgpt,gpt-059
+gpt-061,he,היא אמרה שהיא כבר לא רוצה להמשיך עם העזרה כי אחיינית שלה לוקחת על עצמה את כל הסידורים מול משרד השיכון. סיכמנו שאעביר את התיק לסגירה.,ok,chatgpt,gpt-061
+gpt-062,he,"אני אחרי כמה שבועות של עומס בבית ולא מצליח להביא את עצמי לעוד שיחה. הוא לא עשה שום דבר לא בסדר, פשוט אין לי כרגע כוחות.",ok,chatgpt,gpt-062
+gpt-064,he,"הוא גר בקומה רביעית בלי מעלית ואני עם בעיה בברך, לא מתאים לי להגיע לשם באופן קבוע. צריך מישהו שיוכל להיפגש איתו במקום.",ok,chatgpt,gpt-064
+gpt-066,he,הוא כבר קיבל את ההחזר שמגיע לו מקרן הסיוע של העירייה. התקשרתי רק לוודא והוא אמר שהעניין מאחוריו.,ok,chatgpt,gpt-066
+gpt-067,he,ביקשתי ממנה שוב את האישור הרפואי והיא התחילה לצרוח שאני אפס ושאני מבזבז לה את הזמן. לא הצלחתי לנהל איתה שיחה עניינית.,needs_attention,chatgpt,gpt-067
+gpt-068,he,"הוא לא מוכן למלא את הפרטים שביקשו ממנו במרכז התעסוקה, למרות שעברנו עליהם ביחד כמה פעמים. בכל פעם הוא אומר שזה לא עניינו ומנתק.",needs_attention,chatgpt,gpt-068
+gpt-069,he,באמצע הפגישה היא תפסה לי את היד בחוזקה כשניסיתי לקום. אמרה שאני לא הולך עד שאסדר לה את כל העניינים. זה היה מפחיד.,needs_attention,chatgpt,gpt-069
+gpt-070,he,"הוא ביקש שאשתמש בכרטיס האשראי שלי כדי לשלם לו חשבון מים עד שיסתדר. הסברתי שזה לא מתאים, והוא התחיל להפעיל עליי לחץ רגשי.",needs_attention,chatgpt,gpt-070
+gpt-071,he,"אני לא יודעת להסביר בדיוק מה לא בסדר, אבל הוא מתקשר שוב ושוב גם אחרי שביקשתי שנדבר רק בשעות שקבענו. אני כבר חוששת לראות את השם שלו על המסך.",needs_attention,chatgpt,gpt-071
+gpt-072,he,היא זרקה עליי את התיק שלה כשאמרתי שלא אוכל להגיש בשבילה את הבקשה. לא נפגעתי אבל זה כבר עבר גבול מבחינתי.,needs_attention,chatgpt,gpt-072
+gpt-075,he,"הוא שלח לי תמונה אינטימית בלי שביקשתי, ואז שאל אם אני רוצה לשלוח לו אחת בחזרה. ממש לא מתאים לסיטואציה של הליווי.",needs_attention,chatgpt,gpt-075
+gpt-076,he,"היא אמרה שאם אמשיך להתעקש על המסמכים היא תדאג שאאבד את העבודה שלי. ניסתה להגיד אחר כך שהיא רק עצבנית, אבל מבחינתי זו הייתה אזהרה רצינית.",needs_attention,chatgpt,gpt-076
+gpt-077,he,"הוא לא הופיע במרכז הקהילתי, ואז גיליתי שהוא מחכה בחוץ ליד האופניים שלי. הוא אמר שהוא רוצה לדבר איתי לבד ושלא אספר לצוות.",needs_attention,chatgpt,gpt-077
+gpt-078,he,ביקש שאסדר לו עבודה אצל חבר שלי ושאתן לו את המספר האישי של אותו חבר. כשסירבתי הוא התחיל לקלל ולומר שאני חייב לעזור לו בכל דבר.,needs_attention,chatgpt,gpt-078
+gpt-079,he,"היא לא מוכנה לחתום על טופס ויתור סודיות למרות שהסברתי למה צריך אותו, ובינתיים דורשת שאפנה בשמה לגופים שונים. אנחנו לא מתקדמים בכלל.",needs_attention,chatgpt,gpt-079
+gpt-081,he,היא ביקשה שאמסור לה את הסיסמה לחשבון האישי שלי באתר הממשלתי כדי שאוכל לבצע עבורה את הפעולות. כשסירבתי היא אמרה שאני לא שווה כלום.,needs_attention,chatgpt,gpt-081
+gpt-082,he,במהלך הפגישה הוא ליטף לי את השיער כמה פעמים ואמר שאני נראית יפה מדי בשביל לעבוד בהתנדבות. ניסיתי להתרחק והוא המשיך.,needs_attention,chatgpt,gpt-082
+gpt-084,he,"הוא הודיע לי שהוא מגיע למשרד שלי מחר ושאני חייב לפנות לו זמן, למרות שלא קבענו. כשאמרתי שלא יגיע בלי תיאום הוא התחיל לצעוק.",needs_attention,chatgpt,gpt-084
+gpt-086,he,הוא ביקש שאמציא בשבילו מסמכים על הכנסות שלא היו לו כדי לקבל סיוע מהעמותה. כשסירבתי הוא אמר שאני הורס לו את החיים והמשיך ללחוץ.,needs_attention,chatgpt,gpt-086
+gpt-087,he,היא התקשרה אליי בערב ואמרה שהיא מתכוונת לחכות לי ליד התחנה ולדאוג שאצטער על זה שלא עזרתי לה. אני לא מתכוון להיפגש איתה לבד.,needs_attention,chatgpt,gpt-087
+gpt-088,he,בפגישה הוא התחיל להעיר הערות על הגוף שלי ולשאול שאלות אישיות על חיי המין שלי. ניסיתי להבהיר שזה לא מתאים והוא צחק והמשיך.,needs_attention,chatgpt,gpt-088
+gpt-090,he,"היא מסרבת להגיע לפגישות שנקבעו, דורשת שאגיע אליה הביתה בכל שעה שנוחה לה ולא מוכנה לשום חלופה. כשאמרתי שלא אוכל, התחילה לצעוק.",needs_attention,chatgpt,gpt-090
+gpt-092,en,I'm taking care of a family member at the moment and need to step back from volunteering for a while. The person I was helping was perfectly cooperative.,ok,chatgpt,gpt-092
+gpt-094,en,"She told me her cousin has taken over the paperwork for her student assistance application, so my involvement is no longer needed. We agreed to close the handover.",ok,chatgpt,gpt-094
+gpt-095,en,He called me an idiot and said I was deliberately making his situation worse when I explained that I couldn't change the decision myself.,needs_attention,chatgpt,gpt-095
+gpt-096,en,"She keeps refusing to provide the income details needed for the application, then complains that nothing is moving forward. I've asked several times and she won't cooperate.",needs_attention,chatgpt,gpt-096
+gpt-097,en,"He asked me to use my personal bank account to receive a payment on his behalf. When I said no, he became angry and insisted I owed him that favour.",needs_attention,chatgpt,gpt-097
+gpt-098,en,During the meeting she brushed her hand against my chest and then made a comment about wanting to kiss me. I didn't invite any of that and felt uncomfortable.,needs_attention,chatgpt,gpt-098
+gpt-099,en,"He said he was going to smash the windows at the local welfare office if they rejected his application again. He laughed afterwards, but I don't think it was harmless.",needs_attention,chatgpt,gpt-099
+man-001,he,אני לא מתאימה להתנדבות מהסוג הזה,ok,manual,man-001
+man-002,he,התהליך מסובך לי מדי ואני לא רוצה לפקשש לו,ok,manual,man-002
+man-003,he,אני בהריון ועומדת ללדת בקרוב,ok,manual,man-003
+man-004,he,אבחנו אותי במחלה ואני לא ככ יכולה לעזור כרגע,ok,manual,man-004
+man-005,he,המיקום שבו הוא גר לא נעים ללכת בו,ok,manual,man-005
+man-006,he,"יש לה חתולים ואני אלרגית, אין לנו מקום אחר לשבת בו אז אני לא יכולה לעזור פנים מול פנים והמקרה מצריך את זה, יש לה את המספר שלי ואמרתי לה שתתקשר אלי אם היא צריכה משהו.",ok,manual,man-006
+man-007,he,"הוא עבר דירה ואין לי איך להגיע אליו, עדיף שמישהי קרובה אליו תמשיך לעזור לו",ok,manual,man-007
+man-008,he,"יש אתר בניה לידו וקשה לי להתרכז, מתנצלת...",ok,manual,man-008
+man-009,he,"הוא אמר לי שמכאן והלאה הוא יסתדר לבד, ניסיתי לשכנע אותו להמשיך ללוות אותו אבל הוא לא רצה...",ok,manual,man-009
+man-010,he,"יש לי חברה שהליווי הזה יתאים לה יותר, דיברתי איתה והיא תמשיך מהנקודה שבה עצרנו, אמרתי לה שאני מחזירה את המקרה ושהיא תיקח אותו.",ok,manual,man-010
+man-011,he,"המקרה הזה עושה לי טריגרים לטראומה שעברתי, אני לא יכול להמשיך כי זה עושה לי ממש רע",ok,manual,man-011
+man-012,he,צריך ללכת איתו לרופא ואני לא יכולה לבוא בתאריכים שהוא פנוי,ok,manual,man-012
+man-013,he,נכנסה לי מחויבות אחרת שאני לא יכולה לבטל או להזיז,ok,manual,man-013
+man-014,he,השעות שהוא יכול לא נוחות לי,ok,manual,man-014
+man-015,he,"יש כלבים בבית, הם מאוד חמודים ורוצים אהבה, אבל אני מפחדת מכלבים",ok,manual,man-015
+man-016,he,היא מפחדת ממני ולא רוצה לדבר איתי למרות שזה בשיחת טלפון,ok,manual,man-016
+man-017,he,"הוא לא נותן לי לעזור לו ורוצה לעשות דברים בדרך שלו, אין לי איך לעזור כשהוא מתנהג כך",needs_attention,manual,man-017
+man-018,he,"היא אמרה שלא נעים לה להיות עם מתנדב גבר לבד בבית, אני מבין אותה, אני ממליץ להוסיף בהערות שהיא מחפשת מתנדבת אישה.",ok,manual,man-018
+man-019,he,המקרה הזה דורש מישהו עם יותר ניסיון עם ביטוח לאומי,needs_attention,manual,man-019
+man-020,he,"צריך לבדוק עם המטופל מה אפשר לעשות- הוא אגרן ויש לו המון קופסאות ושקיות בבית, יש גם חולדות רצות ביניהן. מבהיל להיות שם, לדעתי כדאי לדבר איתו ולראות אם אפשר לעזור לו בזה",needs_attention,manual,man-020
+man-021,he,"הבית מלוכלך עם ריח של זבל ולא ניתן לשבת שם, הצעתי שנשב בחוץ אבל הוא לא רצה, אין לי איך לעזור כשזה ככה",needs_attention,manual,man-021
+man-022,he,המטופל מדבר לא ברור ואני לא מצליחה להבין מה הוא אומר...,needs_attention,manual,man-022
+man-023,he,"המטוופל צורח מדי פעם, זה מבהיל אותי ואני לא מסוגלת להיות שם",needs_attention,manual,man-023
+man-024,he,"יש בעיית עכבישים בבית, הם בכל מקום ואני מפחדת מעכבישים, אני רוצה לעזור אבל אני לא יכולה כשזה ככה!!",needs_attention,manual,man-024
+man-025,he,"היא צריכה שאני אחזור על עצמי מלא פעמים, אני לא יכולה ככה, אין לי סבלנות לזה, צריך מישהו עם סבלנות של שור",needs_attention,manual,man-025
+man-026,he,"הוא כל פעם מכריח אותי לטעום מהאוכל שהוא הכין. זה מאוד נחמד מצידו והוא ממש מקסים, אבל זה לא נעים לי לסרב.",needs_attention,manual,man-026
+man-027,he,"אני משקיעה כדי לעזור לו ויושבת על זה שעות, אבל הוא צועק עלי שאני לא משיגה לו את זה מספיק מהר. אני מבינה אותו ושהוא צריך את זה ואת העזרה, אבל אני לא יכולה להמשיך ככה. צריך שמישהו ידבר איתו ויסביר לו שדברים כאלה לוקחים זמן.",needs_attention,manual,man-027
+man-028,he,הוא לא נורמלי!! חייב טיפול!! הוא הרביץ לי! קמתי והלכתי.,needs_attention,manual,man-028
+man-029,he,"הוא כל הזמן הציץ בחלון על השכנה שלו, הוא אמר שהוא דואג לה אבל זה היה נראה מטריד, זה גרם לי להרגיש מוזר אז העדפתי להעביר את זה למישהו אחר",needs_attention,manual,man-029
+man-030,he,"אני בשירותים ופתאום אני קולטת שהוא מציץ החור של המנעול. אני מבינה שיש לו קשיים נפשיים, והוא בחור מאוד נחמד ורגוע, אבל זה לא התנהגות נורמלית ומתקבלת על הדעת.",needs_attention,manual,man-030
+man-031,he,"היא ביקשה שאעשה משהו וכשאמרתי לא היא שפכה עלי קפה רותח. היא צחקה אז אולי היא חשבה שזה בסדר, אבל אני לא חוזר לשם",needs_attention,manual,man-031
+man-032,he,"נתקלתי בנחש זוחל אצלו בבית, ובמקום להחזיר אותו לכלוב הוא צחק ונהנה מזה. אמר שזאת חייבת המחמד שלו שלא עושה כלום",needs_attention,manual,man-032
+man-033,he,"תוך כדי שאני עוזר לה היא שמה מוזיקה בווליום גבוה וזה נראה שהוא נהנה מזה שאנחנו לא מצליחים לדבר, זה קרה כמה פעמים ברצף",needs_attention,manual,man-033
+man-034,he,הוא כל פעם שוכח שקבענו ומזמין אליו אנשים אחרים,needs_attention,manual,man-034
+man-035,he,"צריך כסף כדי למלא איזה טופס ואין לו מספיק, אז הוא מבקש שאני אשאיל לו, זה חוזר על עצמו יותר מדי",needs_attention,manual,man-035
+man-036,he,הוא כל הזמן איחר לי,needs_attention,manual,man-036
+man-037,he,הוא לא זמין בטלפון ואני לא יכולה להמשיך ככה,needs_attention,manual,man-037
+man-038,he,הרגשתי ממנו אווירה לא נעימה לא יודעת בדיוק מה אבל זה הרגיש לי לא נעים,needs_attention,manual,man-038
+man-039,he,"אני עוזרת בשמחה כבר המון שנים אבל בחיים לא התייחסו אלי כמו שהיא מתייחסת, זה מאוד מזלזל ולא נעים",needs_attention,manual,man-039
+man-040,he,"אין לי מילים לתאר את הרמה הירודה של ההתנהגות שלה, היא צריכה לעבוד על הנימוסים שלה לפני שהיא מבקשת שירות מאנשים נחמדים",needs_attention,manual,man-040
+man-041,en,"i have a special needs kid, he just graduated and i need to take care of him, im really sorry but i cant continue :(",ok,manual,man-041
+man-042,en,This is taking a lot out of me and I can’t do it anymore.,ok,manual,man-042
+man-043,en,This volunteer job is really triggering for me. More than I’d anticipated. I can’t continue.,ok,manual,man-043
+man-044,en,"As much as I want to help, I don’t have the capacity to anymore.",ok,manual,man-044
+man-045,en,i think he scams and try to get money even tho he doesnt really need it,needs_attention,manual,man-045
+man-046,en,he dm me pictures of me that he took without me noticing,needs_attention,manual,man-046
+man-047,en,he broke my glasses on purpose,needs_attention,manual,man-047
+man-048,en,he laughed at my new haircut,ok,manual,man-048
+man-049,en,he told me he was nice to me even tho he didnt,needs_attention,manual,man-049
+man-050,he,"היא שברה את הרגליים ואין לה כיסא גלגלים, היא תמשיך את התהליך כשתחלים, בינתיים אני עוזרת לה בבית",ok,manual,man-050
+man-051,he,"הוא מדבר בקול רם, זה בסדר אבל בגלל משהו מהעבר שלי אני לא יכולה להתמודד עם זה. אני מאוד מתנצלת, אני מקווה שהוא ימצא מישהו שיעזור לו בהנאה, אבל אני לא מתאימה.",ok,manual,man-051
+man-052,he,זה מקרה שדורש טיפול ארוך ואני תיכף יוצאת לחופשת לידה ואני לא אוכל לטפל בו מהתחלה עד הסוף,ok,manual,man-052
+man-053,he,היא צריכה שזה יהיה פנים מול פנים אבל אני נרשמתי רק לשיחת ווידאו,ok,manual,man-053
+man-054,he,אני עוברת לגור בחול ויש הפרש שעות שהוא בעיה בשבילי,ok,manual,man-054
+man-055,he,קר אצלו והוא לא רוצה לכבות את המזגן גם כשאני מבקשת שוב ושוב,ok,manual,man-055
+man-056,he,הוא רוצה שניפגש רק בתל אביב והמיקום הזה לא נוח לי,ok,manual,man-056
+man-057,he,"פחות התחברתי לבן אדם, סורי",ok,manual,man-057
+man-058,he,"סיימתי לעזור לו אבל לא מצאנו איפה אפשר לסמן שסיימנו אז אני מחזיר את המקרה, מישהו צריך לסגור את זה.",ok,manual,man-058
+man-059,he,"המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",ok,manual,man-059
+man-060,he,"יש לי מישהו במשפחה שחייב עזרה דחופה ואני צריכה להקדיש לו את כל הזמן שלי, ניסיתי לג׳נגל בין שניהם אבל אני שמה לב שאין לי מספיק זמן בשביל עצמי. או בשביל הילדים שלי",ok,manual,man-060
+man-061,he,אני באפריל עוברת דירה לאילת ולא תהיה לי דרך לעזור לו מרחוק והפגישה עם הרופא היא במאי,ok,manual,man-061
+man-062,he,אני עומד לעשות רילוקיישן אז לא תהיה לי אפשרות ללוות אותו לבדיקות הרפואיות וזה מה שהוא היה צריך,ok,manual,man-062
+man-063,he,"שברתי את הרגל אז אין לי איך לבוא איתה למקומות ולעזור לה, ניסיתי לראות אם מישהו יכול לעשות את זה במקומי אבל אני לא מוצא מי",ok,manual,man-063
+man-064,he,"הטפסים שהם צריכים שימלאו להם הם באנגלית ואני לא ממש יודע לכתוב באנגלית, ניסינו להשתמש בג׳מיני אבל זה לא ממש עובד טוב",ok,manual,man-064
+man-065,he,"היא בטעות מילאה שהיא צריכה עזרה בזום אבל כשדיברתי איתה היא אמרה שהיא צריכה עזרה פרונטלית, עזרתי לה לשנות את זה במערכת",ok,manual,man-065
+man-066,he,"התקלקל לי המחשב ואין לה מחשב אז אין לנו משהו לעבוד איתו, היא צריכה מתנדב שיש לו מחשב",ok,manual,man-066
+man-067,he,"יש לו פתיל קצר. הוא בהתחלה התנהג נחמד והציע לי קפה, אבל די מהר התפלפ עלי וזה לא מפסיק להיות ככה",needs_attention,manual,man-067
+man-068,he,"בואו נגיד שתקשורת זה לא הצד החזק שלו, זה גורם לעזרה להיות יותר מסובכת",needs_attention,manual,man-068
+man-069,he,אין לי זמן יותר לעזור לו וכשאמרתי לו את זה הוא התנהג לא בנימוס,needs_attention,manual,man-069
+man-070,he,"היא הפילה אגרטל בבית ואז האשימה אותי שאני עשיתי את זה ואני צריכה לתת לה תגמול על כך, אני מחזירה את המקרה כי אני לא רוצה שדבר כזה יקרה שוב",needs_attention,manual,man-070
+man-071,he,אין סיכוי שאני חוזרת לחורבה הזאת שוב למרות שהאישה הזקנה נחמדה,needs_attention,manual,man-071
+man-072,he,מתנדבת מעמותה אחרת עוזרת לה והיא שיקרה לגבי זה כדי שיבואו שני מתנדבים כדי לעזור לה מהר יותר. באתי אליה ופתאום ראיתי את המתנדבת השנייה יוצאת ודיברתי עם המתנדבת וגילינו שהיא עושה את זה. סתם בזבוז במקום שאני אעזור למישהו שבאמת צריך את זה.,needs_attention,manual,man-072
+man-073,he,"היא מקללת אותי, בהתחלה חשבתי שזה מצחיק אבל זה לא מפסיק למרות שהתעמתתי איתה על זה, אמרתי לה שאם זה ממשיך ככה אני מפסיקה לעזור והיא בכל זאת המשיכה אז אין לי ברירה אלא להפסיק לעזור לה.",needs_attention,manual,man-073
+man-074,he,"לא נעים להיות בחברתה, אישה ממורמרת",needs_attention,manual,man-074
+man-075,he,"בעלה נפטר והיא צריכה זמן לבד להתמודד עם זה, אני מפחדת שהיא תעשה לעצמה משהו",needs_attention,manual,man-075
+man-076,he,"היא מאושפזת בבית חולים כבר חודשיים ולא יוצרת איתי קשר, שווה לבדוק מה שלומה",needs_attention,manual,man-076
+man-077,he,"היא רוצה שאני יעזור לה במשהו שקשור למתנה לנכדים שלה, סתם קוראת לי ",needs_attention,manual,man-077
+man-078,he,"הוא מתעקש להיפגש כל יום בשבוע וזה לא משהו שאני יכול כי אני עובד בראשון שני ושלישי, ניסיתי להגיד לו שאני יכול רק בימי שישי בצהרים אבל הוא לא מסכים ואומר שהוא רוצה מתנדב אחר טוב יותר",needs_attention,manual,man-078
+man-079,he,הבת שלו נמצאת שם איתו והיא יכולה לעזור לו והיא פשוט לא עושה את זה כי אין לה כוח,needs_attention,manual,man-079
+man-080,he,אני יודעת מסיפור שהוא אמר לי שיש לו בני משפחה שזמינים להגיש בשבילו את הטפסים והוא סתם לא מבקש מהם,needs_attention,manual,man-080
+man-081,he,"יש לו כלב והוא שם אותו בכלוב קטן ובקושי מוציא אותו לטיולים, אני חושבת שצריך לקרוא לשירות לרווחת החיות אם יש כזה",needs_attention,manual,man-081
+man-082,he,"אני מרגישה מאויימת כשאני שם, משהו במבטים קצת משונה",needs_attention,manual,man-082
+man-083,he,"התלבטתי אם להפסיק עם המקרה הזה או לא, אבל אחרי המפגש האחרון שהלך כל כך לא טוב אני לא ממשיכה, מתנצלת",needs_attention,manual,man-083
+man-084,he,"הוא ממש חופר לי שעות כל פעם ואני רוצה ללכת אבל לא נעים לי, זה ככה כבר 6 מפגשים ולמרות שדיברתי איתו פעם אחת על זה בעדינות הוא לא מפסיק, צריך מישהו סבלן יותר לדעתי אבל אולי כדאי להבהיר לו את זה על ההתחלה",needs_attention,manual,man-084
+man-085,he,"הבן אדם נראה תקין לגמרי ומסוגל לעשות את כל זה בעצמו, אני חושבת שזה פשוט קל לו יותר כשעוזרים לו אבל יש אנשים שבאמת צריכים את העזרה הזאת ויש מספר מוגבל של מתנדבים",needs_attention,manual,man-085
+man-086,he,לא נראה לי שיש לו קשיים נפשיים והוא מנסה לנצל את המערכת,needs_attention,manual,man-086
+man-087,he,"יש לו משהו בבית שהוא לא רוצה לדבר עליו אז אנחנו יושבים בחוץ, אבל מתחיל להיות חורף ולא תהיה לנו אפשרות לשבת בחוץ ולא בא לו לשבת במקום אחר, הצעתי שנעבור לזום ונראה אם אפשר אבל אין לו מחשב ואין לו מכשיר שמיעה אז גם בטלפון זה בעיה",needs_attention,manual,man-087
+man-088,he,"הוא רק שוכב במיטה ולא קם, נראה אובדני",needs_attention,manual,man-088
+man-089,he,"היא לא מסוגלת לתפקד, גם אי אפשר לעזור לה וגם אולי כדאי לערב מישהו מנוסה יותר שידבר איתה ויראה מה צריך לעשות",needs_attention,manual,man-089
+man-090,he,הוא רוצה שאני ימלא דברים שצריך בשבילם יפוי כוח ואמרו לי שאי אפשר לעשות את זה ואני לא רוצה לעבור על החוק,needs_attention,manual,man-090
+man-091,en,Our political opinions don’t align and it’s very difficult for me to have a conversation with him.,ok,manual,man-091
+man-092,en,It’s such a dump that I have a hard time staying at her place for more than ten minutes. The stench is horrifying.,needs_attention,manual,man-092
+man-093,en,The woman’s BO is terrible. No sense of hygiene whatsoever. It’s bad.,ok,manual,man-093
+man-094,en,"I don’t think the man actually needs help. He seems well to do and his manners are impeccable. For the life of me, I can’t tell why he would need anyone’s help.",needs_attention,manual,man-094
+man-095,en,This woman is a racist. She took one look at me and had her mind made up. She never said anything blatantly racist but her entire demeanor shifted as soon as she got a good look at me.,needs_attention,manual,man-095
+man-096,en,"The man is violent. He never actually hit me but he was about to. He raised his hand but lowered it at the last second. Still, his intent was clear and I am not going anywhere near him again.",needs_attention,manual,man-096
+man-097,en,Her tone is very aggressive. Even when she’s seemingly kind I feel uncomfortable being around her.,needs_attention,manual,man-097
+man-098,en,The man stole my keys. I can’t prove it but he literally did.,needs_attention,manual,man-098
+man-099,en,This guy is really nice but there’s something about him that makes me feel uncomfortable.,needs_attention,manual,man-099
+man-100,en,I’m getting really bad vibes there. I don’t want to go back.,needs_attention,manual,man-100
+man-101,en,I think this man is a scammer. It seems to me that he’s trying to get money that he in no way deserves. I don’t want any part in it.,needs_attention,manual,man-101
+man-102,en,"I’m honestly freaked out. After the fact, the man dm’d me photos of me that he took without me noticing. I don’t even know what for. What even is this? Honestly, I’m scared.",needs_attention,manual,man-102
+man-103,en,"The man broke my glasses. I had taken them off when I went to the bathroom and when I got back they were broken. He apologized, but he obviously didn’t mean it. I didn’t see it happen but there was no way to break those glasses without doing it on purpose.",needs_attention,manual,man-103
+man-104,en,I’m not going back there. That woman is cruel. She always makes biting remarks but today she crossed the line when she blatantly made fun of my haircut. I’m not going to help someone who doesn’t have the decency to be kind to someone with a helping hand.,needs_attention,manual,man-104
+man-105,en,"The man is seemingly nice but there’s something unnerving about him. He continually tells me how he’s never been this kind to anyone, and that he’s trying so hard with me. It almost feels like a threat. Like he might explode at any second.",needs_attention,manual,man-105
+man-106,en,I think the woman I volunteered for followed me home. I kept catching glimpses of her on my way back home. I even called her out one time but she didn’t respond. I know she was there though. I’m scared.,needs_attention,manual,man-106
+man-107,en,i don't reallt trust her,needs_attention,manual,man-107
+man-108,en,"the entire house smells like poop, i cant stay there more than 5 minutes",needs_attention,manual,man-108
+man-109,en,the requester just left the house and didnt come back for 2 WHOLE houres!!!,needs_attention,manual,man-109
+man-110,en,"unfortunally he killed himself, im wish i could do more",needs_attention,manual,man-110
+man-111,en,"she took her own life, i was so surprised because she went to a good therapist. rip",needs_attention,manual,man-111
+man-112,he,"נפגשנו פעמיים והיא כל פעם העירה על המשקל שלי, אמרה ש״אני אהיה יפה אם אני ארזה״ וש״יש לה בגדים לתת לי אם אני אהיה במידה נמוכה יותר״. ",needs_attention,manual,man-112
+man-113,he,"ביררנו ולא מגיעות לה הטבות כלשהן, למרות ההתעקשות שלה שמגיע לה, אין לי מה לעשות עם זה, הצעתי לה לקחת עורך דין אבל זה כבר מעבר ליכולותיי",needs_attention,manual,man-113
+man-114,he,אני בחורה כהת עור והיא כל הזמן קוראת לי ״כושית״!!,needs_attention,manual,man-114
+man-115,he,היא גזרה לי את השיער כשלא שמתי לב ואמרה שפעם היא הייתה ספרית. היא אישה מקסימה אבל משהו בה לא תקין,needs_attention,manual,man-115
+man-116,he,"הוא שפך לי מים על החולצה ואמר לי להוריד אותה כדי שזה יתייבש, כשאמרתי לו שאני בסדר וזה יתייבש במילא הוא התעקש שאני אוריד אותה והרגשתי מאוד לא נעים",needs_attention,manual,man-116
+man-117,he,אני חושבת שהיא מתחזה למישהו שהיא לא כדי לקבל כסף מביטוח לאומי,needs_attention,manual,man-117
+man-118,he,"היא רוצה לקבל קצבת נכון ותו נכה אבל ראיתי אותה הולכת בסדר גמור בבית, אני לא בטוחה שזה משהו חוקי לעשות ואני לא רוצה לקחת חלק בזה",needs_attention,manual,man-118
+man-119,he,"הוא מתנגד לקחת תרופות אז כל ביקור אצל הרופא מלווה בוויכוחים וסרבנות, הוא לא מוכן לקבל את העזרה שהוא מבקש",needs_attention,manual,man-119
+man-120,he,"כשאני מלווה אותו לרופא הוא כל פעם רוצה לעבור בכל מיני חנויות בדרך, אנחנו גם מבזבזים זמן וגם מאחרים לרופא. ניסיתי להסביר לו שאי אפשר אבל הוא מאוד מתעקש ואני לא רוצה להתחיל לריב איתו ברחוב",needs_attention,manual,man-120
+man-121,he,הוא נותן לי פרטים לא נכונים כי הוא מפחד שאני אגנוב לו אותם,needs_attention,manual,man-121
+man-122,he,"הוא קונה לי מלא מתנות, בהתחלה זה היה מאוד נחמד ונדיב מצידו, אבל זאת כמות כסף לא הגיונית (הוא קנה לי תיק של coach) וזה גורם לי להרגיש לא בנוח. הוא לא מפסיק למרות שאני מבקשת ולא לוקחת את המתנות",needs_attention,manual,man-122
+man-123,en,"she has a stong perfume smell and im allergic to it, she wont change it so i cant continue helping her",ok,manual,man-123
+man-124,en,"he wont let me answer my phone calls while helping him, he takes my iphone from my hand and doesnt give it back until we finish!",needs_attention,manual,man-124
+man-125,en,"he locks the door and hide the key so i wont be able to leave. he is nice during our meetings, but its creepy",needs_attention,manual,man-125
+man-126,he,"אוצר המילים שלה בעברית מאוד קטן, היא יודעת אנגלית אבל אני לא מדברת טוב אנגלית אז אין לי איך לתקשר איתה, הייתי מוודאת שמי שתעזור לה תדע אנגלית",ok,manual,man-126
+man-127,he,"סיימנו את החלק שאני יודעת לעזור לה בו, אבל עכשיו יש מילוי כלשהו של טפסים שאני לא מצליחה לבין איך עושים את זה אז כדאי שמישהו אחר יעזור לה",ok,manual,man-127
+man-128,he,היא דתייה וקשה לי עם דתיים,ok,manual,man-128
+man-129,he,אני מהפיליפינים ונגמרת לי הוויזת עבודה אז אני צריכה לחזור הביתה לצערי ולכן לא אוכל ללוות אותה לפגישות אצל הרופא,ok,manual,man-129
+man-130,he,היא צריכה מישהו שילווה אותה לניתוח ארוך וזה בדיוק ביום שיש לי בו דייט אז אני לא אוכל ללוות אותה,ok,manual,man-130
+man-131,he,הבן זוג שלי לא אוהב את העובדה שאני נמצאת בחדר לבד עם גבר זר,ok,manual,man-131
+man-132,he,אני יכולה במהלך הבקרים אבל היא יכולה רק בשלישי ורביעי בערב,ok,manual,man-132
+man-133,he,"יש לי בבית חתולים וכשאני מגיעה אליה היא מתעטשת ללא הפסקה, הבנו שהיא כנראה אלרגית לחתולים וזה בעיה שאני אשב לידה, עצוב לי לוותר על המקרה הזה אבל אין לי ברירה. היא אישה מבוגרת ונחמדה ואני מקווה שהיא תמצא מישהו שיעזור לה",ok,manual,man-133
+man-134,he,"הוא מאוד סטרילי ומנסה להימנע מחיידקים, לצערי אני לא יכול לשים מסיכה כמו שהוא מבקש כי יש לי אסתמה וגם ככה קשה לי לנשום",ok,manual,man-134
+man-135,he,"הוא צריך ליווי לרופא ואין לי איך להסיע אותו, בהתחלה היה לי רכב אבל עכשיו עברתי לאופנוע",ok,manual,man-135
+man-136,he,"הוא לא מסוגל ללכת אז אני לא יכולה להעביר אותו מהכיסא גלגלים לרכב כי הוא מאוד כבד, זה בעיה כשאני צריכה ללוות אותו לרופא, צריך מישהו חזק שיעשה את זה",ok,manual,man-136
