@@ -2,7 +2,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { israelLocalToIso } from "@/lib/time";
 
 export const LOG_SEVERITIES = ["info", "warning", "error"] as const;
-export const LOG_CATEGORIES = ["requests", "volunteers", "meetings", "auth", "system"] as const;
+export const LOG_CATEGORIES = ["requests", "volunteers", "meetings", "auth", "system", "release_flags"] as const;
 export const LOGS_PAGE_SIZE = 50;
 export const LOGS_EXPORT_LIMIT = 10_000;
 
@@ -14,7 +14,7 @@ export const LOG_VIEWS = ["audit", "events"] as const;
 export type LogView = (typeof LOG_VIEWS)[number];
 export const VIEW_CATEGORIES: Record<LogView, readonly LogCategory[]> = {
   audit: ["requests", "volunteers", "meetings"],
-  events: ["auth", "system"],
+  events: ["auth", "system", "release_flags"],
 };
 
 export type LogRow = {

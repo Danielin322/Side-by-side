@@ -6,9 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "flags:dataset": "tsx --env-file-if-exists=.env.local ml/release-flag/scripts/dataset.ts",
+    "flags:setup": "tsx --env-file-if-exists=.env.local ml/release-flag/scripts/setup-index.ts",
+    "flags:ingest": "tsx --env-file-if-exists=.env.local ml/release-flag/scripts/ingest.ts",
+    "flags:eval": "tsx --env-file-if-exists=.env.local ml/release-flag/scripts/eval.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.12.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.1175.0",
+    "@aws-sdk/client-s3vectors": "^3.1175.0",
     "@hookform/resolvers": "^7.0.5",
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.119.0",
@@ -29,7 +36,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.29",
+    "langsmith": "^0.13.1",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

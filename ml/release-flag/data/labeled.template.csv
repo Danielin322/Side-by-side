@@ -1,0 +1,4 @@
+id,language,text,suggested_label,label,source,group_id
+gpt-001,he,"אין לי זמן החודש, מקווה שמישהו אחר יוכל לעזור לה.",ok,ok,chatgpt,
+gem-001,en,He kept yelling at me every time I asked for a document.,needs_attention,needs_attention,gemini,
+,he,"הוא נגע לי ביד כמה פעמים ולא הפסיק גם כשביקשתי, הרגשתי מאוד לא בנוח.",,needs_attention,manual,

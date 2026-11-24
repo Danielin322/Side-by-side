@@ -6,11 +6,11 @@ import { routes } from "@/lib/routes";
 import { createSessionClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/features/admin/guard";
 import { AdminNav } from "@/features/admin/AdminNav";
-import { ResolveIssueButton } from "@/features/admin/RequestAdminForms";
+import { FlagDetails, ResolveIssueButton, type FlagInfo } from "@/features/admin/RequestAdminForms";
 
-type Issue = {
+type Issue = Omit<FlagInfo, "id"> & {
   id: string;
-  kind: "unreachable" | "professional" | "safety" | "coordinator" | "concern";
+  kind: "unreachable" | "professional" | "safety" | "coordinator" | "concern" | "auto_flag";
   note: string | null;
   created_at: string;
   request_id: string;
@@ -18,8 +18,8 @@ type Issue = {
   volunteers: { full_name: string } | null;
 };
 
-/** Safety first, then concerns, then everything else; oldest first within each. */
-const PRIORITY: Record<Issue["kind"], number> = { safety: 0, concern: 1, professional: 2, unreachable: 3, coordinator: 4 };
+/** Safety first, then automatically flagged hand-back notes, then concerns, then the rest; oldest first within each. */
+const PRIORITY: Record<Issue["kind"], number> = { safety: 0, auto_flag: 1, concern: 2, professional: 3, unreachable: 4, coordinator: 5 };
 
 export default async function AdminAttentionPage(props: LocaleParams) {
   const locale = await resolveLocale(props);
@@ -28,7 +28,9 @@ export default async function AdminAttentionPage(props: LocaleParams) {
   const supabase = await createSessionClient();
   const { data } = await supabase
     .from("request_issues")
-    .select("id, kind, note, created_at, request_id, help_requests(first_name), volunteers(full_name)")
+    .select(
+      "id, kind, note, created_at, request_id, flag_outcome, flag_reason, flag_evidence, flag_feedback, help_requests(first_name), volunteers(full_name)",
+    )
     .is("resolved_at", null)
     .returns<Issue[]>();
   const issues = (data ?? []).sort((a, b) => PRIORITY[a.kind] - PRIORITY[b.kind] || a.created_at.localeCompare(b.created_at));
@@ -51,6 +53,7 @@ export default async function AdminAttentionPage(props: LocaleParams) {
                 <div className="flex-1">
                   <p className="font-semibold text-ink">{t(`attention.kinds.${i.kind}`)}</p>
                   {i.note && <p className="mt-1 whitespace-pre-line text-ink">{i.note}</p>}
+                  {i.kind === "auto_flag" && <FlagDetails flag={i} />}
                   <p className="mt-2 text-sm text-ink-soft">
                     {t("attention.meta", {
                       person: i.help_requests?.first_name ?? "—",

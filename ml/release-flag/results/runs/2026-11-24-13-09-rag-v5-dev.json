@@ -1,0 +1,4279 @@
+{
+  "prompt_version": "rag-v5",
+  "model": "claude-haiku-5-5@rag-v5/notes-cohere-mv3-v1",
+  "effort": "low",
+  "k": 4,
+  "index": "notes-cohere-mv3-v1",
+  "split": "dev",
+  "dataset_version": "2026-11-24-8bdc6f9dabd9",
+  "all": {
+    "n": 59,
+    "tp": 37,
+    "fp": 0,
+    "fn": 0,
+    "tn": 22,
+    "recall": 1,
+    "precision": 1,
+    "f1": 1,
+    "accuracy": 1
+  },
+  "knn": {
+    "n": 59,
+    "tp": 33,
+    "fp": 3,
+    "fn": 4,
+    "tn": 19,
+    "recall": 0.8918918918918919,
+    "precision": 0.9166666666666666,
+    "f1": 0.9041095890410958,
+    "accuracy": 0.8813559322033898
+  },
+  "groups": {
+    "language:en": {
+      "n": 14,
+      "tp": 10,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "recall": 1,
+      "precision": 1,
+      "f1": 1,
+      "accuracy": 1
+    },
+    "language:he": {
+      "n": 45,
+      "tp": 27,
+      "fp": 0,
+      "fn": 0,
+      "tn": 18,
+      "recall": 1,
+      "precision": 1,
+      "f1": 1,
+      "accuracy": 1
+    },
+    "source:chatgpt": {
+      "n": 16,
+      "tp": 10,
+      "fp": 0,
+      "fn": 0,
+      "tn": 6,
+      "recall": 1,
+      "precision": 1,
+      "f1": 1,
+      "accuracy": 1
+    },
+    "source:gemini": {
+      "n": 20,
+      "tp": 12,
+      "fp": 0,
+      "fn": 0,
+      "tn": 8,
+      "recall": 1,
+      "precision": 1,
+      "f1": 1,
+      "accuracy": 1
+    },
+    "source:manual": {
+      "n": 23,
+      "tp": 15,
+      "fp": 0,
+      "fn": 0,
+      "tn": 8,
+      "recall": 1,
+      "precision": 1,
+      "f1": 1,
+      "accuracy": 1
+    }
+  },
+  "rows": [
+    {
+      "id": "gem-004",
+      "group_id": "gem-004",
+      "language": "he",
+      "label": "ok",
+      "source": "gemini",
+      "text": "הפונה מדבר כמעט רק אמהרית וקשה לנו לתקשר בטלפון על טפסים רפואיים, עדיף מישהו דובר השפה.",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Plain language mismatch: the requester speaks Amharic and the volunteer cannot communicate in it, with no sign of unclear speech or other issues.",
+      "similar": [
+        {
+          "id": "man-022",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "המטופל מדבר לא ברור ואני לא מצליחה להבין מה הוא אומר...",
+          "distance": 0.2744625210762024
+        },
+        {
+          "id": "gpt-059",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא צריך עזרה בעיקר בקריאת מסמכים בצרפתית ואני לא יודעת צרפתית בכלל. נראה לי שעדיף למצוא לו מתנדב שיוכל להבין איתו את המכתבים.",
+          "distance": 0.2777792811393738
+        },
+        {
+          "id": "gem-054",
+          "label": "ok",
+          "language": "he",
+          "text": "הפונה דובר צרפתית בלבד וכל המכתבים ממס הכנסה בעברית, בלי שפה משותפת אנחנו סתם נתקעים.",
+          "distance": 0.2800828218460083
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.32123464345932007
+        },
+        {
+          "id": "gpt-007",
+          "label": "ok",
+          "language": "he",
+          "text": "נראה לי שהיא תוכל להתקדם הרבה יותר טוב עם מתנדבת שמדברת רוסית. אני מסתדר רק בעברית וזה מקשה על ההסברים.",
+          "distance": 0.32720547914505005
+        },
+        {
+          "id": "gpt-067",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביקשתי ממנה שוב את האישור הרפואי והיא התחילה לצרוח שאני אפס ושאני מבזבז לה את הזמן. לא הצלחתי לנהל איתה שיחה עניינית.",
+          "distance": 0.33295196294784546
+        },
+        {
+          "id": "gpt-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כל פעם שביקשתי ממנה להביא מסמך היא התחילה לצעוק עליי שאני לא מבין כלום. השיחה האחרונה כבר הייתה ממש תוקפנית.",
+          "distance": 0.34752196073532104
+        },
+        {
+          "id": "man-119",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא מתנגד לקחת תרופות אז כל ביקור אצל הרופא מלווה בוויכוחים וסרבנות, הוא לא מוכן לקבל את העזרה שהוא מבקש",
+          "distance": 0.3515341281890869
+        }
+      ]
+    },
+    {
+      "id": "gem-012",
+      "group_id": "gem-012",
+      "language": "he",
+      "label": "ok",
+      "source": "gemini",
+      "text": "הסיפור חיים שלה ממש קשה לי רגשית ומציף אותי, היא הייתה מקסימה ומנומסת אבל אני מרגיש שאני לא מסוגל להכיל את זה כרגע.",
+      "predicted": "ok",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "The volunteer finds the requester's life story emotionally overwhelming and says they cannot cope with it right now, but the note describes no misconduct, threat, or risk to the requester.",
+      "similar": [
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.2902054190635681
+        },
+        {
+          "id": "gpt-054",
+          "label": "ok",
+          "language": "he",
+          "text": "היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.",
+          "distance": 0.29316508769989014
+        },
+        {
+          "id": "man-083",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "התלבטתי אם להפסיק עם המקרה הזה או לא, אבל אחרי המפגש האחרון שהלך כל כך לא טוב אני לא ממשיכה, מתנצלת",
+          "distance": 0.2994815707206726
+        },
+        {
+          "id": "gem-023",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בהתנהלות מולו גורם לי להרגיש ממש לא בנוח ואני מעדיפה לסיים את הליווי הזה.",
+          "distance": 0.30055296421051025
+        },
+        {
+          "id": "gpt-027",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "באמצע השיחה הוא אמר שאין לו יותר בשביל מה לחיות ושחשב כמה פעמים לסיים עם הכול. לא הרגשתי שאני יודע איך להתמודד עם זה לבד.",
+          "distance": 0.3005930185317993
+        },
+        {
+          "id": "man-128",
+          "label": "ok",
+          "language": "he",
+          "text": "היא דתייה וקשה לי עם דתיים",
+          "distance": 0.3089357018470764
+        },
+        {
+          "id": "man-051",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מדבר בקול רם, זה בסדר אבל בגלל משהו מהעבר שלי אני לא יכולה להתמודד עם זה. אני מאוד מתנצלת, אני מקווה שהוא ימצא מישהו שיעזור לו בהנאה, אבל אני לא מתאימה.",
+          "distance": 0.32578033208847046
+        },
+        {
+          "id": "gpt-004",
+          "label": "ok",
+          "language": "he",
+          "text": "היא הייתה מאוד עצובה ובכתה קצת בפגישה. אמרה שעובר עליה שבוע קשה ושהיא הולכת לישון אצל אחותה הערב, לא עלה משהו שמצריך טיפול נוסף.",
+          "distance": 0.34233325719833374
+        }
+      ]
+    },
+    {
+      "id": "gem-013",
+      "group_id": "gem-013",
+      "language": "he",
+      "label": "ok",
+      "source": "gemini",
+      "text": "שיחה נוראית מול המוקד של משרד השיכון, חיכינו שעה וחצי על הקו ובסוף הנציגה ניתקה לנו בפרצוף והמערכת קרסה. אין לי פניות לנסות שוב השבוע.",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "The volunteer's hand-back is due to a bad phone call and a system outage with a government office, with no requester misconduct or safety concern described.",
+      "similar": [
+        {
+          "id": "gem-061",
+          "label": "ok",
+          "language": "he",
+          "text": "בזמן שישבנו בתור ברשות האוכלוסין פרצה מהומה ליד השומר ושני אנשים צרחו שם אחד על השני, הפונה נלחץ מהרעש והלכנו הביתה. לצערי אני טסה לחודש כך שלא אוכל לקבוע איתו שוב.",
+          "distance": 0.2756292223930359
+        },
+        {
+          "id": "gem-055",
+          "label": "ok",
+          "language": "he",
+          "text": "החליפו לי משמרות בעבודה ועכשיו אני עובד כל יום עד שש, לא נשאר לי חלון זמן לשיחות מול משרדי ממשלה.",
+          "distance": 0.3168884515762329
+        },
+        {
+          "id": "gem-085",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "איים שבפעם הבאה שהוא מגיע לסניף של משרד השיכון הוא הופך שם שולחנות ושובר לפקיד את הראש.",
+          "distance": 0.3226328492164612
+        },
+        {
+          "id": "gem-075",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "גם ככה השעות של המוקד לא מסתדרות לי עם הלימודים, וגם הוא קרא לי מטומטמת כשהסברתי לו למה הבקשה נדחתה.",
+          "distance": 0.32413631677627563
+        },
+        {
+          "id": "gpt-067",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביקשתי ממנה שוב את האישור הרפואי והיא התחילה לצרוח שאני אפס ושאני מבזבז לה את הזמן. לא הצלחתי לנהל איתה שיחה עניינית.",
+          "distance": 0.32699263095855713
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.33167564868927
+        },
+        {
+          "id": "gpt-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כל פעם שביקשתי ממנה להביא מסמך היא התחילה לצעוק עליי שאני לא מבין כלום. השיחה האחרונה כבר הייתה ממש תוקפנית.",
+          "distance": 0.33296334743499756
+        },
+        {
+          "id": "gem-065",
+          "label": "ok",
+          "language": "he",
+          "text": "אי אפשר היה לשמוע מילה בשיחה כי השותף שלו לדירה צרח בטלפון בחדר השני והטלוויזיה הייתה על פול ווליום, והפונה לא יכול לצאת לדבר בחוץ. אני חייב שעות שקטות בערב.",
+          "distance": 0.345795214176178
+        }
+      ]
+    },
+    {
+      "id": "gem-027",
+      "group_id": "gem-027",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "gemini",
+      "text": "ניסיתי להסביר לו שוב ושוב מה ה-boundaries של ההתנדבות אבל הוא מתעלם מכל מה שסיכמנו ודורש שאתקשר בשבילו לבנק כל בוקר.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "הוא מתעלם מכל מה שסיכמנו ודורש שאתקשר בשבילו לבנק כל בוקר",
+      "reason_en": "Requester ignores agreed boundaries and asks the volunteer to make daily bank calls on his behalf, which is outside the role and refuses cooperation.",
+      "similar": [
+        {
+          "id": "man-078",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא מתעקש להיפגש כל יום בשבוע וזה לא משהו שאני יכול כי אני עובד בראשון שני ושלישי, ניסיתי להגיד לו שאני יכול רק בימי שישי בצהרים אבל הוא לא מסכים ואומר שהוא רוצה מתנדב אחר טוב יותר",
+          "distance": 0.21859252452850342
+        },
+        {
+          "id": "gem-068",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כבר חודש שהוא לא שולח את האישורים מהבנק ומתעלם מכל מה שסיכמנו לעשות לפני הפגישה, אין לי איך לעזור ככה.",
+          "distance": 0.25036871433258057
+        },
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.26889652013778687
+        },
+        {
+          "id": "gpt-034",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא אמר שאני מתנדב חסר תועלת ושאין לי מושג מה אני עושה. גם ככה נראה לי שאני לא האדם המתאים לתיק, אבל היחס שלו היה ממש פוגעני.",
+          "distance": 0.27760809659957886
+        },
+        {
+          "id": "gem-022",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "לוחץ עליי כל שבוע להסיע אותו לסידורים פרטיים ברכב שלי ולא מקבל לא כתשובה, מרגיש לי חציית גבול.",
+          "distance": 0.2922651767730713
+        },
+        {
+          "id": "gpt-011",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מעדיף פגישות פנים אל פנים ואני יכול להיפגש רק בזום בתקופה הקרובה. נראה לי שצריך להתאים לו מתנדב אחר.",
+          "distance": 0.3070431351661682
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.3374026417732239
+        },
+        {
+          "id": "gpt-059",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא צריך עזרה בעיקר בקריאת מסמכים בצרפתית ואני לא יודעת צרפתית בכלל. נראה לי שעדיף למצוא לו מתנדב שיוכל להבין איתו את המכתבים.",
+          "distance": 0.34115105867385864
+        }
+      ]
+    },
+    {
+      "id": "gem-028",
+      "group_id": "gem-028",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "gemini",
+      "text": "שלח לי רצף הודעות קוליות עצבניות מלאות בהאשמות שאני הורס לו את התיק.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "שלח לי רצף הודעות קוליות עצבניות מלאות בהאשמות שאני הורס לו את התיק.",
+      "reason_en": "The requester sent a series of angry voice messages accusing the volunteer of ruining his case, which is aggressive pressure aimed at the volunteer.",
+      "similar": [
+        {
+          "id": "gem-067",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "התעצבן שהמתנו בתור בדואר והתחיל לצעוק עליי שאני חסרת סבלנות ולא מבינה כלום מהחיים שלי.",
+          "distance": 0.29025542736053467
+        },
+        {
+          "id": "gpt-072",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא זרקה עליי את התיק שלה כשאמרתי שלא אוכל להגיש בשבילה את הבקשה. לא נפגעתי אבל זה כבר עבר גבול מבחינתי.",
+          "distance": 0.29925423860549927
+        },
+        {
+          "id": "gpt-032",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "במהלך הפגישה הוא התעצבן וזרק את הקלסר על הרצפה, ואז העיף כיסא לכיוון הקיר. קמתי ויצאתי כי הרגשתי לא בטוח.",
+          "distance": 0.30363214015960693
+        },
+        {
+          "id": "gpt-034",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא אמר שאני מתנדב חסר תועלת ושאין לי מושג מה אני עושה. גם ככה נראה לי שאני לא האדם המתאים לתיק, אבל היחס שלו היה ממש פוגעני.",
+          "distance": 0.3068919777870178
+        },
+        {
+          "id": "gem-009",
+          "label": "ok",
+          "language": "he",
+          "text": "התיק שלו מול הוצאה לפועל ממש מורכב עם מלא עיקולים, מרגיש לי שצריך מישהו שמבין בזה יותר ממני.",
+          "distance": 0.38873469829559326
+        },
+        {
+          "id": "gpt-016",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא ביקש שנעצור עד שיסיים את המעבר דירה ושאחזור אליו בחודש הבא. כרגע אין טעם להמשיך בפגישות.",
+          "distance": 0.3927195072174072
+        },
+        {
+          "id": "man-016",
+          "label": "ok",
+          "language": "he",
+          "text": "היא מפחדת ממני ולא רוצה לדבר איתי למרות שזה בשיחת טלפון",
+          "distance": 0.4044194221496582
+        },
+        {
+          "id": "gem-061",
+          "label": "ok",
+          "language": "he",
+          "text": "בזמן שישבנו בתור ברשות האוכלוסין פרצה מהומה ליד השומר ושני אנשים צרחו שם אחד על השני, הפונה נלחץ מהרעש והלכנו הביתה. לצערי אני טסה לחודש כך שלא אוכל לקבוע איתו שוב.",
+          "distance": 0.41692131757736206
+        }
+      ]
+    },
+    {
+      "id": "gem-029",
+      "group_id": "gem-029",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "gemini",
+      "text": "הוא הניח לי יד על הירך בזמן שישבנו על הספסל וזזתי אחורה, לא רוצה להמשיך להיפגש איתו.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "הוא הניח לי יד על הירך",
+      "reason_en": "The requester put his hand on the volunteer's thigh, an unwanted physical contact, and she pulled away and wants to stop meeting him.",
+      "similar": [
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.20851635932922363
+        },
+        {
+          "id": "gpt-039",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כשהגעתי לפגישה הוא דפק בחוזקה על השולחן והתקרב אליי תוך כדי צעקות. הרגשתי שאני עלול להיפגע ועזבתי את המקום.",
+          "distance": 0.22219371795654297
+        },
+        {
+          "id": "gpt-032",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "במהלך הפגישה הוא התעצבן וזרק את הקלסר על הרצפה, ואז העיף כיסא לכיוון הקיר. קמתי ויצאתי כי הרגשתי לא בטוח.",
+          "distance": 0.2351483702659607
+        },
+        {
+          "id": "gem-023",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בהתנהלות מולו גורם לי להרגיש ממש לא בנוח ואני מעדיפה לסיים את הליווי הזה.",
+          "distance": 0.2432510256767273
+        },
+        {
+          "id": "gpt-016",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא ביקש שנעצור עד שיסיים את המעבר דירה ושאחזור אליו בחודש הבא. כרגע אין טעם להמשיך בפגישות.",
+          "distance": 0.3046080470085144
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.3632267713546753
+        },
+        {
+          "id": "gem-061",
+          "label": "ok",
+          "language": "he",
+          "text": "בזמן שישבנו בתור ברשות האוכלוסין פרצה מהומה ליד השומר ושני אנשים צרחו שם אחד על השני, הפונה נלחץ מהרעש והלכנו הביתה. לצערי אני טסה לחודש כך שלא אוכל לקבוע איתו שוב.",
+          "distance": 0.36661744117736816
+        },
+        {
+          "id": "man-051",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מדבר בקול רם, זה בסדר אבל בגלל משהו מהעבר שלי אני לא יכולה להתמודד עם זה. אני מאוד מתנצלת, אני מקווה שהוא ימצא מישהו שיעזור לו בהנאה, אבל אני לא מתאימה.",
+          "distance": 0.37435799837112427
+        }
+      ]
+    },
+    {
+      "id": "gem-034",
+      "group_id": "gem-034",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "gemini",
+      "text": "בעט בכיסא בחדר ההמתנה והעיף קלסרים על הרצפה, הרגשתי ממש מאוימת פיזית ויצאתי משם.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "בעט בכיסא בחדר ההמתנה והעיף קלסרים על הרצפה",
+      "reason_en": "The requester kicked a chair and threw binders, and the volunteer felt physically threatened and left, which is violence or damage with the volunteer feeling unsafe.",
+      "similar": [
+        {
+          "id": "gpt-032",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "במהלך הפגישה הוא התעצבן וזרק את הקלסר על הרצפה, ואז העיף כיסא לכיוון הקיר. קמתי ויצאתי כי הרגשתי לא בטוח.",
+          "distance": 0.2082054615020752
+        },
+        {
+          "id": "gpt-039",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כשהגעתי לפגישה הוא דפק בחוזקה על השולחן והתקרב אליי תוך כדי צעקות. הרגשתי שאני עלול להיפגע ועזבתי את המקום.",
+          "distance": 0.2662266492843628
+        },
+        {
+          "id": "man-082",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני מרגישה מאויימת כשאני שם, משהו במבטים קצת משונה",
+          "distance": 0.3088029623031616
+        },
+        {
+          "id": "gem-061",
+          "label": "ok",
+          "language": "he",
+          "text": "בזמן שישבנו בתור ברשות האוכלוסין פרצה מהומה ליד השומר ושני אנשים צרחו שם אחד על השני, הפונה נלחץ מהרעש והלכנו הביתה. לצערי אני טסה לחודש כך שלא אוכל לקבוע איתו שוב.",
+          "distance": 0.31920140981674194
+        },
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.31950944662094116
+        },
+        {
+          "id": "man-006",
+          "label": "ok",
+          "language": "he",
+          "text": "יש לה חתולים ואני אלרגית, אין לנו מקום אחר לשבת בו אז אני לא יכולה לעזור פנים מול פנים והמקרה מצריך את זה, יש לה את המספר שלי ואמרתי לה שתתקשר אלי אם היא צריכה משהו.",
+          "distance": 0.3626273274421692
+        },
+        {
+          "id": "gpt-001",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעבור איתה על הטפסים אבל הילדים שלה צרחו ברקע כל השיחה. היה קשה להתרכז, אבל הצעקות לא היו אליי.",
+          "distance": 0.37769269943237305
+        },
+        {
+          "id": "gpt-004",
+          "label": "ok",
+          "language": "he",
+          "text": "היא הייתה מאוד עצובה ובכתה קצת בפגישה. אמרה שעובר עליה שבוע קשה ושהיא הולכת לישון אצל אחותה הערב, לא עלה משהו שמצריך טיפול נוסף.",
+          "distance": 0.37808758020401
+        }
+      ]
+    },
+    {
+      "id": "gem-039",
+      "group_id": "gem-039",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "gemini",
+      "text": "ראיתי חתכים טריים על הידיים שלה והיא אמרה שהיא פוגעת בעצמה כשקשה לה, גדול עליי לגמרי.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "היא פוגעת בעצמה כשקשה לה",
+      "reason_en": "The requester has fresh cuts and says she harms herself when things are hard, which is a self-harm risk the admin must follow up on.",
+      "similar": [
+        {
+          "id": "gpt-004",
+          "label": "ok",
+          "language": "he",
+          "text": "היא הייתה מאוד עצובה ובכתה קצת בפגישה. אמרה שעובר עליה שבוע קשה ושהיא הולכת לישון אצל אחותה הערב, לא עלה משהו שמצריך טיפול נוסף.",
+          "distance": 0.3176090717315674
+        },
+        {
+          "id": "man-025",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא צריכה שאני אחזור על עצמי מלא פעמים, אני לא יכולה ככה, אין לי סבלנות לזה, צריך מישהו עם סבלנות של שור",
+          "distance": 0.3214663863182068
+        },
+        {
+          "id": "gpt-072",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא זרקה עליי את התיק שלה כשאמרתי שלא אוכל להגיש בשבילה את הבקשה. לא נפגעתי אבל זה כבר עבר גבול מבחינתי.",
+          "distance": 0.3302868604660034
+        },
+        {
+          "id": "man-112",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "נפגשנו פעמיים והיא כל פעם העירה על המשקל שלי, אמרה ש״אני אהיה יפה אם אני ארזה״ וש״יש לה בגדים לתת לי אם אני אהיה במידה נמוכה יותר״.",
+          "distance": 0.33372294902801514
+        },
+        {
+          "id": "gpt-054",
+          "label": "ok",
+          "language": "he",
+          "text": "היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.",
+          "distance": 0.3371238708496094
+        },
+        {
+          "id": "gpt-027",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "באמצע השיחה הוא אמר שאין לו יותר בשביל מה לחיות ושחשב כמה פעמים לסיים עם הכול. לא הרגשתי שאני יודע איך להתמודד עם זה לבד.",
+          "distance": 0.3422781229019165
+        },
+        {
+          "id": "gem-014",
+          "label": "ok",
+          "language": "he",
+          "text": "היא בכתה הרבה בשיחה כי דחו לה שוב את הבקשה לסל שיקום והיא ממש מתוסכלת מהמערכת, אבל היא בקשר טוב עם המטפלת שלה. אני פשוט עוברת תפקיד בעבודה.",
+          "distance": 0.3541158437728882
+        },
+        {
+          "id": "man-128",
+          "label": "ok",
+          "language": "he",
+          "text": "היא דתייה וקשה לי עם דתיים",
+          "distance": 0.3703441023826599
+        }
+      ]
+    },
+    {
+      "id": "gem-046",
+      "group_id": "gem-046",
+      "language": "en",
+      "label": "needs_attention",
+      "source": "gemini",
+      "text": "Honestly the commute to South Tel Aviv is too far for me anyway, plus he yelled at me and called me stupid when the website crashed.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "he yelled at me and called me stupid",
+      "reason_en": "The requester yelled at and insulted the volunteer, which requires admin review even though the commute is also a practical reason.",
+      "similar": [
+        {
+          "id": "gem-097",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "The bus ride to his neighborhood takes over an hour anyway, plus he snapped at me and called me incompetent when the clerk asked for another form.",
+          "distance": 0.27702921628952026
+        },
+        {
+          "id": "gem-050",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "He laughed and said \"I know where you live if you don't get my disability approved this week,\" played it off as a joke but I don't want to meet him again.",
+          "distance": 0.37214064598083496
+        },
+        {
+          "id": "gem-067",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "התעצבן שהמתנו בתור בדואר והתחיל לצעוק עליי שאני חסרת סבלנות ולא מבינה כלום מהחיים שלי.",
+          "distance": 0.3737757205963135
+        },
+        {
+          "id": "gem-075",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "גם ככה השעות של המוקד לא מסתדרות לי עם הלימודים, וגם הוא קרא לי מטומטמת כשהסברתי לו למה הבקשה נדחתה.",
+          "distance": 0.3740859627723694
+        },
+        {
+          "id": "gem-043",
+          "label": "ok",
+          "language": "en",
+          "text": "Her kids were screaming at each other the entire call so we barely got through the Bituach Leumi form, and my evening schedule just changed so I can't reschedule.",
+          "distance": 0.37805068492889404
+        },
+        {
+          "id": "gem-065",
+          "label": "ok",
+          "language": "he",
+          "text": "אי אפשר היה לשמוע מילה בשיחה כי השותף שלו לדירה צרח בטלפון בחדר השני והטלוויזיה הייתה על פול ווליום, והפונה לא יכול לצאת לדבר בחוץ. אני חייב שעות שקטות בערב.",
+          "distance": 0.44019633531570435
+        },
+        {
+          "id": "gem-061",
+          "label": "ok",
+          "language": "he",
+          "text": "בזמן שישבנו בתור ברשות האוכלוסין פרצה מהומה ליד השומר ושני אנשים צרחו שם אחד על השני, הפונה נלחץ מהרעש והלכנו הביתה. לצערי אני טסה לחודש כך שלא אוכל לקבוע איתו שוב.",
+          "distance": 0.4466986656188965
+        },
+        {
+          "id": "gpt-016",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא ביקש שנעצור עד שיסיים את המעבר דירה ושאחזור אליו בחודש הבא. כרגע אין טעם להמשיך בפגישות.",
+          "distance": 0.44692474603652954
+        }
+      ]
+    },
+    {
+      "id": "gem-056",
+      "group_id": "gem-056",
+      "language": "he",
+      "label": "ok",
+      "source": "gemini",
+      "text": "אין לי מחשב בבית ואני מתנדב רק מהנייד, ואי אפשר למלא ככה את הטפסים המקוונים של סיוע בשכר דירה.",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "The volunteer lacks a computer and can only use a phone, which is a practical limitation of the volunteer, not a requester issue requiring admin action.",
+      "similar": [
+        {
+          "id": "gem-090",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "סיימנו למלא את הטופס למס הכנסה, אגב הוא סיפר לי כדרך אגב שניתקו לו את החשמל והמים לפני שבוע ואין לו כסף לאוכל בכלל.",
+          "distance": 0.3389374613761902
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.3743389844894409
+        },
+        {
+          "id": "man-127",
+          "label": "ok",
+          "language": "he",
+          "text": "סיימנו את החלק שאני יודעת לעזור לה בו, אבל עכשיו יש מילוי כלשהו של טפסים שאני לא מצליחה לבין איך עושים את זה אז כדאי שמישהו אחר יעזור לה",
+          "distance": 0.3785388469696045
+        },
+        {
+          "id": "man-006",
+          "label": "ok",
+          "language": "he",
+          "text": "יש לה חתולים ואני אלרגית, אין לנו מקום אחר לשבת בו אז אני לא יכולה לעזור פנים מול פנים והמקרה מצריך את זה, יש לה את המספר שלי ואמרתי לה שתתקשר אלי אם היא צריכה משהו.",
+          "distance": 0.3817031979560852
+        },
+        {
+          "id": "gem-068",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כבר חודש שהוא לא שולח את האישורים מהבנק ומתעלם מכל מה שסיכמנו לעשות לפני הפגישה, אין לי איך לעזור ככה.",
+          "distance": 0.3864293098449707
+        },
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.38728028535842896
+        },
+        {
+          "id": "man-080",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני יודעת מסיפור שהוא אמר לי שיש לו בני משפחה שזמינים להגיש בשבילו את הטפסים והוא סתם לא מבקש מהם",
+          "distance": 0.4167596697807312
+        },
+        {
+          "id": "gpt-034",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא אמר שאני מתנדב חסר תועלת ושאין לי מושג מה אני עושה. גם ככה נראה לי שאני לא האדם המתאים לתיק, אבל היחס שלו היה ממש פוגעני.",
+          "distance": 0.42042112350463867
+        }
+      ]
+    },
+    {
+      "id": "gem-057",
+      "group_id": "gem-057",
+      "language": "he",
+      "label": "ok",
+      "source": "gemini",
+      "text": "שלח לי הודעה שהחליט בינתיים להקפיא את הבקשה לתו נכה ולהמשיך לבד בהמשך השנה.",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "The requester decided to pause the disabled parking permit request and continue alone later; no behaviour toward the volunteer or safety concern is described.",
+      "similar": [
+        {
+          "id": "gpt-016",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא ביקש שנעצור עד שיסיים את המעבר דירה ושאחזור אליו בחודש הבא. כרגע אין טעם להמשיך בפגישות.",
+          "distance": 0.2888230085372925
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.3287060856819153
+        },
+        {
+          "id": "man-080",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני יודעת מסיפור שהוא אמר לי שיש לו בני משפחה שזמינים להגיש בשבילו את הטפסים והוא סתם לא מבקש מהם",
+          "distance": 0.32902801036834717
+        },
+        {
+          "id": "gpt-077",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא לא הופיע במרכז הקהילתי, ואז גיליתי שהוא מחכה בחוץ ליד האופניים שלי. הוא אמר שהוא רוצה לדבר איתי לבד ושלא אספר לצוות.",
+          "distance": 0.33823293447494507
+        },
+        {
+          "id": "gem-070",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביקש שאשלם לו בינתיים על התרופות בבית מרקחת כי נגמר לו הכסף בכרטיס ויחזיר לי בחודש הבא.",
+          "distance": 0.34084558486938477
+        },
+        {
+          "id": "gem-088",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כתב לי בוואטסאפ שאין לו כוח להילחם יותר ושהלילה הוא הולך לקחת את כל הכדורים שיש לו בבית.",
+          "distance": 0.342382550239563
+        },
+        {
+          "id": "gpt-056",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא הסתדר בסוף עם מוקד השירות של חברת החשמל דרך הבן שלו. דיברתי איתו והוא אמר שהנושא נסגר ואין צורך שאמשיך לבדוק.",
+          "distance": 0.3636876940727234
+        },
+        {
+          "id": "gem-010",
+          "label": "ok",
+          "language": "he",
+          "text": "העומס בעבודה מטורף החודש ואני לא מספיק לעשות follow up על הפניות שלו, עדיף להעביר למישהו פנוי יותר.",
+          "distance": 0.3667672872543335
+        }
+      ]
+    },
+    {
+      "id": "gem-064",
+      "group_id": "gem-064",
+      "language": "he",
+      "label": "ok",
+      "source": "gemini",
+      "text": "הוא נשבר ובכה בטלפון כי שוב דחו לו את הבקשה להנחה במים והוא מרגיש חסר אונים מול הבירוקרטיה. הרגעתי אותו והוא אמר שידבר עם אחותו בערב, אני פשוט עובר ניתוח בעיניים ולא אוכל להמשיך.",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "The volunteer is dropping the case for their own reason (eye surgery); the requester was upset about a denied water discount but no risk or misconduct toward the volunteer is described.",
+      "similar": [
+        {
+          "id": "gem-051",
+          "label": "ok",
+          "language": "he",
+          "text": "עברתי ניתוח בברך השבוע ואני מושבתת לחודש הקרוב, לא אוכל ללוות אותו פיזית למשרד הפנים.",
+          "distance": 0.28030455112457275
+        },
+        {
+          "id": "gpt-067",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביקשתי ממנה שוב את האישור הרפואי והיא התחילה לצרוח שאני אפס ושאני מבזבז לה את הזמן. לא הצלחתי לנהל איתה שיחה עניינית.",
+          "distance": 0.3039047122001648
+        },
+        {
+          "id": "gem-014",
+          "label": "ok",
+          "language": "he",
+          "text": "היא בכתה הרבה בשיחה כי דחו לה שוב את הבקשה לסל שיקום והיא ממש מתוסכלת מהמערכת, אבל היא בקשר טוב עם המטפלת שלה. אני פשוט עוברת תפקיד בעבודה.",
+          "distance": 0.3074161410331726
+        },
+        {
+          "id": "gpt-004",
+          "label": "ok",
+          "language": "he",
+          "text": "היא הייתה מאוד עצובה ובכתה קצת בפגישה. אמרה שעובר עליה שבוע קשה ושהיא הולכת לישון אצל אחותה הערב, לא עלה משהו שמצריך טיפול נוסף.",
+          "distance": 0.3118876814842224
+        },
+        {
+          "id": "gpt-027",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "באמצע השיחה הוא אמר שאין לו יותר בשביל מה לחיות ושחשב כמה פעמים לסיים עם הכול. לא הרגשתי שאני יודע איך להתמודד עם זה לבד.",
+          "distance": 0.3143783211708069
+        },
+        {
+          "id": "gem-090",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "סיימנו למלא את הטופס למס הכנסה, אגב הוא סיפר לי כדרך אגב שניתקו לו את החשמל והמים לפני שבוע ואין לו כסף לאוכל בכלל.",
+          "distance": 0.31442946195602417
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.3148205876350403
+        },
+        {
+          "id": "man-119",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא מתנגד לקחת תרופות אז כל ביקור אצל הרופא מלווה בוויכוחים וסרבנות, הוא לא מוכן לקבל את העזרה שהוא מבקש",
+          "distance": 0.3194270133972168
+        }
+      ]
+    },
+    {
+      "id": "gem-069",
+      "group_id": "gem-069",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "gemini",
+      "text": "קבעתי איתה פעמיים בסניף של חברת החשמל ופעם שלישית בזום, לא הופיעה לאף אחת מהן ולא טרחה להודיע.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "לא הופיעה לאף אחת מהן ולא טרחה להודיע",
+      "reason_en": "The requester missed three scheduled meetings in a row without notice, which is repeated no-shows under the rules.",
+      "similar": [
+        {
+          "id": "gpt-022",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "שלוש פגישות ברצף הוא לא הגיע ולא הודיע מראש. התקשרתי, שלחתי הודעות וניסיתי לתאם מחדש אבל אין שום תגובה.",
+          "distance": 0.18024992942810059
+        },
+        {
+          "id": "gpt-046",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "She missed the last three appointments without letting me know and hasn't replied to any of my messages asking to reschedule.",
+          "distance": 0.26845109462738037
+        },
+        {
+          "id": "gpt-056",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא הסתדר בסוף עם מוקד השירות של חברת החשמל דרך הבן שלו. דיברתי איתו והוא אמר שהנושא נסגר ואין צורך שאמשיך לבדוק.",
+          "distance": 0.2885289788246155
+        },
+        {
+          "id": "gpt-033",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא יצאה מהפגישה באמצע כשביקשתי שנעבור יחד על המסמכים. היא אמרה שלא תשתף פעולה עם שום דבר ושאין לה מה לדבר איתי.",
+          "distance": 0.2910044193267822
+        },
+        {
+          "id": "gem-068",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כבר חודש שהוא לא שולח את האישורים מהבנק ומתעלם מכל מה שסיכמנו לעשות לפני הפגישה, אין לי איך לעזור ככה.",
+          "distance": 0.29442089796066284
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.33229541778564453
+        },
+        {
+          "id": "man-055",
+          "label": "ok",
+          "language": "he",
+          "text": "קר אצלו והוא לא רוצה לכבות את המזגן גם כשאני מבקשת שוב ושוב",
+          "distance": 0.3324870467185974
+        },
+        {
+          "id": "gem-053",
+          "label": "ok",
+          "language": "he",
+          "text": "עדכנה אותי שהבת שלה חזרה מחו\"ל ועזרה לה לסגור את ההסדר מול חברת החשמל, התיק סגור.",
+          "distance": 0.33326971530914307
+        }
+      ]
+    },
+    {
+      "id": "gem-071",
+      "group_id": "gem-071",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "gemini",
+      "text": "לחצה עליי להתקשר למס הכנסה ולהתחזות לאחותה כדי שיתנו לי מידע, וכשסירבתי אמרה שאני סתם מקשה עליה.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "לחצה עליי להתקשר למס הכנסה ולהתחזות לאחותה",
+      "reason_en": "The requester pressured the volunteer to impersonate her sister to obtain tax information and insulted the volunteer when refused, which is asking for conduct outside the role and rude toward the volunteer.",
+      "similar": [
+        {
+          "id": "man-117",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני חושבת שהיא מתחזה למישהו שהיא לא כדי לקבל כסף מביטוח לאומי",
+          "distance": 0.27078700065612793
+        },
+        {
+          "id": "gpt-081",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא ביקשה שאמסור לה את הסיסמה לחשבון האישי שלי באתר הממשלתי כדי שאוכל לבצע עבורה את הפעולות. כשסירבתי היא אמרה שאני לא שווה כלום.",
+          "distance": 0.2721374034881592
+        },
+        {
+          "id": "gpt-067",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביקשתי ממנה שוב את האישור הרפואי והיא התחילה לצרוח שאני אפס ושאני מבזבז לה את הזמן. לא הצלחתי לנהל איתה שיחה עניינית.",
+          "distance": 0.2743893265724182
+        },
+        {
+          "id": "gem-090",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "סיימנו למלא את הטופס למס הכנסה, אגב הוא סיפר לי כדרך אגב שניתקו לו את החשמל והמים לפני שבוע ואין לו כסף לאוכל בכלל.",
+          "distance": 0.2838613986968994
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.30226558446884155
+        },
+        {
+          "id": "gem-054",
+          "label": "ok",
+          "language": "he",
+          "text": "הפונה דובר צרפתית בלבד וכל המכתבים ממס הכנסה בעברית, בלי שפה משותפת אנחנו סתם נתקעים.",
+          "distance": 0.31591081619262695
+        },
+        {
+          "id": "gem-014",
+          "label": "ok",
+          "language": "he",
+          "text": "היא בכתה הרבה בשיחה כי דחו לה שוב את הבקשה לסל שיקום והיא ממש מתוסכלת מהמערכת, אבל היא בקשר טוב עם המטפלת שלה. אני פשוט עוברת תפקיד בעבודה.",
+          "distance": 0.31605255603790283
+        },
+        {
+          "id": "gpt-001",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעבור איתה על הטפסים אבל הילדים שלה צרחו ברקע כל השיחה. היה קשה להתרכז, אבל הצעקות לא היו אליי.",
+          "distance": 0.3287345767021179
+        }
+      ]
+    },
+    {
+      "id": "gem-077",
+      "group_id": "gem-077",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "gemini",
+      "text": "ניסה לעשות עליי gaslighting כשאמרתי שלא קבענו להיום, ואז דרש שאעביר לו כסף למונית הביתה.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "דרש שאעביר לו כסף למונית הביתה",
+      "reason_en": "Requester demanded the volunteer give him money for a taxi, a request outside the role, and also tried to gaslight her about the appointment.",
+      "similar": [
+        {
+          "id": "gpt-084",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא הודיע לי שהוא מגיע למשרד שלי מחר ושאני חייב לפנות לו זמן, למרות שלא קבענו. כשאמרתי שלא יגיע בלי תיאום הוא התחיל לצעוק.",
+          "distance": 0.25269871950149536
+        },
+        {
+          "id": "gpt-070",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא ביקש שאשתמש בכרטיס האשראי שלי כדי לשלם לו חשבון מים עד שיסתדר. הסברתי שזה לא מתאים, והוא התחיל להפעיל עליי לחץ רגשי.",
+          "distance": 0.25490695238113403
+        },
+        {
+          "id": "gpt-037",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אחרי הפגישה קיבלתי ממנו הודעה עם הזמנה לצאת איתו בערב ועוד הודעה עם רמיזה מינית. לא נתתי את המספר שלי לשיחות כאלה.",
+          "distance": 0.29148727655410767
+        },
+        {
+          "id": "gem-022",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "לוחץ עליי כל שבוע להסיע אותו לסידורים פרטיים ברכב שלי ולא מקבל לא כתשובה, מרגיש לי חציית גבול.",
+          "distance": 0.293241024017334
+        },
+        {
+          "id": "gpt-016",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא ביקש שנעצור עד שיסיים את המעבר דירה ושאחזור אליו בחודש הבא. כרגע אין טעם להמשיך בפגישות.",
+          "distance": 0.3285314440727234
+        },
+        {
+          "id": "man-012",
+          "label": "ok",
+          "language": "he",
+          "text": "צריך ללכת איתו לרופא ואני לא יכולה לבוא בתאריכים שהוא פנוי",
+          "distance": 0.3590484857559204
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.3695104122161865
+        },
+        {
+          "id": "man-130",
+          "label": "ok",
+          "language": "he",
+          "text": "היא צריכה מישהו שילווה אותה לניתוח ארוך וזה בדיוק ביום שיש לי בו דייט אז אני לא אוכל ללוות אותה",
+          "distance": 0.3841207027435303
+        }
+      ]
+    },
+    {
+      "id": "gem-079",
+      "group_id": "gem-079",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "gemini",
+      "text": "בזמן שהסתכלנו יחד במסך של המחשב הוא הצמיד את הגוף שלו אליי ושם יד על המותן שלי, קמתי ויצאתי משם.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "שם יד על המותן שלי",
+      "reason_en": "Requester pressed his body against the volunteer and put a hand on her hip, unwanted physical contact; volunteer left the meeting.",
+      "similar": [
+        {
+          "id": "gem-030",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כנראה סתם מתוך הרגל של חיבה, אבל ביציאה הוא חיבק אותי חזק ולא שחרר כמה שניות למרות שניסיתי להתרחק.",
+          "distance": 0.27580249309539795
+        },
+        {
+          "id": "gpt-039",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כשהגעתי לפגישה הוא דפק בחוזקה על השולחן והתקרב אליי תוך כדי צעקות. הרגשתי שאני עלול להיפגע ועזבתי את המקום.",
+          "distance": 0.2833406329154968
+        },
+        {
+          "id": "gpt-032",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "במהלך הפגישה הוא התעצבן וזרק את הקלסר על הרצפה, ואז העיף כיסא לכיוון הקיר. קמתי ויצאתי כי הרגשתי לא בטוח.",
+          "distance": 0.28715527057647705
+        },
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.29366534948349
+        },
+        {
+          "id": "gpt-016",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא ביקש שנעצור עד שיסיים את המעבר דירה ושאחזור אליו בחודש הבא. כרגע אין טעם להמשיך בפגישות.",
+          "distance": 0.3670161962509155
+        },
+        {
+          "id": "gpt-004",
+          "label": "ok",
+          "language": "he",
+          "text": "היא הייתה מאוד עצובה ובכתה קצת בפגישה. אמרה שעובר עליה שבוע קשה ושהיא הולכת לישון אצל אחותה הערב, לא עלה משהו שמצריך טיפול נוסף.",
+          "distance": 0.39962178468704224
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.410277783870697
+        },
+        {
+          "id": "man-051",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מדבר בקול רם, זה בסדר אבל בגלל משהו מהעבר שלי אני לא יכולה להתמודד עם זה. אני מאוד מתנצלת, אני מקווה שהוא ימצא מישהו שיעזור לו בהנאה, אבל אני לא מתאימה.",
+          "distance": 0.4115602374076843
+        }
+      ]
+    },
+    {
+      "id": "gem-092",
+      "group_id": "gem-092",
+      "language": "en",
+      "label": "ok",
+      "source": "gemini",
+      "text": "She let me know the hospital social worker already submitted her mobility allowance forms, so my help isn't needed anymore.",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "The requester's need was solved by another professional (hospital social worker already submitted the forms), so the hand-back is a normal closure.",
+      "similar": [
+        {
+          "id": "gpt-094",
+          "label": "ok",
+          "language": "en",
+          "text": "She told me her cousin has taken over the paperwork for her student assistance application, so my involvement is no longer needed. We agreed to close the handover.",
+          "distance": 0.3014119267463684
+        },
+        {
+          "id": "gem-003",
+          "label": "ok",
+          "language": "he",
+          "text": "דיברתי עם רונית הבוקר, העו\"סית מהרווחה כבר סידרה לה את ההנחה בארנונה אז אין צורך בהמשך ליווי.",
+          "distance": 0.364829421043396
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.3673447370529175
+        },
+        {
+          "id": "gpt-092",
+          "label": "ok",
+          "language": "en",
+          "text": "I'm taking care of a family member at the moment and need to step back from volunteering for a while. The person I was helping was perfectly cooperative.",
+          "distance": 0.42377644777297974
+        },
+        {
+          "id": "man-080",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני יודעת מסיפור שהוא אמר לי שיש לו בני משפחה שזמינים להגיש בשבילו את הטפסים והוא סתם לא מבקש מהם",
+          "distance": 0.442976713180542
+        },
+        {
+          "id": "gpt-072",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא זרקה עליי את התיק שלה כשאמרתי שלא אוכל להגיש בשבילה את הבקשה. לא נפגעתי אבל זה כבר עבר גבול מבחינתי.",
+          "distance": 0.4548571705818176
+        },
+        {
+          "id": "man-118",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא רוצה לקבל קצבת נכון ותו נכה אבל ראיתי אותה הולכת בסדר גמור בבית, אני לא בטוחה שזה משהו חוקי לעשות ואני לא רוצה לקחת חלק בזה",
+          "distance": 0.45740240812301636
+        },
+        {
+          "id": "gpt-046",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "She missed the last three appointments without letting me know and hasn't replied to any of my messages asking to reschedule.",
+          "distance": 0.460077166557312
+        }
+      ]
+    },
+    {
+      "id": "gem-094",
+      "group_id": "gem-094",
+      "language": "en",
+      "label": "ok",
+      "source": "gemini",
+      "text": "To be honest his situation with the debt collection office is super depressing and it's weighing heavily on my mood this week. He was completely respectful the whole time, I just don't have the emotional bandwidth right now.",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Volunteer's own emotional limits from a depressing case; requester was respectful and no behaviour toward the volunteer or safety concern is reported.",
+      "similar": [
+        {
+          "id": "gem-044",
+          "label": "ok",
+          "language": "en",
+          "text": "He was really down about his situation and the case feels emotionally heavy for me right now with everything going on in my own family, though he was totally polite.",
+          "distance": 0.27552711963653564
+        },
+        {
+          "id": "gpt-070",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא ביקש שאשתמש בכרטיס האשראי שלי כדי לשלם לו חשבון מים עד שיסתדר. הסברתי שזה לא מתאים, והוא התחיל להפעיל עליי לחץ רגשי.",
+          "distance": 0.38005417585372925
+        },
+        {
+          "id": "gpt-034",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא אמר שאני מתנדב חסר תועלת ושאין לי מושג מה אני עושה. גם ככה נראה לי שאני לא האדם המתאים לתיק, אבל היחס שלו היה ממש פוגעני.",
+          "distance": 0.38725948333740234
+        },
+        {
+          "id": "gpt-048",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "He put his hand on my waist while I was helping him with the paperwork. I brushed it off at the time, but it was unwanted and made me uncomfortable.",
+          "distance": 0.38938194513320923
+        },
+        {
+          "id": "gem-023",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בהתנהלות מולו גורם לי להרגיש ממש לא בנוח ואני מעדיפה לסיים את הליווי הזה.",
+          "distance": 0.3907226324081421
+        },
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.40640735626220703
+        },
+        {
+          "id": "man-051",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מדבר בקול רם, זה בסדר אבל בגלל משהו מהעבר שלי אני לא יכולה להתמודד עם זה. אני מאוד מתנצלת, אני מקווה שהוא ימצא מישהו שיעזור לו בהנאה, אבל אני לא מתאימה.",
+          "distance": 0.409018337726593
+        },
+        {
+          "id": "man-043",
+          "label": "ok",
+          "language": "en",
+          "text": "This volunteer job is really triggering for me. More than I’d anticipated. I can’t continue.",
+          "distance": 0.42681586742401123
+        }
+      ]
+    },
+    {
+      "id": "gem-095",
+      "group_id": "gem-095",
+      "language": "en",
+      "label": "needs_attention",
+      "source": "gemini",
+      "text": "She skipped four scheduled calls in a row without a word and still hasn't uploaded a single document to the portal.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "She skipped four scheduled calls in a row without a word",
+      "reason_en": "The requester repeatedly no-showed and is not providing agreed documents, which is refusal to cooperate with the volunteer's agreed steps.",
+      "similar": [
+        {
+          "id": "gpt-046",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "She missed the last three appointments without letting me know and hasn't replied to any of my messages asking to reschedule.",
+          "distance": 0.2372678518295288
+        },
+        {
+          "id": "gem-045",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "He no-showed three times in a row at the municipality office and refuses to send any of the documents we agreed on.",
+          "distance": 0.2585151791572571
+        },
+        {
+          "id": "gpt-096",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "She keeps refusing to provide the income details needed for the application, then complains that nothing is moving forward. I've asked several times and she won't cooperate.",
+          "distance": 0.3742186427116394
+        },
+        {
+          "id": "gpt-033",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא יצאה מהפגישה באמצע כשביקשתי שנעבור יחד על המסמכים. היא אמרה שלא תשתף פעולה עם שום דבר ושאין לה מה לדבר איתי.",
+          "distance": 0.37498676776885986
+        },
+        {
+          "id": "gpt-001",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעבור איתה על הטפסים אבל הילדים שלה צרחו ברקע כל השיחה. היה קשה להתרכז, אבל הצעקות לא היו אליי.",
+          "distance": 0.4201287627220154
+        },
+        {
+          "id": "gem-043",
+          "label": "ok",
+          "language": "en",
+          "text": "Her kids were screaming at each other the entire call so we barely got through the Bituach Leumi form, and my evening schedule just changed so I can't reschedule.",
+          "distance": 0.42131924629211426
+        },
+        {
+          "id": "gem-010",
+          "label": "ok",
+          "language": "he",
+          "text": "העומס בעבודה מטורף החודש ואני לא מספיק לעשות follow up על הפניות שלו, עדיף להעביר למישהו פנוי יותר.",
+          "distance": 0.46405988931655884
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.4695335030555725
+        }
+      ]
+    },
+    {
+      "id": "gem-098",
+      "group_id": "gem-098",
+      "language": "en",
+      "label": "needs_attention",
+      "source": "gemini",
+      "text": "I'm probably overthinking it because he seemed lonely, but he rubbed my back while we were looking at the forms and kept trying to hold my hand.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "he rubbed my back while we were looking at the forms and kept trying to hold my hand",
+      "reason_en": "Requester made unwanted physical contact (rubbing back, repeatedly trying to hold hand), which requires admin review even though the volunteer downplays it.",
+      "similar": [
+        {
+          "id": "gpt-048",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "He put his hand on my waist while I was helping him with the paperwork. I brushed it off at the time, but it was unwanted and made me uncomfortable.",
+          "distance": 0.3278014063835144
+        },
+        {
+          "id": "gem-048",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "Probably nothing and maybe just cultural, but he kept putting his hand on my knee during our meeting and it made me really uneasy.",
+          "distance": 0.333778977394104
+        },
+        {
+          "id": "gem-030",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כנראה סתם מתוך הרגל של חיבה, אבל ביציאה הוא חיבק אותי חזק ולא שחרר כמה שניות למרות שניסיתי להתרחק.",
+          "distance": 0.36888229846954346
+        },
+        {
+          "id": "gem-044",
+          "label": "ok",
+          "language": "en",
+          "text": "He was really down about his situation and the case feels emotionally heavy for me right now with everything going on in my own family, though he was totally polite.",
+          "distance": 0.41445422172546387
+        },
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.4269184470176697
+        },
+        {
+          "id": "gem-061",
+          "label": "ok",
+          "language": "he",
+          "text": "בזמן שישבנו בתור ברשות האוכלוסין פרצה מהומה ליד השומר ושני אנשים צרחו שם אחד על השני, הפונה נלחץ מהרעש והלכנו הביתה. לצערי אני טסה לחודש כך שלא אוכל לקבוע איתו שוב.",
+          "distance": 0.4650583863258362
+        },
+        {
+          "id": "gpt-054",
+          "label": "ok",
+          "language": "he",
+          "text": "היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.",
+          "distance": 0.47210705280303955
+        },
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.4751788377761841
+        }
+      ]
+    },
+    {
+      "id": "gpt-002",
+      "group_id": "gpt-002",
+      "language": "he",
+      "label": "ok",
+      "source": "chatgpt",
+      "text": "אני בתקופה די קשוחה בעצמי והשיחות בתיק הזה היו לי כבדות רגשית. מעדיף להעביר למתנדב אחר, לא היה משהו חריג בהתנהלות שלה.",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Volunteer hands the case back due to their own emotional load; the note describes no problematic behaviour by the requester.",
+      "similar": [
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.24703609943389893
+        },
+        {
+          "id": "gpt-034",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא אמר שאני מתנדב חסר תועלת ושאין לי מושג מה אני עושה. גם ככה נראה לי שאני לא האדם המתאים לתיק, אבל היחס שלו היה ממש פוגעני.",
+          "distance": 0.27064716815948486
+        },
+        {
+          "id": "gem-023",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בהתנהלות מולו גורם לי להרגיש ממש לא בנוח ואני מעדיפה לסיים את הליווי הזה.",
+          "distance": 0.2765597701072693
+        },
+        {
+          "id": "man-083",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "התלבטתי אם להפסיק עם המקרה הזה או לא, אבל אחרי המפגש האחרון שהלך כל כך לא טוב אני לא ממשיכה, מתנצלת",
+          "distance": 0.2791464328765869
+        },
+        {
+          "id": "gpt-011",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מעדיף פגישות פנים אל פנים ואני יכול להיפגש רק בזום בתקופה הקרובה. נראה לי שצריך להתאים לו מתנדב אחר.",
+          "distance": 0.2808613181114197
+        },
+        {
+          "id": "gpt-054",
+          "label": "ok",
+          "language": "he",
+          "text": "היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.",
+          "distance": 0.2828708291053772
+        },
+        {
+          "id": "man-018",
+          "label": "ok",
+          "language": "he",
+          "text": "היא אמרה שלא נעים לה להיות עם מתנדב גבר לבד בבית, אני מבין אותה, אני ממליץ להוסיף בהערות שהיא מחפשת מתנדבת אישה.",
+          "distance": 0.2830854058265686
+        },
+        {
+          "id": "gpt-072",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא זרקה עליי את התיק שלה כשאמרתי שלא אוכל להגיש בשבילה את הבקשה. לא נפגעתי אבל זה כבר עבר גבול מבחינתי.",
+          "distance": 0.29158127307891846
+        }
+      ]
+    },
+    {
+      "id": "gpt-005",
+      "group_id": "gpt-005",
+      "language": "he",
+      "label": "ok",
+      "source": "chatgpt",
+      "text": "באמצע השיחה הוא התווכח בקול עם אחיו שהיה לידו, אז עצרנו כמה פעמים. זה לא היה מופנה אליי, פשוט לא הייתה אווירה לעבוד.",
+      "predicted": "ok",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "The requester argued with his brother during the call, but the note states it was not directed at the volunteer and was a practical distraction, so no action is needed.",
+      "similar": [
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.2529338002204895
+        },
+        {
+          "id": "gem-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא התחיל לצרוח עליי בטלפון שאני איטי ולא עוזר לו בכלום, לא מוכן להמשיך ככה.",
+          "distance": 0.2647055983543396
+        },
+        {
+          "id": "gpt-084",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא הודיע לי שהוא מגיע למשרד שלי מחר ושאני חייב לפנות לו זמן, למרות שלא קבענו. כשאמרתי שלא יגיע בלי תיאום הוא התחיל לצעוק.",
+          "distance": 0.27915215492248535
+        },
+        {
+          "id": "gpt-039",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כשהגעתי לפגישה הוא דפק בחוזקה על השולחן והתקרב אליי תוך כדי צעקות. הרגשתי שאני עלול להיפגע ועזבתי את המקום.",
+          "distance": 0.2861536145210266
+        },
+        {
+          "id": "gem-061",
+          "label": "ok",
+          "language": "he",
+          "text": "בזמן שישבנו בתור ברשות האוכלוסין פרצה מהומה ליד השומר ושני אנשים צרחו שם אחד על השני, הפונה נלחץ מהרעש והלכנו הביתה. לצערי אני טסה לחודש כך שלא אוכל לקבוע איתו שוב.",
+          "distance": 0.30152833461761475
+        },
+        {
+          "id": "gpt-001",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעבור איתה על הטפסים אבל הילדים שלה צרחו ברקע כל השיחה. היה קשה להתרכז, אבל הצעקות לא היו אליי.",
+          "distance": 0.3068026304244995
+        },
+        {
+          "id": "gem-065",
+          "label": "ok",
+          "language": "he",
+          "text": "אי אפשר היה לשמוע מילה בשיחה כי השותף שלו לדירה צרח בטלפון בחדר השני והטלוויזיה הייתה על פול ווליום, והפונה לא יכול לצאת לדבר בחוץ. אני חייב שעות שקטות בערב.",
+          "distance": 0.3159988522529602
+        },
+        {
+          "id": "gpt-016",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא ביקש שנעצור עד שיסיים את המעבר דירה ושאחזור אליו בחודש הבא. כרגע אין טעם להמשיך בפגישות.",
+          "distance": 0.32664597034454346
+        }
+      ]
+    },
+    {
+      "id": "gpt-006",
+      "group_id": "gpt-006",
+      "language": "he",
+      "label": "ok",
+      "source": "chatgpt",
+      "text": "התחלתי לעבוד במשמרות ערב ואין לי יותר אפשרות להגיע לפגישות בשעות שנוחות לו. עדיף שימצאו לו מישהו עם זמינות אחרת.",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Volunteer's work schedule changed and they can no longer meet at the requester's preferred times, a normal practical hand-back with no behaviour concern.",
+      "similar": [
+        {
+          "id": "gpt-011",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מעדיף פגישות פנים אל פנים ואני יכול להיפגש רק בזום בתקופה הקרובה. נראה לי שצריך להתאים לו מתנדב אחר.",
+          "distance": 0.2502058744430542
+        },
+        {
+          "id": "gem-055",
+          "label": "ok",
+          "language": "he",
+          "text": "החליפו לי משמרות בעבודה ועכשיו אני עובד כל יום עד שש, לא נשאר לי חלון זמן לשיחות מול משרדי ממשלה.",
+          "distance": 0.2562224268913269
+        },
+        {
+          "id": "man-078",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא מתעקש להיפגש כל יום בשבוע וזה לא משהו שאני יכול כי אני עובד בראשון שני ושלישי, ניסיתי להגיד לו שאני יכול רק בימי שישי בצהרים אבל הוא לא מסכים ואומר שהוא רוצה מתנדב אחר טוב יותר",
+          "distance": 0.2592669129371643
+        },
+        {
+          "id": "man-012",
+          "label": "ok",
+          "language": "he",
+          "text": "צריך ללכת איתו לרופא ואני לא יכולה לבוא בתאריכים שהוא פנוי",
+          "distance": 0.28144752979278564
+        },
+        {
+          "id": "gpt-064",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא גר בקומה רביעית בלי מעלית ואני עם בעיה בברך, לא מתאים לי להגיע לשם באופן קבוע. צריך מישהו שיוכל להיפגש איתו במקום.",
+          "distance": 0.2875497341156006
+        },
+        {
+          "id": "gpt-022",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "שלוש פגישות ברצף הוא לא הגיע ולא הודיע מראש. התקשרתי, שלחתי הודעות וניסיתי לתאם מחדש אבל אין שום תגובה.",
+          "distance": 0.2983889579772949
+        },
+        {
+          "id": "man-084",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא ממש חופר לי שעות כל פעם ואני רוצה ללכת אבל לא נעים לי, זה ככה כבר 6 מפגשים ולמרות שדיברתי איתו פעם אחת על זה בעדינות הוא לא מפסיק, צריך מישהו סבלן יותר לדעתי אבל אולי כדאי להבהיר לו את זה על ההתחלה",
+          "distance": 0.3046949505805969
+        },
+        {
+          "id": "gem-023",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בהתנהלות מולו גורם לי להרגיש ממש לא בנוח ואני מעדיפה לסיים את הליווי הזה.",
+          "distance": 0.32001620531082153
+        }
+      ]
+    },
+    {
+      "id": "gpt-013",
+      "group_id": "gpt-013",
+      "language": "he",
+      "label": "ok",
+      "source": "chatgpt",
+      "text": "היא צריכה עזרה בעיקר עם העלאת מסמכים וסריקות מהמחשב, ואני לא מספיק מבין בזה כדי לעזור לה כמו שצריך. אולי מתנדב עם רקע טכני יתאים יותר.",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "The volunteer lacks the technical skills needed for uploading and scanning documents and suggests a better-suited volunteer; this is a practical skill mismatch with no concerning behaviour.",
+      "similar": [
+        {
+          "id": "gpt-059",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא צריך עזרה בעיקר בקריאת מסמכים בצרפתית ואני לא יודעת צרפתית בכלל. נראה לי שעדיף למצוא לו מתנדב שיוכל להבין איתו את המכתבים.",
+          "distance": 0.23877161741256714
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.24790799617767334
+        },
+        {
+          "id": "man-127",
+          "label": "ok",
+          "language": "he",
+          "text": "סיימנו את החלק שאני יודעת לעזור לה בו, אבל עכשיו יש מילוי כלשהו של טפסים שאני לא מצליחה לבין איך עושים את זה אז כדאי שמישהו אחר יעזור לה",
+          "distance": 0.2539867162704468
+        },
+        {
+          "id": "gpt-007",
+          "label": "ok",
+          "language": "he",
+          "text": "נראה לי שהיא תוכל להתקדם הרבה יותר טוב עם מתנדבת שמדברת רוסית. אני מסתדר רק בעברית וזה מקשה על ההסברים.",
+          "distance": 0.2816012501716614
+        },
+        {
+          "id": "man-085",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הבן אדם נראה תקין לגמרי ומסוגל לעשות את כל זה בעצמו, אני חושבת שזה פשוט קל לו יותר כשעוזרים לו אבל יש אנשים שבאמת צריכים את העזרה הזאת ויש מספר מוגבל של מתנדבים",
+          "distance": 0.32925868034362793
+        },
+        {
+          "id": "man-113",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביררנו ולא מגיעות לה הטבות כלשהן, למרות ההתעקשות שלה שמגיע לה, אין לי מה לעשות עם זה, הצעתי לה לקחת עורך דין אבל זה כבר מעבר ליכולותיי",
+          "distance": 0.35370463132858276
+        },
+        {
+          "id": "gpt-072",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא זרקה עליי את התיק שלה כשאמרתי שלא אוכל להגיש בשבילה את הבקשה. לא נפגעתי אבל זה כבר עבר גבול מבחינתי.",
+          "distance": 0.3568173050880432
+        },
+        {
+          "id": "gpt-081",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא ביקשה שאמסור לה את הסיסמה לחשבון האישי שלי באתר הממשלתי כדי שאוכל לבצע עבורה את הפעולות. כשסירבתי היא אמרה שאני לא שווה כלום.",
+          "distance": 0.3615948557853699
+        }
+      ]
+    },
+    {
+      "id": "gpt-025",
+      "group_id": "gpt-025",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "chatgpt",
+      "text": "הוא צחק ואמר שאם אני לא אסדר לו את הקצבה הוא עוד יגיע אליי הביתה ויטפל בי. הוא אמר את זה בחיוך אבל זה לא הצחיק אותי.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "הוא עוד יגיע אליי הביתה ויטפל בי",
+      "reason_en": "The requester made a threat to come to the volunteer's home and harm them, even though he said it jokingly, and the volunteer felt uneasy.",
+      "similar": [
+        {
+          "id": "gpt-019",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "בסוף הפגישה הוא ביקש שאלווה לו 500 שקל עד שייכנס הקצבה. אמרתי שזה לא חלק מהתפקיד והוא המשיך ללחוץ.",
+          "distance": 0.2002848982810974
+        },
+        {
+          "id": "gem-020",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביקש ממני להעביר לו 300 שקל בביט עד שתיכנס הקצבה ואמר שאם אני באמת רוצה לעזור שאפתח את הארנק.",
+          "distance": 0.2557770013809204
+        },
+        {
+          "id": "gem-033",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא אמר בצחוק שאם הביטוח לאומי שוב דוחים לו את הערעור הוא בא עם ג'ריקן לשרוף להם את הסניף, אותי זה ממש הלחיץ.",
+          "distance": 0.27096641063690186
+        },
+        {
+          "id": "gem-070",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביקש שאשלם לו בינתיים על התרופות בבית מרקחת כי נגמר לו הכסף בכרטיס ויחזיר לי בחודש הבא.",
+          "distance": 0.28315281867980957
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.29369354248046875
+        },
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.3114117383956909
+        },
+        {
+          "id": "gem-014",
+          "label": "ok",
+          "language": "he",
+          "text": "היא בכתה הרבה בשיחה כי דחו לה שוב את הבקשה לסל שיקום והיא ממש מתוסכלת מהמערכת, אבל היא בקשר טוב עם המטפלת שלה. אני פשוט עוברת תפקיד בעבודה.",
+          "distance": 0.3195681571960449
+        },
+        {
+          "id": "gpt-066",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא כבר קיבל את ההחזר שמגיע לו מקרן הסיוע של העירייה. התקשרתי רק לוודא והוא אמר שהעניין מאחוריו.",
+          "distance": 0.3395352363586426
+        }
+      ]
+    },
+    {
+      "id": "gpt-035",
+      "group_id": "gpt-035",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "chatgpt",
+      "text": "כל השיחה הוא קילל אותי ואמר שאני עובד בשביל הרשויות ושאני צריך להתבייש בעצמי. ניסיתי להרגיע אבל הוא רק הגביר את הטון.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "הוא קילל אותי",
+      "reason_en": "The requester cursed at the volunteer and told them to be ashamed, which is aggressive, insulting behaviour toward the volunteer.",
+      "similar": [
+        {
+          "id": "gpt-034",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא אמר שאני מתנדב חסר תועלת ושאין לי מושג מה אני עושה. גם ככה נראה לי שאני לא האדם המתאים לתיק, אבל היחס שלו היה ממש פוגעני.",
+          "distance": 0.23895645141601562
+        },
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.2659505605697632
+        },
+        {
+          "id": "gpt-027",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "באמצע השיחה הוא אמר שאין לו יותר בשביל מה לחיות ושחשב כמה פעמים לסיים עם הכול. לא הרגשתי שאני יודע איך להתמודד עם זה לבד.",
+          "distance": 0.2678925395011902
+        },
+        {
+          "id": "gem-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא התחיל לצרוח עליי בטלפון שאני איטי ולא עוזר לו בכלום, לא מוכן להמשיך ככה.",
+          "distance": 0.2742732763290405
+        },
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.31683671474456787
+        },
+        {
+          "id": "gem-055",
+          "label": "ok",
+          "language": "he",
+          "text": "החליפו לי משמרות בעבודה ועכשיו אני עובד כל יום עד שש, לא נשאר לי חלון זמן לשיחות מול משרדי ממשלה.",
+          "distance": 0.322390079498291
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.32288873195648193
+        },
+        {
+          "id": "gem-014",
+          "label": "ok",
+          "language": "he",
+          "text": "היא בכתה הרבה בשיחה כי דחו לה שוב את הבקשה לסל שיקום והיא ממש מתוסכלת מהמערכת, אבל היא בקשר טוב עם המטפלת שלה. אני פשוט עוברת תפקיד בעבודה.",
+          "distance": 0.3297775387763977
+        }
+      ]
+    },
+    {
+      "id": "gpt-043",
+      "group_id": "gpt-043",
+      "language": "en",
+      "label": "ok",
+      "source": "chatgpt",
+      "text": "He told me he found someone at the community centre who can help him with the application. I checked that he had their contact details and he doesn't need me to continue.",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Requester found help elsewhere through the community centre and no longer needs the volunteer; a normal hand-back.",
+      "similar": [
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.350106418132782
+        },
+        {
+          "id": "man-080",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני יודעת מסיפור שהוא אמר לי שיש לו בני משפחה שזמינים להגיש בשבילו את הטפסים והוא סתם לא מבקש מהם",
+          "distance": 0.35540759563446045
+        },
+        {
+          "id": "gpt-094",
+          "label": "ok",
+          "language": "en",
+          "text": "She told me her cousin has taken over the paperwork for her student assistance application, so my involvement is no longer needed. We agreed to close the handover.",
+          "distance": 0.36794185638427734
+        },
+        {
+          "id": "gpt-056",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא הסתדר בסוף עם מוקד השירות של חברת החשמל דרך הבן שלו. דיברתי איתו והוא אמר שהנושא נסגר ואין צורך שאמשיך לבדוק.",
+          "distance": 0.382404625415802
+        },
+        {
+          "id": "gpt-092",
+          "label": "ok",
+          "language": "en",
+          "text": "I'm taking care of a family member at the moment and need to step back from volunteering for a while. The person I was helping was perfectly cooperative.",
+          "distance": 0.4021680951118469
+        },
+        {
+          "id": "man-085",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הבן אדם נראה תקין לגמרי ומסוגל לעשות את כל זה בעצמו, אני חושבת שזה פשוט קל לו יותר כשעוזרים לו אבל יש אנשים שבאמת צריכים את העזרה הזאת ויש מספר מוגבל של מתנדבים",
+          "distance": 0.40843719244003296
+        },
+        {
+          "id": "gpt-077",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא לא הופיע במרכז הקהילתי, ואז גיליתי שהוא מחכה בחוץ ליד האופניים שלי. הוא אמר שהוא רוצה לדבר איתי לבד ושלא אספר לצוות.",
+          "distance": 0.4188942313194275
+        },
+        {
+          "id": "gpt-047",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "He asked me to lend him money for his rent and said he'd pay me back when his benefit comes through. I said I couldn't, but he kept asking.",
+          "distance": 0.4535449147224426
+        }
+      ]
+    },
+    {
+      "id": "gpt-055",
+      "group_id": "gpt-055",
+      "language": "he",
+      "label": "ok",
+      "source": "chatgpt",
+      "text": "אני לא יכול להמשיך להגיע למרכז הקליטה בשעות האלה בגלל הלימודים. אולי מישהו שגר באזור ויכול להגיע בבקרים יתאים יותר.",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Volunteer cannot continue because of study schedule conflicts and suggests someone closer who can come in the mornings; a practical mismatch with no concerning behaviour.",
+      "similar": [
+        {
+          "id": "gem-075",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "גם ככה השעות של המוקד לא מסתדרות לי עם הלימודים, וגם הוא קרא לי מטומטמת כשהסברתי לו למה הבקשה נדחתה.",
+          "distance": 0.2968295216560364
+        },
+        {
+          "id": "man-132",
+          "label": "ok",
+          "language": "he",
+          "text": "אני יכולה במהלך הבקרים אבל היא יכולה רק בשלישי ורביעי בערב",
+          "distance": 0.3090856075286865
+        },
+        {
+          "id": "gpt-064",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא גר בקומה רביעית בלי מעלית ואני עם בעיה בברך, לא מתאים לי להגיע לשם באופן קבוע. צריך מישהו שיוכל להיפגש איתו במקום.",
+          "distance": 0.3329769968986511
+        },
+        {
+          "id": "man-014",
+          "label": "ok",
+          "language": "he",
+          "text": "השעות שהוא יכול לא נוחות לי",
+          "distance": 0.33555030822753906
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.33950871229171753
+        },
+        {
+          "id": "man-078",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא מתעקש להיפגש כל יום בשבוע וזה לא משהו שאני יכול כי אני עובד בראשון שני ושלישי, ניסיתי להגיד לו שאני יכול רק בימי שישי בצהרים אבל הוא לא מסכים ואומר שהוא רוצה מתנדב אחר טוב יותר",
+          "distance": 0.36153143644332886
+        },
+        {
+          "id": "gpt-022",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "שלוש פגישות ברצף הוא לא הגיע ולא הודיע מראש. התקשרתי, שלחתי הודעות וניסיתי לתאם מחדש אבל אין שום תגובה.",
+          "distance": 0.3903604745864868
+        },
+        {
+          "id": "gem-023",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בהתנהלות מולו גורם לי להרגיש ממש לא בנוח ואני מעדיפה לסיים את הליווי הזה.",
+          "distance": 0.39626920223236084
+        }
+      ]
+    },
+    {
+      "id": "gpt-068",
+      "group_id": "gpt-068",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "chatgpt",
+      "text": "הוא לא מוכן למלא את הפרטים שביקשו ממנו במרכז התעסוקה, למרות שעברנו עליהם ביחד כמה פעמים. בכל פעם הוא אומר שזה לא עניינו ומנתק.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "הוא לא מוכן למלא את הפרטים שביקשו ממנו",
+      "reason_en": "The requester repeatedly refuses to complete agreed steps and hangs up on the volunteer, which is non-cooperation requiring admin review.",
+      "similar": [
+        {
+          "id": "gem-068",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כבר חודש שהוא לא שולח את האישורים מהבנק ומתעלם מכל מה שסיכמנו לעשות לפני הפגישה, אין לי איך לעזור ככה.",
+          "distance": 0.2547062635421753
+        },
+        {
+          "id": "man-080",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני יודעת מסיפור שהוא אמר לי שיש לו בני משפחה שזמינים להגיש בשבילו את הטפסים והוא סתם לא מבקש מהם",
+          "distance": 0.2653178572654724
+        },
+        {
+          "id": "gpt-033",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא יצאה מהפגישה באמצע כשביקשתי שנעבור יחד על המסמכים. היא אמרה שלא תשתף פעולה עם שום דבר ושאין לה מה לדבר איתי.",
+          "distance": 0.2724784016609192
+        },
+        {
+          "id": "gpt-019",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "בסוף הפגישה הוא ביקש שאלווה לו 500 שקל עד שייכנס הקצבה. אמרתי שזה לא חלק מהתפקיד והוא המשיך ללחוץ.",
+          "distance": 0.28005945682525635
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.3062606453895569
+        },
+        {
+          "id": "gem-014",
+          "label": "ok",
+          "language": "he",
+          "text": "היא בכתה הרבה בשיחה כי דחו לה שוב את הבקשה לסל שיקום והיא ממש מתוסכלת מהמערכת, אבל היא בקשר טוב עם המטפלת שלה. אני פשוט עוברת תפקיד בעבודה.",
+          "distance": 0.3139265775680542
+        },
+        {
+          "id": "gpt-001",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעבור איתה על הטפסים אבל הילדים שלה צרחו ברקע כל השיחה. היה קשה להתרכז, אבל הצעקות לא היו אליי.",
+          "distance": 0.3306761384010315
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.338620662689209
+        }
+      ]
+    },
+    {
+      "id": "gpt-076",
+      "group_id": "gpt-076",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "chatgpt",
+      "text": "היא אמרה שאם אמשיך להתעקש על המסמכים היא תדאג שאאבד את העבודה שלי. ניסתה להגיד אחר כך שהיא רק עצבנית, אבל מבחינתי זו הייתה אזהרה רצינית.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "תדאג שאאבד את העבודה שלי",
+      "reason_en": "The requester threatened the volunteer's job after the volunteer insisted on documents, and the volunteer felt it was a serious warning.",
+      "similar": [
+        {
+          "id": "gpt-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כל פעם שביקשתי ממנה להביא מסמך היא התחילה לצעוק עליי שאני לא מבין כלום. השיחה האחרונה כבר הייתה ממש תוקפנית.",
+          "distance": 0.18891167640686035
+        },
+        {
+          "id": "gpt-033",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא יצאה מהפגישה באמצע כשביקשתי שנעבור יחד על המסמכים. היא אמרה שלא תשתף פעולה עם שום דבר ושאין לה מה לדבר איתי.",
+          "distance": 0.23836654424667358
+        },
+        {
+          "id": "gpt-072",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא זרקה עליי את התיק שלה כשאמרתי שלא אוכל להגיש בשבילה את הבקשה. לא נפגעתי אבל זה כבר עבר גבול מבחינתי.",
+          "distance": 0.25051480531692505
+        },
+        {
+          "id": "gpt-067",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביקשתי ממנה שוב את האישור הרפואי והיא התחילה לצרוח שאני אפס ושאני מבזבז לה את הזמן. לא הצלחתי לנהל איתה שיחה עניינית.",
+          "distance": 0.27052927017211914
+        },
+        {
+          "id": "gpt-001",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעבור איתה על הטפסים אבל הילדים שלה צרחו ברקע כל השיחה. היה קשה להתרכז, אבל הצעקות לא היו אליי.",
+          "distance": 0.31530410051345825
+        },
+        {
+          "id": "gem-014",
+          "label": "ok",
+          "language": "he",
+          "text": "היא בכתה הרבה בשיחה כי דחו לה שוב את הבקשה לסל שיקום והיא ממש מתוסכלת מהמערכת, אבל היא בקשר טוב עם המטפלת שלה. אני פשוט עוברת תפקיד בעבודה.",
+          "distance": 0.32699912786483765
+        },
+        {
+          "id": "gem-061",
+          "label": "ok",
+          "language": "he",
+          "text": "בזמן שישבנו בתור ברשות האוכלוסין פרצה מהומה ליד השומר ושני אנשים צרחו שם אחד על השני, הפונה נלחץ מהרעש והלכנו הביתה. לצערי אני טסה לחודש כך שלא אוכל לקבוע איתו שוב.",
+          "distance": 0.33222097158432007
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.34374159574508667
+        }
+      ]
+    },
+    {
+      "id": "gpt-078",
+      "group_id": "gpt-078",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "chatgpt",
+      "text": "ביקש שאסדר לו עבודה אצל חבר שלי ושאתן לו את המספר האישי של אותו חבר. כשסירבתי הוא התחיל לקלל ולומר שאני חייב לעזור לו בכל דבר.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "הוא התחיל לקלל ולומר שאני חייב לעזור לו בכל דבר",
+      "reason_en": "The requester asked the volunteer for work-related favors outside the role and a friend's personal number, then cursed at the volunteer after being refused.",
+      "similar": [
+        {
+          "id": "gem-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא התחיל לצרוח עליי בטלפון שאני איטי ולא עוזר לו בכלום, לא מוכן להמשיך ככה.",
+          "distance": 0.26701974868774414
+        },
+        {
+          "id": "gpt-037",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אחרי הפגישה קיבלתי ממנו הודעה עם הזמנה לצאת איתו בערב ועוד הודעה עם רמיזה מינית. לא נתתי את המספר שלי לשיחות כאלה.",
+          "distance": 0.2807316184043884
+        },
+        {
+          "id": "gpt-084",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא הודיע לי שהוא מגיע למשרד שלי מחר ושאני חייב לפנות לו זמן, למרות שלא קבענו. כשאמרתי שלא יגיע בלי תיאום הוא התחיל לצעוק.",
+          "distance": 0.2813589572906494
+        },
+        {
+          "id": "man-078",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא מתעקש להיפגש כל יום בשבוע וזה לא משהו שאני יכול כי אני עובד בראשון שני ושלישי, ניסיתי להגיד לו שאני יכול רק בימי שישי בצהרים אבל הוא לא מסכים ואומר שהוא רוצה מתנדב אחר טוב יותר",
+          "distance": 0.2910463809967041
+        },
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.35351496934890747
+        },
+        {
+          "id": "gpt-016",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא ביקש שנעצור עד שיסיים את המעבר דירה ושאחזור אליו בחודש הבא. כרגע אין טעם להמשיך בפגישות.",
+          "distance": 0.35787612199783325
+        },
+        {
+          "id": "man-006",
+          "label": "ok",
+          "language": "he",
+          "text": "יש לה חתולים ואני אלרגית, אין לנו מקום אחר לשבת בו אז אני לא יכולה לעזור פנים מול פנים והמקרה מצריך את זה, יש לה את המספר שלי ואמרתי לה שתתקשר אלי אם היא צריכה משהו.",
+          "distance": 0.3766377568244934
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.37664300203323364
+        }
+      ]
+    },
+    {
+      "id": "gpt-082",
+      "group_id": "gpt-082",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "chatgpt",
+      "text": "במהלך הפגישה הוא ליטף לי את השיער כמה פעמים ואמר שאני נראית יפה מדי בשביל לעבוד בהתנדבות. ניסיתי להתרחק והוא המשיך.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "הוא ליטף לי את השיער כמה פעמים",
+      "reason_en": "Requester touched the volunteer's hair repeatedly and made a sexual-tinged comment, and continued after she tried to pull away.",
+      "similar": [
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.21143287420272827
+        },
+        {
+          "id": "gpt-034",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא אמר שאני מתנדב חסר תועלת ושאין לי מושג מה אני עושה. גם ככה נראה לי שאני לא האדם המתאים לתיק, אבל היחס שלו היה ממש פוגעני.",
+          "distance": 0.23852121829986572
+        },
+        {
+          "id": "gpt-023",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "במהלך הפגישה היא העירה כמה פעמים הערות מיניות על המראה שלי. ניסיתי להחזיר את השיחה לנושא של ביטוח לאומי וזה לא הפסיק.",
+          "distance": 0.24907207489013672
+        },
+        {
+          "id": "gpt-039",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כשהגעתי לפגישה הוא דפק בחוזקה על השולחן והתקרב אליי תוך כדי צעקות. הרגשתי שאני עלול להיפגע ועזבתי את המקום.",
+          "distance": 0.2530195713043213
+        },
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.28419625759124756
+        },
+        {
+          "id": "gpt-011",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מעדיף פגישות פנים אל פנים ואני יכול להיפגש רק בזום בתקופה הקרובה. נראה לי שצריך להתאים לו מתנדב אחר.",
+          "distance": 0.31355851888656616
+        },
+        {
+          "id": "man-018",
+          "label": "ok",
+          "language": "he",
+          "text": "היא אמרה שלא נעים לה להיות עם מתנדב גבר לבד בבית, אני מבין אותה, אני ממליץ להוסיף בהערות שהיא מחפשת מתנדבת אישה.",
+          "distance": 0.3387572765350342
+        },
+        {
+          "id": "man-051",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מדבר בקול רם, זה בסדר אבל בגלל משהו מהעבר שלי אני לא יכולה להתמודד עם זה. אני מאוד מתנצלת, אני מקווה שהוא ימצא מישהו שיעזור לו בהנאה, אבל אני לא מתאימה.",
+          "distance": 0.33917587995529175
+        }
+      ]
+    },
+    {
+      "id": "gpt-088",
+      "group_id": "gpt-088",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "chatgpt",
+      "text": "בפגישה הוא התחיל להעיר הערות על הגוף שלי ולשאול שאלות אישיות על חיי המין שלי. ניסיתי להבהיר שזה לא מתאים והוא צחק והמשיך.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "התחיל להעיר הערות על הגוף שלי ולשאול שאלות אישיות על חיי המין שלי",
+      "reason_en": "The requester made comments about the volunteer's body and asked sexual personal questions, and kept going after she objected, which is sexual behaviour toward the volunteer.",
+      "similar": [
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.17180365324020386
+        },
+        {
+          "id": "gem-040",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "העיר הערות מיניות על הלבוש שלי לאורך כל הפגישה וביקש שאשלח לו תמונה פרטית.",
+          "distance": 0.176946759223938
+        },
+        {
+          "id": "gpt-023",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "במהלך הפגישה היא העירה כמה פעמים הערות מיניות על המראה שלי. ניסיתי להחזיר את השיחה לנושא של ביטוח לאומי וזה לא הפסיק.",
+          "distance": 0.19234144687652588
+        },
+        {
+          "id": "gpt-037",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אחרי הפגישה קיבלתי ממנו הודעה עם הזמנה לצאת איתו בערב ועוד הודעה עם רמיזה מינית. לא נתתי את המספר שלי לשיחות כאלה.",
+          "distance": 0.21254169940948486
+        },
+        {
+          "id": "man-051",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מדבר בקול רם, זה בסדר אבל בגלל משהו מהעבר שלי אני לא יכולה להתמודד עם זה. אני מאוד מתנצלת, אני מקווה שהוא ימצא מישהו שיעזור לו בהנאה, אבל אני לא מתאימה.",
+          "distance": 0.2927970886230469
+        },
+        {
+          "id": "gpt-016",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא ביקש שנעצור עד שיסיים את המעבר דירה ושאחזור אליו בחודש הבא. כרגע אין טעם להמשיך בפגישות.",
+          "distance": 0.31054365634918213
+        },
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.3479121923446655
+        },
+        {
+          "id": "gpt-054",
+          "label": "ok",
+          "language": "he",
+          "text": "היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.",
+          "distance": 0.3554725646972656
+        }
+      ]
+    },
+    {
+      "id": "gpt-090",
+      "group_id": "gpt-090",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "chatgpt",
+      "text": "היא מסרבת להגיע לפגישות שנקבעו, דורשת שאגיע אליה הביתה בכל שעה שנוחה לה ולא מוכנה לשום חלופה. כשאמרתי שלא אוכל, התחילה לצעוק.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "כשאמרתי שלא אוכל, התחילה לצעוק.",
+      "reason_en": "The requester refuses agreed meetings, insists on home visits at any hour, and yelled at the volunteer after a clear no.",
+      "similar": [
+        {
+          "id": "gpt-084",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא הודיע לי שהוא מגיע למשרד שלי מחר ושאני חייב לפנות לו זמן, למרות שלא קבענו. כשאמרתי שלא יגיע בלי תיאום הוא התחיל לצעוק.",
+          "distance": 0.238264799118042
+        },
+        {
+          "id": "gpt-033",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא יצאה מהפגישה באמצע כשביקשתי שנעבור יחד על המסמכים. היא אמרה שלא תשתף פעולה עם שום דבר ושאין לה מה לדבר איתי.",
+          "distance": 0.25875282287597656
+        },
+        {
+          "id": "gpt-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כל פעם שביקשתי ממנה להביא מסמך היא התחילה לצעוק עליי שאני לא מבין כלום. השיחה האחרונה כבר הייתה ממש תוקפנית.",
+          "distance": 0.2618425488471985
+        },
+        {
+          "id": "gpt-067",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביקשתי ממנה שוב את האישור הרפואי והיא התחילה לצרוח שאני אפס ושאני מבזבז לה את הזמן. לא הצלחתי לנהל איתה שיחה עניינית.",
+          "distance": 0.2767772078514099
+        },
+        {
+          "id": "man-016",
+          "label": "ok",
+          "language": "he",
+          "text": "היא מפחדת ממני ולא רוצה לדבר איתי למרות שזה בשיחת טלפון",
+          "distance": 0.2938825488090515
+        },
+        {
+          "id": "man-012",
+          "label": "ok",
+          "language": "he",
+          "text": "צריך ללכת איתו לרופא ואני לא יכולה לבוא בתאריכים שהוא פנוי",
+          "distance": 0.3109896779060364
+        },
+        {
+          "id": "gpt-004",
+          "label": "ok",
+          "language": "he",
+          "text": "היא הייתה מאוד עצובה ובכתה קצת בפגישה. אמרה שעובר עליה שבוע קשה ושהיא הולכת לישון אצל אחותה הערב, לא עלה משהו שמצריך טיפול נוסף.",
+          "distance": 0.3161025643348694
+        },
+        {
+          "id": "man-006",
+          "label": "ok",
+          "language": "he",
+          "text": "יש לה חתולים ואני אלרגית, אין לנו מקום אחר לשבת בו אז אני לא יכולה לעזור פנים מול פנים והמקרה מצריך את זה, יש לה את המספר שלי ואמרתי לה שתתקשר אלי אם היא צריכה משהו.",
+          "distance": 0.3169485330581665
+        }
+      ]
+    },
+    {
+      "id": "gpt-097",
+      "group_id": "gpt-097",
+      "language": "en",
+      "label": "needs_attention",
+      "source": "chatgpt",
+      "text": "He asked me to use my personal bank account to receive a payment on his behalf. When I said no, he became angry and insisted I owed him that favour.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "he became angry and insisted I owed him that favour",
+      "reason_en": "Requester asked the volunteer to handle money through their personal account, then became angry and pressed after a clear refusal.",
+      "similar": [
+        {
+          "id": "gpt-047",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "He asked me to lend him money for his rent and said he'd pay me back when his benefit comes through. I said I couldn't, but he kept asking.",
+          "distance": 0.256972074508667
+        },
+        {
+          "id": "gpt-070",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא ביקש שאשתמש בכרטיס האשראי שלי כדי לשלם לו חשבון מים עד שיסתדר. הסברתי שזה לא מתאים, והוא התחיל להפעיל עליי לחץ רגשי.",
+          "distance": 0.2907281517982483
+        },
+        {
+          "id": "man-101",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "I think this man is a scammer. It seems to me that he’s trying to get money that he in no way deserves. I don’t want any part in it.",
+          "distance": 0.3492485284805298
+        },
+        {
+          "id": "gem-070",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביקש שאשלם לו בינתיים על התרופות בבית מרקחת כי נגמר לו הכסף בכרטיס ויחזיר לי בחודש הבא.",
+          "distance": 0.3575093150138855
+        },
+        {
+          "id": "gem-044",
+          "label": "ok",
+          "language": "en",
+          "text": "He was really down about his situation and the case feels emotionally heavy for me right now with everything going on in my own family, though he was totally polite.",
+          "distance": 0.45212501287460327
+        },
+        {
+          "id": "gpt-066",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא כבר קיבל את ההחזר שמגיע לו מקרן הסיוע של העירייה. התקשרתי רק לוודא והוא אמר שהעניין מאחוריו.",
+          "distance": 0.46272265911102295
+        },
+        {
+          "id": "gpt-011",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מעדיף פגישות פנים אל פנים ואני יכול להיפגש רק בזום בתקופה הקרובה. נראה לי שצריך להתאים לו מתנדב אחר.",
+          "distance": 0.4816403388977051
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.487479031085968
+        }
+      ]
+    },
+    {
+      "id": "gpt-099",
+      "group_id": "gpt-099",
+      "language": "en",
+      "label": "needs_attention",
+      "source": "chatgpt",
+      "text": "He said he was going to smash the windows at the local welfare office if they rejected his application again. He laughed afterwards, but I don't think it was harmless.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "He said he was going to smash the windows at the local welfare office if they rejected his application again.",
+      "reason_en": "The requester threatened property damage against a welfare office, and the volunteer feels it was not harmless, so an admin should review.",
+      "similar": [
+        {
+          "id": "gem-033",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא אמר בצחוק שאם הביטוח לאומי שוב דוחים לו את הערעור הוא בא עם ג'ריקן לשרוף להם את הסניף, אותי זה ממש הלחיץ.",
+          "distance": 0.30173444747924805
+        },
+        {
+          "id": "gem-050",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "He laughed and said \"I know where you live if you don't get my disability approved this week,\" played it off as a joke but I don't want to meet him again.",
+          "distance": 0.30264997482299805
+        },
+        {
+          "id": "gem-085",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "איים שבפעם הבאה שהוא מגיע לסניף של משרד השיכון הוא הופך שם שולחנות ושובר לפקיד את הראש.",
+          "distance": 0.33306312561035156
+        },
+        {
+          "id": "gpt-047",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "He asked me to lend him money for his rent and said he'd pay me back when his benefit comes through. I said I couldn't, but he kept asking.",
+          "distance": 0.4017825722694397
+        },
+        {
+          "id": "gem-061",
+          "label": "ok",
+          "language": "he",
+          "text": "בזמן שישבנו בתור ברשות האוכלוסין פרצה מהומה ליד השומר ושני אנשים צרחו שם אחד על השני, הפונה נלחץ מהרעש והלכנו הביתה. לצערי אני טסה לחודש כך שלא אוכל לקבוע איתו שוב.",
+          "distance": 0.43403762578964233
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.45122021436691284
+        },
+        {
+          "id": "gem-014",
+          "label": "ok",
+          "language": "he",
+          "text": "היא בכתה הרבה בשיחה כי דחו לה שוב את הבקשה לסל שיקום והיא ממש מתוסכלת מהמערכת, אבל היא בקשר טוב עם המטפלת שלה. אני פשוט עוברת תפקיד בעבודה.",
+          "distance": 0.46849966049194336
+        },
+        {
+          "id": "gpt-066",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא כבר קיבל את ההחזר שמגיע לו מקרן הסיוע של העירייה. התקשרתי רק לוודא והוא אמר שהעניין מאחוריו.",
+          "distance": 0.4729967713356018
+        }
+      ]
+    },
+    {
+      "id": "man-008",
+      "group_id": "man-008",
+      "language": "he",
+      "label": "ok",
+      "source": "manual",
+      "text": "יש אתר בניה לידו וקשה לי להתרכז, מתנצלת...",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Volunteer cites noise from a nearby construction site making it hard to concentrate, a practical reason with no behaviour toward the volunteer or safety concern.",
+      "similar": [
+        {
+          "id": "gpt-001",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעבור איתה על הטפסים אבל הילדים שלה צרחו ברקע כל השיחה. היה קשה להתרכז, אבל הצעקות לא היו אליי.",
+          "distance": 0.35693472623825073
+        },
+        {
+          "id": "gem-010",
+          "label": "ok",
+          "language": "he",
+          "text": "העומס בעבודה מטורף החודש ואני לא מספיק לעשות follow up על הפניות שלו, עדיף להעביר למישהו פנוי יותר.",
+          "distance": 0.37243956327438354
+        },
+        {
+          "id": "man-002",
+          "label": "ok",
+          "language": "he",
+          "text": "התהליך מסובך לי מדי ואני לא רוצה לפקשש לו",
+          "distance": 0.3772335648536682
+        },
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.3810003399848938
+        },
+        {
+          "id": "man-082",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני מרגישה מאויימת כשאני שם, משהו במבטים קצת משונה",
+          "distance": 0.3829615116119385
+        },
+        {
+          "id": "man-083",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "התלבטתי אם להפסיק עם המקרה הזה או לא, אבל אחרי המפגש האחרון שהלך כל כך לא טוב אני לא ממשיכה, מתנצלת",
+          "distance": 0.3946772813796997
+        },
+        {
+          "id": "gem-023",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בהתנהלות מולו גורם לי להרגיש ממש לא בנוח ואני מעדיפה לסיים את הליווי הזה.",
+          "distance": 0.39972883462905884
+        },
+        {
+          "id": "man-051",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מדבר בקול רם, זה בסדר אבל בגלל משהו מהעבר שלי אני לא יכולה להתמודד עם זה. אני מאוד מתנצלת, אני מקווה שהוא ימצא מישהו שיעזור לו בהנאה, אבל אני לא מתאימה.",
+          "distance": 0.3998209834098816
+        }
+      ]
+    },
+    {
+      "id": "man-013",
+      "group_id": "man-013",
+      "language": "he",
+      "label": "ok",
+      "source": "manual",
+      "text": "נכנסה לי מחויבות אחרת שאני לא יכולה לבטל או להזיז",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Volunteer hands back the case due to a conflicting personal commitment, not any requester behaviour.",
+      "similar": [
+        {
+          "id": "man-012",
+          "label": "ok",
+          "language": "he",
+          "text": "צריך ללכת איתו לרופא ואני לא יכולה לבוא בתאריכים שהוא פנוי",
+          "distance": 0.4036627411842346
+        },
+        {
+          "id": "man-052",
+          "label": "ok",
+          "language": "he",
+          "text": "זה מקרה שדורש טיפול ארוך ואני תיכף יוצאת לחופשת לידה ואני לא אוכל לטפל בו מהתחלה עד הסוף",
+          "distance": 0.4071229100227356
+        },
+        {
+          "id": "man-014",
+          "label": "ok",
+          "language": "he",
+          "text": "השעות שהוא יכול לא נוחות לי",
+          "distance": 0.41353219747543335
+        },
+        {
+          "id": "gem-055",
+          "label": "ok",
+          "language": "he",
+          "text": "החליפו לי משמרות בעבודה ועכשיו אני עובד כל יום עד שש, לא נשאר לי חלון זמן לשיחות מול משרדי ממשלה.",
+          "distance": 0.41926538944244385
+        },
+        {
+          "id": "gem-068",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כבר חודש שהוא לא שולח את האישורים מהבנק ומתעלם מכל מה שסיכמנו לעשות לפני הפגישה, אין לי איך לעזור ככה.",
+          "distance": 0.4277384281158447
+        },
+        {
+          "id": "man-113",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביררנו ולא מגיעות לה הטבות כלשהן, למרות ההתעקשות שלה שמגיע לה, אין לי מה לעשות עם זה, הצעתי לה לקחת עורך דין אבל זה כבר מעבר ליכולותיי",
+          "distance": 0.4344000816345215
+        },
+        {
+          "id": "gem-021",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "דרשה שאחתום בשמה על התצהיר לעורך דין כי אין לה כוח להגיע וכשהסברתי שאסור לי היא התעצבנה וניתקה.",
+          "distance": 0.4360480308532715
+        },
+        {
+          "id": "gpt-019",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "בסוף הפגישה הוא ביקש שאלווה לו 500 שקל עד שייכנס הקצבה. אמרתי שזה לא חלק מהתפקיד והוא המשיך ללחוץ.",
+          "distance": 0.44692111015319824
+        }
+      ]
+    },
+    {
+      "id": "man-024",
+      "group_id": "man-024",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "יש בעיית עכבישים בבית, הם בכל מקום ואני מפחדת מעכבישים, אני רוצה לעזור אבל אני לא יכולה כשזה ככה!!",
+      "predicted": "needs_attention",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "יש בעיית עכבישים בבית, הם בכל מקום",
+      "reason_en": "The home has a spider infestation everywhere, which makes it unsafe or unlivable for the volunteer to work there, so the requester may need more help than the volunteer can give (rule 11).",
+      "similar": [
+        {
+          "id": "man-015",
+          "label": "ok",
+          "language": "he",
+          "text": "יש כלבים בבית, הם מאוד חמודים ורוצים אהבה, אבל אני מפחדת מכלבים",
+          "distance": 0.24872136116027832
+        },
+        {
+          "id": "man-006",
+          "label": "ok",
+          "language": "he",
+          "text": "יש לה חתולים ואני אלרגית, אין לנו מקום אחר לשבת בו אז אני לא יכולה לעזור פנים מול פנים והמקרה מצריך את זה, יש לה את המספר שלי ואמרתי לה שתתקשר אלי אם היא צריכה משהו.",
+          "distance": 0.32200706005096436
+        },
+        {
+          "id": "man-133",
+          "label": "ok",
+          "language": "he",
+          "text": "יש לי בבית חתולים וכשאני מגיעה אליה היא מתעטשת ללא הפסקה, הבנו שהיא כנראה אלרגית לחתולים וזה בעיה שאני אשב לידה, עצוב לי לוותר על המקרה הזה אבל אין לי ברירה. היא אישה מבוגרת ונחמדה ואני מקווה שהיא תמצא מישהו שיעזור לה",
+          "distance": 0.32456839084625244
+        },
+        {
+          "id": "man-055",
+          "label": "ok",
+          "language": "he",
+          "text": "קר אצלו והוא לא רוצה לכבות את המזגן גם כשאני מבקשת שוב ושוב",
+          "distance": 0.3538433909416199
+        },
+        {
+          "id": "man-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא לא נותן לי לעזור לו ורוצה לעשות דברים בדרך שלו, אין לי איך לעזור כשהוא מתנהג כך",
+          "distance": 0.3719949722290039
+        },
+        {
+          "id": "gem-078",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "מתקשר אליי כל יום ב-11 בלילה וכשלא עניתי כתב לי שאם יקרה לו משהו זה על המצפון שלי, לא יודעת איך להתמודד עם זה.",
+          "distance": 0.38806527853012085
+        },
+        {
+          "id": "gpt-031",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא הופיע ליד הבית שלי אתמול בערב בלי שתיאמנו שום דבר. לא נתתי לו את הכתובת שלי לצורך פגישות ואני לא רוצה שזה יקרה שוב.",
+          "distance": 0.401414155960083
+        },
+        {
+          "id": "gem-072",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "רוצה שאבוא אליו הביתה לנקות ולסדר קלסרים במקום לטפל בטפסים, ומפעיל עליי רגשות אשם כשאני מסבירה שזה לא התפקיד.",
+          "distance": 0.40310150384902954
+        }
+      ]
+    },
+    {
+      "id": "man-029",
+      "group_id": "man-029",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "הוא כל הזמן הציץ בחלון על השכנה שלו, הוא אמר שהוא דואג לה אבל זה היה נראה מטריד, זה גרם לי להרגיש מוזר אז העדפתי להעביר את זה למישהו אחר",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "הוא כל הזמן הציץ בחלון על השכנה שלו",
+      "reason_en": "The requester repeatedly watched a neighbour through the window, which seems disturbing and made the volunteer uncomfortable enough to hand off the case, so an admin should review.",
+      "similar": [
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.2845856547355652
+        },
+        {
+          "id": "gem-023",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בהתנהלות מולו גורם לי להרגיש ממש לא בנוח ואני מעדיפה לסיים את הליווי הזה.",
+          "distance": 0.3168063163757324
+        },
+        {
+          "id": "man-030",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני בשירותים ופתאום אני קולטת שהוא מציץ החור של המנעול. אני מבינה שיש לו קשיים נפשיים, והוא בחור מאוד נחמד ורגוע, אבל זה לא התנהגות נורמלית ומתקבלת על הדעת.",
+          "distance": 0.3178368806838989
+        },
+        {
+          "id": "gem-065",
+          "label": "ok",
+          "language": "he",
+          "text": "אי אפשר היה לשמוע מילה בשיחה כי השותף שלו לדירה צרח בטלפון בחדר השני והטלוויזיה הייתה על פול ווליום, והפונה לא יכול לצאת לדבר בחוץ. אני חייב שעות שקטות בערב.",
+          "distance": 0.33663690090179443
+        },
+        {
+          "id": "gpt-031",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא הופיע ליד הבית שלי אתמול בערב בלי שתיאמנו שום דבר. לא נתתי לו את הכתובת שלי לצורך פגישות ואני לא רוצה שזה יקרה שוב.",
+          "distance": 0.339596152305603
+        },
+        {
+          "id": "gpt-016",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא ביקש שנעצור עד שיסיים את המעבר דירה ושאחזור אליו בחודש הבא. כרגע אין טעם להמשיך בפגישות.",
+          "distance": 0.3467831015586853
+        },
+        {
+          "id": "gpt-054",
+          "label": "ok",
+          "language": "he",
+          "text": "היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.",
+          "distance": 0.3530151844024658
+        },
+        {
+          "id": "man-051",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מדבר בקול רם, זה בסדר אבל בגלל משהו מהעבר שלי אני לא יכולה להתמודד עם זה. אני מאוד מתנצלת, אני מקווה שהוא ימצא מישהו שיעזור לו בהנאה, אבל אני לא מתאימה.",
+          "distance": 0.37661415338516235
+        }
+      ]
+    },
+    {
+      "id": "man-031",
+      "group_id": "man-031",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "היא ביקשה שאעשה משהו וכשאמרתי לא היא שפכה עלי קפה רותח. היא צחקה אז אולי היא חשבה שזה בסדר, אבל אני לא חוזר לשם",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "שפכה עלי קפה רותח",
+      "reason_en": "The requester threw boiling coffee on the volunteer after a refusal, which is physical violence toward the volunteer, and the volunteer will not return.",
+      "similar": [
+        {
+          "id": "man-083",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "התלבטתי אם להפסיק עם המקרה הזה או לא, אבל אחרי המפגש האחרון שהלך כל כך לא טוב אני לא ממשיכה, מתנצלת",
+          "distance": 0.2846367359161377
+        },
+        {
+          "id": "man-071",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אין סיכוי שאני חוזרת לחורבה הזאת שוב למרות שהאישה הזקנה נחמדה",
+          "distance": 0.2913966178894043
+        },
+        {
+          "id": "gpt-072",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא זרקה עליי את התיק שלה כשאמרתי שלא אוכל להגיש בשבילה את הבקשה. לא נפגעתי אבל זה כבר עבר גבול מבחינתי.",
+          "distance": 0.3007519841194153
+        },
+        {
+          "id": "man-070",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא הפילה אגרטל בבית ואז האשימה אותי שאני עשיתי את זה ואני צריכה לתת לה תגמול על כך, אני מחזירה את המקרה כי אני לא רוצה שדבר כזה יקרה שוב",
+          "distance": 0.30817681550979614
+        },
+        {
+          "id": "man-006",
+          "label": "ok",
+          "language": "he",
+          "text": "יש לה חתולים ואני אלרגית, אין לנו מקום אחר לשבת בו אז אני לא יכולה לעזור פנים מול פנים והמקרה מצריך את זה, יש לה את המספר שלי ואמרתי לה שתתקשר אלי אם היא צריכה משהו.",
+          "distance": 0.3707459568977356
+        },
+        {
+          "id": "gpt-004",
+          "label": "ok",
+          "language": "he",
+          "text": "היא הייתה מאוד עצובה ובכתה קצת בפגישה. אמרה שעובר עליה שבוע קשה ושהיא הולכת לישון אצל אחותה הערב, לא עלה משהו שמצריך טיפול נוסף.",
+          "distance": 0.3712049722671509
+        },
+        {
+          "id": "man-051",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מדבר בקול רם, זה בסדר אבל בגלל משהו מהעבר שלי אני לא יכולה להתמודד עם זה. אני מאוד מתנצלת, אני מקווה שהוא ימצא מישהו שיעזור לו בהנאה, אבל אני לא מתאימה.",
+          "distance": 0.3720177412033081
+        },
+        {
+          "id": "man-016",
+          "label": "ok",
+          "language": "he",
+          "text": "היא מפחדת ממני ולא רוצה לדבר איתי למרות שזה בשיחת טלפון",
+          "distance": 0.3735230565071106
+        }
+      ]
+    },
+    {
+      "id": "man-035",
+      "group_id": "man-035",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "צריך כסף כדי למלא איזה טופס ואין לו מספיק, אז הוא מבקש שאני אשאיל לו, זה חוזר על עצמו יותר מדי",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "הוא מבקש שאני אשאיל לו",
+      "reason_en": "The requester repeatedly asks the volunteer to lend him money, which is outside the volunteer role.",
+      "similar": [
+        {
+          "id": "gem-090",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "סיימנו למלא את הטופס למס הכנסה, אגב הוא סיפר לי כדרך אגב שניתקו לו את החשמל והמים לפני שבוע ואין לו כסף לאוכל בכלל.",
+          "distance": 0.2783063054084778
+        },
+        {
+          "id": "man-080",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני יודעת מסיפור שהוא אמר לי שיש לו בני משפחה שזמינים להגיש בשבילו את הטפסים והוא סתם לא מבקש מהם",
+          "distance": 0.2818804979324341
+        },
+        {
+          "id": "gpt-070",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא ביקש שאשתמש בכרטיס האשראי שלי כדי לשלם לו חשבון מים עד שיסתדר. הסברתי שזה לא מתאים, והוא התחיל להפעיל עליי לחץ רגשי.",
+          "distance": 0.29602622985839844
+        },
+        {
+          "id": "gpt-019",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "בסוף הפגישה הוא ביקש שאלווה לו 500 שקל עד שייכנס הקצבה. אמרתי שזה לא חלק מהתפקיד והוא המשיך ללחוץ.",
+          "distance": 0.2973889708518982
+        },
+        {
+          "id": "man-127",
+          "label": "ok",
+          "language": "he",
+          "text": "סיימנו את החלק שאני יודעת לעזור לה בו, אבל עכשיו יש מילוי כלשהו של טפסים שאני לא מצליחה לבין איך עושים את זה אז כדאי שמישהו אחר יעזור לה",
+          "distance": 0.32542580366134644
+        },
+        {
+          "id": "man-002",
+          "label": "ok",
+          "language": "he",
+          "text": "התהליך מסובך לי מדי ואני לא רוצה לפקשש לו",
+          "distance": 0.35157448053359985
+        },
+        {
+          "id": "gem-009",
+          "label": "ok",
+          "language": "he",
+          "text": "התיק שלו מול הוצאה לפועל ממש מורכב עם מלא עיקולים, מרגיש לי שצריך מישהו שמבין בזה יותר ממני.",
+          "distance": 0.36399513483047485
+        },
+        {
+          "id": "gem-010",
+          "label": "ok",
+          "language": "he",
+          "text": "העומס בעבודה מטורף החודש ואני לא מספיק לעשות follow up על הפניות שלו, עדיף להעביר למישהו פנוי יותר.",
+          "distance": 0.3746190667152405
+        }
+      ]
+    },
+    {
+      "id": "man-039",
+      "group_id": "man-039",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "אני עוזרת בשמחה כבר המון שנים אבל בחיים לא התייחסו אלי כמו שהיא מתייחסת, זה מאוד מזלזל ולא נעים",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "בחיים לא התייחסו אלי כמו שהיא מתייחסת, זה מאוד מזלזל ולא נעים",
+      "reason_en": "The requester's treatment of the volunteer is described as belittling and unpleasant, which is behaviour toward the volunteer that an admin should review.",
+      "similar": [
+        {
+          "id": "gpt-034",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא אמר שאני מתנדב חסר תועלת ושאין לי מושג מה אני עושה. גם ככה נראה לי שאני לא האדם המתאים לתיק, אבל היחס שלו היה ממש פוגעני.",
+          "distance": 0.28191113471984863
+        },
+        {
+          "id": "gpt-072",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא זרקה עליי את התיק שלה כשאמרתי שלא אוכל להגיש בשבילה את הבקשה. לא נפגעתי אבל זה כבר עבר גבול מבחינתי.",
+          "distance": 0.3320494294166565
+        },
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.33591049909591675
+        },
+        {
+          "id": "man-082",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני מרגישה מאויימת כשאני שם, משהו במבטים קצת משונה",
+          "distance": 0.34256768226623535
+        },
+        {
+          "id": "gpt-038",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא מצפה שאייצג אותה מול העירייה ושאדבר בשמה כאילו אני עורך הדין שלה. הסברתי כמה פעמים שזה לא התפקיד שלי והיא לא מקבלת את זה.",
+          "distance": 0.34296298027038574
+        },
+        {
+          "id": "gpt-054",
+          "label": "ok",
+          "language": "he",
+          "text": "היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.",
+          "distance": 0.34563809633255005
+        },
+        {
+          "id": "gem-014",
+          "label": "ok",
+          "language": "he",
+          "text": "היא בכתה הרבה בשיחה כי דחו לה שוב את הבקשה לסל שיקום והיא ממש מתוסכלת מהמערכת, אבל היא בקשר טוב עם המטפלת שלה. אני פשוט עוברת תפקיד בעבודה.",
+          "distance": 0.3469010591506958
+        },
+        {
+          "id": "man-128",
+          "label": "ok",
+          "language": "he",
+          "text": "היא דתייה וקשה לי עם דתיים",
+          "distance": 0.3649437427520752
+        }
+      ]
+    },
+    {
+      "id": "man-049",
+      "group_id": "man-049",
+      "language": "en",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "he told me he was nice to me even tho he didnt",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "he told me he was nice to me even tho he didnt",
+      "reason_en": "The note implies the requester was not nice to the volunteer, a rude or unpleasant remark about the volunteer's treatment that is unclear and warrants admin review.",
+      "similar": [
+        {
+          "id": "gem-087",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ראיתי אותו מחכה לי ליד תחנת האוטובוס ליד הבית שלי למרות שמעולם לא אמרתי לו איפה אני גרה.",
+          "distance": 0.4049862027168274
+        },
+        {
+          "id": "man-096",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "The man is violent. He never actually hit me but he was about to. He raised his hand but lowered it at the last second. Still, his intent was clear and I am not going anywhere near him again.",
+          "distance": 0.43187862634658813
+        },
+        {
+          "id": "gpt-047",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "He asked me to lend him money for his rent and said he'd pay me back when his benefit comes through. I said I couldn't, but he kept asking.",
+          "distance": 0.4324039816856384
+        },
+        {
+          "id": "man-067",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "יש לו פתיל קצר. הוא בהתחלה התנהג נחמד והציע לי קפה, אבל די מהר התפלפ עלי וזה לא מפסיק להיות ככה",
+          "distance": 0.43680238723754883
+        },
+        {
+          "id": "gem-044",
+          "label": "ok",
+          "language": "en",
+          "text": "He was really down about his situation and the case feels emotionally heavy for me right now with everything going on in my own family, though he was totally polite.",
+          "distance": 0.4420323371887207
+        },
+        {
+          "id": "gpt-092",
+          "label": "ok",
+          "language": "en",
+          "text": "I'm taking care of a family member at the moment and need to step back from volunteering for a while. The person I was helping was perfectly cooperative.",
+          "distance": 0.499970018863678
+        },
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.5002134442329407
+        },
+        {
+          "id": "man-048",
+          "label": "ok",
+          "language": "en",
+          "text": "he laughed at my new haircut",
+          "distance": 0.5088540315628052
+        }
+      ]
+    },
+    {
+      "id": "man-053",
+      "group_id": "man-053",
+      "language": "he",
+      "label": "ok",
+      "source": "manual",
+      "text": "היא צריכה שזה יהיה פנים מול פנים אבל אני נרשמתי רק לשיחת ווידאו",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Practical mismatch: the requester wants in-person meetings while the volunteer only offers video calls, with no safety or behaviour concern.",
+      "similar": [
+        {
+          "id": "man-016",
+          "label": "ok",
+          "language": "he",
+          "text": "היא מפחדת ממני ולא רוצה לדבר איתי למרות שזה בשיחת טלפון",
+          "distance": 0.26507890224456787
+        },
+        {
+          "id": "gpt-011",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מעדיף פגישות פנים אל פנים ואני יכול להיפגש רק בזום בתקופה הקרובה. נראה לי שצריך להתאים לו מתנדב אחר.",
+          "distance": 0.30111145973205566
+        },
+        {
+          "id": "gpt-033",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא יצאה מהפגישה באמצע כשביקשתי שנעבור יחד על המסמכים. היא אמרה שלא תשתף פעולה עם שום דבר ושאין לה מה לדבר איתי.",
+          "distance": 0.3396177887916565
+        },
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.3417578935623169
+        },
+        {
+          "id": "man-006",
+          "label": "ok",
+          "language": "he",
+          "text": "יש לה חתולים ואני אלרגית, אין לנו מקום אחר לשבת בו אז אני לא יכולה לעזור פנים מול פנים והמקרה מצריך את זה, יש לה את המספר שלי ואמרתי לה שתתקשר אלי אם היא צריכה משהו.",
+          "distance": 0.3423756957054138
+        },
+        {
+          "id": "gpt-037",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אחרי הפגישה קיבלתי ממנו הודעה עם הזמנה לצאת איתו בערב ועוד הודעה עם רמיזה מינית. לא נתתי את המספר שלי לשיחות כאלה.",
+          "distance": 0.3443083167076111
+        },
+        {
+          "id": "gpt-038",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא מצפה שאייצג אותה מול העירייה ושאדבר בשמה כאילו אני עורך הדין שלה. הסברתי כמה פעמים שזה לא התפקיד שלי והיא לא מקבלת את זה.",
+          "distance": 0.34445828199386597
+        },
+        {
+          "id": "man-012",
+          "label": "ok",
+          "language": "he",
+          "text": "צריך ללכת איתו לרופא ואני לא יכולה לבוא בתאריכים שהוא פנוי",
+          "distance": 0.3565635085105896
+        }
+      ]
+    },
+    {
+      "id": "man-054",
+      "group_id": "man-054",
+      "language": "he",
+      "label": "ok",
+      "source": "manual",
+      "text": "אני עוברת לגור בחול ויש הפרש שעות שהוא בעיה בשבילי",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Volunteer is moving away and the time difference is a practical mismatch; no behaviour or safety concern.",
+      "similar": [
+        {
+          "id": "man-014",
+          "label": "ok",
+          "language": "he",
+          "text": "השעות שהוא יכול לא נוחות לי",
+          "distance": 0.32115381956100464
+        },
+        {
+          "id": "gem-055",
+          "label": "ok",
+          "language": "he",
+          "text": "החליפו לי משמרות בעבודה ועכשיו אני עובד כל יום עד שש, לא נשאר לי חלון זמן לשיחות מול משרדי ממשלה.",
+          "distance": 0.36690646409988403
+        },
+        {
+          "id": "gem-002",
+          "label": "ok",
+          "language": "he",
+          "text": "התחלתי תקופת מבחנים באוניברסיטה ואין לי איך להתחייב לשעות הבוקר מול ביטוח לאומי. סורי!",
+          "distance": 0.3930935263633728
+        },
+        {
+          "id": "man-132",
+          "label": "ok",
+          "language": "he",
+          "text": "אני יכולה במהלך הבקרים אבל היא יכולה רק בשלישי ורביעי בערב",
+          "distance": 0.39571255445480347
+        },
+        {
+          "id": "gem-075",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "גם ככה השעות של המוקד לא מסתדרות לי עם הלימודים, וגם הוא קרא לי מטומטמת כשהסברתי לו למה הבקשה נדחתה.",
+          "distance": 0.40147310495376587
+        },
+        {
+          "id": "man-084",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא ממש חופר לי שעות כל פעם ואני רוצה ללכת אבל לא נעים לי, זה ככה כבר 6 מפגשים ולמרות שדיברתי איתו פעם אחת על זה בעדינות הוא לא מפסיק, צריך מישהו סבלן יותר לדעתי אבל אולי כדאי להבהיר לו את זה על ההתחלה",
+          "distance": 0.41974538564682007
+        },
+        {
+          "id": "man-036",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא כל הזמן איחר לי",
+          "distance": 0.4382340908050537
+        },
+        {
+          "id": "gem-078",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "מתקשר אליי כל יום ב-11 בלילה וכשלא עניתי כתב לי שאם יקרה לו משהו זה על המצפון שלי, לא יודעת איך להתמודד עם זה.",
+          "distance": 0.44382917881011963
+        }
+      ]
+    },
+    {
+      "id": "man-063",
+      "group_id": "man-063",
+      "language": "he",
+      "label": "ok",
+      "source": "manual",
+      "text": "שברתי את הרגל אז אין לי איך לבוא איתה למקומות ולעזור לה, ניסיתי לראות אם מישהו יכול לעשות את זה במקומי אבל אני לא מוצא מי",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Volunteer broke their leg and cannot accompany the requester; a personal limitation with no behaviour concern.",
+      "similar": [
+        {
+          "id": "man-136",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא לא מסוגל ללכת אז אני לא יכולה להעביר אותו מהכיסא גלגלים לרכב כי הוא מאוד כבד, זה בעיה כשאני צריכה ללוות אותו לרופא, צריך מישהו חזק שיעשה את זה",
+          "distance": 0.30289560556411743
+        },
+        {
+          "id": "man-130",
+          "label": "ok",
+          "language": "he",
+          "text": "היא צריכה מישהו שילווה אותה לניתוח ארוך וזה בדיוק ביום שיש לי בו דייט אז אני לא אוכל ללוות אותה",
+          "distance": 0.32559484243392944
+        },
+        {
+          "id": "man-007",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא עבר דירה ואין לי איך להגיע אליו, עדיף שמישהי קרובה אליו תמשיך לעזור לו",
+          "distance": 0.32809340953826904
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.33328187465667725
+        },
+        {
+          "id": "man-118",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא רוצה לקבל קצבת נכון ותו נכה אבל ראיתי אותה הולכת בסדר גמור בבית, אני לא בטוחה שזה משהו חוקי לעשות ואני לא רוצה לקחת חלק בזה",
+          "distance": 0.3728637099266052
+        },
+        {
+          "id": "man-113",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביררנו ולא מגיעות לה הטבות כלשהן, למרות ההתעקשות שלה שמגיע לה, אין לי מה לעשות עם זה, הצעתי לה לקחת עורך דין אבל זה כבר מעבר ליכולותיי",
+          "distance": 0.37801092863082886
+        },
+        {
+          "id": "man-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא לא נותן לי לעזור לו ורוצה לעשות דברים בדרך שלו, אין לי איך לעזור כשהוא מתנהג כך",
+          "distance": 0.3976489305496216
+        },
+        {
+          "id": "man-085",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הבן אדם נראה תקין לגמרי ומסוגל לעשות את כל זה בעצמו, אני חושבת שזה פשוט קל לו יותר כשעוזרים לו אבל יש אנשים שבאמת צריכים את העזרה הזאת ויש מספר מוגבל של מתנדבים",
+          "distance": 0.39801084995269775
+        }
+      ]
+    },
+    {
+      "id": "man-065",
+      "group_id": "man-065",
+      "language": "he",
+      "label": "ok",
+      "source": "manual",
+      "text": "היא בטעות מילאה שהיא צריכה עזרה בזום אבל כשדיברתי איתה היא אמרה שהיא צריכה עזרה פרונטלית, עזרתי לה לשנות את זה במערכת",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Volunteer hand-back over a mismatch in meeting format (Zoom vs in person), corrected in the system; no behaviour or safety concern.",
+      "similar": [
+        {
+          "id": "man-006",
+          "label": "ok",
+          "language": "he",
+          "text": "יש לה חתולים ואני אלרגית, אין לנו מקום אחר לשבת בו אז אני לא יכולה לעזור פנים מול פנים והמקרה מצריך את זה, יש לה את המספר שלי ואמרתי לה שתתקשר אלי אם היא צריכה משהו.",
+          "distance": 0.33236777782440186
+        },
+        {
+          "id": "man-127",
+          "label": "ok",
+          "language": "he",
+          "text": "סיימנו את החלק שאני יודעת לעזור לה בו, אבל עכשיו יש מילוי כלשהו של טפסים שאני לא מצליחה לבין איך עושים את זה אז כדאי שמישהו אחר יעזור לה",
+          "distance": 0.334345281124115
+        },
+        {
+          "id": "man-126",
+          "label": "ok",
+          "language": "he",
+          "text": "אוצר המילים שלה בעברית מאוד קטן, היא יודעת אנגלית אבל אני לא מדברת טוב אנגלית אז אין לי איך לתקשר איתה, הייתי מוודאת שמי שתעזור לה תדע אנגלית",
+          "distance": 0.35120993852615356
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.3527965545654297
+        },
+        {
+          "id": "man-077",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא רוצה שאני יעזור לה במשהו שקשור למתנה לנכדים שלה, סתם קוראת לי",
+          "distance": 0.3593265414237976
+        },
+        {
+          "id": "man-027",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני משקיעה כדי לעזור לו ויושבת על זה שעות, אבל הוא צועק עלי שאני לא משיגה לו את זה מספיק מהר. אני מבינה אותו ושהוא צריך את זה ואת העזרה, אבל אני לא יכולה להמשיך ככה. צריך שמישהו ידבר איתו ויסביר לו שדברים כאלה לוקחים זמן.",
+          "distance": 0.3703129291534424
+        },
+        {
+          "id": "gpt-067",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביקשתי ממנה שוב את האישור הרפואי והיא התחילה לצרוח שאני אפס ושאני מבזבז לה את הזמן. לא הצלחתי לנהל איתה שיחה עניינית.",
+          "distance": 0.37597930431365967
+        },
+        {
+          "id": "gpt-038",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא מצפה שאייצג אותה מול העירייה ושאדבר בשמה כאילו אני עורך הדין שלה. הסברתי כמה פעמים שזה לא התפקיד שלי והיא לא מקבלת את זה.",
+          "distance": 0.38024282455444336
+        }
+      ]
+    },
+    {
+      "id": "man-066",
+      "group_id": "man-066",
+      "language": "he",
+      "label": "ok",
+      "source": "manual",
+      "text": "התקלקל לי המחשב ואין לה מחשב אז אין לנו משהו לעבוד איתו, היא צריכה מתנדב שיש לו מחשב",
+      "predicted": "ok",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Volunteer's computer broke and the requester has no computer, a practical mismatch with no behaviour or safety concern.",
+      "similar": [
+        {
+          "id": "man-018",
+          "label": "ok",
+          "language": "he",
+          "text": "היא אמרה שלא נעים לה להיות עם מתנדב גבר לבד בבית, אני מבין אותה, אני ממליץ להוסיף בהערות שהיא מחפשת מתנדבת אישה.",
+          "distance": 0.29892635345458984
+        },
+        {
+          "id": "gpt-059",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא צריך עזרה בעיקר בקריאת מסמכים בצרפתית ואני לא יודעת צרפתית בכלל. נראה לי שעדיף למצוא לו מתנדב שיוכל להבין איתו את המכתבים.",
+          "distance": 0.34424591064453125
+        },
+        {
+          "id": "gpt-007",
+          "label": "ok",
+          "language": "he",
+          "text": "נראה לי שהיא תוכל להתקדם הרבה יותר טוב עם מתנדבת שמדברת רוסית. אני מסתדר רק בעברית וזה מקשה על ההסברים.",
+          "distance": 0.3477429151535034
+        },
+        {
+          "id": "man-127",
+          "label": "ok",
+          "language": "he",
+          "text": "סיימנו את החלק שאני יודעת לעזור לה בו, אבל עכשיו יש מילוי כלשהו של טפסים שאני לא מצליחה לבין איך עושים את זה אז כדאי שמישהו אחר יעזור לה",
+          "distance": 0.35810595750808716
+        },
+        {
+          "id": "man-077",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא רוצה שאני יעזור לה במשהו שקשור למתנה לנכדים שלה, סתם קוראת לי",
+          "distance": 0.3714250326156616
+        },
+        {
+          "id": "man-085",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הבן אדם נראה תקין לגמרי ומסוגל לעשות את כל זה בעצמו, אני חושבת שזה פשוט קל לו יותר כשעוזרים לו אבל יש אנשים שבאמת צריכים את העזרה הזאת ויש מספר מוגבל של מתנדבים",
+          "distance": 0.374398410320282
+        },
+        {
+          "id": "man-113",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביררנו ולא מגיעות לה הטבות כלשהן, למרות ההתעקשות שלה שמגיע לה, אין לי מה לעשות עם זה, הצעתי לה לקחת עורך דין אבל זה כבר מעבר ליכולותיי",
+          "distance": 0.3853225111961365
+        },
+        {
+          "id": "man-078",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא מתעקש להיפגש כל יום בשבוע וזה לא משהו שאני יכול כי אני עובד בראשון שני ושלישי, ניסיתי להגיד לו שאני יכול רק בימי שישי בצהרים אבל הוא לא מסכים ואומר שהוא רוצה מתנדב אחר טוב יותר",
+          "distance": 0.39751577377319336
+        }
+      ]
+    },
+    {
+      "id": "man-069",
+      "group_id": "man-069",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "אין לי זמן יותר לעזור לו וכשאמרתי לו את זה הוא התנהג לא בנימוס",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "הוא התנהג לא בנימוס",
+      "reason_en": "The volunteer reports the requester behaved impolitely toward them when told about the hand-back, which may be a rude remark aimed at the volunteer, so an admin should review it.",
+      "similar": [
+        {
+          "id": "man-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא לא נותן לי לעזור לו ורוצה לעשות דברים בדרך שלו, אין לי איך לעזור כשהוא מתנהג כך",
+          "distance": 0.20021581649780273
+        },
+        {
+          "id": "gem-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא התחיל לצרוח עליי בטלפון שאני איטי ולא עוזר לו בכלום, לא מוכן להמשיך ככה.",
+          "distance": 0.23515689373016357
+        },
+        {
+          "id": "man-027",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני משקיעה כדי לעזור לו ויושבת על זה שעות, אבל הוא צועק עלי שאני לא משיגה לו את זה מספיק מהר. אני מבינה אותו ושהוא צריך את זה ואת העזרה, אבל אני לא יכולה להמשיך ככה. צריך שמישהו ידבר איתו ויסביר לו שדברים כאלה לוקחים זמן.",
+          "distance": 0.24892890453338623
+        },
+        {
+          "id": "gpt-027",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "באמצע השיחה הוא אמר שאין לו יותר בשביל מה לחיות ושחשב כמה פעמים לסיים עם הכול. לא הרגשתי שאני יודע איך להתמודד עם זה לבד.",
+          "distance": 0.268324077129364
+        },
+        {
+          "id": "man-014",
+          "label": "ok",
+          "language": "he",
+          "text": "השעות שהוא יכול לא נוחות לי",
+          "distance": 0.29399001598358154
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.3039271831512451
+        },
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.30517327785491943
+        },
+        {
+          "id": "man-012",
+          "label": "ok",
+          "language": "he",
+          "text": "צריך ללכת איתו לרופא ואני לא יכולה לבוא בתאריכים שהוא פנוי",
+          "distance": 0.30764681100845337
+        }
+      ]
+    },
+    {
+      "id": "man-072",
+      "group_id": "man-072",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "מתנדבת מעמותה אחרת עוזרת לה והיא שיקרה לגבי זה כדי שיבואו שני מתנדבים כדי לעזור לה מהר יותר. באתי אליה ופתאום ראיתי את המתנדבת השנייה יוצאת ודיברתי עם המתנדבת וגילינו שהיא עושה את זה. סתם בזבוז במקום שאני אעזור למישהו שבאמת צריך את זה.",
+      "predicted": "needs_attention",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "היא שיקרה לגבי זה כדי שיבואו שני מתנדבים",
+      "reason_en": "The requester hid help from another organization to get more volunteers, which is misuse of the service (rule 12).",
+      "similar": [
+        {
+          "id": "gpt-007",
+          "label": "ok",
+          "language": "he",
+          "text": "נראה לי שהיא תוכל להתקדם הרבה יותר טוב עם מתנדבת שמדברת רוסית. אני מסתדר רק בעברית וזה מקשה על ההסברים.",
+          "distance": 0.3274499177932739
+        },
+        {
+          "id": "man-059",
+          "label": "ok",
+          "language": "he",
+          "text": "המצב הנפשי שלי הידרדר ואני מרגישה שלעשות התנדבות מהסוג הזה מאוד מקשה עלי ומחמיר את המצב שלי, עד כמה שאני שמחה לעזור אני לא מסוגלת יותר נפשית. דיברתי איתו והוא הבין את המצב ולא כעס או התעצבן",
+          "distance": 0.33031409978866577
+        },
+        {
+          "id": "man-117",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני חושבת שהיא מתחזה למישהו שהיא לא כדי לקבל כסף מביטוח לאומי",
+          "distance": 0.3312627077102661
+        },
+        {
+          "id": "man-018",
+          "label": "ok",
+          "language": "he",
+          "text": "היא אמרה שלא נעים לה להיות עם מתנדב גבר לבד בבית, אני מבין אותה, אני ממליץ להוסיף בהערות שהיא מחפשת מתנדבת אישה.",
+          "distance": 0.34105002880096436
+        },
+        {
+          "id": "man-078",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא מתעקש להיפגש כל יום בשבוע וזה לא משהו שאני יכול כי אני עובד בראשון שני ושלישי, ניסיתי להגיד לו שאני יכול רק בימי שישי בצהרים אבל הוא לא מסכים ואומר שהוא רוצה מתנדב אחר טוב יותר",
+          "distance": 0.3438137173652649
+        },
+        {
+          "id": "man-085",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הבן אדם נראה תקין לגמרי ומסוגל לעשות את כל זה בעצמו, אני חושבת שזה פשוט קל לו יותר כשעוזרים לו אבל יש אנשים שבאמת צריכים את העזרה הזאת ויש מספר מוגבל של מתנדבים",
+          "distance": 0.34510231018066406
+        },
+        {
+          "id": "gpt-034",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא אמר שאני מתנדב חסר תועלת ושאין לי מושג מה אני עושה. גם ככה נראה לי שאני לא האדם המתאים לתיק, אבל היחס שלו היה ממש פוגעני.",
+          "distance": 0.34883618354797363
+        },
+        {
+          "id": "man-006",
+          "label": "ok",
+          "language": "he",
+          "text": "יש לה חתולים ואני אלרגית, אין לנו מקום אחר לשבת בו אז אני לא יכולה לעזור פנים מול פנים והמקרה מצריך את זה, יש לה את המספר שלי ואמרתי לה שתתקשר אלי אם היא צריכה משהו.",
+          "distance": 0.3605341911315918
+        }
+      ]
+    },
+    {
+      "id": "man-073",
+      "group_id": "man-073",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "היא מקללת אותי, בהתחלה חשבתי שזה מצחיק אבל זה לא מפסיק למרות שהתעמתתי איתה על זה, אמרתי לה שאם זה ממשיך ככה אני מפסיקה לעזור והיא בכל זאת המשיכה אז אין לי ברירה אלא להפסיק לעזור לה.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "היא מקללת אותי",
+      "reason_en": "The requester repeatedly swears at the volunteer and continued after being confronted, so the volunteer dropped the case; this is aggressive behaviour toward the volunteer.",
+      "similar": [
+        {
+          "id": "gem-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא התחיל לצרוח עליי בטלפון שאני איטי ולא עוזר לו בכלום, לא מוכן להמשיך ככה.",
+          "distance": 0.27868378162384033
+        },
+        {
+          "id": "gpt-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "כל פעם שביקשתי ממנה להביא מסמך היא התחילה לצעוק עליי שאני לא מבין כלום. השיחה האחרונה כבר הייתה ממש תוקפנית.",
+          "distance": 0.2919813394546509
+        },
+        {
+          "id": "man-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא לא נותן לי לעזור לו ורוצה לעשות דברים בדרך שלו, אין לי איך לעזור כשהוא מתנהג כך",
+          "distance": 0.2943150997161865
+        },
+        {
+          "id": "man-083",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "התלבטתי אם להפסיק עם המקרה הזה או לא, אבל אחרי המפגש האחרון שהלך כל כך לא טוב אני לא ממשיכה, מתנצלת",
+          "distance": 0.29530656337738037
+        },
+        {
+          "id": "gem-014",
+          "label": "ok",
+          "language": "he",
+          "text": "היא בכתה הרבה בשיחה כי דחו לה שוב את הבקשה לסל שיקום והיא ממש מתוסכלת מהמערכת, אבל היא בקשר טוב עם המטפלת שלה. אני פשוט עוברת תפקיד בעבודה.",
+          "distance": 0.3243447542190552
+        },
+        {
+          "id": "man-006",
+          "label": "ok",
+          "language": "he",
+          "text": "יש לה חתולים ואני אלרגית, אין לנו מקום אחר לשבת בו אז אני לא יכולה לעזור פנים מול פנים והמקרה מצריך את זה, יש לה את המספר שלי ואמרתי לה שתתקשר אלי אם היא צריכה משהו.",
+          "distance": 0.33533453941345215
+        },
+        {
+          "id": "man-133",
+          "label": "ok",
+          "language": "he",
+          "text": "יש לי בבית חתולים וכשאני מגיעה אליה היא מתעטשת ללא הפסקה, הבנו שהיא כנראה אלרגית לחתולים וזה בעיה שאני אשב לידה, עצוב לי לוותר על המקרה הזה אבל אין לי ברירה. היא אישה מבוגרת ונחמדה ואני מקווה שהיא תמצא מישהו שיעזור לה",
+          "distance": 0.3396347761154175
+        },
+        {
+          "id": "gpt-054",
+          "label": "ok",
+          "language": "he",
+          "text": "היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.",
+          "distance": 0.34697508811950684
+        }
+      ]
+    },
+    {
+      "id": "man-074",
+      "group_id": "man-074",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "לא נעים להיות בחברתה, אישה ממורמרת",
+      "predicted": "needs_attention",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "אישה ממורמרת",
+      "reason_en": "The volunteer describes the requester as bitter and says being with her is unpleasant, which signals discomfort toward the requester's behaviour; an admin should check, per the rule that volunteer discomfort warrants review when unsure.",
+      "similar": [
+        {
+          "id": "man-128",
+          "label": "ok",
+          "language": "he",
+          "text": "היא דתייה וקשה לי עם דתיים",
+          "distance": 0.27570319175720215
+        },
+        {
+          "id": "man-016",
+          "label": "ok",
+          "language": "he",
+          "text": "היא מפחדת ממני ולא רוצה לדבר איתי למרות שזה בשיחת טלפון",
+          "distance": 0.291917085647583
+        },
+        {
+          "id": "man-071",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אין סיכוי שאני חוזרת לחורבה הזאת שוב למרות שהאישה הזקנה נחמדה",
+          "distance": 0.2927127480506897
+        },
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.3278401494026184
+        },
+        {
+          "id": "gem-023",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בהתנהלות מולו גורם לי להרגיש ממש לא בנוח ואני מעדיפה לסיים את הליווי הזה.",
+          "distance": 0.33538782596588135
+        },
+        {
+          "id": "man-025",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא צריכה שאני אחזור על עצמי מלא פעמים, אני לא יכולה ככה, אין לי סבלנות לזה, צריך מישהו עם סבלנות של שור",
+          "distance": 0.33595842123031616
+        },
+        {
+          "id": "gpt-054",
+          "label": "ok",
+          "language": "he",
+          "text": "היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.",
+          "distance": 0.3428151607513428
+        },
+        {
+          "id": "man-005",
+          "label": "ok",
+          "language": "he",
+          "text": "המיקום שבו הוא גר לא נעים ללכת בו",
+          "distance": 0.34320878982543945
+        }
+      ]
+    },
+    {
+      "id": "man-089",
+      "group_id": "man-089",
+      "language": "he",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "היא לא מסוגלת לתפקד, גם אי אפשר לעזור לה וגם אולי כדאי לערב מישהו מנוסה יותר שידבר איתה ויראה מה צריך לעשות",
+      "predicted": "needs_attention",
+      "knn": "ok",
+      "outcome": "ok",
+      "evidence": "היא לא מסוגלת לתפקד",
+      "reason_en": "The volunteer says the requester cannot function and cannot be helped, suggesting possible risk to the requester that needs an experienced person to assess.",
+      "similar": [
+        {
+          "id": "man-113",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "ביררנו ולא מגיעות לה הטבות כלשהן, למרות ההתעקשות שלה שמגיע לה, אין לי מה לעשות עם זה, הצעתי לה לקחת עורך דין אבל זה כבר מעבר ליכולותיי",
+          "distance": 0.26347965002059937
+        },
+        {
+          "id": "gpt-054",
+          "label": "ok",
+          "language": "he",
+          "text": "היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.",
+          "distance": 0.2646855115890503
+        },
+        {
+          "id": "gem-035",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אמר לי בסוף השיחה שאין לו בשביל מה לקום בבוקר ושהוא חושב לגמור עם הכל, חייבים שמישהו מקצועי יבדוק מה איתו.",
+          "distance": 0.2747218608856201
+        },
+        {
+          "id": "gpt-004",
+          "label": "ok",
+          "language": "he",
+          "text": "היא הייתה מאוד עצובה ובכתה קצת בפגישה. אמרה שעובר עליה שבוע קשה ושהיא הולכת לישון אצל אחותה הערב, לא עלה משהו שמצריך טיפול נוסף.",
+          "distance": 0.28401148319244385
+        },
+        {
+          "id": "man-136",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא לא מסוגל ללכת אז אני לא יכולה להעביר אותו מהכיסא גלגלים לרכב כי הוא מאוד כבד, זה בעיה כשאני צריכה ללוות אותו לרופא, צריך מישהו חזק שיעשה את זה",
+          "distance": 0.29118335247039795
+        },
+        {
+          "id": "gpt-051",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעזור לה להוציא אישור תושבות ממשרד הפנים, אבל התברר שהיא צריכה מישהו שיכול להגיע איתה פיזית לסניף. אני לא פנוי לזה כרגע, אז עדיף להעביר.",
+          "distance": 0.2915431261062622
+        },
+        {
+          "id": "gpt-027",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "באמצע השיחה הוא אמר שאין לו יותר בשביל מה לחיות ושחשב כמה פעמים לסיים עם הכול. לא הרגשתי שאני יודע איך להתמודד עם זה לבד.",
+          "distance": 0.2968348264694214
+        },
+        {
+          "id": "man-017",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הוא לא נותן לי לעזור לו ורוצה לעשות דברים בדרך שלו, אין לי איך לעזור כשהוא מתנהג כך",
+          "distance": 0.30254966020584106
+        }
+      ]
+    },
+    {
+      "id": "man-093",
+      "group_id": "man-093",
+      "language": "en",
+      "label": "ok",
+      "source": "manual",
+      "text": "The woman’s BO is terrible. No sense of hygiene whatsoever. It’s bad.",
+      "predicted": "ok",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "",
+      "reason_en": "Requester's personal body odor and hygiene with nothing wrong with the home is explicitly ok under rule 11; no behaviour toward the volunteer or safety concern is stated.",
+      "similar": [
+        {
+          "id": "man-092",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "It’s such a dump that I have a hard time staying at her place for more than ten minutes. The stench is horrifying.",
+          "distance": 0.29301124811172485
+        },
+        {
+          "id": "man-108",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "the entire house smells like poop, i cant stay there more than 5 minutes",
+          "distance": 0.38739097118377686
+        },
+        {
+          "id": "man-097",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "Her tone is very aggressive. Even when she’s seemingly kind I feel uncomfortable being around her.",
+          "distance": 0.41724109649658203
+        },
+        {
+          "id": "man-025",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "היא צריכה שאני אחזור על עצמי מלא פעמים, אני לא יכולה ככה, אין לי סבלנות לזה, צריך מישהו עם סבלנות של שור",
+          "distance": 0.46574199199676514
+        },
+        {
+          "id": "man-051",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מדבר בקול רם, זה בסדר אבל בגלל משהו מהעבר שלי אני לא יכולה להתמודד עם זה. אני מאוד מתנצלת, אני מקווה שהוא ימצא מישהו שיעזור לו בהנאה, אבל אני לא מתאימה.",
+          "distance": 0.478868305683136
+        },
+        {
+          "id": "gpt-004",
+          "label": "ok",
+          "language": "he",
+          "text": "היא הייתה מאוד עצובה ובכתה קצת בפגישה. אמרה שעובר עליה שבוע קשה ושהיא הולכת לישון אצל אחותה הערב, לא עלה משהו שמצריך טיפול נוסף.",
+          "distance": 0.4896615147590637
+        },
+        {
+          "id": "gpt-054",
+          "label": "ok",
+          "language": "he",
+          "text": "היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.",
+          "distance": 0.501469612121582
+        },
+        {
+          "id": "man-126",
+          "label": "ok",
+          "language": "he",
+          "text": "אוצר המילים שלה בעברית מאוד קטן, היא יודעת אנגלית אבל אני לא מדברת טוב אנגלית אז אין לי איך לתקשר איתה, הייתי מוודאת שמי שתעזור לה תדע אנגלית",
+          "distance": 0.5168957710266113
+        }
+      ]
+    },
+    {
+      "id": "man-094",
+      "group_id": "man-094",
+      "language": "en",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "I don’t think the man actually needs help. He seems well to do and his manners are impeccable. For the life of me, I can’t tell why he would need anyone’s help.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "I don’t think the man actually needs help.",
+      "reason_en": "Volunteer suspects the requester is able to manage alone and uses the service only because it's easier, which the rules treat as needing admin review.",
+      "similar": [
+        {
+          "id": "man-085",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "הבן אדם נראה תקין לגמרי ומסוגל לעשות את כל זה בעצמו, אני חושבת שזה פשוט קל לו יותר כשעוזרים לו אבל יש אנשים שבאמת צריכים את העזרה הזאת ויש מספר מוגבל של מתנדבים",
+          "distance": 0.25568652153015137
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.3839799165725708
+        },
+        {
+          "id": "gpt-092",
+          "label": "ok",
+          "language": "en",
+          "text": "I'm taking care of a family member at the moment and need to step back from volunteering for a while. The person I was helping was perfectly cooperative.",
+          "distance": 0.38501405715942383
+        },
+        {
+          "id": "man-101",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "I think this man is a scammer. It seems to me that he’s trying to get money that he in no way deserves. I don’t want any part in it.",
+          "distance": 0.4071865677833557
+        },
+        {
+          "id": "man-045",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "i think he scams and try to get money even tho he doesnt really need it",
+          "distance": 0.4158332943916321
+        },
+        {
+          "id": "man-080",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני יודעת מסיפור שהוא אמר לי שיש לו בני משפחה שזמינים להגיש בשבילו את הטפסים והוא סתם לא מבקש מהם",
+          "distance": 0.4408932328224182
+        },
+        {
+          "id": "gpt-059",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא צריך עזרה בעיקר בקריאת מסמכים בצרפתית ואני לא יודעת צרפתית בכלל. נראה לי שעדיף למצוא לו מתנדב שיוכל להבין איתו את המכתבים.",
+          "distance": 0.4420315623283386
+        },
+        {
+          "id": "man-051",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מדבר בקול רם, זה בסדר אבל בגלל משהו מהעבר שלי אני לא יכולה להתמודד עם זה. אני מאוד מתנצלת, אני מקווה שהוא ימצא מישהו שיעזור לו בהנאה, אבל אני לא מתאימה.",
+          "distance": 0.44984155893325806
+        }
+      ]
+    },
+    {
+      "id": "man-103",
+      "group_id": "man-103",
+      "language": "en",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "The man broke my glasses. I had taken them off when I went to the bathroom and when I got back they were broken. He apologized, but he obviously didn’t mean it. I didn’t see it happen but there was no way to break those glasses without doing it on purpose.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "he obviously didn’t mean it",
+      "reason_en": "The volunteer reports the requester damaged her property (broke her glasses), which is property damage and a safety concern requiring admin review.",
+      "similar": [
+        {
+          "id": "man-047",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "he broke my glasses on purpose",
+          "distance": 0.19401228427886963
+        },
+        {
+          "id": "man-030",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני בשירותים ופתאום אני קולטת שהוא מציץ החור של המנעול. אני מבינה שיש לו קשיים נפשיים, והוא בחור מאוד נחמד ורגוע, אבל זה לא התנהגות נורמלית ומתקבלת על הדעת.",
+          "distance": 0.38144803047180176
+        },
+        {
+          "id": "man-096",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "The man is violent. He never actually hit me but he was about to. He raised his hand but lowered it at the last second. Still, his intent was clear and I am not going anywhere near him again.",
+          "distance": 0.3911322355270386
+        },
+        {
+          "id": "gpt-032",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "במהלך הפגישה הוא התעצבן וזרק את הקלסר על הרצפה, ואז העיף כיסא לכיוון הקיר. קמתי ויצאתי כי הרגשתי לא בטוח.",
+          "distance": 0.41802310943603516
+        },
+        {
+          "id": "man-051",
+          "label": "ok",
+          "language": "he",
+          "text": "הוא מדבר בקול רם, זה בסדר אבל בגלל משהו מהעבר שלי אני לא יכולה להתמודד עם זה. אני מאוד מתנצלת, אני מקווה שהוא ימצא מישהו שיעזור לו בהנאה, אבל אני לא מתאימה.",
+          "distance": 0.4618253707885742
+        },
+        {
+          "id": "gem-044",
+          "label": "ok",
+          "language": "en",
+          "text": "He was really down about his situation and the case feels emotionally heavy for me right now with everything going on in my own family, though he was totally polite.",
+          "distance": 0.471290647983551
+        },
+        {
+          "id": "gpt-001",
+          "label": "ok",
+          "language": "he",
+          "text": "ניסיתי לעבור איתה על הטפסים אבל הילדים שלה צרחו ברקע כל השיחה. היה קשה להתרכז, אבל הצעקות לא היו אליי.",
+          "distance": 0.5021023750305176
+        },
+        {
+          "id": "gem-065",
+          "label": "ok",
+          "language": "he",
+          "text": "אי אפשר היה לשמוע מילה בשיחה כי השותף שלו לדירה צרח בטלפון בחדר השני והטלוויזיה הייתה על פול ווליום, והפונה לא יכול לצאת לדבר בחוץ. אני חייב שעות שקטות בערב.",
+          "distance": 0.5064430236816406
+        }
+      ]
+    },
+    {
+      "id": "man-104",
+      "group_id": "man-104",
+      "language": "en",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "I’m not going back there. That woman is cruel. She always makes biting remarks but today she crossed the line when she blatantly made fun of my haircut. I’m not going to help someone who doesn’t have the decency to be kind to someone with a helping hand.",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "That woman is cruel. She always makes biting remarks but today she crossed the line when she blatantly made fun of my haircut.",
+      "reason_en": "The requester made demeaning personal remarks toward the volunteer, mocking her haircut, and the volunteer is dropping the case because of it.",
+      "similar": [
+        {
+          "id": "man-097",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "Her tone is very aggressive. Even when she’s seemingly kind I feel uncomfortable being around her.",
+          "distance": 0.34430766105651855
+        },
+        {
+          "id": "man-092",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "It’s such a dump that I have a hard time staying at her place for more than ten minutes. The stench is horrifying.",
+          "distance": 0.3767058849334717
+        },
+        {
+          "id": "gem-097",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "The bus ride to his neighborhood takes over an hour anyway, plus he snapped at me and called me incompetent when the clerk asked for another form.",
+          "distance": 0.38212984800338745
+        },
+        {
+          "id": "man-071",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אין סיכוי שאני חוזרת לחורבה הזאת שוב למרות שהאישה הזקנה נחמדה",
+          "distance": 0.3880906105041504
+        },
+        {
+          "id": "gpt-054",
+          "label": "ok",
+          "language": "he",
+          "text": "היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.",
+          "distance": 0.4264286160469055
+        },
+        {
+          "id": "gpt-008",
+          "label": "ok",
+          "language": "he",
+          "text": "חזרתי אליו היום והוא סיפר שכבר יש לו ליווי דרך העובדת הסוציאלית בעירייה. מבחינתו אין צורך שאמשיך.",
+          "distance": 0.4347018003463745
+        },
+        {
+          "id": "gem-014",
+          "label": "ok",
+          "language": "he",
+          "text": "היא בכתה הרבה בשיחה כי דחו לה שוב את הבקשה לסל שיקום והיא ממש מתוסכלת מהמערכת, אבל היא בקשר טוב עם המטפלת שלה. אני פשוט עוברת תפקיד בעבודה.",
+          "distance": 0.4404742121696472
+        },
+        {
+          "id": "man-043",
+          "label": "ok",
+          "language": "en",
+          "text": "This volunteer job is really triggering for me. More than I’d anticipated. I can’t continue.",
+          "distance": 0.4418271780014038
+        }
+      ]
+    },
+    {
+      "id": "man-107",
+      "group_id": "man-107",
+      "language": "en",
+      "label": "needs_attention",
+      "source": "manual",
+      "text": "i don't reallt trust her",
+      "predicted": "needs_attention",
+      "knn": "needs_attention",
+      "outcome": "ok",
+      "evidence": "i don't reallt trust her",
+      "reason_en": "The volunteer expresses distrust of the requester, which signals discomfort with the requester's conduct and warrants admin review under the uncertainty rule.",
+      "similar": [
+        {
+          "id": "man-097",
+          "label": "needs_attention",
+          "language": "en",
+          "text": "Her tone is very aggressive. Even when she’s seemingly kind I feel uncomfortable being around her.",
+          "distance": 0.3548274040222168
+        },
+        {
+          "id": "man-117",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "אני חושבת שהיא מתחזה למישהו שהיא לא כדי לקבל כסף מביטוח לאומי",
+          "distance": 0.38271021842956543
+        },
+        {
+          "id": "man-128",
+          "label": "ok",
+          "language": "he",
+          "text": "היא דתייה וקשה לי עם דתיים",
+          "distance": 0.38638192415237427
+        },
+        {
+          "id": "gem-073",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בדיבור ובמבטים שלו בפגישה גרם לי לתחושת אי נוחות חזקה, לא מרגישה בטוחה להמשיך להיפגש איתו.",
+          "distance": 0.3921326994895935
+        },
+        {
+          "id": "gem-023",
+          "label": "needs_attention",
+          "language": "he",
+          "text": "משהו בהתנהלות מולו גורם לי להרגיש ממש לא בנוח ואני מעדיפה לסיים את הליווי הזה.",
+          "distance": 0.393032968044281
+        },
+        {
+          "id": "gpt-054",
+          "label": "ok",
+          "language": "he",
+          "text": "היא סיפרה שהיא מרגישה לבד ובכתה קצת כשדיברנו על המשפחה. אמרה שיש לה חברה שתבוא לבקר אותה הערב ושהיא בסדר כרגע. אני פשוט לא האדם הנכון לליווי הזה.",
+          "distance": 0.3964252471923828
+        },
+        {
+          "id": "man-016",
+          "label": "ok",
+          "language": "he",
+          "text": "היא מפחדת ממני ולא רוצה לדבר איתי למרות שזה בשיחת טלפון",
+          "distance": 0.4379230737686157
+        },
+        {
+          "id": "man-126",
+          "label": "ok",
+          "language": "he",
+          "text": "אוצר המילים שלה בעברית מאוד קטן, היא יודעת אנגלית אבל אני לא מדברת טוב אנגלית אז אין לי איך לתקשר איתה, הייתי מוודאת שמי שתעזור לה תדע אנגלית",
+          "distance": 0.4398536682128906
+        }
+      ]
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import { routes } from "@/lib/routes";
 import { createSessionClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/features/admin/guard";
 import { AdminNav } from "@/features/admin/AdminNav";
-import { RequestAdminActions, ResolveIssueButton } from "@/features/admin/RequestAdminForms";
+import { FlagDetails, RequestAdminActions, ResolveIssueButton, type FlagInfo } from "@/features/admin/RequestAdminForms";
 import { LANGUAGE_NAMES, type Language, type MeetingMode, type SupportType } from "@/features/intake/schema";
 import type { ChecklistItem, RequestStatus } from "@/features/requests/model";
 
@@ -30,7 +30,7 @@ type Request = {
   help_request_contacts: { last_name: string; phone: string; email: string | null } | null;
 };
 type Event = { id: string; kind: string; reason: string | null; note: string | null; created_at: string; actor: string | null };
-type Issue = { id: string; kind: string; note: string | null; created_at: string; resolved_at: string | null };
+type Issue = FlagInfo & { kind: string; note: string | null; created_at: string; resolved_at: string | null };
 
 export default async function AdminRequestPage(props: { params: Promise<{ locale: string; id: string }> }) {
   const locale = await resolveLocale(props);
@@ -49,7 +49,7 @@ export default async function AdminRequestPage(props: { params: Promise<{ locale
       .eq("id", id)
       .maybeSingle<Request>(),
     supabase.from("request_events").select("id, kind, reason, note, created_at, actor").eq("request_id", id).order("created_at").returns<Event[]>(),
-    supabase.from("request_issues").select("id, kind, note, created_at, resolved_at").eq("request_id", id).order("created_at").returns<Issue[]>(),
+    supabase.from("request_issues").select("id, kind, note, created_at, resolved_at, flag_outcome, flag_reason, flag_evidence, flag_feedback").eq("request_id", id).order("created_at").returns<Issue[]>(),
   ]);
   if (!r) notFound();
 
@@ -100,6 +100,7 @@ export default async function AdminRequestPage(props: { params: Promise<{ locale
               <div>
                 <p className="font-medium text-ink">{t(`attention.kinds.${i.kind}` as Parameters<typeof t>[0])}</p>
                 {i.note && <p className="mt-1 whitespace-pre-line text-ink">{i.note}</p>}
+                {i.kind === "auto_flag" && <FlagDetails flag={i} />}
                 <p className="mt-1 text-sm text-ink-soft">
                   {dt.format(new Date(i.created_at))}
                   {i.resolved_at ? ` · ${t("attention.resolved")}` : ""}
