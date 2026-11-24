@@ -79,3 +79,15 @@ export async function closeMeeting(volunteerId: string, outcome: "cancelled" | "
   if (!isUuid(volunteerId) || (outcome !== "cancelled" && outcome !== "missed")) return { error: "invalid" };
   return rpcAsAdmin("close_volunteer_meeting", { p_volunteer_id: volunteerId, p_outcome: outcome });
 }
+
+/** Makes an approved volunteer an admin. Any admin may do this. */
+export async function addAdmin(volunteerId: string): Promise<AdminState> {
+  if (!isUuid(volunteerId)) return { error: "invalid" };
+  return rpcAsAdmin("add_admin", { p_user_id: volunteerId });
+}
+
+/** Removes an added admin. Only a root admin may do this; root admins can't be removed. */
+export async function removeAdmin(volunteerId: string): Promise<AdminState> {
+  if (!isUuid(volunteerId)) return { error: "invalid" };
+  return rpcAsAdmin("remove_admin", { p_user_id: volunteerId });
+}

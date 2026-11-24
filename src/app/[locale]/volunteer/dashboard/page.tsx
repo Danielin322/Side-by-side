@@ -23,8 +23,8 @@ export default async function VolunteerDashboardPage(props: LocaleParams) {
   const viewer = await getViewer();
   if (!viewer) redirect({ href: routes.volunteerLogin, locale });
   const t = await getTranslations("dashboard");
-  // Admin accounts without a volunteer profile have nothing on the dashboard: send them to the admin area.
-  if (!viewer!.volunteer && viewer!.isAdmin) redirect({ href: routes.admin, locale });
+  // Every admin is also a volunteer: an admin without a profile fills it in first.
+  if (!viewer!.volunteer && viewer!.isAdmin) redirect({ href: routes.volunteer, locale });
   const data = viewer!.volunteer ? await loadDashboard(viewer!.userId) : null;
 
   const header = (

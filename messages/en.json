@@ -330,6 +330,12 @@
       "weakPassword": "Please choose a stronger password.",
       "rateLimited": "Too many attempts right now. Please wait a few minutes and try again.",
       "failed": "Something went wrong on our side and your application wasn't sent. Your answers are still here, please try again."
+    },
+    "adminProfile": {
+      "intro": "Every admin is also a volunteer. Fill in your volunteer profile for this account: no new account or password is needed, and the profile is approved right away.",
+      "doneTitle": "Your volunteer profile is ready",
+      "doneBody": "You can now take cases as a volunteer, alongside the admin area.",
+      "toDashboard": "Go to my dashboard"
     }
   },
   "auth": {
@@ -512,7 +518,9 @@
       "volunteers": "Volunteers",
       "requests": "Cases",
       "attention": "Needs attention",
-      "logs": "Logs"
+      "logs": "Logs",
+      "completeProfile": "Every admin is also a volunteer. Please fill in your volunteer profile.",
+      "completeProfileButton": "Fill in my profile"
     },
     "requests": {
       "title": "Support cases",
@@ -688,7 +696,9 @@
           "signed_up": "New volunteer application",
           "approved": "Volunteer approved",
           "not_approved": "Volunteer not approved",
-          "status_changed": "Volunteer status changed"
+          "status_changed": "Volunteer status changed",
+          "admin_added": "Volunteer made an admin",
+          "admin_removed": "Admin rights removed"
         },
         "request": {
           "created": "New case",
@@ -729,6 +739,19 @@
       },
       "time": "Time",
       "clearDates": "Clear"
+    },
+    "roles": {
+      "admin": "Admin",
+      "root": "Root admin",
+      "add": "Make admin",
+      "remove": "Remove admin",
+      "addConfirm": "Make {name} an admin? They will see everything in the admin area.",
+      "removeConfirm": "Remove admin rights from {name}?",
+      "errors": {
+        "forbidden": "You don't have permission to do this.",
+        "invalid": "This can't be done for this volunteer.",
+        "failed": "Something went wrong. Please try again."
+      }
     }
   },
   "requests": {

@@ -8,6 +8,7 @@ import { createSessionClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/features/admin/guard";
 import { NotesForm } from "@/features/admin/AdminForms";
 import { VolunteerStatusActions } from "@/features/admin/VolunteerStatusActions";
+import { AdminRoleActions } from "@/features/admin/AdminRoleActions";
 import { meetingBadge, type MeetingRow } from "@/features/admin/meetings";
 import { formatIsraelDateTime } from "@/lib/time";
 import { viewForStatus } from "@/features/admin/volunteerViews";
@@ -38,7 +39,7 @@ type Sensitive = { national_id: string; birth_date: string; admin_notes: string 
 
 export default async function AdminVolunteerPage(props: { params: Promise<{ locale: string; id: string }> }) {
   const locale = await resolveLocale(props);
-  await requireAdmin(locale);
+  const viewer = await requireAdmin(locale);
   const { id } = await props.params;
   if (!/^[0-9a-f-]{36}$/i.test(id)) notFound();
 
@@ -46,9 +47,10 @@ export default async function AdminVolunteerPage(props: { params: Promise<{ loca
   const tv = await getTranslations("volunteer");
   const ti = await getTranslations("intake");
   const supabase = await createSessionClient();
-  const [{ data: v }, { data: s }] = await Promise.all([
+  const [{ data: v }, { data: s }, { data: adminRow }] = await Promise.all([
     supabase.from("volunteers").select("*").eq("id", id).maybeSingle<Volunteer>(),
     supabase.from("volunteer_sensitive").select("national_id, birth_date, admin_notes").eq("volunteer_id", id).maybeSingle<Sensitive>(),
+    supabase.from("admins").select("is_root").eq("user_id", id).maybeSingle<{ is_root: boolean }>(),
   ]);
   if (!v) notFound();
 
@@ -102,6 +104,16 @@ export default async function AdminVolunteerPage(props: { params: Promise<{ loca
       </Link>
       <h1 className="mt-4 text-3xl font-semibold text-ink sm:text-4xl">{v.full_name}</h1>
       <p className="mt-1 text-ink-soft">{t("appliedOn", { date: dateFmt.format(new Date(v.created_at)) })}</p>
+      <div className="mt-4">
+        <AdminRoleActions
+          id={v.id}
+          name={v.full_name}
+          role={adminRow ? (adminRow.is_root ? "root" : "admin") : null}
+          approved={v.status === "approved"}
+          viewerIsRoot={viewer.isRoot}
+          isSelf={viewer.userId === v.id}
+        />
+      </div>
 
       <div className="mt-8 rounded-3xl bg-surface p-6 shadow-soft">
         <p className="mb-3 text-sm font-medium text-ink-soft">{t(`volunteers.statusLabel.${v.status}`)}</p>

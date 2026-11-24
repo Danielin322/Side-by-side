@@ -3,7 +3,16 @@
 import { revalidatePath } from "next/cache";
 import { createAdminClient, createSessionClient } from "@/lib/supabase/server";
 import { normalizeIsraeliId, normalizeIsraeliPhone } from "@/lib/validation";
-import { languagesFromForm, profileSchema, volunteerSchema, type ProfileValues, type VolunteerValues } from "./schema";
+import {
+  adminVolunteerSchema,
+  languagesFromForm,
+  profileSchema,
+  volunteerSchema,
+  type AdminVolunteerValues,
+  type ProfileValues,
+  type VolunteerValues,
+} from "./schema";
+import { getViewer } from "@/features/auth/viewer";
 import type { Locale } from "@/i18n/routing";
 import { siteOrigin } from "@/lib/origin";
 import { errorMeta, logError, logEvent } from "@/lib/logs";
@@ -91,6 +100,51 @@ export async function submitVolunteerApplication(values: VolunteerValues, locale
   }
 
   return { ok: true, needsConfirmation: !data.session };
+}
+
+/**
+ * An admin without a volunteer profile fills one in for their own account (every admin is also a volunteer).
+ * Written with the secret key; the database checks the account is an admin and approves the profile at once.
+ */
+export async function completeAdminVolunteerProfile(values: AdminVolunteerValues, locale: Locale): Promise<ApplyResult> {
+  const viewer = await getViewer();
+  if (!viewer?.isAdmin || viewer.volunteer || !viewer.email) return { ok: false, reason: "invalid" };
+  const parsed = adminVolunteerSchema.safeParse(values);
+  if (!parsed.success) return { ok: false, reason: "invalid" };
+  const d = parsed.data;
+
+  const admin = createAdminClient();
+  if (!admin) {
+    await logError("system", "system.misconfigured", "[volunteer] SUPABASE_URL / SUPABASE_SECRET_KEY are not set.");
+    return { ok: false, reason: "unavailable" };
+  }
+  const { error } = await admin.rpc("create_admin_volunteer_profile", {
+    p_user_id: viewer.userId,
+    p_full_name: d.fullName,
+    p_email: viewer.email,
+    p_phone: normalizeIsraeliPhone(d.phone),
+    p_city: d.city,
+    p_occupation: d.occupation || null,
+    p_availability: d.availability,
+    p_commit_six_months: d.commitSixMonths === "yes",
+    p_transport: d.transport,
+    p_languages: languagesFromForm(d.languages),
+    p_support_types: d.supportTypes,
+    p_meeting_modes: d.meetingModes,
+    p_experience: d.experience || null,
+    p_motivation: d.motivation,
+    p_skills: d.skills || null,
+    p_national_id: normalizeIsraeliId(d.nationalId),
+    p_birth_date: d.birthDate,
+    p_locale: locale === "en" ? "en" : "he",
+  });
+  if (error) {
+    // Code and message only: never log the submitted details.
+    await logError("volunteers", "system.rpc_failed", "[volunteer] create_admin_volunteer_profile failed", { fn: "create_admin_volunteer_profile", ...errorMeta(error) });
+    return { ok: false, reason: error.code === "22023" || error.message === "invalid" ? "invalid" : "failed" };
+  }
+  revalidatePath("/[locale]", "layout");
+  return { ok: true, needsConfirmation: false };
 }
 
 export type ProfileResult = { ok: true } | { ok: false; reason: "invalid" | "failed" };

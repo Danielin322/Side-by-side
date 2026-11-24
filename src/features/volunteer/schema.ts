@@ -80,6 +80,10 @@ export const volunteerSchema = baseSchema.refine((d) => d.password === d.passwor
 
 export type VolunteerValues = z.input<typeof volunteerSchema>;
 
+/** An admin filling in their own volunteer profile: the application without the account step. */
+export const adminVolunteerSchema = baseSchema.omit({ email: true, password: true, passwordConfirm: true });
+export type AdminVolunteerValues = z.input<typeof adminVolunteerSchema>;
+
 export const DEFAULT_LANGUAGES = Object.fromEntries(VOLUNTEER_LANGUAGES.map((l) => [l, ""])) as Record<
   VolunteerLanguage,
   ""

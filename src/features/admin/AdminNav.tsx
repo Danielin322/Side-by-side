@@ -71,6 +71,15 @@ export async function AdminNav({ current, subnav }: { current: Section; subnav?:
         ))}
       </ScrollToCurrent>
       {subnav}
+      {viewer && !viewer.volunteer && (
+        // Every admin is also a volunteer: remind admins who haven't filled in their profile yet.
+        <p className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-secondary-soft p-4 text-ink">
+          <span>{t("completeProfile")}</span>
+          <Link href={routes.volunteer} className="pill bg-primary px-4 py-2 text-primary-ink hover:bg-primary-hover">
+            {t("completeProfileButton")}
+          </Link>
+        </p>
+      )}
     </div>
   );
 }

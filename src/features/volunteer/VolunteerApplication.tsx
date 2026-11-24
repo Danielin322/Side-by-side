@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useTransition } from "react";
-import { useForm, type FieldPath } from "react-hook-form";
+import { useForm, type FieldPath, type Resolver } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 import { Bus, Car, CircleCheck, IdCard, ShieldCheck } from "lucide-react";
@@ -23,13 +23,15 @@ import {
 } from "@/components/form/FormParts";
 import { SUPPORT_TYPES } from "@/features/intake/schema";
 import { MEETING_ICONS, SUPPORT_ICONS } from "@/features/intake/icons";
-import { DEFAULT_LANGUAGES, TRANSPORT, VOLUNTEER_MEETING_MODES, volunteerSchema, type VolunteerValues } from "./schema";
-import { submitVolunteerApplication, type ApplyResult } from "./actions";
+import { adminVolunteerSchema, DEFAULT_LANGUAGES, TRANSPORT, VOLUNTEER_MEETING_MODES, volunteerSchema, type VolunteerValues } from "./schema";
+import { completeAdminVolunteerProfile, submitVolunteerApplication, type ApplyResult } from "./actions";
 import { AvailabilityGrid, LanguageLevels } from "./fields";
 
 type StepId = "personal" | "availability" | "languages" | "offer" | "background" | "declarations" | "account";
 
 const STEPS: StepId[] = ["personal", "availability", "languages", "offer", "background", "declarations", "account"];
+// An admin filling in their own profile is already signed in: no account step.
+const ADMIN_STEPS: StepId[] = STEPS.filter((s) => s !== "account");
 
 const STEP_FIELDS: Record<StepId, FieldPath<VolunteerValues>[]> = {
   personal: ["fullName", "nationalId", "birthDate", "city", "phone", "occupation"],
@@ -45,8 +47,13 @@ const TRANSPORT_ICONS = { license: IdCard, car: Car, public_transit: Bus } as co
 
 type FailReason = Extract<ApplyResult, { ok: false }>["reason"];
 
-/** Multi-step volunteer application. Ends by creating the account and sending the application. */
-export function VolunteerApplication() {
+/**
+ * Multi-step volunteer application. Ends by creating the account and sending the application.
+ * `mode="admin"`: a signed-in admin without a volunteer profile fills one in for their own account.
+ */
+export function VolunteerApplication({ mode = "signup" }: { mode?: "signup" | "admin" }) {
+  const isAdmin = mode === "admin";
+  const steps = isAdmin ? ADMIN_STEPS : STEPS;
   const t = useTranslations("volunteer");
   const tIntake = useTranslations("intake");
   const locale = useLocale();
@@ -65,7 +72,8 @@ export function VolunteerApplication() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(volunteerSchema),
+    // The admin schema has no account fields; the form keeps one value type for both modes.
+    resolver: (isAdmin ? zodResolver(adminVolunteerSchema) : zodResolver(volunteerSchema)) as Resolver<VolunteerValues>,
     mode: "onTouched",
     defaultValues: {
       fullName: "",
@@ -88,8 +96,8 @@ export function VolunteerApplication() {
     },
   });
 
-  const step = STEPS[stepIndex];
-  const isLast = stepIndex === STEPS.length - 1;
+  const step = steps[stepIndex];
+  const isLast = stepIndex === steps.length - 1;
 
   async function next() {
     if (await trigger(STEP_FIELDS[step], { shouldFocus: true })) setStepIndex((i) => i + 1);
@@ -97,8 +105,9 @@ export function VolunteerApplication() {
 
   const send = handleSubmit((values) => {
     startSending(async () => {
-      const res = await submitVolunteerApplication(values, locale);
+      const res = isAdmin ? await completeAdminVolunteerProfile(values, locale) : await submitVolunteerApplication(values, locale);
       setResult(res);
+      if (isAdmin && res.ok) router.refresh();
     });
   });
 
@@ -114,16 +123,16 @@ export function VolunteerApplication() {
           <CircleCheck aria-hidden className="size-10 text-primary" strokeWidth={1.75} />
         </span>
         <h1 ref={headingRef} tabIndex={-1} className="mt-8 text-3xl font-semibold text-ink outline-none sm:text-4xl">
-          {t("done.title")}
+          {t(isAdmin ? "adminProfile.doneTitle" : "done.title")}
         </h1>
-        <p className="mx-auto mt-4 max-w-lg text-lg text-ink-soft">{t("done.body")}</p>
+        <p className="mx-auto mt-4 max-w-lg text-lg text-ink-soft">{t(isAdmin ? "adminProfile.doneBody" : "done.body")}</p>
         {result.needsConfirmation && (
           <p className="mx-auto mt-4 max-w-lg rounded-2xl bg-secondary-soft p-4 text-ink">
             {t("done.confirmEmail", { email: watch("email") })}
           </p>
         )}
-        <Link href={routes.home} className="btn-secondary mt-10">
-          {t("done.home")}
+        <Link href={isAdmin ? routes.volunteerDashboard : routes.home} className="btn-secondary mt-10">
+          {t(isAdmin ? "adminProfile.toDashboard" : "done.home")}
         </Link>
       </section>
     );
@@ -133,10 +142,15 @@ export function VolunteerApplication() {
 
   return (
     <section className="container-page max-w-2xl py-8 sm:py-12">
+      {isAdmin && (
+        <div className="mb-6">
+          <Notice>{t("adminProfile.intro")}</Notice>
+        </div>
+      )}
       <StepProgress
-        label={tIntake("progress", { current: stepIndex + 1, total: STEPS.length })}
+        label={tIntake("progress", { current: stepIndex + 1, total: steps.length })}
         current={stepIndex + 1}
-        total={STEPS.length}
+        total={steps.length}
         exitLabel={tIntake("exit")}
         onExit={() => exitRef.current?.showModal()}
       />
@@ -397,7 +411,7 @@ export function VolunteerApplication() {
         />
       </form>
 
-      {stepIndex === 0 && (
+      {stepIndex === 0 && !isAdmin && (
         <p className="mt-8 text-center text-sm text-ink-soft">
           {t("account.haveAccount")}{" "}
           <Link href={routes.volunteerLogin} className="font-medium text-primary underline underline-offset-4">
@@ -412,7 +426,7 @@ export function VolunteerApplication() {
         body={tIntake("exitDialog.body")}
         stay={tIntake("exitDialog.stay")}
         leave={tIntake("exitDialog.leave")}
-        onLeave={() => router.push(routes.home)}
+        onLeave={() => router.push(isAdmin ? routes.admin : routes.home)}
       />
     </section>
   );
