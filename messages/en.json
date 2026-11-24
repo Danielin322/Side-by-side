@@ -335,7 +335,8 @@
       "intro": "Every admin is also a volunteer. Fill in your volunteer profile for this account: no new account or password is needed, and the profile is approved right away.",
       "doneTitle": "Your volunteer profile is ready",
       "doneBody": "You can now take cases as a volunteer, alongside the admin area.",
-      "toDashboard": "Go to my dashboard"
+      "toDashboard": "Go to my dashboard",
+      "signedInIntro": "You're signed in, so there's no need for a new account: fill in the volunteer application for this account. The team will review it and get in touch."
     }
   },
   "auth": {

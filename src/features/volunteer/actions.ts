@@ -103,12 +103,13 @@ export async function submitVolunteerApplication(values: VolunteerValues, locale
 }
 
 /**
- * An admin without a volunteer profile fills one in for their own account (every admin is also a volunteer).
- * Written with the secret key; the database checks the account is an admin and approves the profile at once.
+ * A signed-in account without a volunteer profile applies for itself (no new account). Written with the secret key.
+ * For an admin the database approves the profile at once (every admin is also a volunteer); anyone else's
+ * application starts as "applied", like a normal sign-up.
  */
-export async function completeAdminVolunteerProfile(values: AdminVolunteerValues, locale: Locale): Promise<ApplyResult> {
+export async function completeMyVolunteerProfile(values: AdminVolunteerValues, locale: Locale): Promise<ApplyResult> {
   const viewer = await getViewer();
-  if (!viewer?.isAdmin || viewer.volunteer || !viewer.email) return { ok: false, reason: "invalid" };
+  if (!viewer || viewer.volunteer || !viewer.email) return { ok: false, reason: "invalid" };
   const parsed = adminVolunteerSchema.safeParse(values);
   if (!parsed.success) return { ok: false, reason: "invalid" };
   const d = parsed.data;
@@ -118,7 +119,8 @@ export async function completeAdminVolunteerProfile(values: AdminVolunteerValues
     await logError("system", "system.misconfigured", "[volunteer] SUPABASE_URL / SUPABASE_SECRET_KEY are not set.");
     return { ok: false, reason: "unavailable" };
   }
-  const { error } = await admin.rpc("create_admin_volunteer_profile", {
+  const fn = viewer.isAdmin ? "create_admin_volunteer_profile" : "create_volunteer_application";
+  const { error } = await admin.rpc(fn, {
     p_user_id: viewer.userId,
     p_full_name: d.fullName,
     p_email: viewer.email,
@@ -140,7 +142,7 @@ export async function completeAdminVolunteerProfile(values: AdminVolunteerValues
   });
   if (error) {
     // Code and message only: never log the submitted details.
-    await logError("volunteers", "system.rpc_failed", "[volunteer] create_admin_volunteer_profile failed", { fn: "create_admin_volunteer_profile", ...errorMeta(error) });
+    await logError("volunteers", "system.rpc_failed", `[volunteer] ${fn} failed`, { fn, ...errorMeta(error) });
     return { ok: false, reason: error.code === "22023" || error.message === "invalid" ? "invalid" : "failed" };
   }
   revalidatePath("/[locale]", "layout");
