@@ -24,12 +24,17 @@ Run every command from the repo root. Keys are read from `.env.local` (which git
 
 ## AWS setup (once)
 
-1. **Region:** use `eu-central-1` (Frankfurt, next to the site and the database). In the AWS console, check that
-   *S3 → Vector buckets* and *Bedrock → Model catalog → Cohere Embed Multilingual* are both available there. If not,
-   pick the nearest EU region that has both and set `AWS_REGION` to it.
-2. **Model access:** *Bedrock → Model access* → enable **Cohere Embed Multilingual**.
+1. **Region:** use `eu-central-1` (Frankfurt, next to the site and the database).
+   - On a free-plan account Frankfurt may be unavailable: *Billing → upgrade / activate advanced features*.
+   - In an AWS Organization, a region-restriction policy (SCP) can block it ("explicit deny"). Add `eu-central-1` to
+     that policy in the management account, and to *Account settings → Visible regions* in the console.
+   - Then check that *S3 → Vector buckets* and *Bedrock → Model catalog → Cohere Embed Multilingual* both open there.
+2. **Model access:** there's no "Model access" page any more. Cohere is a Marketplace model: it's switched on for the
+   account by the first successful call from a user who may subscribe to Marketplace products. Step 3 gives the IAM
+   user that permission for the first call only (the `TemporaryEnableCohere` block).
 3. **IAM user:** *IAM → Users → Create user* `release-flag`, with no console access. Attach this inline policy, with
-   `ACCOUNT_ID` and the region filled in. It allows only this one bucket and this one model:
+   `ACCOUNT_ID` and the region filled in. It allows only this one bucket and this one model, plus the Marketplace
+   permission for the first call (removed in step 7):
 
    ```json
    {
@@ -51,13 +56,19 @@ Run every command from the repo root. Keys are read from `.env.local` (which git
          "Effect": "Allow",
          "Action": "bedrock:InvokeModel",
          "Resource": "arn:aws:bedrock:eu-central-1::foundation-model/cohere.embed-multilingual-v3"
+       },
+       {
+         "Sid": "TemporaryEnableCohere",
+         "Effect": "Allow",
+         "Action": ["aws-marketplace:Subscribe", "aws-marketplace:ViewSubscriptions"],
+         "Resource": "*"
        }
      ]
    }
    ```
 
 4. **Access key:** open the user → *Security credentials → Create access key* → "Application running outside AWS".
-5. **Put the keys in `.env.local`** (and later in Vercel, Production + Preview, with the same values):
+5. **Put the keys in `.env.local`** (and later in Vercel, see "On the site" below):
 
    ```
    AWS_REGION=eu-central-1
@@ -71,8 +82,36 @@ Run every command from the repo root. Keys are read from `.env.local` (which git
    `RELEASE_FLAG_VECTOR_INDEX`, `RELEASE_FLAG_EMBED_MODEL`, `RELEASE_FLAG_MODEL`, `RELEASE_FLAG_TOP_K`,
    `RELEASE_FLAG_EFFORT`.
 
+6. **First call:** `npm run flags:setup` (creates the bucket and index), then `npm run flags:ingest -- --dry-run` and
+   `npm run flags:ingest`. The ingest is the first Bedrock call, which switches Cohere on. On a new account you may
+   get, in this order:
+   - `AccessDeniedException: Your account is currently being verified`: wait (usually under 2 hours, can be a day).
+   - `ValidationException: Operation not allowed`: the account has a Bedrock restriction that only AWS can lift.
+     Open *Support Center → Create case → Account and billing* (free on every plan), say that Bedrock InvokeModel
+     returns this error for `cohere.embed-multilingual-v3` in `eu-central-1` although IAM allows it, and ask them to
+     enable Bedrock for the account. Chat is the fastest.
+   - The "Submit use case details for Anthropic" form in the Bedrock console is only for Claude on Bedrock. We call
+     Claude through the Anthropic API, so skip it.
+7. **Remove the temporary permission** once ingest works: delete the `TemporaryEnableCohere` block and the comma
+   before it, then *Save changes*. The key keeps only the bucket and the model.
+
 One user for both building the index and the site keeps this simple. The cost is that the site's key could also
 write to the index, which is fine while the index holds only made-up notes (see the decision page).
+
+## On the site
+
+1. **Database:** run `supabase/migrations/0010_release_flags.sql` and `0011_release_flags_grants.sql` in the Supabase
+   SQL Editor of **every** project the app uses: the production project (the one in Vercel's `SUPABASE_URL`) before
+   the deploy, and the local one in `.env.local`. Check the project id in the URL before you run anything.
+2. **Vercel** (*Settings → Environment Variables*): `RELEASE_FLAG_ENABLED=true` and `AWS_REGION` (plain), plus
+   `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `ANTHROPIC_API_KEY` (marked Sensitive), for Production. For
+   Preview, see the note on preview links below. `LANGSMITH_*` is only for the eval scripts.
+3. **Check:** hand back a test case with a note, wait ~10 s, then look at Needs attention and `/admin/logs` →
+   event log → Note flags. A failed check shows `release_flag.failed` with the stage and error, and still flags the note.
+
+**Preview links:** a preview deployment uses the Preview variables. If Preview has `RELEASE_FLAG_ENABLED=true` and
+the same `SUPABASE_URL` as production, test hand-backs on a preview create real flags in the production database.
+Leave `RELEASE_FLAG_ENABLED` unset (off) for Preview unless Preview has its own database.
 
 ## Building the dataset
 
