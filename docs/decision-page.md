@@ -113,7 +113,7 @@ The Logs tab in the admin area (`/admin/logs`), backed by the `system_logs` tabl
 ### Vercel hosts the site, deployed from `main`
 
 - **Decision:** The site runs on Vercel, connected to the GitHub repo. Every merge into `main` deploys to production
-  (`side-by-side-mocha.vercel.app`). Every pushed branch or PR gets its own preview address. Server code runs in
+  (`side-by-side-volunteer.vercel.app`; the old `side-by-side-mocha.vercel.app` redirects to it). Every pushed branch or PR gets its own preview address. Server code runs in
   Frankfurt (`fra1`), next to the database.
 - **Why:** Vercel builds Next.js with no extra setup, and automatic deploys mean merging is the only release step.
   Frankfurt is the closest region to Israel that both Vercel and Supabase offer.
